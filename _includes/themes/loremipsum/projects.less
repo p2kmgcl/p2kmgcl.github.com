@@ -1,0 +1,81 @@
+html.page-projects {
+    background-color: #222;
+}
+
+body.page-projects {
+    background-color: #d97;
+    @scale: 1.1;
+
+    .project {
+        box-shadow: 0 0 0.5em #222;
+        border: solid #222 thin;
+        border-radius: 0.5em;
+
+        margin-right: 2em;
+        margin-bottom: 2em;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        width: 16em * @scale;
+        height: 8em * @scale;
+
+        &:hover {
+            .projectLink {
+                opacity: 1;
+                padding-right: 8em * @scale;
+                padding-bottom: 4em * @scale;
+            }
+
+            .projectDescription {
+                .transform(translateY(-5.5em));
+            }
+        }
+    }
+
+    .projectName {
+        position: absolute;
+        font-size: 1.5em * @scale;
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto;
+        z-index: 900;
+        
+        background-color: #222;
+        color: #eee;
+        border-bottom-right-radius: 0.25em;
+        border-right: solid #222 thin;
+        border-bottom: solid #222 thin;
+        box-shadow: 0 0 0.2em #222;
+        opacity: 0.9;
+    }
+
+    .projectLink {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0.1em 0.5em;
+        border-bottom: none;
+        
+        .transition(all ease 0.6s);
+    }
+
+    .projectImage {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.4em;
+    }
+
+    .projectDescription {
+        color: #eee;
+        position: absolute;
+        width: 90%;
+        margin: 0 5%;
+        top: 100%;
+        left: 0;
+        font-size: 1em * @scale;
+        z-index: 925;
+        text-align: center;
+
+        .transition(all ease 0.3s);
+    }
+}

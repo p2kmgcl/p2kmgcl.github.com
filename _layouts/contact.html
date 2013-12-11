@@ -1,0 +1,41 @@
+---
+layout: index
+menu: envelope
+
+links:
+  - { name: "contacto@pablomolina.me",
+      icon: "envelope",
+      url:  "mailto:contacto@pablomolina.me" }
+  - { name: "+PabloMolina",
+      icon: "google-plus",
+      url:  "http://googleplus.pablomolina.me" }
+  - { name: "@p2kmgcl",
+      icon: "github",
+      url:  "http://github.pablomolina.me"     }
+  - { name: "@p2kmgcl",
+      icon: "twitter",
+      url:  "http://twitter.pablomolina.me"    }
+  - { name: "/p2kmgcl",
+      icon: "facebook",
+      url:  "http://facebook.pablomolina.me"   }
+  - { name: "Pablo Molina",
+      icon: "linkedin",
+      url:  "http://linkedin.pablomolina.me"   }
+  - { name: "p2kmgcl",
+      icon: "music",
+      url:  "http://lastfm.pablomolina.me"     }
+  - { name: "~p2kmgcl",
+      icon: "pencil",
+      url:  "http://deviantart.pablomolina.me" }
+  - { name: "/p2kmgcl",
+      icon: "youtube-play",
+      url:  "http://youtube.pablomolina.me"    }
+---
+
+{{ content }}
+<article class="contactIntro">{{ page.useAnySite }}</article>
+
+<ul class="links">{% for link in page.links %}<li class="linkWrapper link-{{ link.icon }}"><a class="link" href="{{ link.url }}" target="_blank">
+    <i class="linkIcon fa fa-{{ link.icon }}"></i>
+    <span class="linkName">{{ link.name }}</span>
+</a></li>{% endfor %}</ul>

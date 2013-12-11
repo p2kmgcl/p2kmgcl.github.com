@@ -1,0 +1,78 @@
+html.page-contact {
+    background-color: #6be;
+}
+
+body.page-contact {
+    background-color: #06f;
+
+    #wrapper:after {
+        content: '';
+        display: block;
+        position: fixed;
+        bottom: -5%;
+        right: 10%;
+        width: 30em;
+        height: 30em;
+        border-radius: 50%;
+        box-shadow: 0 0 0.5em #888;
+        background-image: url(http://dl.dropboxusercontent.com/u/6037255/perfil.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+
+    .contactIntro {
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1.5em;
+        width: 80%;
+        max-width: 15em;
+        text-align: justify;
+        display: inline-block;
+        margin-right: 1em;
+        padding-bottom: 1em;
+        z-index: 200;
+    }
+
+    .links {
+        position: relative;
+        width: 80%;
+        max-width: 22.5em;
+        padding-left: 0;
+        list-style: none;
+        margin-top: 0;
+        padding-bottom: 1em;
+        z-index: 300;
+    }
+
+    .linkWrapper {
+        display: inline-block;
+        width: 50%;
+    }
+
+    .link-envelope {
+        width: 100%;   
+    }
+
+    .link {
+        display: block;
+        padding: 0.25em 0.5em;
+        margin: 0.1em auto;
+        margin-right: 0.25em;
+        font-size: 1.5em;
+        border-bottom: none;
+        border-radius: 0.25em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        background-color: #222;
+        color: #ddd;
+    }
+
+    .linkIcon {
+        width: 1em;
+        text-align: center;
+    }
+}

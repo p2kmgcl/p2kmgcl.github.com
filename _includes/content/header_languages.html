@@ -1,0 +1,11 @@
+<li class="languageMenu">
+    <span class="menuTitle">
+        <i class="fa fa-globe"></i>
+        <span>{{ i18n.languages }}</span>
+    </span>
+    <ul>{% for language in site.languages %}<li class="language">
+        <a href="{% if page.lang != language.id %}{{ site.baseurl }}/{{ language.id }}/home.html{% else %}javascript:void(0){% endif %}"
+           {% if page.lang == language.id %} class="current"{% endif %}
+           data-language="{{ language.id }}">{{ language.name }}</a>
+    </li>{% endfor %}</ul>
+</li>

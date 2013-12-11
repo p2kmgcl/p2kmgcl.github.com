@@ -1,0 +1,14 @@
+#wrapper {
+    .transform(translateX(0));
+    .transition(all ease 0.3s);
+}
+
+#wrapper.hidding {
+    .transform(translateX(100%));
+    opacity: 0;
+}
+
+#wrapper.showing {
+    .transform(translateX(-100%));
+    opacity: 0;
+}

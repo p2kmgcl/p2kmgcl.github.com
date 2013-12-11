@@ -1,0 +1,62 @@
+body.page-home {
+
+    #wrapper {
+        padding-top: 17.5%;
+        padding-left: 7.5%;
+    }
+
+    .sectionTitle {
+        #hide.visual;
+    }
+
+    .title {
+        font-size: 10em;
+        line-height: 1em;
+        margin-bottom: 0;
+        margin-top: 0;
+        text-shadow: 1px 1px 1px #eee;
+    }
+
+    .subtitle {
+        margin-top: 0;
+        text-transform: uppercase;
+        padding-left: 0.4em;
+
+        > .fa-circle {
+            font-size: 0.5em;
+            padding: 0 0.5em;
+            vertical-align: middle;
+        }
+    }
+
+    .roles {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 auto;
+        display: inline-block;
+
+        position: relative;
+        vertical-align: top;
+        white-space: nowrap;
+    }
+
+    .role {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        opacity: 0;
+        .transform(translateY(-0.5em) rotateX(-90deg));
+        .transition(all ease 1s);
+
+        &.current {
+            opacity: 1;
+            .transform(translateY(0) rotateX(0));
+        }
+
+        &.next {
+            opacity: 0;
+            .transform(translateY(0.5em) rotateX(90deg));
+        }
+    }
+}

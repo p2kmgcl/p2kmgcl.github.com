@@ -1,0 +1,27 @@
+{
+  "name": "pablomolina.me",
+  "version": "1.0.0",
+  "description": "Web personal de Pablo Molina",
+  "keywords": [
+    "web",
+    "personal",
+    "pablo",
+    "molina"
+  ],
+  "homepage": "http://pablomolina.me",
+  "repository": "http://github.com/p2kmgcl/p2kmgcl.github.com",
+  "license": "Creative Commons v3.0 attribution",
+  "author": {
+    "name": "Pablo Molina",
+    "email": "contacto@pablomolina.me",
+    "url": "http://pablomolina.me"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-imagemin": "~0.4.0",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "less": "~1.5.1"
+  }
+}
