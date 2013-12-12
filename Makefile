@@ -10,12 +10,13 @@ develop:
 
 build:
 	rm -rf _site
-	jekyll build
-	cd _site && rm -rf node_modules Gruntfile.js Makefile README.md package.json Gemfile Gemfile.lock
+	jekyll build -w --config _config.yml,_config_dev.yml
 	node_modules/grunt-cli/bin/grunt
 
 publish:
-	make build
+	rm -rf _site
+	jekyll build
+	node_modules/grunt-cli/bin/grunt
 	rm -rf /tmp/pablomolina_me_tempbuild
 	mv _site /tmp/pablomolina_me_tempbuild
 	git checkout master
