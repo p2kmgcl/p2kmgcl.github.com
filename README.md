@@ -4,9 +4,30 @@ Esta web se genera con jekyll en [pablomolina.me](http://pablomolina.me). Puedes
 
 Si hay algún problema y no puedes acceder a la web, por favor, envía un correo a [esta dirección](mailto:webissue@pablomolina.me). Muchas gracias.
 
+# Workflow
+
+Mantener a jekyll pendiente de los cambios:
+
+    make develop
+
+Hacer una compilación de prueba:
+
+    make build
+
+Compilar y actualizar cambios en la rama master:
+
+    make publish
+
 # Lista de cambios
 
-## 5.0.0 (2013-11-12)
+## 5.1.0 (2013-12-12)
+
+ - Actualizada la composición de la hojas de estilos.
+ - Actualizado el tema loremipsum para que encaje con la nueva carga.
+ - Eliminado fichero .nojekyll.
+ - Actualizado Makefile para un desarrollo más cómodo.
+
+## 5.0.0 (2013-12-11)
 
  - Versión estable publicada.
  - La web vuelve a estar en varios idiomas.
