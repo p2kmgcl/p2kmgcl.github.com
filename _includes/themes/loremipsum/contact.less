@@ -1,3 +1,5 @@
+@import '../../mixins/index.less';
+
 html.page-contact {
     background-color: #6be;
 }
@@ -19,6 +21,17 @@ body.page-contact {
         background-size: contain;
         background-repeat: no-repeat;
         z-index: 1;
+
+        @media(max-width: 1200px) {
+            width: 20em;
+            height: 20em;
+            right: 10%;
+            bottom: 10%;
+        }
+
+        @media(max-width: 1000px) {
+            #hide.visual;
+        }
     }
 
     .contactIntro {

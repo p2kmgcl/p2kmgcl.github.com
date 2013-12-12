@@ -1,3 +1,5 @@
+@import '../../mixins/index.less';
+
 body.page-home {
 
     #wrapper {
@@ -57,6 +59,24 @@ body.page-home {
         &.next {
             opacity: 0;
             .transform(translateY(0.5em) rotateX(90deg));
+        }
+    }
+
+    @media (max-width: 480px) {
+        #wrapper {
+            padding-left: 3em;
+            padding-top: 25%;
+        }
+
+        .title {
+            font-size: 6em;
+        }
+
+        .roles {
+            display: block;
+            white-space: normal;
+            width: 10em;
+            margin-left: 0;
         }
     }
 }
