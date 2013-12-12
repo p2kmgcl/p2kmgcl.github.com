@@ -16,15 +16,15 @@ module Jekyll
       less_themePath  = site.config['theme']['less'] + '/'
       less_cssPath    = site.config['theme']['css'] + '/'
       less_bin        = site.config['theme']['bin'] || 'lessc'
+      themeParts      = site.config['theme']['parts'].clone
 
-      
       for less_theme in less_themes
         FileUtils.mkdir_p(less_cssPath)
           begin
             themeLess = less_themePath + less_theme['id']
             themeCss  = less_cssPath + less_theme['id']
 
-            for theme_part in ['index', 'home', 'contact', 'projects']
+            for theme_part in themeParts << 'index'
               command = less_bin
 
               if !site.config['development']
