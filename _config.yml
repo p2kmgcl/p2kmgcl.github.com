@@ -52,6 +52,17 @@ en:
 
 baseurl:    "http://www.pablomolina.me"
 
+exclude:
+  - "node_modules"
+  - "Gruntfile.js"
+  - "Makefile"
+  - "README.md"
+  - "package.json"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - ".git"
+  - ".gitignore"
+
 theme:
   main: "loremipsum"
   less: "_includes/themes"

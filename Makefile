@@ -11,7 +11,6 @@ develop:
 build:
 	rm -rf _site
 	jekyll build
-	cd _site && rm -rf node_modules Gruntfile.js Makefile README.md package.json Gemfile Gemfile.lock
 	node_modules/grunt-cli/bin/grunt
 
 publish:
