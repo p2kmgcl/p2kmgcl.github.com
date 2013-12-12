@@ -4,8 +4,8 @@
     'use strict';
 
     var dictionary = {
-            '↑↑↓↓←→←→BA': function () { console.log('konami'); },
-            'LORENA': function () { console.log('lorena'); },
+            'LORENA': function () { },
+            '↑↑↓↓←→←→BA': p2kmgcl.fn.konamiCode,
             'HARLEM SHAKE': p2kmgcl.fn.harlemShake
         },
 
@@ -15,7 +15,8 @@
             38: '↑',
             39: '→',
             40: '↓',
-            186: 'Ñ'
+            186: 'Ñ',
+            189: '-'
         },
 
         wordDOM = $(document.createElement('div'))

@@ -10,5 +10,6 @@ $('html').removeClass('no-js');
 {% include scripts/rolechange.js %}
 
 {% include scripts/harlemshake.js %}
+{% include scripts/konamicode.js %}
 
 {% include scripts/keycodegetter.js %}
