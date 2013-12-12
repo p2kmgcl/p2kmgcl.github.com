@@ -1,9 +1,13 @@
 (function () {
-    var $themeWrapper = $('#themes > ul:first'),
-        $themes = $themeWrapper.find('> li > a'),
-        $themeLink = $('#csstheme'),
+    'use strict';
+
+    var $html = $('html'),
+        $themes = $('.themeLink'),
+        $themeLinkIndex = $('#cssthemeIndex'),
+        $themeLinkPart = $('#cssthemePart'),
         $currentTheme = null,
         $me = null,
+        themePath = null,
 
         /**
          * Cambia un tema por otro (si no es el actual)
@@ -17,15 +21,16 @@
                 $currentTheme.removeClass('current');
                 $me.addClass('current');
                 $currentTheme = $me;
+                themePath = '{{ site.baseurl }}/css/' + $me.attr('data-theme') + '_';
 
-                $themeLink.attr('href',
-                    '{{ site.baseurl }}/css/' +
-                    $me.data('theme') + '.css');
+                $themeLinkPart.attr('data-theme', $me.attr('data-theme'));
+                $themeLinkIndex.attr('href', themePath + 'index.css');
+                $themeLinkPart.attr('href', themePath + $html.attr('data-pageid') + '.css');
             }
         };
 
     // Añade los eventos de cambio de tema
-    $themeWrapper.on('click', 'a', changeTheme);
+    $themes.on('click', changeTheme);
 
     // Guarda el tema actual
     $themes.each(function () {

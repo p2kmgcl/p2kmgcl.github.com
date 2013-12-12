@@ -12,7 +12,8 @@
     
     <link rel="stylesheet" href="{{ site.baseurl }}/css/normalize.min.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/font-awesome-4.0.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ site.theme.main }}.css" id="csstheme" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ site.theme.main }}_index.css" id="cssthemeIndex" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ site.theme.main }}_{{ page.id }}.css" id="cssthemePart" data-theme="{{ site.theme.main }}" />
 </head>
 <body class="page-{{ page.id }}" data-pageid="{{ page.id }}">
     {% include content/header.html %}

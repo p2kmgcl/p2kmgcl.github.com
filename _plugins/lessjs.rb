@@ -16,23 +16,32 @@ module Jekyll
       less_themePath  = site.config['theme']['less'] + '/'
       less_cssPath    = site.config['theme']['css'] + '/'
       less_bin        = site.config['theme']['bin'] || 'lessc'
+
       
       for less_theme in less_themes
         FileUtils.mkdir_p(less_cssPath)
           begin
-            command = [less_bin, ' -x ',
-                       less_themePath + less_theme['id'] + '/index.less',
-                       ' > ',
-                       less_cssPath + less_theme['id'] + '.css'
-                      ].join(' ')
+            themeLess = less_themePath + less_theme['id']
+            themeCss  = less_cssPath + less_theme['id']
+
+            for theme_part in ['index', 'home', 'contact', 'projects']
+              command = less_bin
+
+              if !site.config['development']
+                command = command + ' -x'
+              end
+
+              command = command + ' ' + themeLess + '/' + theme_part + '.less' + ' > ' + themeCss + '_' + theme_part + '.css'
+              
+              print less_theme['id'] + ' (' + theme_part + ') ' + `#{command}` + "\n".ljust(21)
             
-            puts 'Compiling LESS: ' + command
-            puts `#{command}`
-            raise "LESS compilation error" if $?.to_i != 0
+              raise "LESS compilation error" if $?.to_i != 0
+              
+              # Add this output file so it won't be "cleaned away"
+              site.static_files << CssFile.new(site, site.source, less_cssPath, less_theme['id'] + '_' + theme_part + '.css')
+
+            end
           end
-          
-          # Add this output file so it won't be "cleaned away"
-          site.static_files << CssFile.new(site, site.source, less_cssPath, less_theme['id'] + '.css')
       end
     end
   end

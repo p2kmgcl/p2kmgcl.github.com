@@ -6,7 +6,8 @@
     <ul>{% for theme in site.theme.list %}<li class="theme">
         <a href="javascript:void(0)"
            data-theme="{{ theme.id }}"
-           {% if theme.id == site.theme.main %} class="current"{% endif %}>
+           class="themeLink
+           {% if theme.id == site.theme.main %} current{% endif %}">
            {{ theme.name }}</a>
     </li>{% endfor %}</ul>
 </li>

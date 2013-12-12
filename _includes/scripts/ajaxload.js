@@ -19,6 +19,7 @@
             $wrapper = $('#wrapper'),
             $headtitle = $('#headtitle'),
             $body = $('html, body'),
+            $themePart = $('#cssthemePart'),
 
             // Datos a usar
             href,
@@ -103,6 +104,10 @@
                         .removeClass('page-' + $body.attr('data-pageid'))
                         .addClass('page-' + $clickLink.attr('data-pageid'))
                         .attr('data-pageid', $clickLink.attr('data-pageid'));
+
+                    // Cambia la hoja de estilos
+                    $themePart
+                        .attr('href', '{{ site.baseurl }}/css/' + $themePart.attr('data-theme') + '_' + $body.attr('data-pageid') + '.css');
 
                     if (newContentLoaded) {
                         showNewContent();
