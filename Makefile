@@ -10,7 +10,7 @@ develop:
 
 build:
 	rm -rf _site
-	jekyll build -w --config _config.yml,_config_dev.yml
+	jekyll build --config _config.yml,_config_dev.yml
 	node_modules/grunt-cli/bin/grunt
 
 publish:
