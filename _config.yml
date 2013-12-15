@@ -64,6 +64,7 @@ exclude:
   - ".gitignore"
 
 theme:
+  bin: "node_modules/less/bin/lessc"
   main: "loremipsum"
   less: "_includes/themes"
   css:  "css"
