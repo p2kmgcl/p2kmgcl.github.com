@@ -1,6 +1,4 @@
 install:
-	sudo apt-get install ruby
-	echo "Check version 1.9.3x or 2.0.0x"
 	sudo gem install bundler
 	bundle install
 	npm install
