@@ -75,9 +75,6 @@
                     // Fin de la carga
                     loading = false;
                     $body.removeClass('loading');
-                    $body.one('mousemove', function () {
-                        $menu.removeClass('loading');
-                    });
 
                 }, showVelocity);
 
@@ -142,7 +139,7 @@
                     if (!$me.hasClass(current)) {
                         loading = true;
                         $body.addClass('loading');
-                        $menu.addClass('loading');
+                        $menu.removeClass('mainMenuOpenned');
 
                         // Guarda el destino del enlace
                         href = $me.attr('href');
