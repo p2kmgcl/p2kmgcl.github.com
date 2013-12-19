@@ -1,8 +1,14 @@
 <nav class="mainMenu" role="navigation">
     <header class="mainMenuTitle">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-bars mainMenuOpen"></i>
         <span>{{ i18n.mainmenu }}</span>
     </header>
+
+    <a href="javascript:void(0)" class="mainMenuClose">
+        <i class="fa fa-times-circle-o"></i>
+        <span>{{ i18n.close }}</span>
+    </a>
+
     <ul class="mainMenuContent">
         {% include content/header_mainmenu.html %}
         {% include content/header_languages.html %}

@@ -11,6 +11,7 @@ es:
   description:    'Web personal de Pablo Molina.'
   keywords:       'diseño web, programación, internet, web personal, pablo molina, perfil, jekyll'
 
+  close:          'Cerrar'
   home:           'Inicio'
   mainmenu:       'Menú principal'
   pages:          'Páginas'
@@ -34,6 +35,7 @@ en:
   description:    "Pablo Molina's personal website."
   keywords:       'web design, programming, internet, personal website, pablo molina, profile, jekyll'
 
+  close:          'Close'
   home:           'Home'
   mainmenu:       'Main menu'
   pages:          'Pages'

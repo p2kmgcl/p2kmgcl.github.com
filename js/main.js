@@ -5,6 +5,7 @@ var p2kmgcl = {
 };
 $('html').removeClass('no-js');
 
+{% include scripts/togglemenu.js %}
 {% include scripts/ajaxload.js %}
 {% include scripts/themechange.js %}
 {% include scripts/rolechange.js %}
