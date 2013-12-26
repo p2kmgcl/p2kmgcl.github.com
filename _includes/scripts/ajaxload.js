@@ -10,12 +10,12 @@
          * http://css-tricks.com/rethinking-dynamic-page-replacing-content/
          */
 
-            // Flag para evitar las cargas múltiples
+        // Flag para evitar las cargas múltiples
         var loading = false;
 
             // Cosas por cambiar
-        var $menu = $('.mainMenu'),
-            $mainMenu = $('.pageMenu'),
+        var $mainMenu = $('.mainMenu'),
+            $pagesMenu = $('.mainMenuSectionPages'),
             $wrapper = $('#wrapper'),
             $headtitle = $('#headtitle'),
             $body = $('html, body'),
@@ -43,9 +43,9 @@
              */
             showNewContent = function () {
                 // Marca la nueva entrada en el menu
-                $mainMenu
-                    .find('.current').removeClass('current')
-                    .end().find('a[href^="' + href + '"]').addClass('current');
+                $pagesMenu
+                    .find('.' + current).removeClass(current)
+                    .end().find('a[href^="' + href + '"]').addClass(current);
 
                 // Añade el nuevo título
                 $headtitle.html($wrapperNext.find('.sectionTitle').html() + titleBase);
@@ -139,7 +139,7 @@
                     if (!$me.hasClass(current)) {
                         loading = true;
                         $body.addClass('loading');
-                        $menu.removeClass('mainMenuOpenned');
+                        $mainMenu.removeClass('mainMenuOpenned');
 
                         // Guarda el destino del enlace
                         href = $me.attr('href');
@@ -153,7 +153,7 @@
             };
 
         // Asigna los eventos
-        $mainMenu.on('click', internalSelector, changeHistory);
+        $pagesMenu.on('click', internalSelector, changeHistory);
         $wrapper.on('click', internalSelector, changeHistory);
     }
 }());

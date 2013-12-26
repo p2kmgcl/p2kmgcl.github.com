@@ -1,16 +1,16 @@
 <nav class="mainMenu" role="navigation">
-    <header class="mainMenuTitle">
-        <i class="fa fa-bars mainMenuOpen"></i>
-        <span>{{ i18n.mainmenu }}</span>
+    <header class="mainMenuTitleWrapper">
+        <i class="mainMenuTitleIcon mainMenuOpen fa fa-bars"></i>
+        <span class="mainMenuTitle">{{ i18n.mainmenu }}</span>
     </header>
 
     <a href="javascript:void(0)" class="mainMenuClose">
-        <i class="fa fa-times-circle-o"></i>
+        <i class="mainMenuCloseIcon fa fa-times-circle-o"></i>
         <span>{{ i18n.close }}</span>
     </a>
 
     <ul class="mainMenuContent">
-        {% include content/header_mainmenu.html %}
+        {% include content/header_pages.html %}
         {% include content/header_languages.html %}
         {% include content/header_themes.html %}
     </ul>
