@@ -1,11 +1,18 @@
-<li class="languageMenu">
-    <span class="menuTitle">
-        <i class="fa fa-globe"></i>
-        <span>{{ i18n.languages }}</span>
+<li class="mainMenuSection mainMenuSectionLanguages">
+    <span class="mainMenuSectionTitleWrapper">
+        <i class="mainMenuSectionTitleIcon fa fa-globe"></i>
+        <span class="mainMenuSectionTitle">{{ i18n.languages }}</span>
     </span>
-    <ul>{% for language in site.languages %}<li class="language">
-        <a href="{% if page.lang != language.id %}{{ site.baseurl }}/{{ language.id }}/home.html{% else %}javascript:void(0){% endif %}"
-           {% if page.lang == language.id %} class="current"{% endif %}
-           data-language="{{ language.id }}">{{ language.name }}</a>
-    </li>{% endfor %}</ul>
+    <ul class="mainMenuSectionLinks">
+        {% for language in site.languages %}
+            <li class="mainMenuSectionLinkWrapper">
+                <a
+                    href="{% if page.lang != language.id %}{{ site.baseurl }}/{{ language.id }}/home.html{% else %}javascript:void(0){% endif %}"
+                    class="mainMenuSectionLink {% if page.lang == language.id %} current{% endif %}"
+                    data-language="{{ language.id }}">
+                    {{ language.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </li>
