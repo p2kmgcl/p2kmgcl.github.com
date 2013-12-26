@@ -1,13 +1,18 @@
-<li class="themeMenu">
-    <span class="menuTitle">
-        <i class="fa fa-tint"></i>
-        <span>{{ i18n.themes }}</span>
+<li class="mainMenuSection mainMenuSectionLanguages">
+    <span class="mainMenuSectionTitleWrapper">
+        <i class="mainMenuSectionTitleIcon fa fa-tint"></i>
+        <span class="mainMenuSectionTitle">{{ i18n.themes }}</span>
     </span>
-    <ul>{% for theme in site.theme.list %}<li class="theme">
-        <a href="javascript:void(0)"
-           data-theme="{{ theme.id }}"
-           class="themeLink
-           {% if theme.id == site.theme.main %} current{% endif %}">
-           {{ theme.name }}</a>
-    </li>{% endfor %}</ul>
+    <ul class="mainMenuSectionLinks">
+        {% for theme in site.theme.list %}
+          <li class="mainMenuSectionLinkWrapper">
+                <a
+                    href="javascript:void(0)"
+                    class="mainMenuSectionLink{% if theme.id == site.theme.main %} current{% endif %}"
+                    data-theme="{{ theme.id }}">
+                    {{ theme.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </li>
