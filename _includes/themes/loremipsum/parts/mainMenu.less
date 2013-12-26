@@ -2,12 +2,11 @@
 
 .mainMenu {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 1em;
+    left: 1em;
     width: 8em;
     z-index: 1000;
-    padding-left: 0.5em;
-    border-bottom-right-radius: 0.25em;
+    border-radius: 0.25em;
     
     font-size: 1.5em;
     
@@ -16,6 +15,8 @@
     .transform-origin(0, 0);
     background-color: transparent;
     color: transparent;
+
+    max-height: 90%;
 
     ul {
         list-style: none;
@@ -60,8 +61,9 @@
         cursor: pointer;
         padding-left: 0.5em;
         color: #222;
-        .transform(scale(10) translateX(0.75em) translateY(1em));
+        .transform(scale(10) translateX(-0.5em) translateY(0));
         .transition(all ease 0.3s);
+        .transform-origin(0, 0);
         
         .mainMenuOpenned & {
             #hide.visual;
@@ -72,7 +74,7 @@
 .mainMenuClose {
     position: fixed;
     top: 0;
-    left: 0.5em;
+    left: 0.2em;
 
     span {
         #hide.visual;
@@ -80,22 +82,26 @@
 }
 
 .mainMenuOpenned {
-    border-right: solid #222 thin;
-    border-bottom: solid #222 thin;
+    border: solid #222 thin;
     box-shadow: 0 0 0.25em #aaa;
     background-color: #222;
     .transform(scale(1));
     color: #eee;
+    overflow-y: auto;
 }
 
 .mainMenuContent {
     padding-bottom: 0.5em;
+
+    a {
+        padding-left: 1em;
+    }
 }
 
 .menuTitle {
     display: block;
     font-size: 0.75em;
-    padding-left: 0.5em;
+    padding-left: 0.75em;
     margin-top: 0.5em;
     margin-bottom: 0.25em;
     background-color: transparent;
