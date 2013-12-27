@@ -14,10 +14,16 @@ html {
     height: 100%;
     padding: 0;
     margin: 0 auto;
-    overflow-x: hidden;
 
-    background-color: #06f; 
+    background-color: #06f;
     .transition(background-color ease 0.5s);
+
+    @media(max-width: 480px) {
+        .mainMenuTitleIcon {
+            background-color: #06f;
+            .transition(all ease 0.5s);
+        }
+    }
 }
 
 body {
@@ -35,18 +41,19 @@ body {
     color: #222;
 
     #wrapper {
-        width: 100%;
+        width: 95%;
         margin: 0 auto;
         padding: 0;
-        padding-left: 3em;
+        padding-left: 5%;
         padding-top: 2em;
     }
 
     @media (max-width: 480px) {
-        width: 99.7%;
+        width: 95%;
 
         #wrapper {
             padding-bottom: 2em;
+            max-width: 20em;
         }
     }
 }
