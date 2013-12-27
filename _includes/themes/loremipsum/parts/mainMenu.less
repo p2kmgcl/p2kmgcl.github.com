@@ -2,11 +2,10 @@
 
 .mainMenu {
     position: fixed;
-    top: 1em;
-    left: 1em;
+    top: 0;
+    left: 0;
     width: 8em;
     z-index: 1000;
-    border-radius: 0.25em;
     
     font-size: 1.5em;
     
@@ -15,8 +14,16 @@
     .transform-origin(0, 0);
     background-color: transparent;
     color: transparent;
+}
 
-    max-height: 90%;
+.mainMenuOpenned {
+    .transform(scale(1));
+    height: 100%;
+    color: #eee;
+    overflow-y: auto;
+    box-shadow: 0 0 2em #111;
+    border-right: solid #222 thin;
+    background-color: #222;
 }
 
 .mainMenuContent,
@@ -24,6 +31,13 @@
     list-style: none;
     padding-left: 0;
     margin: 0 auto;
+}
+
+.mainMenuTitleWrapper,
+.mainMenuContent {
+    width: 8em;
+    margin-left: 0;
+    
 }
 
 .mainMenuTitle {
@@ -38,11 +52,12 @@
 
 .mainMenuTitleIcon {
     cursor: pointer;
-    padding-left: 0.5em;
+    padding: 0.5em;
     color: #222;
+    border-bottom-right-radius: 0.1em;
     .transform(scale(10) translateX(-0.5em) translateY(0));
+    .transform-origin(-0.5em, 0);
     .transition(all ease 0.3s);
-    .transform-origin(0, 0);
     
     .mainMenuOpenned & {
         #hide.visual;
@@ -82,24 +97,14 @@
     }
 }
 
-.mainMenuOpenned {
-    border: solid #222 thin;
-    box-shadow: 0 0 0.25em #aaa;
-    background-color: #222;
-    .transform(scale(1));
-    color: #eee;
-    overflow-y: auto;
-}
-
-.mainMenuContent {
-    padding-bottom: 0.5em;
+.mainMenuSection {
+    padding-top: 0.5em;
 }
 
 .mainMenuSectionTitleWrapper {
     display: block;
     font-size: 0.75em;
     padding-left: 0.75em;
-    margin-top: 0.5em;
     margin-bottom: 0.25em;
     background-color: transparent;
 

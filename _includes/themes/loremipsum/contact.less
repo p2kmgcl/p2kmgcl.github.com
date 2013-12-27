@@ -2,6 +2,12 @@
 
 html.page-contact {
     background-color: #6be;
+
+    @media(max-width: 480px) {
+        .mainMenuTitleIcon {
+            background-color: #6be;
+        }
+    }
 }
 
 body.page-contact {
@@ -62,6 +68,10 @@ body.page-contact {
     .linkWrapper {
         display: inline-block;
         width: 50%;
+
+        @media (max-width: 480px) {
+            width: 100%;
+        }
     }
 
     .link-envelope {
