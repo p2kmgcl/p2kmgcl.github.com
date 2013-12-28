@@ -1,3 +1,4 @@
+@import 'variables.less';
 @import '../../mixins/index.less';
 
 body.page-home {
@@ -61,7 +62,7 @@ body.page-home {
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: @mobileSize) {
         #wrapper {
             padding-top: 25%;
         }
