@@ -1,9 +1,10 @@
+@import 'variables.less';
 @import '../../mixins/index.less';
 
 html.page-contact {
     background-color: #6be;
 
-    @media(max-width: 480px) {
+    @media(max-width: @mobileSize) {
         .mainMenuTitleIcon {
             background-color: #6be;
         }
@@ -69,7 +70,7 @@ body.page-contact {
         display: inline-block;
         width: 50%;
 
-        @media (max-width: 480px) {
+        @media (max-width: @mobileSize) {
             width: 100%;
         }
     }
