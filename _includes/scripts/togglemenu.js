@@ -2,11 +2,11 @@
 
     var $mainMenu = $('.mainMenu');
 
-    $('.mainMenuOpen').on('click', function () {
+    $('.mainMenuOpenWrapper').on('click', function () {
         $mainMenu.addClass('mainMenuOpenned');
     });
 
-    $('.mainMenuClose').on('click', function () {
+    $('.mainMenuCloseWrapper').on('click', function () {
         $mainMenu.removeClass('mainMenuOpenned');
     });
 

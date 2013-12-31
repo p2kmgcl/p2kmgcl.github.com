@@ -1,81 +1,96 @@
 @import 'variables.less';
 @import '../../mixins/index.less';
+@import 'parts/variables.less';
 
 body.page-home {
-
-    #wrapper {
+    section.wrapper {
         padding-top: 17.5%;
+        padding-bottom: 3em;
+
+        @media (max-width: @mobileSize) {
+            padding-top: 10%;
+        }
+
+        @media (max-width: (@mobileSize * 0.7)) {
+            padding-top: 20%;
+        }
     }
 
-    .sectionTitle {
+    h1.sectionTitle {
         #hide.visual;
     }
+        h1.title {
+            font-size: 10em;
+            line-height: 1em;
+            margin-bottom: 0;
+            margin-top: 0;
+            text-shadow: 1px 1px 1px #eee;
 
-    .title {
-        font-size: 10em;
-        line-height: 1em;
-        margin-bottom: 0;
-        margin-top: 0;
-        text-shadow: 1px 1px 1px #eee;
-    }
+            @media (max-width: @mobileSize) {
+                font-size: 7em;
+            }
 
-    .subtitle {
-        margin-top: 0;
-        text-transform: uppercase;
-        padding-left: 0.4em;
-
-        > .fa-circle {
-            font-size: 0.5em;
-            padding: 0 0.5em;
-            vertical-align: middle;
+            @media (max-width: (@mobileSize * 0.7)) {
+                font-size: 5em;
+            }
         }
-    }
-
-    .roles {
-        list-style: none;
-        padding-left: 0;
-        margin: 0 auto;
-        display: inline-block;
-
-        position: relative;
-        vertical-align: top;
-        white-space: nowrap;
-    }
-
-    .role {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        opacity: 0;
-        .transform(translateY(-0.5em) rotateX(-90deg));
-        .transition(all ease 1s);
-
-        &.current {
-            opacity: 1;
-            .transform(translateY(0) rotateX(0));
+        
+        p.subtitle {
+            display: inline-block;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            padding-left: 0.4em;
+            font-size: 1.25em;
         }
+            i.fa-circle {
+                font-size: 0.5em;
+                padding: 0 0.5em;
+                vertical-align: middle;
+            }
+        
+        ul.roles {
+            list-style: none;
+            padding-left: 0;
+            margin: 0 auto;
+            display: inline-block;
 
-        &.next {
-            opacity: 0;
-            .transform(translateY(0.5em) rotateX(90deg));
-        }
-    }
-
+<<<<<<< HEAD
     @media (max-width: @mobileSize) {
         #wrapper {
             padding-top: 25%;
         }
+=======
+            position: relative;
+            vertical-align: top;
+            white-space: nowrap;
+            text-transform: uppercase;
+            font-size: 1.25em;
+>>>>>>> refs/heads/release/BrandNewTheme
 
-        .title {
-            font-size: 6em;
+            @media (max-width: @mobileSize) {
+                display: block;
+                white-space: normal;
+                width: 10em;
+                margin-left: 0;
+            }
         }
+            li.role {
+                position: absolute;
+                top: 0;
+                left: 0.4em;
+                opacity: 0;
+                .transform(translateY(-0.5em) rotateX(-90deg));
+                .transition(all ease 1s);
 
-        .roles {
-            display: block;
-            white-space: normal;
-            width: 10em;
-            margin-left: 0;
-        }
-    }
+                &.current {
+                    opacity: 1;
+                    .transform(translateY(0) rotateX(0));
+                }
+
+                &.next {
+                    opacity: 0;
+                    .transform(translateY(0.5em) rotateX(90deg));
+                }
+            }
 }

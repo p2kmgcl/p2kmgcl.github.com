@@ -1,5 +1,6 @@
 @import 'variables.less';
 @import '../../mixins/index.less';
+@import 'parts/variables.less';
 
 html.page-contact {
     background-color: #6be;
@@ -14,7 +15,7 @@ html.page-contact {
 body.page-contact {
     background-color: #06f;
 
-    #wrapper:after {
+    section.wrapper:after {
         content: '';
         display: block;
         position: fixed;
@@ -40,13 +41,13 @@ body.page-contact {
             #hide.visual;
         }
     }
-
-    .contactIntro {
+    
+    article.contactIntro {
         position: relative;
         top: 0;
         left: 0;
         font-size: 1.5em;
-        width: 80%;
+        width: 95%;
         max-width: 15em;
         text-align: justify;
         display: inline-block;
@@ -55,9 +56,9 @@ body.page-contact {
         z-index: 200;
     }
 
-    .links {
+    ul.links {
         position: relative;
-        width: 80%;
+        width: 95%;
         max-width: 22.5em;
         padding-left: 0;
         list-style: none;
@@ -66,37 +67,35 @@ body.page-contact {
         z-index: 300;
     }
 
-    .linkWrapper {
-        display: inline-block;
-        width: 50%;
+        li.linkWrapper {
+            display: inline-block;
+            width: 50%;
 
-        @media (max-width: @mobileSize) {
+            @media (max-width: @mobileSize) {
+                width: 100%;
+            }
+        }
+
+        li.link-envelope {
             width: 100%;
         }
-    }
+            a.link {
+                display: block;
+                padding: 0.25em 0.5em;
+                margin: 0.1em auto;
+                margin-right: 0.25em;
+                font-size: 1.5em;
+                border-bottom: none;
+                border-radius: 0.25em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
 
-    .link-envelope {
-        width: 100%;   
-    }
-
-    .link {
-        display: block;
-        padding: 0.25em 0.5em;
-        margin: 0.1em auto;
-        margin-right: 0.25em;
-        font-size: 1.5em;
-        border-bottom: none;
-        border-radius: 0.25em;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        background-color: #222;
-        color: #ddd;
-    }
-
-    .linkIcon {
-        width: 1em;
-        text-align: center;
-    }
+                background-color: #222;
+                color: #ddd;
+            }
+                i.linkIcon {
+                    width: 1em;
+                    text-align: center;
+                }
 }
