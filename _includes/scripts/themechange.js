@@ -2,7 +2,7 @@
     'use strict';
 
     var $html = $('html'),
-        $themes = $('.themeLink'),
+        $themes = $('.mainMenuSectionThemes'),
         $themeLinkIndex = $('#cssthemeIndex'),
         $themeLinkPart = $('#cssthemePart'),
         $currentTheme = null,
@@ -30,10 +30,10 @@
         };
 
     // Añade los eventos de cambio de tema
-    $themes.on('click', changeTheme);
+    $themes.on('click', '.mainMenuSectionLink', changeTheme);
 
     // Guarda el tema actual
-    $themes.each(function () {
+    $themes.find('.mainMenuSectionLink').each(function () {
         $me = $(this);
         if ($me.hasClass('current')) {
             $currentTheme = $me;

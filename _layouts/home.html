@@ -5,13 +5,13 @@ layout: index
 {{ content }}
 <article id="hcard-pablomolina" class=" vcard">
     <h1 class="title"><span class="fn n"><span class="given-name">{{ page.author.name.first }}</span> <span class="family-name">{{ page.author.name.second }}</span></span></h1>
-    <h2 class="subtitle">
+    <p class="subtitle">
         {{ page.i18n.alias }} <span class="nickname">{{ page.author.name.alias }}</span>
         <i class="fa fa-circle"></i>
         <ul class="roles">{% for role in page.author.roles %}
             <li class="role{% if forloop.index == 1 %} current{% endif %}">{{ role }}</li>
         {% endfor %}</ul>
-    </h2>
+    </p>
 </article>
 
 <script>window.onload = function () { p2kmgcl.fn.roleChange(); };</script>

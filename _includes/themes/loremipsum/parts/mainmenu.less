@@ -1,0 +1,122 @@
+@import '../../mixins/animations/shake.less';
+
+nav.mainMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8em;
+    z-index: 1000;
+    font-size: 1.5em;
+    .transition(all ease 0.3s);
+    .transform(scale(0.1));
+    .transform-origin(0, 0);
+    background-color: transparent;
+    color: transparent;
+}
+
+nav.mainMenuOpenned {
+    .transform(scale(1));
+    height: 100%;
+    color: #eee;
+    overflow-y: auto;
+    box-shadow: 0 0 2em #111;
+    border-right: solid #222 thin;
+    background-color: #222;
+}
+
+header.mainMenuTitleWrapper {
+    width: 8em;
+    margin-left: 0;
+}
+
+    i.mainMenuTitleIcon {
+        cursor: pointer;
+        padding: 0.5em;
+        color: #222;
+        border-bottom-right-radius: 0.1em;
+        .transform(scale(10) translateX(-0.5em) translateY(0));
+        .transform-origin(-0.5em, 0);
+        .transition(all ease 0.3s);
+        
+        .mainMenuOpenned & {
+            #hide.visual;
+        }
+    }
+
+    span.mainMenuTitle {
+        text-align: center;
+        display: inline-block;
+        padding-top: 0.2em;
+
+        .mainMenuOpenned & {
+            padding-left: 1.6em;
+        }
+    }
+
+a.mainMenuCloseWrapper {
+    position: fixed;
+    top: 0;
+    left: 0.2em;
+    padding-left: 0.25em;
+    color: inherit;
+    text-decoration: none;
+    margin: 0.2em auto;
+    display: inline-block;
+    border-bottom: none;
+    .transition(opacity ease 0.3s);
+
+    &:active { opacity: 0.4; }
+    &.current {
+        opacity: 0.7;
+        &:active { .animation(shake, 50ms); }
+    }
+}
+    span.mainMenuClose {
+        #hide.visual;
+    }
+
+ul.mainMenuContent {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 auto;
+    width: 8em;
+    margin-left: 0;
+}
+
+    li.mainMenuSection {
+        padding-top: 0.5em;
+    }
+
+        span.mainMenuSectionTitleWrapper {
+            display: block;
+            font-size: 0.75em;
+            padding-left: 0.75em;
+            margin-bottom: 0.25em;
+            background-color: transparent;
+
+            .mainMenuOpenned & {
+                background-color: #555;
+            }
+        }
+
+        ul.mainMenuSectionLinks {
+            list-style: none;
+            padding-left: 0;
+            margin: 0 auto;
+        }
+
+                a.mainMenuSectionLink {
+                    color: inherit;
+                    text-decoration: none;
+                    padding-left: 1em;
+                    margin: 0.2em auto;
+                    display: inline-block;
+                    border-bottom: none;
+                    .transition(opacity ease 0.3s);
+
+                    &:active { opacity: 0.4; }
+                    &.current {
+                        opacity: 0.7;
+                        &:active { .animation(shake, 50ms); }
+                    }
+                }
