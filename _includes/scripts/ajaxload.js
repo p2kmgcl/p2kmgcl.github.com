@@ -59,11 +59,12 @@
                 $wrapper
                     .attr('id', 'wrapper')
                     .on('click', internalSelector, changeHistory)
-                    .addClass('showing')
-                    .removeClass('hidding');
+                    .addClass('wrapper')
+                    .addClass('wrapperShowing')
+                    .removeClass('wrapperHidding');
 
                 setTimeout(function () {
-                    $wrapper.removeClass('showing');
+                    $wrapper.removeClass('wrapperShowing');
 
                     // Ejecuta los módulos asociados
                     if ($clickLink.attr('data-pageid') === 'home') {
@@ -89,7 +90,7 @@
              */
             loadContent = function () {
                 // Esconde el contenido actual
-                $wrapper.addClass('hidding');
+                $wrapper.addClass('wrapperHidding');
                 // Tras un retraso para hacer
                 // la animacion muestra el contenido.
                 setTimeout(function () {
@@ -113,7 +114,8 @@
 
                 // Mientras tanto preparamos el nuevo elemento
                 $wrapperNext = $('<section></section>')
-                    .addClass('hidding')
+                    .addClass('wrapper')
+                    .addClass('wrapperHidding')
                     .attr('id', 'wrapperNext')
                     .load(href + ' #wrapper', function () {
                         newContentLoaded = true;
