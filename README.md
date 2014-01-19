@@ -20,6 +20,13 @@ Compilar y actualizar cambios en la rama master:
 
 # Lista de cambios
 
+## 5.2.0 (2013-01-13)
+
+ - Reestructurado el HTML para hacerlo más legible y flexible.
+ - Completado tema loremipsum.
+ - Añadidos varios scripts.
+ - Correcciones de errores.
+
 ## 5.1.0 (2013-12-12)
 
  - Actualizada la composición de la hojas de estilos.
