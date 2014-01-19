@@ -6,13 +6,6 @@ html {
 
     background-color: #06f;
     .transition(background-color ease 0.5s);
-
-    @media(max-width: @mobileSize) {
-        .mainMenuTitleIcon {
-            background-color: #06f;
-            .transition(all ease 0.5s);
-        }
-    }
 }
 
 body {
@@ -32,6 +25,10 @@ body {
     @media (max-width: @mobileSize) {
         width: 95%;
     }
+}
+
+header.siteTitleWrapper {
+    #hide.visual;
 }
 
 section.wrapper {

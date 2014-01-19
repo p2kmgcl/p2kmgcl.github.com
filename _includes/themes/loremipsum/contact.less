@@ -4,12 +4,6 @@
 
 html.page-contact {
     background-color: #6be;
-
-    @media(max-width: @mobileSize) {
-        .mainMenuTitleIcon {
-            background-color: #6be;
-        }
-    }
 }
 
 body.page-contact {
@@ -19,7 +13,7 @@ body.page-contact {
         content: '';
         display: block;
         position: fixed;
-        bottom: -5%;
+        bottom: -50%;
         right: 10%;
         width: 30em;
         height: 30em;
@@ -34,15 +28,15 @@ body.page-contact {
             width: 20em;
             height: 20em;
             right: 10%;
-            bottom: 10%;
+            bottom: -30%;
         }
 
         @media(max-width: 1000px) {
-            #hide.visual;
+            #hide.content;
         }
     }
     
-    article.contactIntro {
+    p.contactIntro {
         position: relative;
         top: 0;
         left: 0;

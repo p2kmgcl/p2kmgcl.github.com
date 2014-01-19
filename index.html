@@ -7,4 +7,16 @@
     <title>Redireccionando...</title>
     <meta http-equiv="refresh" content="0; url={{ site.baseurl }}/es/home.html" />
 </head>
-<body></body></html>
+<body>
+
+<h1>Pablo Molina</h1>
+<ul>
+{% for lang in site.languages %}
+    <li>
+        <a href="{{ site.baseurl }}/{{ lang.id }}/home.html">{{ lang.name }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
