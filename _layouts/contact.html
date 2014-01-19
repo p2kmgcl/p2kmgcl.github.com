@@ -32,10 +32,15 @@ links:
       url:  "http://youtube.pablomolina.me"    }
 ---
 
-{{ content }}
-<article class="contactIntro">{{ page.useAnySite }}</article>
+<p class="contactIntro">{{ page.useAnySite }}</p>
 
-<ul class="links">{% for link in page.links %}<li class="linkWrapper link-{{ link.icon }}"><a class="link" href="{{ link.url }}" target="_blank">
-    <i class="linkIcon fa fa-{{ link.icon }}"></i>
-    <span class="linkName">{{ link.name }}</span>
-</a></li>{% endfor %}</ul>
+<ul class="links">
+{% for link in page.links %}
+    <li class="linkWrapper link-{{ link.icon }}">
+        <a class="link" href="{{ link.url }}" target="_blank">
+            <i class="linkIcon fa fa-{{ link.icon }}"></i>
+            <span class="linkName">{{ link.name }}</span>
+        </a>
+    </li>
+{% endfor %}
+</ul>

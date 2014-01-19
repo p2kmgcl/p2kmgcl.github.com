@@ -1,9 +1,18 @@
-<nav class="mainMenu" role="navigation">
-    <header class="mainMenuTitleWrapper mainMenuOpenWrapper">
-        <i class="mainMenuTitleIcon mainMenuOpenIcon fa fa-bars"></i>
-        <span class="mainMenuTitle mainMenuOpen">{{ i18n.mainmenu }}</span>
-    </header>
+<header class="siteTitleWrapper">
+    <h1 class="siteTitle">{{ i18n.title }}</h1>
+    <p class="siteSubtitle">{{ i18n.subtitle }}</p>
+</header>
 
+<nav class="mainMenu" role="navigation">
+    <h1 class="mainMenuTitleWrapper">
+        <i class="mainMenuTitleIcon fa fa-bars"></i>
+        <span class="mainMenuTitle">{{ i18n.mainmenu }}</span>
+    </h1>
+
+    <a href="javascript:void(0)" class="mainMenuOpenWrapper">
+        <i class="mainMenuOpenIcon fa fa-plus-circle"></i>
+        <span class="mainMenuOpen">{{ i18n.open }}</span>
+    </a>
     <a href="javascript:void(0)" class="mainMenuCloseWrapper">
         <i class="mainMenuCloseIcon fa fa-times-circle-o"></i>
         <span class="mainMenuClose">{{ i18n.close }}</span>
