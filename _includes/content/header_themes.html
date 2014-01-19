@@ -4,15 +4,15 @@
         <span class="mainMenuSectionTitle">{{ i18n.themes }}</span>
     </span>
     <ul class="mainMenuSectionLinks">
-        {% for theme in site.theme.list %}
-          <li class="mainMenuSectionLinkWrapper">
-                <a
-                    href="javascript:void(0)"
-                    class="mainMenuSectionLink{% if theme.id == site.theme.main %} current{% endif %}"
-                    data-theme="{{ theme.id }}">
-                    {{ theme.name }}
-                </a>
-            </li>
-        {% endfor %}
+    {% for theme in site.theme.list %}
+        <li class="mainMenuSectionLinkWrapper">
+            <a
+                href="javascript:void(0)"
+                class="mainMenuSectionLink{% if theme.id == site.theme.main %} current{% endif %}"
+                data-theme="{{ theme.id }}">
+                {{ theme.name }}
+            </a>
+          </li>
+    {% endfor %}
     </ul>
 </li>

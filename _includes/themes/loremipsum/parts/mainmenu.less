@@ -3,76 +3,87 @@
 nav.mainMenu {
     position: fixed;
     top: 0;
-    left: 0;
     width: 8em;
     z-index: 1000;
     font-size: 1.5em;
+
+    color: #eee;
+    background-color: #222;
+    
+    height: 100%;
+    overflow-x: visible;
+    overflow-y: auto;
+    border-right: solid #222 thin;
+
+    left: -8em;
+    box-shadow: none;
     .transition(all ease 0.3s);
-    .transform(scale(0.1));
-    .transform-origin(0, 0);
-    background-color: transparent;
-    color: transparent;
 }
 
 nav.mainMenuOpenned {
-    .transform(scale(1));
-    height: 100%;
-    color: #eee;
-    overflow-y: auto;
+    left: 0;
     box-shadow: 0 0 2em #111;
-    border-right: solid #222 thin;
-    background-color: #222;
 }
 
-header.mainMenuTitleWrapper {
+a.mainMenuCloseWrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -10em;
+    width: 8em;
+    height: 2em;
+    border: none;
+    color: transparent;
+    opacity: 0;
+    z-index: 1000;
+
+    nav.mainMenuOpenned & {
+        left: 0;
+    }
+}
+
+a.mainMenuOpenWrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2em;
+    height: 2em;
+    z-index: 950;
+    color: transparent;
+    border: none;
+    opacity: 0;
+}
+
+h1.mainMenuTitleWrapper {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+    font-size: 1em;
     width: 8em;
     margin-left: 0;
 }
-
-    i.mainMenuTitleIcon {
-        cursor: pointer;
-        padding: 0.5em;
-        color: #222;
-        border-bottom-right-radius: 0.1em;
-        .transform(scale(10) translateX(-0.5em) translateY(0));
-        .transform-origin(-0.5em, 0);
-        .transition(all ease 0.3s);
-        
-        .mainMenuOpenned & {
-            #hide.visual;
-        }
-    }
-
     span.mainMenuTitle {
         text-align: center;
         display: inline-block;
         padding-top: 0.2em;
+        padding-left: 1.65em;
+    }
 
-        .mainMenuOpenned & {
-            padding-left: 1.6em;
+    i.mainMenuTitleIcon {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1.5em;
+        height: 1.5em;
+        text-align: center;
+        line-height: 1.65em;
+        color: #222;
+        .transition(color ease 0.3s);
+
+        nav.mainMenuOpenned & {
+            background-color: transparent;
+            color: inherit;
         }
-    }
-
-a.mainMenuCloseWrapper {
-    position: fixed;
-    top: 0;
-    left: 0.2em;
-    padding-left: 0.25em;
-    color: inherit;
-    text-decoration: none;
-    margin: 0.2em auto;
-    display: inline-block;
-    border-bottom: none;
-    .transition(opacity ease 0.3s);
-
-    &:active { opacity: 0.4; }
-    &.current {
-        opacity: 0.7;
-        &:active { .animation(shake, 50ms); }
-    }
-}
-    span.mainMenuClose {
-        #hide.visual;
     }
 
 ul.mainMenuContent {
@@ -93,10 +104,7 @@ ul.mainMenuContent {
             padding-left: 0.75em;
             margin-bottom: 0.25em;
             background-color: transparent;
-
-            .mainMenuOpenned & {
-                background-color: #555;
-            }
+            background-color: #555;
         }
 
         ul.mainMenuSectionLinks {
