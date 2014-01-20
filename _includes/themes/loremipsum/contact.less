@@ -13,26 +13,31 @@ body.page-contact {
         content: '';
         display: block;
         position: fixed;
-        bottom: -50%;
+        top: 2.5em;
         right: 10%;
         width: 30em;
         height: 30em;
         border-radius: 50%;
-        box-shadow: 0 0 0.5em #888;
         background-image: url(http://dl.dropboxusercontent.com/u/6037255/perfil.jpg);
         background-size: contain;
         background-repeat: no-repeat;
+        .transition(all ease 0.5s);
         z-index: 1;
 
         @media(max-width: 1200px) {
             width: 20em;
             height: 20em;
             right: 10%;
-            bottom: -30%;
+            top: 5em;
         }
 
-        @media(max-width: 1000px) {
-            #hide.content;
+        @media (max-width: 1000px) {
+            right: 5%;
+            opacity: 1;
+        }
+
+        @media(max-width: 900px) {
+            opacity: 0;
         }
     }
     
