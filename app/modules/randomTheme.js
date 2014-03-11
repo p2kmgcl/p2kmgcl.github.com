@@ -2,7 +2,8 @@
 	var themeLink = document.getElementById('theme'),
 		randomButton = document.createElement('i'),
 		themes = [
-			"blank"
+			"blank",
+			"loremipsum"
 		],
 		themesPool = [],
 		currentTheme = "blank";

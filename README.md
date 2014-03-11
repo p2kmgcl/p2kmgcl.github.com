@@ -10,6 +10,14 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
+# 6.1.0 (2014-03-11)
+
+ - Reintegrado el tema Lorem Ipsum
+ - Pequeñas modificaciones en el tema blank
+ - Ajustado el tamaño del botón de cambio de tema
+ - Añadido evento onclick a la búsqueda de artículos
+ - Eliminadas cargas desde cdnjs. Ahora todos los recursos son locales
+
 ## 6.0.0 (2014-03-10)
 
  - Paso a harpjs

@@ -1,7 +1,7 @@
 nav.articles
-	h2 Artículos
+	h2.sectionTitle Artículos
 	div.search.hidden
-		input#search(type="search" placeholder="Buscar un artículo" autocomplete="off")
+		input#search(type="search" placeholder="Buscar un artículo" autocomplete="off" autofocus)
 	ul#articles
 		for article, slug in public.articles._data
 			if article.published

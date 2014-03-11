@@ -14,7 +14,7 @@
 				articles[i].childNodes[0].innerHTML.toLowerCase());
 		}
 
-		search.onkeyup = search.onblur = search.onfocus =
+		search.onkeyup = search.onclick = search.onblur = search.onfocus =
 		function () {
 			var searchKey = search.value.toLowerCase();
 			if (lastSearchKey != searchKey) {

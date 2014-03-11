@@ -1,11 +1,11 @@
 doctype
-html(lang="es")
+html(lang="es" class="section_" + current.path[0])
 	head
 	!= partial('../_partials/_head')
 	body
 		!= partial('../_partials/_menu')
 		article.article
-			h2= title
+			h2.articleTitle= title
 			!= yield
 			!= partial('../_partials/_share')
 		!= partial('../_partials/_footer')

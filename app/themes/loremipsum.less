@@ -1,3 +1,403 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+html {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0 auto;
+
+	background-color: #06f;
+	font-family: 'Open Sans Condensed', Sans Serif;
+	font-size: 18px;
+}
+
 body {
-	background-color: #000;
+	width: 75%;
+	min-height: 100%;
+	padding: 0 2.5%;
+	margin: 0 auto;
+	margin-left: 0;
+
+	background-color: #6be;
+	color: #222;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: dotted #444 thin;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+.hide () {
+	position: absolute;
+	left: -99999px;
+	opacity: 0;
+}
+
+.show () {
+	position: static;
+	left: 0;
+	opacity: 1;
+}
+
+.license {
+	background-color: transparent;
+	width: 80%;
+}
+
+.title {
+	.hide;
+}
+
+.articleTitle,
+.sectionTitle {
+	margin-top: 0;
+	font-size: 2em;
+	padding-top: 1em;
+	padding-left: 0.5em;
+	max-width: 22em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.menu {
+	position: fixed;
+	top: 0;
+	left: -12em;
+	width: 10em;
+	background-color: #444;
+	box-shadow: 0 0 1em #444;
+	border-right: solid #222 thin;
+	height: 100%;
+	color: #fff;
+	z-index: 1000;
+
+	transition: left ease 0.5s;
+	
+	&:hover {
+		left: 0;
+		h2 i { opacity: 0; }
+	}
+	
+	h2 {
+		font-size: 1em;
+		padding: 0 1em;
+
+		i {
+			position: fixed;
+			left: -0.2em;
+			top: 0.25em;
+			color: #444;
+			font-size: 1.5em;
+			transition: opacity ease 0.5s;
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin: 0 auto;
+		padding: 0;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+
+		li {
+			overflow: hidden;
+			margin-bottom: 2px;
+			padding: 0;
+
+			a {
+				border-bottom: none;
+				padding: 0.5em 1em;
+				display: block;
+
+				&:hover {
+					background-color: #666;
+				}
+			}
+		}
+	}
+}
+
+.section_index {
+	.title {
+		.show;
+		margin-top: 0;
+		padding-top: 20%;
+		padding-left: 0.2em;
+		padding-bottom: 0;
+		margin-bottom: 0;
+		font-size: 8em;
+		line-height: 1em;
+
+		@media (max-width: 640px) {
+			font-size: 7em;
+		}
+
+		@media (max-width: 480px) {
+			font-size: 5em;
+		}
+	}
+
+	p {
+		font-size: 2em;
+		margin-top: 0;
+		padding-left: 1em;
+
+		@media (max-width: 640px) {
+			padding-left: 0.8em;
+		}
+
+		@media (max-width: 480px) {
+			font-size: 1.5em;
+			padding-left: 0.8em;
+		}
+	}
+}
+
+.section_contact {
+	.sectionTitle {
+		max-width: 16.5em;
+	}
+
+	.socialLinks {
+		max-width: 33em;
+		padding: 0;
+		margin: 0 auto;
+		list-style: none;
+
+		li {
+			font-size: 1.25em;
+			display: inline-block;
+			width: 48%;
+			background-color: darken(#6be, 10%);
+			margin-right: 0;
+			margin-bottom: 2%;
+			border-bottom: #222 solid thin;
+
+			&:nth-child(even) {
+				margin-left: 2%;
+			}
+
+			@media (max-width: 480px) {
+				width: 98%;
+				margin-left: 0;
+
+				&:nth-child(even) {
+					margin-left: 0;
+				}
+			}
+
+			a {
+				display: block;
+				border-bottom: none;
+				padding: 0.3em 0.5em;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	.googleForm {
+		max-width: 33em;
+		margin-left: auto;
+		margin-right: auto;
+		padding-right: 0.75em;
+		margin-bottom: 0;
+		padding-bottom: 4em;
+	}
+}
+
+.section_articles {
+	.articles {
+		max-width: 33em;
+		margin-left: auto;
+		margin-right: auto;
+
+		.search input {
+			border: none;
+			font-family: inherit;
+			font-size: 1.25em;
+			outline: none;
+			color: #222;
+			background-color: lighten(#6be, 10%);
+		}
+
+		ul {
+			margin-top: 0;
+			padding-left: 0;
+			list-style: none;
+			font-size: 1.25em;
+
+			li {
+				padding: 0.25em 0;
+			}
+		}
+		
+		.notFound {
+			font-size: 1.25em;
+		}
+	}
+}
+
+.article {
+	max-width: 33em;
+	margin: 0 auto;
+
+	p { text-align: justify; }
+	img { max-height: 15em; margin: 0 auto; }
+}
+
+.example {
+	iframe {
+		border: solid #222 2px;
+		border-radius: 10px;
+		border-bottom-left-radius: 0;
+		background-color: white;
+	}
+
+	a {
+		position: relative;
+		top: -3px;
+		background-color: #444;
+		border: solid #222 2px;
+		color: white;
+		padding: 0.1em 0.5em;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+}
+
+.shareButtons {
+  padding-left: 0;
+  list-style: none;
+  width: 80%;
+  max-width: 20em;
+  margin: 0 auto;
+  margin-top: 2em;
+  padding-bottom: 4em;
+
+  li {
+    display: inline-block;
+    margin: 1%;
+    width: 23%;
+
+    @media (max-width: 480px) {
+      width: 45%;
+      margin: 2.5%
+    }
+
+    a {
+      margin: 0 auto;
+      display: block;
+      text-align: left;
+      padding: 0.25em 0.5em;
+      background-color: #fafaff;
+
+      text-decoration: none;
+      border-radius: 0.25em;
+      position: relative;
+      padding-left: 2.5em;
+      
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 1.9em;
+        width: 100%;
+        line-height: 1.8em;
+        background-color: #444;
+        color: #eee;
+      }
+
+      &:hover i {
+        background-color: #222;
+      }
+
+      &:active i {
+        background-color: #444;
+      }
+    }
+  }
+}
+
+.section_projects {
+	.sectionTitle {
+		max-width: 22em;
+	}
+
+	.projectsSection {
+		display: block;
+		padding-bottom: 4em;
+		max-width: 44em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.project {
+		position: relative;
+		width: 46%;
+		heigth: 8em;
+		padding: 0.5em 2%;
+		padding-left: 0;
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: top;
+
+		h1 {
+			position: absolute;
+			top: 0.45em;
+			left: 0;
+			margin: 0;
+			background-color: #444;
+			color: #f1f1f1;
+			padding: 0.05em 0.5em;
+			border-top-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			border: solid #222 2px;
+			opacity: 0.9;
+
+			a {
+				border-bottom: none;
+			}
+		}
+
+		img {
+			border-radius: 10px;
+			border: solid #222 2px;
+		}
+
+		p {
+			margin-top: 0;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.project {
+			width: 96%;
+			padding: 0.5em 2%;
+
+			h1 {
+				left: 2%;
+			}
+		}
+	}
 }

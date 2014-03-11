@@ -1,10 +1,11 @@
-h2 Proyectos
+h2.sectionTitle Proyectos
 
-for project, slug in public.projects._data
-	article.project
+section.projectsSection
+	for project, slug in public.projects._data
 		if project.name
-			h1
-				a(href=project.link)= project.name
-			if (project.image)
-				img(src="/assets/#{ slug }.jpg" alt="Imagen del proyecto " + project.name)
-			p= project.description
+			article.project
+				h1
+					a(href=project.link)= project.name
+				if (project.image)
+					img(src="/assets/#{ slug }.jpg" alt="Imagen del proyecto " + project.name)
+				p= project.description

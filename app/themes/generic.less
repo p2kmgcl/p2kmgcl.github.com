@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
+* {
+	transition: all ease 0.3s;
+}
+
 body {
 	padding-bottom: 2em;
 }
@@ -7,7 +11,8 @@ body {
 code,
 pre {
 	font-family: 'Inconsolata', monospace;
-	font-size: 16px;
+	font-size: 1em;
+	overflow-x: auto;
 }
 
 
@@ -18,6 +23,7 @@ pre {
 }
 
 .randomTheme {
+	font-size: 18px;
 	position: fixed;
 	top: -1px;
 	right: -1px;
@@ -46,7 +52,7 @@ pre {
 	}
 
 	&:hover {
-		opacity: 0.9;
+		opacity: 0.8;
 	}
 
 	&:active {
