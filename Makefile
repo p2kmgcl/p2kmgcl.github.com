@@ -15,5 +15,6 @@ publish:
 	mv output /tmp/pablomolina_me_tempbuild
 	cp CNAME /tmp/pablomolina_me_tempbuild/
 	git checkout master
+	rm -rf *
 	cp -rf /tmp/pablomolina_me_tempbuild/* ./
 	rm -rf /tmp/pablomolina_me_tempbuild
