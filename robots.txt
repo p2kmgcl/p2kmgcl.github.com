@@ -1,6 +1,0 @@
----
----
-User-agent: *
-Disallow: {{ site.baseurl }}/css/
-Disallow: {{ site.baseurl }}/js/
-Disallow: {{ site.baseurl }}/assets/

@@ -1,24 +1,20 @@
 # Web personal de Pablo Molina
 
-Esta web se genera con jekyll en [pablomolina.me](http://pablomolina.me). Puedes consultar cualquier información (incluido contacto, licencia...) en esa dirección.
+Esta web se genera con harpjs en [pablomolina.me](http://pablomolina.me). Puedes consultar cualquier información (incluido contacto, licencia...) en esa dirección.
 
 Si hay algún problema y no puedes acceder a la web, por favor, envía un correo a [esta dirección](mailto:webissue@pablomolina.me). Muchas gracias.
 
-# Workflow
-
-Mantener a jekyll pendiente de los cambios:
-
-    make develop
-
-Hacer una compilación de prueba:
-
-    make build
-
-Compilar y actualizar cambios en la rama master:
-
-    make publish
+ > `harp server app`
+ >
+ > `harp server app --port 'node -p process.env.PORT'`
 
 # Lista de cambios
+
+## 6.0.0 (2014-03-10)
+
+ - Paso a harpjs
+ - Vuelta de los artículos más concretos
+ - Nuevo tema (blank)
 
 ## 5.2.0 (2013-01-13)
 

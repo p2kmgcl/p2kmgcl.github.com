@@ -1,0 +1,10 @@
+h2 Proyectos
+
+for project, slug in public.projects._data
+	article.project
+		if project.name
+			h1
+				a(href=project.link)= project.name
+			if (project.image)
+				img(src="/assets/#{ slug }.jpg" alt="Imagen del proyecto " + project.name)
+			p= project.description

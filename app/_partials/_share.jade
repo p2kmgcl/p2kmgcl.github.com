@@ -1,0 +1,14 @@
+mixin getUri(link, data, name)
+  a(target="_blank" href=link + encodeURIComponent(data + public._data.uri + "/" + current.path.join("/") + ".html"))
+    i(class="fa fa-custom-" + name.toLowerCase())
+    = name
+
+ul.shareButtons
+  li.googleplus
+    +getUri('https://plus.google.com/share?url=', '', 'GooglePlus')
+  li.twitter
+    +getUri('https://twitter.com/home?status=', title + ' @p2kmgcl ', 'Twitter')
+  li.facebook
+    +getUri('https://www.facebook.com/sharer/sharer.php?u=', '', 'Facebook')
+  li.linkedin
+    +getUri('https://www.linkedin.com/shareArticle?mini=true', '&title=' + title + '&summary=' + description + '&url=', 'LinkedIn')

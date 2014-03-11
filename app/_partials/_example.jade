@@ -1,0 +1,8 @@
+if url
+  .example
+    iframe(src=url)
+    a(target="_blank" href=url) Abrir en una nueva ventana.
+else
+  .example
+    iframe(src= "/examples/" + current.path[1] + "-ejemplo-" + i)
+    a(target="_blank" href="/examples/" + current.path[1] + "-ejemplo-" + i) Abrir en una nueva ventana.

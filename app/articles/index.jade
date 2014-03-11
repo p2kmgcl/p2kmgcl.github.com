@@ -1,0 +1,11 @@
+nav.articles
+	h2 Artículos
+	div.search.hidden
+		input#search(type="search" placeholder="Buscar un artículo" autocomplete="off")
+	ul#articles
+		for article, slug in public.articles._data
+			if article.published
+				li
+					a(href='/articles/#{ slug }.html')
+						!= article.title
+	span#articleNotFound.notFound.hidden No se han encontrado artículos :(

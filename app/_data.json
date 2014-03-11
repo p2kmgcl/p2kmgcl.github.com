@@ -1,0 +1,21 @@
+{
+  "uri": "http://www.pablomolina.me",
+  
+  "rss": {
+  	"layout": false
+  },
+
+  "sitemap": {
+    "layout": false
+  },
+
+  "index": {
+    "title": "Inicio",
+    "description": "Página inicial."
+  },
+  
+  "contact": {
+    "title": "Contacto",
+    "description": "Contacto y redes sociales."
+  }
+}

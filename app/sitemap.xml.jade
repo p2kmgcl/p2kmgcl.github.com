@@ -1,0 +1,35 @@
+doctype xml
+urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+	url
+		loc http://pablomolina.me
+		lastmod= new Date().toUTCString()
+		changefreq yearly
+		priority 0.6
+
+	for page, slug in public._data
+		if page.title
+			url
+				loc http://pablomolina.me/#{ slug }.html
+				lastmod= new Date().toUTCString()
+				changefreq yearly
+				priority 0.6
+
+	url
+		loc http://pablomolina.me/articles/index.html
+		lastmod= new Date().toUTCString()
+		changefreq monthly
+		priority 0.6
+
+	url
+		loc http://pablomolina.me/projects/index.html
+		lastmod= new Date().toUTCString()
+		changefreq monthly
+		priority 0.6
+
+	for article, slug in public.articles._data
+		if article.published
+			url
+				loc http://pablomolina.me/articles/#{ slug }.html
+				lastmod= new Date(article.date).toUTCString()
+				changefreq yearly
+				priority 1.0

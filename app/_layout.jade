@@ -1,0 +1,8 @@
+doctype
+html(lang="es")
+  head
+    != partial('_partials/_head')
+  body
+    != partial('_partials/_menu')
+    != yield
+    != partial('_partials/_footer')
