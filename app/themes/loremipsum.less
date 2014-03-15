@@ -20,6 +20,10 @@ body {
 
 	background-color: #6be;
 	color: #222;
+	
+	@media (max-width: 480px) {
+	    width: 90%;
+	}
 }
 
 a {
@@ -52,6 +56,10 @@ h6 {
 .license {
 	background-color: transparent;
 	width: 80%;
+	
+	@media (max-width: 480px) {
+	    width: 95%;
+	}
 }
 
 .title {
@@ -263,22 +271,24 @@ h6 {
 }
 
 .example {
+    position: relative;
+    
 	iframe {
-		border: solid #222 2px;
+		border: solid #222 thin;
 		border-radius: 10px;
-		border-bottom-left-radius: 0;
-		background-color: white;
+		margin: 0 auto;
 	}
 
 	a {
-		position: relative;
-		top: -3px;
+		position: absolute;
+		bottom: 5px;
+		right: -2px;
 		background-color: #444;
-		border: solid #222 2px;
+		border: solid #222 thin;
 		color: white;
 		padding: 0.1em 0.5em;
-		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
+		border-top-left-radius: 10px;
 	}
 }
 
@@ -354,9 +364,9 @@ h6 {
 
 	.project {
 		position: relative;
-		width: 46%;
+		width: 42%;
 		heigth: 8em;
-		padding: 0.5em 2%;
+		padding: 0.5em 4%;
 		padding-left: 0;
 		overflow: hidden;
 		display: inline-block;
@@ -372,7 +382,7 @@ h6 {
 			padding: 0.05em 0.5em;
 			border-top-left-radius: 10px;
 			border-bottom-right-radius: 10px;
-			border: solid #222 2px;
+			border: solid #222 thin;
 			opacity: 0.9;
 
 			a {
@@ -382,7 +392,7 @@ h6 {
 
 		img {
 			border-radius: 10px;
-			border: solid #222 2px;
+			border: solid #222 thin;
 		}
 
 		p {

@@ -4,6 +4,9 @@ install:
 develop:
 	harp server app
 
+develop_c9:
+	harp server app --port `node -p process.env.PORT`
+
 build:
 	rm -rf output
 	harp compile app output

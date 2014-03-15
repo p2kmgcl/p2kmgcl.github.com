@@ -4,11 +4,19 @@ Esta web se genera con harpjs en [pablomolina.me](http://pablomolina.me). Puedes
 
 Si hay algún problema y no puedes acceder a la web, por favor, envía un correo a [esta dirección](mailto:webissue@pablomolina.me). Muchas gracias.
 
- > `harp server app`
- >
- > `harp server app --port 'node -p process.env.PORT'`
-
 # Lista de cambios
+
+# 6.1.1 (2014-03-15)
+ 
+ - Añadidas tareas para desarrollar en c9.io en el Makefile
+ - Incluída jQuery en la carga de módulos
+ - Añadido módulo que hace los títulos estáticos (opcional para el tema
+   añadiendo posición relativa).
+ - Loremipsum:
+   - Ajustado diseño responsive
+   - Corregida la muestra de iframes
+ - Blank: añadida opción para títulos estáticos
+ - Generic: ajustado el botón de cambio de tema a `z-index: 975;`
 
 # 6.1.0 (2014-03-11)
 
