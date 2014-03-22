@@ -6,6 +6,12 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
+# 6.1.2 (2014-03-22)
+
+ - Añadida plantilla para los ejemplos.
+ - Corregida la carga de fuentes para que funcione bajo https.
+ - Actualizado el tema loremipsum.
+
 # 6.1.1 (2014-03-15)
  
  - Añadidas tareas para desarrollar en c9.io en el Makefile

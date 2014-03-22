@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
 
 html {
 	width: 100%;
@@ -91,6 +91,11 @@ h6 {
 
 	transition: left ease 0.5s;
 	
+	@media (min-width: 1280px) {
+	    left: 0;
+	    box-shadow: none;
+	}
+	
 	&:hover {
 		left: 0;
 		h2 i { opacity: 0; }
@@ -107,6 +112,10 @@ h6 {
 			color: #444;
 			font-size: 1.5em;
 			transition: opacity ease 0.5s;
+			
+			@media (min-width: 1280px) {
+	            left: -2em;
+        	}
 		}
 
 		span {
@@ -132,6 +141,7 @@ h6 {
 				padding: 0.5em 1em;
 				display: block;
 
+				&.current,
 				&:hover {
 					background-color: #666;
 				}
@@ -158,6 +168,10 @@ h6 {
 		@media (max-width: 480px) {
 			font-size: 5em;
 		}
+		
+		@media (min-width: 1280px) {
+    	    padding-left: 1.3em;
+    	}
 	}
 
 	p {
@@ -173,12 +187,19 @@ h6 {
 			font-size: 1.5em;
 			padding-left: 0.8em;
 		}
+		
+		@media (min-width: 1280px) {
+    	    padding-left: 5.4em;
+    	}
 	}
 }
 
 .section_contact {
 	.sectionTitle {
 		max-width: 16.5em;
+		@media (min-width: 1280px) {
+    	    padding-left: 1.25em;
+    	}
 	}
 
 	.socialLinks {
@@ -235,29 +256,80 @@ h6 {
 		max-width: 33em;
 		margin-left: auto;
 		margin-right: auto;
+		
+		.hidden {
+            display: block;
+            opacity: 0;
+            max-height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
 		.search input {
-			border: none;
 			font-family: inherit;
 			font-size: 1.25em;
 			outline: none;
 			color: #222;
-			background-color: lighten(#6be, 10%);
+			background-color: transparent;
+			border: none;
+			border-top: solid #eee thin;
+			border-left: solid #eee thin;
+			margin-left: 0;
+			margin-bottom: 0;
+			border-top-left-radius: 0.25em;
+			padding: 0.5em;
 		}
+		
+		::-webkit-input-placeholder {
+           color: #666;
+        }
+        
+        :-moz-placeholder { /* Firefox 18- */
+           color: #666;  
+        }
+        
+        ::-moz-placeholder {  /* Firefox 19+ */
+           color: #666;  
+        }
+        
+        :-ms-input-placeholder {  
+           color: #666;  
+        }
 
 		ul {
 			margin-top: 0;
+			margin-bottom: 0;
 			padding-left: 0;
 			list-style: none;
 			font-size: 1.25em;
 
 			li {
-				padding: 0.25em 0;
+				padding: 0;
+				padding-top: 1em;
+				
+				a {
+				    border-bottom: solid #eee thin;
+				    border-left: solid #eee thin;
+				    border-bottom-left-radius: 0.25em;
+				    padding: 0.5em;
+				    padding-top: 1em;
+				    
+				    &:hover {
+				        border-bottom: solid #eee 5px;
+				    }
+				}
 			}
 		}
 		
 		.notFound {
-			font-size: 1.25em;
+		    font-size: 1.25em;
+			border-bottom: solid #eee thin;
+			border-left: solid #eee thin;
+			border-bottom-left-radius: 0.25em;
+			padding: 0.5em;
+			padding-top: 2em;
+			position: relative;
+			top: 1em;
 		}
 	}
 }
@@ -352,6 +424,10 @@ h6 {
 .section_projects {
 	.sectionTitle {
 		max-width: 22em;
+		
+		@media (min-width: 1280px) {
+	        padding-left: 6.4em;
+	    }
 	}
 
 	.projectsSection {
@@ -360,6 +436,10 @@ h6 {
 		max-width: 44em;
 		margin-left: auto;
 		margin-right: auto;
+		
+		@media (min-width: 1280px) {
+    	    padding-left: 11em;
+    	}
 	}
 
 	.project {
