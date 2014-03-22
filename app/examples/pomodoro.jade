@@ -1,0 +1,176 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Pomodoro
+    
+        link(href='//fonts.googleapis.com/css?family=Josefin+Sans:100' rel='stylesheet')
+        link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
+        
+        :less
+            html,
+            body {
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+                margin: 0 auto;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 100;
+            }
+            
+            body {
+                text-align: center;
+                display: table;
+                text-align: center;
+                height: 80%;
+                background-color: black;
+                color: white;
+                
+                transition: all ease 0.3s;
+                &.done {
+                    background-color: red;
+                    #time {
+                        text-shadow: 0 0 0.5em black;
+                    }
+                }
+            }
+            
+            #wrapper {
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+            }
+            
+            #time {
+                font-size: 10em;
+                display: block;
+                
+                span {
+                    display: inline-block;
+                    width: 0.6em;
+                }
+            }
+            
+            #controls {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            
+            #controls .fa {
+                font-size: 2em;
+                padding: 0.5em;
+                cursor: pointer;
+                
+                opacity: 0.25;
+                transition: all ease 0.3s;
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                
+                &#start,
+                &#pause {
+                    left: 45%;
+                    &.hidden {
+                        opacity: 0;
+                        z-index: -1;
+                        left: 44%;
+                    }
+                }
+        
+                &:hover {
+                    text-shadow: 0 0 0.25em #eee;
+                    opacity: 1;
+                }
+            }
+
+    body
+        #wrapper
+            div#time 25:00
+            div#controls
+                i#start.fa.fa-play
+                i#pause.fa.fa-pause.hidden
+                i#stop.fa.fa-undo
+    
+        :js
+            var $start = document.getElementById('start'),
+                $pause = document.getElementById('pause'),
+                $stop = document.getElementById('stop'),
+                $time = document.getElementById('time'),
+                $beep = document.createElement('audio'),
+                $body = document.getElementsByTagName('body')[0],
+                init = false,
+                pauseTime = 0,
+                end = 0,
+                updatingTime = false;
+        
+            function onStart () {
+                if (!updatingTime) {
+                    updatingTime = true;
+                    if (!init) { init = true; renderTime(25); }
+                    else {
+                        if (pauseTime != 0) {
+                            var now = (new Date()).getTime();
+                            end += (now - pauseTime);
+                            pauseTime = 0;
+                        }
+                        renderTime();
+                    }
+                }
+                $start.className = 'fa fa-play hidden';
+                $pause.className = 'fa fa-pause';
+            }
+        
+            function onPause () {
+                pauseTime = (new Date()).getTime();
+                updatingTime = false;
+                $start.className = 'fa fa-play';
+                $pause.className = 'fa fa-pause hidden';
+            }
+        
+            function onStop () {
+                $body.className = '';
+                pauseTime = 0;
+                updatingTime = false;
+                renderTime(25);
+                $start.className = 'fa fa-play';
+                $pause.className = 'fa fa-pause hidden';
+            }
+            
+            function cipher (number) {
+                number += '';
+                number =
+                    '<span>' + number.charAt(0) + '</span>' +
+                    '<span>' + number.charAt(1) + '</span>';
+                return number;
+            }
+        
+            function renderTime (resetTime) {
+                var now = (new Date()).getTime();
+                if (resetTime) { end = now + resetTime * 1000 * 60 + 999; }
+        
+                var timeLeft = end - now;
+                var minutesLeft = parseInt(timeLeft / (1000 * 60));
+                var secondsLeft = parseInt(timeLeft / (1000) - minutesLeft * 60);
+                
+                minutesLeft = minutesLeft < 0 ? 0 : minutesLeft;
+                secondsLeft = secondsLeft < 0 ? 0 : secondsLeft;
+                if (minutesLeft < 10) { minutesLeft = '0' + minutesLeft; }
+                if (secondsLeft < 10) { secondsLeft = '0' + secondsLeft; }
+        
+                $time.innerHTML = cipher(minutesLeft) + ":" + cipher(secondsLeft);
+                if ($time.innerText == '00:00') {
+                    $body.className = 'done';
+                    $beep.play();
+                }
+        
+                if (updatingTime) { setTimeout(renderTime, 100); }
+            }
+            
+            $start.onclick = onStart;
+            $pause.onclick = onPause;
+            $stop.onclick = onStop;
+            
+            renderTime(25);
+            $beep.volume = 0.1;
+            $beep.src = '//www.freesound.org/people/Kesu/sounds/182351/download/182351__kesu__alarm-clock-beep.wav';
