@@ -3,8 +3,14 @@
 //script(src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js")
 script(src="/assets/scripts/fallback.js")
 
+:js
+  p2kmgcl = {
+    readyFunctions: []
+  };
 each module, name in public.modules._data
   script(src="/modules/" + name + ".js")
+:js
+  p2kmgcl.toggleReady();
 
 .license
   h1 Licencia

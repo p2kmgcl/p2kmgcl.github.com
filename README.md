@@ -6,6 +6,10 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 
 # Lista de cambios
 
+# 6.2.0 (2014-03-25)
+
+ - Añadida (de nuevo) navegación ajax.
+
 # 6.1.2 (2014-03-22)
 
  - Añadida plantilla para los ejemplos.

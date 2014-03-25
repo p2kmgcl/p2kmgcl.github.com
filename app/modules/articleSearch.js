@@ -1,4 +1,4 @@
-(function () {
+p2kmgcl.readyFunctions.push(function () {
 	var search = document.getElementById('search'),
 		articles = document.getElementById('articles'),
 		notFound = document.getElementById('articleNotFound'),
@@ -38,4 +38,4 @@
 			}
 		};
 	}
-}());
+});

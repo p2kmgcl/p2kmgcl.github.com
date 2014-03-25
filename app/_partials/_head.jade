@@ -3,7 +3,7 @@ meta(name="generator" content="harp")
 meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 meta(name="description" content="Web personal de Pablo Molina" + ((description) ? ('. ' + description) : '.'))
 
-title
+title(data-title=title)
   if title
     != title + " | "
   != "Pablo Molina | Piensa, inventa, comparte"

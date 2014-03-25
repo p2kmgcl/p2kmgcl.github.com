@@ -1,4 +1,4 @@
-(function () {
+p2kmgcl.readyFunctions.push(function () {
 
     var $selector = $('.sectionTitle, .articleTitle'),
         $titles = [],
@@ -24,4 +24,4 @@
 
     $window.on('scroll', onScroll);
     onScroll();
-}());
+});
