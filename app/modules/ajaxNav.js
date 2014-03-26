@@ -33,44 +33,40 @@
 	
 			// Comprobamos si el enlace carga lo que
 			// esperamos...
-			if (!$this.hasClass(currentClassName)) {
-				if (validUrls.test(href)) {
-					event.preventDefault();
-					history.pushState(null, null, this.href);
-					$html
-						.addClass(loadingClassName)
-						.addClass(sectionClassNamePrefix + section);
+			if (validUrls.test(href)) {
+				event.preventDefault();
+				history.pushState(null, null, this.href);
+				$html
+					.addClass(loadingClassName)
+					.addClass(sectionClassNamePrefix + section);
 					
-					if (href.charAt(href.length - 1) === '/') {
-						href += 'index.html';
-					}
-
-					$wrapperNext = $('<div id="#' + wrapperNextId + '"></div>')
-						.load(this.href, function () {
-							$title.text($wrapperNext.find('title:first').attr('data-title') + titleBase);
-							
-							$wrapperNext = $wrapperNext.find('#' + wrapperId).attr('id', wrapperNextId);
-							$wrapper.after($wrapperNext);
-							$wrapper.remove();
-							$wrapper = $wrapperNext;
-
-							$menu.find('.' + currentClassName).removeClass(currentClassName);
-							$this.addClass(currentClassName);
-							
-							$html
-								.removeClass(sectionClassNamePrefix + $html.attr('data-section'))
-								.addClass(sectionClassNamePrefix + section)
-								.attr('data-section', section);
-							
-							setTimeout(function () {
-								$html.removeClass(loadingClassName);
-								$wrapper.attr('id', wrapperId);
-							}, 100);
-							p2kmgcl.toggleReady();
-						});
-					return false;
+				if (href.charAt(href.length - 1) === '/') {
+					href += 'index.html';
 				}
-			} else {
+
+				$wrapperNext = $('<div id="#' + wrapperNextId + '"></div>')
+					.load(this.href, function () {
+						$title.text($wrapperNext.find('title:first').attr('data-title') + titleBase);
+							
+						$wrapperNext = $wrapperNext.find('#' + wrapperId).attr('id', wrapperNextId);
+						$wrapper.after($wrapperNext);
+						$wrapper.remove();
+						$wrapper = $wrapperNext;
+
+						$menu.find('.' + currentClassName).removeClass(currentClassName);
+						$menu.find('.' + section).addClass(currentClassName);
+							
+						$html
+							.removeClass(sectionClassNamePrefix + $html.attr('data-section'))
+							.addClass(sectionClassNamePrefix + section)
+							.attr('data-section', section);
+							
+						setTimeout(function () {
+							$html.removeClass(loadingClassName);
+							$wrapper.attr('id', wrapperId);
+						}, 100);
+						p2kmgcl.toggleReady();
+					});
 				return false;
 			}
 		});
