@@ -66,6 +66,8 @@ body {
 	
 	@media (max-width: 480px) {
 	    width: 90%;
+	    padding-left: 4%;
+	    padding-right: 4%;
 	}
 }
 
@@ -321,6 +323,10 @@ h6 {
 			margin-bottom: 0;
 			border-top-left-radius: 0.25em;
 			padding: 0.5em;
+			
+			@media (max-width: 480px) {
+			  font-size: 1em;
+			}
 		}
 		
 		::-webkit-input-placeholder {
@@ -345,10 +351,13 @@ h6 {
 			padding-left: 0;
 			list-style: none;
 			font-size: 1.25em;
+			
+			@media (max-width: 480px) {
+			  font-size: 1em;
+			}
 
 			li {
 				padding: 0;
-				padding-top: 1em;
 				
 				a {
 				    border-bottom: solid #eee thin;
@@ -356,6 +365,12 @@ h6 {
 				    border-bottom-left-radius: 0.25em;
 				    padding: 0.5em;
 				    padding-top: 1em;
+				    
+				    display: block;
+				    white-space: nowrap;
+			    	overflow-x: hidden;
+			    	overflow-y: visible;
+			    	text-overflow: ellipsis;
 				    
 				    &:hover {
 				        border-bottom: solid #eee 5px;
@@ -365,7 +380,7 @@ h6 {
 		}
 		
 		.notFound {
-		    font-size: 1.25em;
+		  font-size: 1.25em;
 			border-bottom: solid #eee thin;
 			border-left: solid #eee thin;
 			border-bottom-left-radius: 0.25em;
@@ -373,6 +388,10 @@ h6 {
 			padding-top: 2em;
 			position: relative;
 			top: 1em;
+			
+			@media (max-width: 480px) {
+			  font-size: 1em;
+			}
 		}
 	}
 }

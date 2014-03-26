@@ -9,6 +9,7 @@ Si hay algún problema y no puedes acceder a la web, por favor, envía un correo
 # 6.2.1 (2014-03-26)
 
  - Corregido fallo en la carga de enlaces.
+ - Tema loremipsum: Pequeñas correcciones en la versión móvil.
 
 # 6.2.0 (2014-03-25)
 
