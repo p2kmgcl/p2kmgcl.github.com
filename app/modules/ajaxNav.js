@@ -4,7 +4,7 @@
 	'use strict';
 	
 	if (!!(window.history && history.pushState)) {
-		var validUrls = /^index\.html|^contact\.html|^articles|^projects/,
+		var validUrls = /^index\.html|^contact\.html|^articles|^projects|^gists/,
 			
 			wrapperId = 'wrapper',
 			wrapperNextId = 'wrapperNext',
@@ -23,6 +23,7 @@
 
 			titleBase = ' | Pablo Molina | Piensa, inventa, comparte',
 			href,
+			realHref,
 			section;
 
 		$body.on('click', 'a', function (event) {
@@ -35,7 +36,7 @@
 			// esperamos...
 			if (validUrls.test(href)) {
 				event.preventDefault();
-				history.pushState(null, null, this.href);
+
 				$html
 					.addClass(loadingClassName)
 					.addClass(sectionClassNamePrefix + section);
@@ -44,8 +45,9 @@
 					href += 'index.html';
 				}
 
+                realHref = this.href;
 				$wrapperNext = $('<div id="#' + wrapperNextId + '"></div>')
-					.load(this.href, function () {
+					.load(realHref, function () {
 						$title.text($wrapperNext.find('title:first').attr('data-title') + titleBase);
 							
 						$wrapperNext = $wrapperNext.find('#' + wrapperId).attr('id', wrapperNextId);
@@ -62,6 +64,7 @@
 							.attr('data-section', section);
 							
 						setTimeout(function () {
+				            history.pushState(null, null, realHref);
 							$html.removeClass(loadingClassName);
 							$wrapper.attr('id', wrapperId);
 						}, 100);

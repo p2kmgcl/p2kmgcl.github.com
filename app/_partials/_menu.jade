@@ -14,6 +14,15 @@ nav.menu
             ((slug == current.path[0]) ? ' current' : ''))
             i(class="fa fa-custom-" + slug)
             span= page.title
+    
+    li
+      a(href='/gists'
+        title="Esencias"
+        class='gists' +
+        ((current.path[0] == 'gists') ? ' current' : ''))
+        i.fa.fa-custom-gists
+        span Esencias
+    
     li
       a(href='/articles'
         title="Artículos"
@@ -21,6 +30,7 @@ nav.menu
         ((current.path[0] == 'articles') ? ' current' : ''))
         i.fa.fa-custom-articles
         span Artículos
+
     li
       a(href='/projects'
         title="Proyectos"
