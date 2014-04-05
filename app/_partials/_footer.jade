@@ -5,7 +5,7 @@ script(src="/assets/scripts/fallback.js")
 
 :js
   p2kmgcl = {
-    readyFunctions: []
+    readyFunctions: [Prism.highlightAll]
   };
 each module, name in public.modules._data
   script(src="/modules/" + name + ".js")
