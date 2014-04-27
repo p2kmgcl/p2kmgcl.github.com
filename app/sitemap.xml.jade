@@ -2,7 +2,7 @@ doctype xml
 urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 	url
 		loc http://pablomolina.me
-		lastmod= new Date().toUTCString()
+		lastmod= new Date().toLocaleDateString()
 		changefreq yearly
 		priority 0.6
 
@@ -10,19 +10,19 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 		if page.title
 			url
 				loc http://pablomolina.me/#{ slug }.html
-				lastmod= new Date().toUTCString()
+				lastmod= new Date().toLocaleDateString()
 				changefreq yearly
 				priority 0.6
 
 	url
 		loc http://pablomolina.me/articles/index.html
-		lastmod= new Date().toUTCString()
+		lastmod= new Date().toLocaleDateString()
 		changefreq monthly
 		priority 0.6
 
 	url
 		loc http://pablomolina.me/projects/index.html
-		lastmod= new Date().toUTCString()
+		lastmod= new Date().toLocaleDateString()
 		changefreq monthly
 		priority 0.6
 
@@ -30,6 +30,6 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 		if article.published
 			url
 				loc http://pablomolina.me/articles/#{ slug }.html
-				lastmod= new Date(article.date).toUTCString()
+				lastmod= new Date(article.date).toLocaleDateString()
 				changefreq yearly
 				priority 1.0
