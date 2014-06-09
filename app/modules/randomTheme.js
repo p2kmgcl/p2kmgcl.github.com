@@ -22,7 +22,7 @@
 		}
 
 		currentTheme = chosenTheme;
-		themeLink.href = "/themes/" + currentTheme + ".css";
+		themeLink.href = "/themes/" + currentTheme + "/index.css";
 	};
 
 	document.body.appendChild(randomButton);

@@ -1,3 +1,10 @@
+## 6.5.0 (2014-06-09) ##
+
+ - Eliminada transición de todas las propiedades de CSS.
+ - Creado tema base con toda la estructura de la página.
+ - Movidos los temas anteriores para que se adapten a la nueva estructura.
+ - Añadida transición al aspecto genérico para evitar parpadeo al cambiar de tema.
+
 ## 6.4.2 (2014-06-09) ##
 
  - Cambiado el script de publicación para que funcione también en Windows.

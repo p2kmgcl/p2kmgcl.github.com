@@ -2,13 +2,15 @@
 
 #wrapper {
 	position: relative;
-	top: 0;
+	left: 0;
 	opacity: 1;
+	transition: ease 0.3s;
+	transition-property: left, opacity;
 }
 
 html.loading #wrapper,
 #wrapperNext {
-	top: 5em;
+	left: -5em;
 	opacity: 0;
 }
 
