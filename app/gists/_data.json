@@ -1,8 +1,0 @@
-{
-    "index": {
-        "layout": "../_layout",
-        "title": "Esencias",
-        "description": "Pequeños pero útiles trozos de código.",
-        "categories": ["cpp", "javascript"]
-    }
-}

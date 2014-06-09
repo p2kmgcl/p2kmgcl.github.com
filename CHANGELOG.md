@@ -1,3 +1,8 @@
+## 6.4.1 (2014-06-09) ##
+
+ - Eliminada la sección de esencias.
+ - Añadido título de las secciones en el tema blank.
+
 ## 6.4.0 (2014-04-27)
 
  - Reordeados los ficheros de documentación de la página.

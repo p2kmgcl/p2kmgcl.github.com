@@ -112,7 +112,7 @@ h3 {
 /* Menú principal */
 
 .menu {
-  margin-bottom: 2em;
+  margin-bottom: 0;
 
   h2 {
     .hide;
@@ -126,15 +126,43 @@ h3 {
 
   li {
     display: inline-block;
-    width: 20%;
+    width: 25%;
     text-align: center;
   }
 
   a {
     font-size: 2em;
+    position: relative;
+    text-decoration: none;
+
+    i {
+      display: block;
+      margin: 0 auto;
+      border-bottom: solid 0.1em transparent;
+      transition: border-bottom ease 0.3s;
+    }
+
+    span {
+      display: inline-block;
+      opacity: 0;
+      font-size: 0.5em;
+      color: #ccc;
+      background-color: #333;
+      border-radius: 0.3em;
+      padding: 0.05em 0.5em;
+      max-height: 0;
+      overflow: hidden;
+      font-weight: normal;
+      transition: ease 0.3s;
+      transition-property: opacity, max-height;
+    }
 
     &:hover {
-      border-bottom: solid 0.1em;
+      i { border-bottom: solid 0.1em; }
+      span {
+        opacity: 1;
+        max-height: 2em;
+      }
     }
 
     &:active {
@@ -142,13 +170,9 @@ h3 {
     }
   }
 
-  .current {
+  .current i {
     opacity: 0.6;
     border-bottom: solid 0.1em;
-  }
-
-  span {
-    display: none;
   }
 }
 
@@ -158,7 +182,7 @@ h3 {
   text-align: center;
   font-family: 'Fjalla One';
   font-size: 1.5em;
-  padding-top: 1em;
+  padding-top: 0;
 }
 
 /* Contacto */
