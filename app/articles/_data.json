@@ -23,7 +23,21 @@
     "published": false,
     "title": "La mitad de la mitad. Minimalismo y coherencia",
     "date": "2014-03-10",
-    "description": "."
+    "description": "Comentario sobre el libro Don't make me think de Steve Krug."
+  },
+
+  "presentacion-integracion-continua": {
+    "published": true,
+    "title": "Presentación Integración Contínua",
+    "date": "2014-02-22",
+    "description": "Breve presentación sobre la integración contínua y su importancia en el desarrollo de software."
+  },
+
+  "presentacion-preprocesadores-css": {
+    "published": true,
+    "title": "Presentación Preprocesadores de CSS",
+    "date": "2014-04-29",
+    "description": "Breve presentación sobre los preprocesadores de CSS y algunos de sus usos prácticos."
   },
   
   "propagacion-de-eventos-en-javascript": {
