@@ -2,6 +2,7 @@
 
  - Eliminada la sección de esencias.
  - Añadido título de las secciones en el tema blank.
+ - Ahora el título es un enlace a la página inicial.
 
 ## 6.4.0 (2014-04-27)
 
