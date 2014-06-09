@@ -13,11 +13,12 @@ build:
 
 publish:
 	rm -rf output
+	rm -rf .tmp
+	mkdir -p .tmp
 	harp compile app output
-	rm -rf /tmp/pablomolina_me_tempbuild
-	mv output /tmp/pablomolina_me_tempbuild
-	cp CNAME /tmp/pablomolina_me_tempbuild/
+	mv output .tmp/pablomolina_me_tempbuild
+	cp CNAME .tmp/pablomolina_me_tempbuild/
 	git checkout master
 	rm -rf *
-	cp -rf /tmp/pablomolina_me_tempbuild/* ./
-	rm -rf /tmp/pablomolina_me_tempbuild
+	cp -rf .tmp/pablomolina_me_tempbuild/* ./
+	rm -rf .tmp

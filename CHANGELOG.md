@@ -1,3 +1,7 @@
+## 6.4.2 (2014-06-09) ##
+
+ - Cambiado el script de publicación para que funcione también en Windows.
+
 ## 6.4.1 (2014-06-09) ##
 
  - Eliminada la sección de esencias.
