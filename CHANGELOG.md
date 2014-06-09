@@ -1,6 +1,6 @@
-## 6.5.1 (2014-06-09) ##
+## 6.5.2 (2014-06-09) ##
 
- - Eliminadas 'esencias' de la navegación ajax.
+ - Arreglos varios.
 
 ## 6.5.0 (2014-06-09) ##
 
