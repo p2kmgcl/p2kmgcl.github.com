@@ -2,6 +2,7 @@
 
  - Eliminada transición de todas las propiedades de CSS.
  - Creado tema base con toda la estructura de la página.
+ - Movidos los temas anteriores para que se adapten a la nueva estructura.
 
 ## 6.4.2 (2014-06-09) ##
 
