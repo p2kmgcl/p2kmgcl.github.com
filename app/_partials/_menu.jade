@@ -11,7 +11,7 @@ nav.menu
         li
           a(href='/#{ slug }.html'
             title=page.title
-            class=page.title.toLowerCase() +
+            class=page.slug +
             ((slug == current.path[0]) ? ' current' : ''))
             i(class="fa fa-custom-" + slug)
             span= page.title
