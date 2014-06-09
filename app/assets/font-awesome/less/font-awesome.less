@@ -1,0 +1,62 @@
+/*!
+ *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@import "_variables";
+
+// Variables personalizadas
+@fa-var-custom-index: @fa-var-home;
+@fa-var-custom-contact: @fa-var-envelope;
+@fa-var-custom-articles: @fa-var-file-text;
+@fa-var-custom-projects: @fa-var-briefcase;
+@fa-var-custom-gists: @fa-var-pagelines;
+
+@fa-var-custom-mail: @fa-var-envelope;
+@fa-var-custom-googleplus: @fa-var-google-plus;
+@fa-var-custom-github: @fa-var-github-alt;
+@fa-var-custom-twitter: @fa-var-twitter;
+@fa-var-custom-facebook: @fa-var-facebook;
+@fa-var-custom-linkedin: @fa-var-linkedin;
+
+@import "_mixins";
+@import "_path";
+@import "_core";
+@import "_larger";
+@import "_fixed-width";
+@import "_list";
+@import "_bordered-pulled";
+@import "_spinning";
+@import "_rotated-flipped";
+@import "_stacked";
+@import "_icons";
+
+// Iconos personalizados
+.@{fa-css-prefix}-custom-index,
+.@{fa-css-prefix}-custom-contact,
+.@{fa-css-prefix}-custom-articles,
+.@{fa-css-prefix}-custom-projects,
+.@{fa-css-prefix}-custom-gists,
+
+.@{fa-css-prefix}-custom-mail,
+.@{fa-css-prefix}-custom-googleplus,
+.@{fa-css-prefix}-custom-github,
+.@{fa-css-prefix}-custom-twitter,
+.@{fa-css-prefix}-custom-facebook,
+.@{fa-css-prefix}-custom-linkedin {
+	width: 1.25em;
+	text-align: center;
+}
+
+.@{fa-css-prefix}-custom-index:before { content: @fa-var-custom-index; }
+.@{fa-css-prefix}-custom-contact:before { content: @fa-var-custom-contact; }
+.@{fa-css-prefix}-custom-articles:before { content: @fa-var-custom-articles; }
+.@{fa-css-prefix}-custom-projects:before { content: @fa-var-custom-projects; }
+.@{fa-css-prefix}-custom-gists:before { content: @fa-var-custom-gists; }
+
+.@{fa-css-prefix}-custom-mail:before { content: @fa-var-custom-mail; }
+.@{fa-css-prefix}-custom-googleplus:before { content: @fa-var-custom-googleplus; }
+.@{fa-css-prefix}-custom-github:before { content: @fa-var-custom-github; }
+.@{fa-css-prefix}-custom-twitter:before { content: @fa-var-custom-twitter; }
+.@{fa-css-prefix}-custom-facebook:before { content: @fa-var-custom-facebook; }
+.@{fa-css-prefix}-custom-linkedin:before { content: @fa-var-custom-linkedin; }

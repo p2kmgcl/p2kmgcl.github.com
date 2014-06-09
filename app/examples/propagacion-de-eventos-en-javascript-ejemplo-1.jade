@@ -1,0 +1,91 @@
+#parent
+  #child
+    #gchild
+
+button#clearer Clear log
+ul#log
+
+:less
+  div {
+    margin: 1em;
+    padding: 1em;
+    background-color: #000;
+    border: solid #eee thin;
+    box-shadow: 0 0 0.25em black;
+    width: 40%;
+
+    &#parent { background-color: #222; }
+    &#child { background-color: #555; }
+    
+    &#gchild {
+      background-color: #888;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &:before {
+      content: attr(id);
+      color: white;
+      font-weight: bolder;
+    }
+  }
+  
+  #log {
+    list-style: none;
+    padding-left: 0;
+    
+    > li {
+      margin: 1em auto;
+      background-color: #eee;
+      border-radius: 0.5em;
+      padding: 0.5em;
+      width: 90%;
+    }
+  }
+
+script.
+  var parent = document.getElementById('parent'),
+      child = document.getElementById('child'),
+      gchild = document.getElementById('gchild'),
+      log = document.getElementById('log'),
+      lastPhase = Infinity,
+      
+      logger = function (data) {
+        var text = '<li><ul>';
+        for (var d in data) {
+          text += '<li>' + d + ': ' + data[d] + '</li>';
+        }
+        text += '</ul></li>';
+        log.innerHTML += text;
+      },
+      
+      phase = function (phase) {
+        var text = phase + ' | ';
+        
+        switch (phase) {
+          case 1: text += 'capturing'; break;
+          case 2: text += 'target'; break;
+          case 3: text += 'bubbling'; break;
+        }
+        return text;
+      },
+      
+      handler = function (e) {      
+        logger({
+          This: this.id,
+          Phase: phase(e.eventPhase),
+          Target: e.target.id,
+          CurrentTarget: e.currentTarget.id,
+          srcElement: e.srcElement.id
+        });
+        console.log(e);
+      };
+  
+  parent.onclick = handler;
+  child.onclick = handler;
+  gchild.onclick = handler;
+  
+  document.getElementById('clearer').onclick = function () {
+    log.innerHTML = '';
+  }

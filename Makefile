@@ -1,23 +1,24 @@
 install:
-	sudo gem install bundler
-	bundle install
-	npm install
+	sudo npm install -g harp
 
 develop:
-	jekyll build -w --config _config.yml,_config_dev.yml
+	harp server app
+
+develop_c9:
+	harp server app --port `node -p process.env.PORT`
 
 build:
-	rm -rf _site
-	jekyll build --config _config.yml,_config_dev.yml
-	node_modules/grunt-cli/bin/grunt
+	rm -rf output
+	harp compile app output
 
 publish:
-	rm -rf _site
-	jekyll build
-	node_modules/grunt-cli/bin/grunt
-	rm -rf /tmp/pablomolina_me_tempbuild
-	mv _site /tmp/pablomolina_me_tempbuild
+	rm -rf output
+	rm -rf .tmp
+	mkdir -p .tmp
+	harp compile app output
+	mv output .tmp/pablomolina_me_tempbuild
+	cp CNAME .tmp/pablomolina_me_tempbuild/
 	git checkout master
-	find . ! -iwholename './.git*' -a ! -iwholename './node_modules*' -delete
-	cp -rf /tmp/pablomolina_me_tempbuild/* ./
-	rm -rf /tmp/pablomolina_me_tempbuild
+	rm -rf *
+	cp -rf .tmp/pablomolina_me_tempbuild/* ./
+	rm -rf .tmp
