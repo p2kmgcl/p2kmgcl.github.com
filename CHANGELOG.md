@@ -1,3 +1,7 @@
+## 6.5.1 (2014-06-09) ##
+
+ - Eliminadas 'esencias' de la navegación ajax.
+
 ## 6.5.0 (2014-06-09) ##
 
  - Eliminada transición de todas las propiedades de CSS.
