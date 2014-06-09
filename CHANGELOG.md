@@ -1,3 +1,7 @@
+## 6.5.0 (2014-06-09) ##
+
+ - Eliminada transición de todas las propiedades de CSS.
+
 ## 6.4.2 (2014-06-09) ##
 
  - Cambiado el script de publicación para que funcione también en Windows.
