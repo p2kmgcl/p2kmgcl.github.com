@@ -1,7 +1,7 @@
 mixin getUri(link, data, name)
   a(target="_blank" href=link + encodeURIComponent(data + public._data.uri + "/" + current.path.join("/") + ".html"))
     i(class="fa fa-custom-" + name.toLowerCase())
-    = name
+    span= name
 
 ul.shareButtons
   li.googleplus

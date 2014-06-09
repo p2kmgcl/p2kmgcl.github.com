@@ -8,4 +8,6 @@ section.projectsSection
 					a(href=project.link)= project.name
 				if (project.image)
 					img(src="/assets/#{ slug }.jpg" alt="Imagen del proyecto " + project.name)
+				else
+					img(src="/assets/noprojectimage.jpg" alt="El proyecto " + project.name + " no dispone de vista previa")
 				p= project.description

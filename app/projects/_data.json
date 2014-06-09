@@ -4,6 +4,13 @@
     "description": "Lista de proyectos."
   },
 
+  "bitrace": {
+    "name": "BitRace",
+    "link": "https://play.google.com/store/apps/details?id=me.pablomolina.bitrace",
+    "description": "Videojuego para Android desarrollado con la librería multiplataforma LibGDX.",
+    "image": true
+  },
+
   "terracaelumque": {
     "name": "Terra Caelumque",
     "link": "http://terracaelumque.blogspot.com.es/",

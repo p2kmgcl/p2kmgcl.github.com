@@ -1,3 +1,7 @@
+## 6.5.2 (2014-06-09) ##
+
+ - Arreglos varios.
+
 ## 6.5.0 (2014-06-09) ##
 
  - Eliminada transición de todas las propiedades de CSS.

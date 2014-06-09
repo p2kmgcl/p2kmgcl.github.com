@@ -4,7 +4,7 @@
 	'use strict';
 	
 	if (!!(window.history && history.pushState)) {
-		var validUrls = /^index\.html|^contact\.html|^articles|^projects|^gists/,
+		var validUrls = /^index\.html|^contact\.html|^articles|^projects/,
 			
 			wrapperId = 'wrapper',
 			wrapperNextId = 'wrapperNext',
