@@ -1,5 +1,9 @@
 @import url(//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700,300italic);
 
+#c {
+  position: absolute;
+}
+
 #wrapper {
 	position: relative;
 	top: 0;
@@ -64,6 +68,18 @@ body {
   max-width: 25em;
   min-width: 15em;
   text-align: justify;
+}
+
+body:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 315px;
+  background-color: #fafafa;
+  z-index: -2;
 }
 
 a {
