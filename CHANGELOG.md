@@ -1,3 +1,7 @@
+## 6.7.0 (2014-06-16) ##
+
+ - Añadida navegación 'atrás' con ajax.
+
 ## 6.6.0 (2014-06-16) ##
 
  - Creado nuevo tema "Tiles".
