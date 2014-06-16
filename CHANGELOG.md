@@ -1,3 +1,9 @@
+## 6.6.0 (2014-06-16) ##
+
+ - Creado nuevo tema "Tiles".
+ - Añadido canvas de fondo para que los temas puedan hacer animaciones.
+ - Correción de errores.
+
 ## 6.5.2 (2014-06-09) ##
 
  - Arreglos varios.
