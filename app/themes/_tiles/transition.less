@@ -1,0 +1,48 @@
+// Sección en la que se encuentra actualmente la página
+#wrapper,
+#wrapperNext {
+	background-color: @bgcolor;
+	color: @color;
+	.tile(2, 0, 6, 8, 3);
+	overflow-y: auto;
+	&:before { display: none; }
+
+	html.section_index & {
+		.hidden;
+	}
+
+	html.section_contact & {
+		background-color: #008BAF;
+		color: white;
+	}
+
+	html.section_projects & {
+		background-color: #DFCB72;
+	}
+
+	@media (max-width: 1024px) {
+		.tile(0, 1, 8, 7, 3);
+		height: auto;
+		&:before { display: none; }
+	}
+
+	@media (max-width: 640px) {
+		.tile(0, 2, 8, 6, 3);
+		height: auto;
+		&:before { display: none; }
+	}
+}
+
+// Sección que se está escondiendo para dejar paso a la siguiente
+html.loading #wrapper {
+	opacity: 0;
+}
+
+// Sección que está apareciendo (ya ha sido cargada)
+html.loading #wrapperNext {
+	opacity: 0;
+}
+
+// Elementos que pueden usarse para mostrar el proceso de carga
+html.loading:before,
+html.loading:after {}

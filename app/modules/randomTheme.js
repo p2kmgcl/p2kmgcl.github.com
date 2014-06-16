@@ -5,12 +5,13 @@
 		// Lista de temas que se pueden cargar
 		themes = [
 			"blank",
-			"loremipsum"
+			"loremipsum",
+			"tiles"
 		],
 		themesPool = [],
 
 		// Tema por defecto
-		currentTheme = "blank";
+		currentTheme = "tiles";
 
 	randomButton.className = "randomTheme fa fa-random";
 	randomButton.title = "Press me!";

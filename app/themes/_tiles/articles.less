@@ -1,0 +1,109 @@
+html.section_articles {
+	// Navegación con la lista de los artículos
+	nav.articles {
+		width: 100%;
+
+		// Búsqueda para el filtrado de artículos
+		> div.search {
+			> input {
+				.tile(0, 0, 8, 1, 1, static);
+				border: none;
+				outline: none;
+				font-family: inherit;
+				font-size: 1em;
+				height: 3.5em;
+				overflow-y: auto;
+			}
+		}
+
+		> ul {
+			padding: 0;
+			margin: 0 auto;
+			display: block;
+			width: 100%;
+
+			> li {
+				width: 100%;
+
+				&:nth-child(even) > a {
+					background-color: darken(@bgcolor, 10%);
+				}
+
+				> a {
+					.tile(0, 1, 8, 7, 1, static);
+					height: 4em;
+					text-decoration: none;
+					&:hover {
+						background-color: darken(@bgcolor, 20%);
+					}
+				}
+
+				// Artículo que ha sido filtrado en la búsqueda. Por defecto se le aplica display: none.
+				&.hidden {}
+			}
+		}
+
+		// Elemento que se muestra cuando se filtran todos los artículos. Para mostrarlo se le quita una clase .hidden que por defecto tiene activada.
+		> .notFound {
+			.tile(0, 1, 8, 7, 1, static);
+			height: 4em;
+			&.hidden {
+				display: none;
+			}
+		}
+	}
+
+	// Artículo completo
+	article.article {
+		text-align: justify;
+		padding: 1em 2em;
+		max-width: 35em;
+
+		@media (max-width: 640px) {
+			padding: 1em;
+			padding-top: 0.5em;
+		}
+
+		> h2.articleTitle {
+			text-align: center;
+			// Puede usarse para hacer que un título se quede fijo en la parte superior de la pantalla. Desde JavaScript se le da la posición "top" adecuada.
+			&.pinnedTitle {}
+		}
+		
+		// Estas son las etiquetas que se suelen encontrar dentro de un artículo.
+		> p {}
+		> blockquote {}
+	
+		// Enlaces para enviarlo a las redes sociales
+		> ul.shareButtons {
+			padding: 0;
+			margin-top: 2em;
+
+			> li {
+				display: inline-block;
+				width: 25%;
+
+				&.googleplus {}
+				&.twitter {}
+				&.facebook {}
+				&.linkedin {}
+
+				> a {
+					.tile(0, 0, 8, 8, 1, static);
+					height: 2em;
+					font-size: 1.5em;
+					background-color: #eee;
+					&:hover {
+						color: #eee;
+						background-color: #222;
+					}
+
+					> i {}
+					> span {
+						.hidden;
+					}
+				}
+			}
+		}
+	}
+}
