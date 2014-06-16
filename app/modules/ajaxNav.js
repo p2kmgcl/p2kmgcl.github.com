@@ -3,7 +3,7 @@
 (function () {
 	'use strict';
 	
-	var validUrls = /|^index\.html|^contact\.html|^articles|^projects/,
+	var validUrls = /^index\.html|^contact\.html|^articles|^projects/,
 		
 		wrapperId = 'wrapper',
 		wrapperNextId = 'wrapperNext',
@@ -34,7 +34,6 @@
 				
 		if (href.charAt(href.length - 1) === '/') {
 			href += 'index.html';
-			section = 'index';
 		} else if (href.charAt(href.length - 1) === '') {
 			href = '/index.html';
 			section = 'index';
@@ -91,7 +90,6 @@
 			href = href.split('/');
 			href = href.slice(3, href.length).join('/');
 			section = href.split('.html').join('').split('/')[0];
-			
 			if (validUrls.test(href)) {
 				event.preventDefault();
 				navigateTo();
