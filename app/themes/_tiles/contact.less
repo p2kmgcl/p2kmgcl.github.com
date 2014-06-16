@@ -1,0 +1,96 @@
+// Sección con un formulario de contacto y enlaces a las redes sociales
+html.section_contact {
+	// Enlaces a redes sociales
+	ul.socialLinks {
+		list-style: none;
+		padding: 0;
+
+		> li {
+			/* Cada elemento li contiene una clase referente al enlace en concreto, por si se quiere formatear según el destino
+			 *
+			&.mail {}
+			&.googleplus {}
+			&.github {}
+			&.twitter {}
+			&.facebook {}
+			&.linkedin {}
+			*/
+			
+			@socialTileWidth: 1.3334;
+			@socialTileHeight: 1;
+
+			&.mail > a {
+				.tile(0 * @socialTileWidth,
+					  0, @socialTileWidth, @socialTileHeight);
+			}
+			&.googleplus > a {
+				.tile(1 * @socialTileWidth,
+					  0, @socialTileWidth, @socialTileHeight);
+			}
+			&.github > a {
+				.tile(2 * @socialTileWidth,
+					  0, @socialTileWidth, @socialTileHeight);
+			}
+			&.twitter > a {
+				.tile(3 * @socialTileWidth,
+					  0, @socialTileWidth, @socialTileHeight);
+			}
+			&.facebook > a {
+				.tile(4 * @socialTileWidth,
+					  0, @socialTileWidth, @socialTileHeight);
+			}
+			&.linkedin > a {
+				.tile(5 * @socialTileWidth,
+					  0, @socialTileWidth, @socialTileHeight);
+			}
+
+			> a {
+				background-color: #eee;
+				color: black;
+				font-size: 2em;
+				opacity: 1;
+
+				@media (max-width: 640px) {
+					font-size: 1.25em;
+				}
+
+				&:hover {
+					background-color: #222;
+					color: white;
+				}
+
+				> i {}
+				> span {
+					.hidden();
+				}
+			}
+		}
+	}
+
+	// Formulario de contacto. Por defecto está diseñado para heredar los márgenes, fuentes y tamaños de la página. Tiene bastantes clases de google implicadas, así que se recomienda solo cambiar el estilo general
+	form.googleForm {
+		padding-top: 5em;
+		text-align: left;
+		width: 50%;
+		position: relative;
+
+		@media (min-height: 800px) and (min-width: 1024px) {
+			padding-top: 10em;
+		}
+
+		@media (max-width: 1024px) {
+			padding-bottom: 3em;
+			width: 90%;
+		}
+
+		.ss-submit {
+			.tile(0, 8, 2.5, 0.5, 1);
+			background-color: #eee;
+			border: none;
+
+			@media (max-width: 1024px) {
+				.tile(0, 7, 3, 0.5, 1);
+			}
+		}
+	}
+}

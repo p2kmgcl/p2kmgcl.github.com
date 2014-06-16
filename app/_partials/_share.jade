@@ -1,5 +1,5 @@
 mixin getUri(link, data, name)
-  a(target="_blank" href=link + encodeURIComponent(data + public._data.uri + "/" + current.path.join("/") + ".html"))
+  a(target="_blank" href=link + data + encodeURIComponent(public._data.uri + "/" + current.path.join("/") + ".html"))
     i(class="fa fa-custom-" + name.toLowerCase())
     span= name
 
@@ -11,4 +11,4 @@ ul.shareButtons
   li.facebook
     +getUri('https://www.facebook.com/sharer/sharer.php?u=', '', 'Facebook')
   li.linkedin
-    +getUri('https://www.linkedin.com/shareArticle?mini=true', '&title=' + title + '&summary=' + description + '&url=', 'LinkedIn')
+    +getUri('https://www.linkedin.com/shareArticle?mini=true', '&title=' + encodeURIComponent(title) + '&summary=' + encodeURIComponent(description) + '&url=', 'LinkedIn')

@@ -1,0 +1,109 @@
+// Menú principal
+nav.menu {
+
+	// Texto "menú principal"
+	> h2 {
+		.hidden();
+		> i {}
+		> span {}
+	}
+
+	// Enlaces encontrados dentro del menú
+	> ul {
+		list-style: none;
+
+		> li {
+			> a {
+				opacity: 1;
+				font-size: 1.5em;
+
+				> i { .hidden; }
+				> span {}
+
+				// Esta clase hace referencia a la página en la que se encuentra actualmente en usuario. Por defecto el enlace aparece en negrita.
+				&.current {}
+
+				&:hover {
+					opacity: 0.5;
+				}
+
+				&.index { .hidden; }
+
+				&.contact {
+					.tile(0, 2, 4, 2, 5);
+					background-color: #008BAF;
+					color: white;
+				}
+
+				&.articles {
+					.tile(4, 4, 4, 2, 5);
+					background-color: #FBFCD0;
+					color: @color;
+				}
+
+				&.projects {
+					.tile(0, 6, 4, 2, 5);
+					background-color: #DFCB72;
+					color: @color;
+				}
+
+				html.section_contact &,
+				html.section_articles &,
+				html.section_projects & {
+					&.contact { .tile(0, 2, 2, 2, 7); }
+					&.articles { .tile(0, 4, 2, 2, 6); }
+					&.projects { .tile(0, 6, 2, 2, 5); }
+				}
+
+
+				@media (max-width: 1024px) {
+					html.section_contact &.contact,
+					html.section_articles &.contact,
+					html.section_projects &.contact {
+						font-size: 1.2em;
+						.tile(2, 0, 2, 1, 5);
+					}
+
+					html.section_contact &.articles,
+					html.section_articles &.articles,
+					html.section_projects &.articles {
+						font-size: 1.2em;
+						.tile(4, 0, 2, 1, 5);
+					}
+
+					html.section_contact &.projects,
+					html.section_articles &.projects,
+					html.section_projects &.projects {
+						font-size: 1.2em;
+						.tile(6, 0, 2, 1, 5); 
+					}
+				}
+
+
+				@media (max-width: 640px) {
+					&.contact { .tile(0, 2, 8, 2, 5); }
+					&.articles { .tile(0, 4, 8, 2, 6); }
+					&.projects { .tile(0, 6, 8, 2, 5); }
+
+					html.section_contact &.contact,
+					html.section_articles &.contact,
+					html.section_projects &.contact {
+						.tile(4, 0, 4, 1, 5);
+					}
+
+					html.section_contact &.articles,
+					html.section_articles &.articles,
+					html.section_projects &.articles {
+						.tile(0, 1, 4, 1, 5);
+					}
+
+					html.section_contact &.projects,
+					html.section_articles &.projects,
+					html.section_projects &.projects {
+						.tile(4, 1, 4, 1, 5); 
+					}
+				}
+			}
+		}
+	}
+}
