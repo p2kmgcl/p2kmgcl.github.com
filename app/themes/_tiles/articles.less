@@ -33,8 +33,15 @@ html.section_articles {
 					.tile(0, 1, 8, 7, 1, static);
 					height: 4em;
 					text-decoration: none;
+					text-overflow: ellipsis;
+					white-space: nowrap;
 					&:hover {
 						background-color: darken(@bgcolor, 20%);
+					}
+
+					@media (max-width: 640px) {
+						width: 90%;
+						padding: 0 5%;
 					}
 				}
 
@@ -62,6 +69,7 @@ html.section_articles {
 		@media (max-width: 640px) {
 			padding: 1em;
 			padding-top: 0.5em;
+			max-width: 90%;
 		}
 
 		> h2.articleTitle {

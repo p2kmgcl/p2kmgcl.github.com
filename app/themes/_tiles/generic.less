@@ -3,6 +3,7 @@ html:before {
 	.tile(4, 6, 4, 2);
 	background-color: #E51545;
 	.stripesBackground(200px, rgba(0, 0, 0, 0.1));
+	@media (max-width: 640px) { opacity: 0; }
 }
 
 html:after {
@@ -10,15 +11,7 @@ html:after {
 	.tile(4, 0, 4, 2);
 	background-color: #FDFE44;
 	.stripesBackground(200px, rgba(0, 0, 0, 0.1));
-}
-
-html.section_contact,
-html.section_articles,
-html.section_projects {
-	&:before,
-	&:after {
-		opacity: 0;
-	}
+	@media (max-width: 640px) { opacity: 0; }
 }
 
 body {
@@ -40,6 +33,7 @@ body {
 		.tile(0, 4, 4, 2);
 		background-color: #FDFE44;
 		.stripesBackground(200px, rgba(0, 0, 0, 0.1));
+		@media (max-width: 640px) { opacity: 0; }
 
 		html.section_contact &,
 		html.section_articles &,
@@ -53,6 +47,7 @@ body {
 		.tile(4, 2, 4, 2);
 		background-color: #B9E02A;
 		.stripesBackground(200px, rgba(0, 0, 0, 0.1));
+		@media (max-width: 640px) { opacity: 0; }
 
 		html.section_contact &,
 		html.section_articles &,
