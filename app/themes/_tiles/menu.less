@@ -47,9 +47,7 @@ nav.menu {
 					color: @color;
 				}
 
-				html.section_contact &,
-				html.section_articles &,
-				html.section_projects & {
+				html.section_noindex & {
 					&.contact { .tile(0, 2, 2, 2, 7); }
 					&.articles { .tile(0, 4, 2, 2, 6); }
 					&.projects { .tile(0, 6, 2, 2, 5); }
@@ -57,23 +55,17 @@ nav.menu {
 
 
 				@media (max-width: 1024px) {
-					html.section_contact &.contact,
-					html.section_articles &.contact,
-					html.section_projects &.contact {
+					html.section_noindex &.contact {
 						font-size: 1.2em;
 						.tile(2, 0, 2, 1, 5);
 					}
 
-					html.section_contact &.articles,
-					html.section_articles &.articles,
-					html.section_projects &.articles {
+					html.section_noindex &.articles {
 						font-size: 1.2em;
 						.tile(4, 0, 2, 1, 5);
 					}
 
-					html.section_contact &.projects,
-					html.section_articles &.projects,
-					html.section_projects &.projects {
+					html.section_noindex &.projects {
 						font-size: 1.2em;
 						.tile(6, 0, 2, 1, 5); 
 					}
@@ -85,21 +77,15 @@ nav.menu {
 					&.articles { .tile(0, 4, 8, 2, 6); }
 					&.projects { .tile(0, 6, 8, 2, 5); }
 
-					html.section_contact &.contact,
-					html.section_articles &.contact,
-					html.section_projects &.contact {
+					html.section_noindex &.contact {
 						.tile(4, 0, 4, 1, 5);
 					}
 
-					html.section_contact &.articles,
-					html.section_articles &.articles,
-					html.section_projects &.articles {
+					html.section_noindex &.articles {
 						.tile(0, 1, 4, 1, 5);
 					}
 
-					html.section_contact &.projects,
-					html.section_articles &.projects,
-					html.section_projects &.projects {
+					html.section_noindex &.projects {
 						.tile(4, 1, 4, 1, 5); 
 					}
 				}

@@ -4,9 +4,9 @@ meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-sca
 meta(name="description" content="Web personal de Pablo Molina" + ((description) ? ('. ' + description) : '.'))
 
 title(data-title=title)
-  if title
-    != title + " | "
-  != "Pablo Molina | Piensa, inventa, comparte"
+	if title
+		!= title + " | "
+	!= "Pablo Molina | Piensa, inventa, comparte"
 
 link(rel="alternate" type="application/rss+xml" title="RSS de Pablo Molina" href="/rss.xml")
 link(rel="stylesheet" href="/assets/font-awesome/less/font-awesome.css")

@@ -55,7 +55,17 @@
 					.removeClass(sectionClassNamePrefix + $html.attr('data-section'))
 					.addClass(sectionClassNamePrefix + section)
 					.attr('data-section', section);
-					
+
+				if (section === 'index') {
+					$html
+						.removeClass(sectionClassNamePrefix + 'noindex')
+						.addClass(sectionClassNamePrefix + 'index');
+				} else {
+					$html
+						.removeClass(sectionClassNamePrefix + 'index')
+						.addClass(sectionClassNamePrefix + 'noindex');
+				}
+
 				setTimeout(function () {
 					if (doPushState) {
 						history.pushState({}, '', realHref);

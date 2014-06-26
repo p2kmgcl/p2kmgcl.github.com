@@ -1,3 +1,4 @@
 {
-    "pomodoro": { "title": "Contador pomodoro hecho con javascript" }
+    "pomodoro": { "title": "Contador pomodoro hecho con javascript" },
+    "message-sender": { "title": "Envío de mensajes encriptados con el cuadrado perfecto"}
 }
