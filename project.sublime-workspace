@@ -1,0 +1,389 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"clus",
+				"clusters"
+			],
+			[
+				"para",
+				"param"
+			],
+			[
+				"run",
+				"runLocalSearch"
+			],
+			[
+				"pa",
+				"patterns"
+			],
+			[
+				"App",
+				"AppBreast"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/themes/_tiles/404.less",
+			"settings":
+			{
+				"buffer_size": 102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/themes/_tiles/index.less",
+			"settings":
+			{
+				"buffer_size": 513,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "ffcore_build",
+	"command_palette":
+	{
+		"height": 117.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"conver",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"cover to ",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"cover",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"covert tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"browser",
+				"yUML: Open Diagram in Browser"
+			],
+			[
+				"yu",
+				"yUML: Open Diagram in Browser"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"conver to ta",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"snippet",
+				"Snippet: #ifndef … #define … #endif"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"linter",
+				"Preferences: SublimeLinter Key Bindings – Default"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 350.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/p2kmgcl/pablomolina_me/project.sublime-project",
+		"/home/p2kmgcl/pablomolina_me/app/themes/_base/404.less",
+		"/home/p2kmgcl/pablomolina_me/app/themes/_base/index.less",
+		"/home/p2kmgcl/pablomolina_me/app/themes/_data.json",
+		"/home/p2kmgcl/pablomolina_me/app/_partials/_example.jade",
+		"/home/p2kmgcl/pablomolina_me/app/_partials/_footer.jade",
+		"/home/p2kmgcl/pablomolina_me/app/_partials/_head.jade",
+		"/home/p2kmgcl/pablomolina_me/app/_partials/_html.jade",
+		"/home/p2kmgcl/pablomolina_me/app/examples/_layout.jade",
+		"/home/p2kmgcl/pablomolina_me/app/_partials/_menu.jade",
+		"/home/p2kmgcl/pablomolina_me/app/_partials/_share.jade",
+		"/home/p2kmgcl/pablomolina_me/app/_layout.jade",
+		"/home/p2kmgcl/pablomolina_me/app/articles/_layout.jade",
+		"/home/p2kmgcl/pablomolina_me/app/themes/_tiles/header.less",
+		"/home/p2kmgcl/pablomolina_me/app/themes/_tiles/menu.less",
+		"/home/p2kmgcl/pablomolina_me/app/examples/_data.json",
+		"/home/p2kmgcl/pablomolina_me/app/examples/message-sender.jade",
+		"/home/p2kmgcl/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/p2kmgcl/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/p2kmgcl/Descargas/rain-finished_packed.blend",
+		"/home/p2kmgcl/Escritorio/(Heroes)([^0-9]*)([0-9])([^0-90-9]*)(4?)([0-9][0-9",
+		"/home/p2kmgcl/Copy/projects/ffcore/doc/uml.cxx",
+		"/home/p2kmgcl/Copy/projects/ffcore/ffcore.sublime-project",
+		"/home/p2kmgcl/.config/sublime-text-3/Packages/yUML/README.md",
+		"/home/p2kmgcl/Copy/projects/ffcore/doc/main.yuml",
+		"/home/p2kmgcl/Copy/projects/ffcore/src/main.dart",
+		"/home/p2kmgcl/Copy/projects/ffcore/tests/entity/primary_attribute.dart",
+		"/home/p2kmgcl/Copy/projects/ffcore/Makefile",
+		"/home/p2kmgcl/Copy/config/dotfiles/src/path.sh",
+		"/home/p2kmgcl/Copy/projects/ffcore/src/entity/primary_attribute.dart",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/App.cpp",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/App.h",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/main.cpp",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/Makefile",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/AppBreast.h",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/AppBreast.cpp",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/AppBreast",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/IOProcessor.h",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/src/IOProcessor.cpp",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/resources/R15.txt",
+		"/home/p2kmgcl/Copy/university/2013-2014/metaheurísticas/practicas/practica1/practica1_proyecto/build/IOProcessor.h",
+		"/home/p2kmgcl/.config/sublime-text-3/Packages/SublimeLinter/Default (Linux).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"articles",
+			"theme",
+			"'",
+			"encoding",
+			"main"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/themes/_tiles/404.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/themes/_tiles/index.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								410,
+								410
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 279.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"main",
+				"src/main.cpp"
+			],
+			[
+				"iopr",
+				"src/IOProcessor.h"
+			],
+			[
+				"i",
+				"src/IOProcessor.cpp"
+			],
+			[
+				"main.c",
+				"src/main.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
