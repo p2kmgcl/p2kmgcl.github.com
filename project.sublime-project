@@ -20,12 +20,12 @@
 			"name": "pages",
 			"path": "app",
 			"file_include_patterns": ["*.jade"],
-			"file_exclude_patterns": ["_layout.jade"],
+			"file_exclude_patterns": ["_layout.jade", "*.xml.jade"],
 			"folder_exclude_patterns": ["*"]
 		},
 		{
-			"name": "themes",
-			"path": "app/themes"
+			"name": "theme",
+			"path": "app/themes/_material"
 		},
 		{
 			"name": "modules",
@@ -38,9 +38,8 @@
 			"folder_exclude_patterns": ["themes", "projects", "modules", "assets"]
 		},
 		{
-			"name": "config",
-			"path": ".",
-			"folder_exclude_patterns": ["*"]
+			"name": "all",
+			"path": "."
 		}
 	],
 
