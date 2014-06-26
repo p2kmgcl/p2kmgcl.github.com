@@ -26,7 +26,7 @@ html
 				background-color: #eee;
 			}
 
-			a {
+			#input {
 				display: table-cell;
 				vertical-align: middle;
 				text-align: center;
@@ -84,7 +84,7 @@ html
 			}
 
 			function setFontSize () {
-				var fontSize = 400 / parseInt(Math.log($input.innerHTML.length + 1), 10);
+				var fontSize = 200 / parseInt(Math.log($input.innerHTML.length + 1), 10);
 				if (fontSize < 20) { fontSize = 20; }
 				$input.style.fontSize = fontSize + 'px';
 			}
