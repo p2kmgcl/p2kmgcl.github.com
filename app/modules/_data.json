@@ -4,5 +4,6 @@
 	"titlePin": "Añade una clase a los títulos cuando se salen de la pantalla",
 	"ajaxNav": "Navegación ajax en la web",
 	"toggleReady": "Ejecuta de nuevo las funciones necesarias",
-	"requestAnimationFrame": "Permite hacer animaciones con un canvas mágico"
+	"requestAnimationFrame": "Permite hacer animaciones con un canvas mágico",
+	"toggleMenu": "Activa/desactiva el menu al pulsar en el botón correspondiente"
 }

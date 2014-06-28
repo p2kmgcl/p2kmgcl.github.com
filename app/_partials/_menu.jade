@@ -1,33 +1,33 @@
 h1.title
-  a(href='/') Pablo Molina
+	a(href='/') Pablo Molina
 
 nav.menu
-  h2
-    i.fa.fa-align-justify
-    span Menú principal
-  ul
-    for page, slug in public._data
-      if page.title
-        li
-          a(href='/#{ slug }.html'
-            title=page.title
-            class=page.slug +
-            ((slug == current.path[0]) ? ' current' : ''))
-            i(class="fa fa-custom-" + slug)
-            span= page.title
-    
-    li
-      a(href='/articles'
-        title="Artículos"
-        class='articles' +
-        ((current.path[0] == 'articles') ? ' current' : ''))
-        i.fa.fa-custom-articles
-        span Artículos
+	h2
+		i.fa.fa-align-justify
+		span Menú principal
+	ul
+		for page, slug in public._data
+			if page.title
+				li
+					a(href='/#{ slug }.html'
+						title=page.title
+						class=page.slug +
+						((slug == current.path[0]) ? ' current' : ''))
+						i(class="fa fa-custom-" + slug)
+						span= page.title
+		
+		li
+			a(href='/articles'
+				title="Artículos"
+				class='articles' +
+				((current.path[0] == 'articles') ? ' current' : ''))
+				i.fa.fa-custom-articles
+				span Artículos
 
-    li
-      a(href='/projects'
-        title="Proyectos"
-        class='projects' +
-        ((current.path[0] == 'projects') ? ' current' : ''))
-        i.fa.fa-custom-projects
-        span Proyectos
+		li
+			a(href='/projects'
+				title="Proyectos"
+				class='projects' +
+				((current.path[0] == 'projects') ? ' current' : ''))
+				i.fa.fa-custom-projects
+				span Proyectos

@@ -4,27 +4,27 @@
 script(src="/assets/scripts/fallback.js")
 
 :js
-  p2kmgcl = {
-    readyFunctions: [Prism.highlightAll]
-  };
+	p2kmgcl = {
+		readyFunctions: [Prism.highlightAll]
+	};
 each module, name in public.modules._data
-  script(src="/modules/" + name + ".js")
+	script(src="/modules/" + name + ".js")
 :js
-  p2kmgcl.toggleReady();
+	p2kmgcl.toggleReady();
 
 .license
-  h1 Licencia
-  a.licenseLink(rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.es_CO")
-    img.licenseImage(width="80" height="15" alt="Licencia Creative Commons" src="/assets/license_80x15.png")
-    span.licenseDescription
-      span.licenseSummary Todo esto es tuyo, tan sólo recuerda mi nombre.
-      //span.licenseFormal
-        span(xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type") Web personal de Pablo Molina
-        span  por
-        a(xmlns:cc="http://creativecommons.org/ns#" href="http://pablomolina.me" property="cc:attributionName" rel="cc:attributionURL")  Pablo Molina
-        span  se encuentra bajo una
-        a(rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.es_CO")  Licencia Creative Commons Atribución 3.0 Unported.
-        span  Basada en una obra en
-        a(xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/p2kmgcl/p2kmgcl.github.com" rel="dct:source")  github.com/p2kmgcl/pablomolina.me.
-        span  Permisos que vayan más allá de lo cubierto por esta licencia pueden encontrarse en
-        a(xmlns:cc="http://creativecommons.org/ns#" href="http://pablomolina.me" rel="cc:morePermissions") http://pablomolina.me.
+	h1 Licencia
+	a.licenseLink(rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.es_CO")
+		img.licenseImage(width="80" height="15" alt="Licencia Creative Commons" src="/assets/license_80x15.png")
+		span.licenseDescription
+			span.licenseSummary Todo esto es tuyo, tan sólo recuerda mi nombre.
+			//span.licenseFormal
+				span(xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type") Web personal de Pablo Molina
+				span  por
+				a(xmlns:cc="http://creativecommons.org/ns#" href="http://pablomolina.me" property="cc:attributionName" rel="cc:attributionURL")  Pablo Molina
+				span  se encuentra bajo una
+				a(rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.es_CO")  Licencia Creative Commons Atribución 3.0 Unported.
+				span  Basada en una obra en
+				a(xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/p2kmgcl/p2kmgcl.github.com" rel="dct:source")  github.com/p2kmgcl/pablomolina.me.
+				span  Permisos que vayan más allá de lo cubierto por esta licencia pueden encontrarse en
+				a(xmlns:cc="http://creativecommons.org/ns#" href="http://pablomolina.me" rel="cc:morePermissions") http://pablomolina.me.
