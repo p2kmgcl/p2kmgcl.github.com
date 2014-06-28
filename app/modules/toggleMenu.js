@@ -1,8 +1,5 @@
-p2kmgcl.readyFunctions.push(function () {
-	var $menu = $('.menu'),
-		$menuTitle = $menu.children('h2').first();
-
-	$menuTitle.on('click', function () {
-		$menu.toggleClass('menuActive');
+(function () {
+	$('.menu').children('h2').first().on('click', function () {
+		$(this).parent().toggleClass('menuActive');
 	});
-});
+}());
