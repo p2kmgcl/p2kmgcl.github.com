@@ -1,0 +1,143 @@
+// Lista de proyectos terminados y/o en proceso que merece la pena enseñar
+html.section_projects {
+	.sectionTitle { color: @orange; }
+
+	section.projectsSection {
+		max-width: 540px;
+		margin: 0 auto;
+		margin-top: 96px;
+
+		@media (max-width: 640px) {
+			max-width: 300px;
+			margin-top: 64px;
+		}
+
+		> article.project {
+			@size: 256px;
+
+			.bubble(@size);
+			&:nth-child(1) { .bubble(@size, 0); font-size: 1em; }
+			&:nth-child(2n) { .bubble(@size, 1); font-size: 1em; }
+			&:nth-child(3n) { .bubble(@size, 2); font-size: 1em; }
+			&:nth-child(4n) { .bubble(@size, 3); font-size: 1em; }
+			&:nth-child(5n) { .bubble(@size, 4); font-size: 1em; }
+			&:nth-child(6n) { .bubble(@size, 5); font-size: 1em; }
+			&:nth-child(7n) { .bubble(@size, 6); font-size: 1em; }
+			&:nth-child(8n) { .bubble(@size, 7); font-size: 1em; }
+			&:nth-child(9n) { .bubble(@size, 8); font-size: 1em; }
+
+			line-height: 1em;
+			font-size: 1em;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+
+			&:nth-child(even) {
+				margin-left: auto;
+				margin-right: 0;
+				margin-top: -@size / 2;
+			}
+
+
+			&:nth-child(odd) {
+				margin-top: -@size / 4;
+			}
+
+			// Título y enlace
+			> h1 {
+				margin: 0 auto;
+				padding: 0;
+
+				> a {
+					display: block;
+					position: absolute;
+					top: 2em;
+					left: 0;
+					width: 95%;
+					height: 100%;
+					padding: 0 2.5%;
+					line-height: 1.5em;
+					text-decoration: none;
+					font-size: 1.25em;
+					color: @color;
+					opacity: 1;
+					z-index: 1;
+					text-shadow: 1px 1px 0 @orange;
+					transition: all ease 0.3s;
+
+					&:after {
+						content: '';
+						display: block;
+						position: absolute;
+						top: -2em;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background-color: fadeout(#eee, 20%);
+						z-index: -1;
+						opacity: 1;
+						border-radius: 50%;
+						box-shadow: inset -0.1em -0.1em 0 0.1em fadeout(@orange, 10%);
+						z-index: -5;
+						transition: all ease 0.3s;
+					}
+				}
+			}
+			
+			// Captura o imagen promocional
+			> img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				max-width: 200%;
+				width: 200%;
+				height: auto;
+				z-index: -2;
+			}
+
+			// Breve descripción
+			> p {
+				.hidden;
+			}
+
+			&:hover > h1 > a {
+				color: white;
+				text-shadow: 1px 0 0 @color,
+							0 1px 0 @color,
+							-1px 0 0 @color,
+							0 -1px 0 @color;
+				&:after {
+					background-color: fadeout(#eee, 90%);
+					color: fadeout(@color, 90%);
+				}
+			}
+
+			@media (max-width: 640px) {
+				@size: 128px;
+
+				.bubble(@size);
+				font-size: 0.75em;
+				&:nth-child(1) { .bubble(@size, 0); font-size: 0.75em; }
+				&:nth-child(2n) { .bubble(@size, 1); font-size: 0.75em; }
+				&:nth-child(3n) { .bubble(@size, 2); font-size: 0.75em; }
+				&:nth-child(4n) { .bubble(@size, 3); font-size: 0.75em; }
+				&:nth-child(5n) { .bubble(@size, 4); font-size: 0.75em; }
+				&:nth-child(6n) { .bubble(@size, 5); font-size: 0.75em; }
+				&:nth-child(7n) { .bubble(@size, 6); font-size: 0.75em; }
+				&:nth-child(8n) { .bubble(@size, 7); font-size: 0.75em; }
+				&:nth-child(9n) { .bubble(@size, 8); font-size: 0.75em; }
+
+				&:nth-child(even) {
+					margin-top: -@size / 1.75;
+				}
+				&:nth-child(odd) {
+					margin-top: -@size / 3.5;
+				}
+				> h1 > a {
+					line-height: 1em;
+					top: 2em;
+				}
+			}
+		}
+	}
+}

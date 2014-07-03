@@ -1,3 +1,9 @@
+## 6.8.0 (2014-07-02) ##
+
+ - Nuevo tema (bubbles)
+ - Actualizado harp a la versión 0.12.1
+ - Otras mejoras
+
 ## 6.7.0 (2014-06-16) ##
 
  - Añadida navegación 'atrás' con ajax.

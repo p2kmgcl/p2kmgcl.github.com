@@ -6,12 +6,13 @@
 		themes = [
 			"blank",
 			"loremipsum",
-			"tiles"
+			"tiles",
+			"bubbles"
 		],
 		themesPool = [],
 
 		// Tema por defecto
-		currentTheme = "tiles";
+		currentTheme = "bubbles";
 
 	randomButton.className = "randomTheme fa fa-random";
 	randomButton.title = "Press me!";

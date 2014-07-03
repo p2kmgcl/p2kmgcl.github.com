@@ -1,0 +1,163 @@
+html.section_articles {
+	.sectionTitle { color: @green; }
+
+	.newArticlesAlert {
+		border-radius: 0.25em;
+		max-width: 450px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	// Navegación con la lista de los artículos
+	nav.articles {
+		text-align: center;
+
+		// Búsqueda para el filtrado de artículos
+		> div.search {
+			> input {
+				margin: 0 auto;
+				width: 97.5%;
+				max-width: 20em;
+				border-right: solid 2px @green;
+				border-bottom: solid 2px @green;
+				border-radius: 0.25em;
+				font-family: inherit;
+				font-size: 1em;
+				display: block;
+				background-color: #fafafa;
+			}
+		}
+
+		> ul {
+			list-style: none;
+			padding-left: 0;
+			max-width: 480px;
+			margin: 0 auto;
+			margin-top: 1em;
+			text-align: center;
+			border-radius: 0.25em;
+			overflow: hidden;
+
+			> li {
+				> a {
+					text-decoration: none;
+					display: block;
+					background-color: fadeout(@green, 25%);
+					opacity: 1;
+					padding: 0.5em 0.5em;
+					margin: 0 auto;
+					text-align: center;
+					transition: background-color ease 0.3s;
+					outline: none;
+
+					&:hover {
+						background-color: fadeout(lighten(@green, 20%), 25%);
+					}
+					&:active {
+						transition-duration: 0.1s;
+						background-color: fadeout(@green, 25%);
+					}
+				}
+
+				&:nth-child(even) > a {
+					background-color: fadeout(lighten(@green, 10%), 25%);
+					&:hover {
+						background-color: fadeout(lighten(@green, 20%), 25%);
+					}
+					&:active {
+						background-color: fadeout(lighten(@green, 10%), 25%);
+					}
+				}
+
+				// Artículo que ha sido filtrado en la búsqueda. Por defecto se le aplica display: none.
+				&.hidden {}
+			}
+		}
+
+		// Elemento que se muestra cuando se filtran todos los artículos. Para mostrarlo se le quita una clase .hidden que por defecto tiene activada.
+		> .notFound {
+			text-decoration: none;
+			display: inline;
+			background-color: fadeout(@green, 25%);
+			opacity: 1;
+			padding: 0.5em 2em;
+			text-align: center;
+			border-radius: 0.25em;
+			position: relative;
+			top: 0.5em;
+
+			@media (max-width: 480px) {
+				display: block;
+			}
+
+			&.hidden {
+				display: none;
+			}
+		}
+	}
+
+	// Artículo completo
+	article.article {
+		max-width: 540px;
+		padding: 0 15px;
+		margin: 0 auto;
+
+		> h2.articleTitle {
+			color: @green;
+			text-shadow: 1px 1px 0 black;
+			text-align: center;
+
+			// Puede usarse para hacer que un título se quede fijo en la parte superior de la pantalla. Desde JavaScript se le da la posición "top" adecuada.
+			&.pinnedTitle {}
+		}
+		
+		// Estas son las etiquetas que se suelen encontrar dentro de un artículo.
+		> p,
+		> blockquote {
+			text-align: justify;
+		}
+	
+		// Enlaces para enviarlo a las redes sociales
+		> ul.shareButtons {
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+			
+			> li {
+				display: inline-block;
+				margin: 0.5em 0.5em;
+
+				&.googleplus:hover > a { background-color: #C61800; color: white; }
+				&.twitter:hover > a { background-color: #4099FF; color: white; }
+				&.facebook:hover > a { background-color: #3B5998; color: white; }
+				&.linkedin:hover > a { background-color: #0083B5; color: white; }
+
+				&.googleplus > a { .bubble(96px, 0); }
+				&.twitter > a { .bubble(96px, 1); }
+				&.facebook > a { .bubble(96px, 2); }
+				&.linkedin > a { .bubble(96px, 3); }
+
+				@media (max-width: 640px) {
+					&.googleplus > a { .bubble(64px, 0); }
+					&.twitter > a { .bubble(64px, 1); }
+					&.facebook > a { .bubble(64px, 2); }
+					&.linkedin > a { .bubble(64px, 3); }
+				}
+				@media (max-width: 480px) {
+					&.googleplus > a { .bubble(48px, 0); }
+					&.twitter > a { .bubble(48px, 1); }
+					&.facebook > a { .bubble(48px, 2); }
+					&.linkedin > a { .bubble(48px, 3); }
+				}
+
+				> a {
+					background-color: #eee;
+					> i {}
+					> span {
+						.hidden;
+					}
+				}
+			}
+		}
+	}
+}
