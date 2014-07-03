@@ -54,6 +54,7 @@
 
 			changeScript = function (currentTheme) {
 				delete window.p2kmgcl.canvasMagic;
+				delete window.p2kmgcl.onKonamiCode;
 				if (canvasScript) {	document.body.removeChild(canvasScript); }
 				$context.clearRect(0, 0, $canvas.width, $canvas.height);
 				canvasScript = document.createElement('script');
