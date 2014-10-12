@@ -2,7 +2,12 @@ language: "javascript"
 node_js:
  - "0.10"
 install: npm install -g harp
-script: make build
+script:
+ - make build
+ - make publish
+ - git commit -a -m "Travis build ${TRAVIS_COMMIT}"
+ - git push origin master
+ - git checkout main
 branches:
  only:
   - main
