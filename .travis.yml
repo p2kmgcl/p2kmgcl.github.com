@@ -1,0 +1,8 @@
+language: "javascript"
+node_js:
+ - "0.10"
+install: make install
+script: make build
+branches:
+ only:
+  - main
