@@ -1,26 +1,9 @@
 language: "javascript"
 node_js:
  - "0.10"
-before_install:
- - git config --global user.name "Pablo Molina"
- - git config --global user.email p2kmgcl@gmail.com
 install: npm install -g harp
 script:
  - make build
- - rm -rf output
- - rm -rf .tmp
- - mkdir .tmp
- - harp compile app output
- - mv output .tmp/pablomolina_me_tempbuild
- - cp CNAME .tmp/pablomolina_me_tempbuild/
- - git fetch origin
- - git checkout -b master origin/master
- - rm -rf *
- - cp -rf .tmp/pablomolina_me_tempbuild/* ./
- - rm -rf .tmp
- - git commit -a -m "Travis build ${TRAVIS_COMMIT}"
- - git push origin master
- - git checkout main
 branches:
  only:
   - main
