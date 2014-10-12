@@ -1,7 +1,7 @@
 language: "javascript"
 node_js:
  - "0.10"
-install: make install
+install: npm install -g harp
 script: make build
 branches:
  only:
