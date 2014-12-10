@@ -1,3 +1,7 @@
+## 6.9.0 (2014-12-10) ##
+
+ - Actualizado favicon
+
 ## 6.8.0 (2014-07-02) ##
 
  - Nuevo tema (bubbles)
