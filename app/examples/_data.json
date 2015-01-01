@@ -1,4 +1,5 @@
 {
     "pomodoro": { "title": "Contador pomodoro hecho con javascript" },
-    "message-sender": { "title": "Envío de mensajes encriptados con el cuadrado perfecto"}
+    "message-sender": { "title": "Envío de mensajes encriptados con el cuadrado perfecto"},
+    "timer": { "title": "Contador de ejercicio" }
 }
