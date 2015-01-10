@@ -2,53 +2,26 @@
 	"folders":
 	[
 		{
-			"name": "articles",
-			"path": "app/articles",
-			"file_exclude_patterns": ["_layout.jade"]
-		},
-		{
-			"name": "examples",
-			"path": "app/examples",
-			"file_exclude_patterns": ["_layout.jade"]
-		},
-		{
-			"name": "projects",
-			"path": "app/projects",
-			"file_exclude_patterns": ["index.jade", "_layout.jade"]
-		},
-		{
-			"name": "pages",
-			"path": "app",
-			"file_include_patterns": ["*.jade"],
-			"file_exclude_patterns": ["_layout.jade", "*.xml.jade"],
-			"folder_exclude_patterns": ["*"]
-		},
-		{
-			"name": "theme",
-			"path": "app/themes/_bubbles"
-		},
-		{
-			"name": "modules",
-			"path": "app/modules"
-		},
-		{
-			"name": "layouts",
-			"path": "app",
-			"file_include_patterns": ["_layout.jade", "_partials/*"],
-			"folder_exclude_patterns": ["themes", "projects", "modules", "assets"]
-		},
-		{
-			"name": "all",
-			"path": "."
+			"follow_symlinks": true,
+			"path": ".",
+			"folder_exclude_patterns":
+			[
+				".tmp",
+				".sass-cache",
+				"dist",
+				"node_modules",
+				"bower_components"
+			]
 		}
 	],
-
+ 
 	"settings":
 	{
-		"tab_size": 4,
 		"translate_tabs_to_spaces": false,
 		"rulers": [80, 100],
-		"word_wrap": true,
-		"wrap_width": 90
+		"indent_to_bracket": false,
+		"ensure_newline_at_eof_on_save": true,
+		"default_encoding": "UTF-8",
+		"default_line_ending": "LF"
 	}
 }

@@ -1,5 +1,8 @@
-User-agent: *
-Disallow: /assets/
+# robotstxt.org/
+
+User-agent: * 
 Disallow: /examples/
-Disallow: /modules/
-Disallow: /themes/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /scripts/
+Disallow: /styles/

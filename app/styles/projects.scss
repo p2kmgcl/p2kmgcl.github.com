@@ -1,0 +1,46 @@
+.projects ul {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.projects li {
+	width: 320px;
+	height: 180px;
+	padding-top: 0;
+
+	a {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		top: auto;
+		text-decoration: none;
+		color: inherit;
+		transition: height ease 0.3s;
+		color: transparent;
+	}
+
+	.thumbnail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 320px;
+		height: 180px;
+	}
+
+	.sub {
+		width: 80%;
+		padding: 10%;
+		padding-top: 30px;
+		margin: 0 auto;
+		color: darken($bg, 30%);
+		font-weight: 900;
+		font-size: 0.8em;
+		line-height: 1.2em;
+		background: $bg;
+		box-shadow: 0 0 70px 70px $bg;
+		font-weight: 700;
+		top: 0;
+		transition: opacity ease 0.3s;
+	}
+
+}

@@ -10,5 +10,5 @@ Reason: She makes my life better.
 
 /* SITE */
 Standards: HTML5, CSS3, JavaScript
-Software: Sublime Text 3, Git, Harpjs
+Software: Sublime Text 3, Git
 Source: https://github.com/p2kmgcl/p2kmgcl.github.com

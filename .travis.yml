@@ -1,9 +1,12 @@
 language: "javascript"
 node_js:
  - "0.10"
-install: npm install -g harp
+install:
+ - npm install -g gulp bower
+ - npm install
+ - bower install
 script:
- - make build
+ - gulp build
 branches:
  only:
   - main
