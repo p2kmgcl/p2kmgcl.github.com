@@ -19,7 +19,7 @@ body {
 
 body {
 	font-family: 'Raleway';
-	font-weight: 100;
+	font-weight: 400;
 	font-size: $fs;
 	color: $color;
 	background-color: $bg;
@@ -32,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 100;
+	font-weight: inherit;
 }
 
 article {
