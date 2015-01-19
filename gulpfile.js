@@ -18,7 +18,8 @@ var	gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect'),
 	size = require('gulp-size'),
-	deploy = require('gulp-gh-pages');
+	deploy = require('gulp-gh-pages'),
+	manifest = require("gulp-manifest");
 
 ////////////////////////////////////////////////////////////////////////////////
 gulp.task('build', ['content', 'images', 'styles'],
@@ -27,6 +28,7 @@ function () {});
 ////////////////////////////////////////////////////////////////////////////////
 gulp.task('clean',
 function () {
+	del(TMP);
 	del(DIST);
 });
 
@@ -71,6 +73,23 @@ function () {
 	.pipe(optipng({ optimizationLevel: 3 })())
 	.pipe(gulp.dest(TMPAPP))
 	.pipe(livereload());
+});
+
+////////////////////////////////////////////////////////////////////////////////
+gulp.task('manifest', ['build', 'clean'],
+function () {
+	return gulp.src(TMPAPP + '/**/*')
+    .pipe(manifest({
+    	exclude: [
+    		'app.manifest',
+    		'sitemap.xml',
+    		'robots.txt',
+    		'humans.txt',
+    		'CNAME'
+    	],
+    	timestamp: true
+    }))
+    .pipe(gulp.dest(TMPAPP));
 });
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -129,7 +148,7 @@ gulp.task('serve', ['webserver'],
 function () {});
 
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('dist', ['clean', 'build'],
+gulp.task('dist', ['clean', 'build', 'manifest'],
 function () {
 	return gulp.src(TMPAPP + '/**/*')
 	.pipe(size({ title: 'App', gzip: false }))
