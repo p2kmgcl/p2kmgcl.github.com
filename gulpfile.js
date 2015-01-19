@@ -143,7 +143,7 @@ function () {
 	return gulp.src(DIST + '/**/*').pipe(deploy({
 		origin: 'origin',
 		branch: 'master',
-		cacheDir: 'TMPGIT',
+		cacheDir: TMPGIT,
 		push: true
 	}));
 });
