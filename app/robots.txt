@@ -2,7 +2,3 @@
 
 User-agent: * 
 Disallow: /examples/
-Disallow: /fonts/
-Disallow: /images/
-Disallow: /scripts/
-Disallow: /styles/
