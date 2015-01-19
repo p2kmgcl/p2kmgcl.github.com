@@ -6,11 +6,11 @@
 			"path": ".",
 			"folder_exclude_patterns":
 			[
-				".tmp",
-				".sass-cache",
-				"dist",
+				//".tmp",
+				//".sass-cache",
+				//"dist",
 				"node_modules",
-				"bower_components"
+				//"bower_components"
 			]
 		}
 	],
