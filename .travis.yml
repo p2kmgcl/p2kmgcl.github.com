@@ -4,7 +4,7 @@ node_js:
 before_install:
  - sudo apt-get install rubygems
  - sudo gem install sass
- - sudo npm install -g gulp bower
+ - npm install -g gulp bower
 install:
  - npm install
  - bower install
