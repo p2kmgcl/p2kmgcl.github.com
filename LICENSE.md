@@ -1,6 +1,6 @@
 En contenido visualizado en esta página se encuentra bajo una licencia Creative
 Commons de Atribución al autor (más información en [la web de la licencia](
-http://creativecommons.org/licenses/by/3.0/deed.es)), por lo que cualquier uso
+http://creativecommons.org/licenses/by/3.0/)), por lo que cualquier uso
 del contenido mostrado en ella deberá referenciar a esta página y/o a su autor
 ([Pablo Molina](http://www.pablomolina.me)).
 
