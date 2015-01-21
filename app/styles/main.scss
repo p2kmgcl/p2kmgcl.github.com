@@ -86,7 +86,7 @@ article:nth-child(odd) {
 }
 
 article:first-child:before {
-	display: none;
+	@include hidden;
 }
 
 article::before,

@@ -8,7 +8,7 @@
 	.required-message,
 	.error-message,
 	.ss-password-warning {
-		display: none;
+		@include hidden();
 	}
 
 	input,
