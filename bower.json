@@ -1,6 +1,6 @@
 {
 	"name": "pablomolina.me",
-	"version": "7.1.1",
+	"version": "7.1.2",
 	"description": "Web personal de Pablo Molina",
 	"homepage": "http://www.pablomolina.me",
 	"repository": "http://github.com/p2kmgcl/p2kmgcl.github.com",
@@ -16,7 +16,7 @@
 	  "email": "contacto@pablomolina.me",
 	  "url": "http://pablomolina.me"
 	},
-	"license": "Read LICENSE",
+	"license": "Read LICENSE.md",
 	"dependencies": {
 		"normalize.css": "~3.0.2"
 	}
