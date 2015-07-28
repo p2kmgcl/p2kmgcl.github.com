@@ -1,0 +1,64 @@
+title: 'Pablo Molina'
+email: 'contacto@pablomolina.me'
+
+
+description: >
+    Enlaces, contacto y proyectos de Pablo Molina. Esta web está pensada para un
+    primer vistazo de lo que soy capaz de hacer y de algunas metas personales.
+
+source_url:        'https://github.com/p2kmgcl/p2kmgcl.github.com/tree/master'
+url:               'http://www.pablomolina.me'
+baseurl:           '' # Example: '/subfolder'
+permalink:         '/:title/index.html'
+excerpt_separator: '- - -'
+
+exclude:
+    - run.sh
+    - Gemfile
+    - LICENSE.md
+    - README.md
+    - Vagrantfile
+    - .c9
+    - .git
+    - .sass-cache
+    - .vagrant_scripts
+
+defaults:
+    - scope:
+        path: ''
+      values:
+        lang: 'es'
+        layout: 'default'
+        back_url: '  '
+        back_text: 'pablomolina.me'
+    - scope:
+        path: ''
+        type: 'posts'
+      values:
+        layout: 'post'
+        back_url: 'tessera/'
+        back_text: "tessera"
+    - scope:
+        path: 'gist'
+      values:
+        layout: 'post/gist'
+        category: 'gist'
+    - scope:
+        path: 'ancient'
+      values:
+        layout: 'post/content'
+        category: 'post'
+    - scope:
+        path: 'slide'
+      values:
+        layout: 'post/slide'
+        category: 'slide'
+    - scope:
+        path: 'mote'
+      values:
+        layout: 'post/mote'
+        category: 'mote'
+
+markdown: 'kramdown'
+sass:
+    style: 'compressed'

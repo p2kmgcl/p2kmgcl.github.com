@@ -1,0 +1,144 @@
+---
+title: Búsqueda Tabú Multiarranque para el Problema de la Asignación Cuadrática
+theme: simple
+---
+
+# {{ page.title }}
+
+- - -
+
+## El problema de la asignación cuadrática
+
+- Pertenece a los problemas np-duros.
+- Consiste en la asignación de n unidades a n localizaciones optimizando:
+
+  $$
+    min_{p \in P}z(P) =
+        \sum_{i = 1}^{n}
+        \sum_{j = 1}^{n}
+        f_{i, j}d_{p(i), p(j)}
+  $$
+
+- Los algoritmos clásicos no son capaces de resolver el problema en tiempos
+  razonables.
+
+- - -
+
+## Búsqueda Tabú
+
+Se ofrece como posible solución al problema QAP
+
+    MIENTRAS !criterioDeParada()
+        actualizarListaTabu()
+        actualizarSolucionActual()
+
+        SI esLaMejorSolucion()
+        ENTONCES
+            guardarMejorSolucion()
+        SI_NO
+            numero_fallos++
+            SI numero_fallos == fallos_permitidos
+            ENTONCES
+                diversificar()
+                numero_fallos = 0
+            FIN_SI
+        FIN_SI
+    FIN_MIENTRAS
+
+- -
+
+## Búsqueda Tabú
+
+Observamos dos elementos principales
+
+- Lista tabú.
+  - Movimientos prohibidos.
+  - Cada elemento posee una tenencia.
+- Memoria a largo plazo.
+  - Información útil para las reinicializaciones.
+
+> ¿En qué consiste la diversificación?
+
+- -
+
+## Búsqueda Tabú
+
+### Multiarranque
+
+- Para diversificar reiniciamos nuestro algoritmo conservando cierta información
+  relevante.
+  - *Es distinto a un reinicio normal (`ILS`) porque guardamos más
+    información además de la mejor solución.*
+
+- Se distinguen dos tipos de diversificación:
+  - Continua: transformamos la solución actual.
+  - Discontinua: construimos una nueva solución.
+
+- - -
+
+## Variaciones de la Búsqueda Tabú - RTS
+
+- Diversificación continua.
+- Modificación dinámica de la tenencia tabú.
+- Uso de un factor de prohibición para sacar elementos de la lista tabú.
+
+- -
+
+## Variaciones de la Búsqueda Tabú - RDTS
+
+- Diversificación continua.
+- Se mantiene la solución actual eliminando la lista tabú por completo.
+- Aporta diversificación sólo de forma local.
+
+- -
+
+## Variaciones de la Búsqueda Tabú - TTMTS
+
+- Diversificación continua.
+- Se usa un intervalo de dos valores como tenencia tabú (dependientes de la
+  instancia del problema).
+- Los valores del intervalo se modifican con cada reinicio para intensificar o
+  diversificar.
+
+- -
+
+## Variaciones de la Búsqueda Tabú - RRTS
+
+- Diversificación discontinua.
+- Generamos una solución aleatoria.
+- Eliminamos todo rastro de memoria.
+
+- -
+
+## Variaciones de la Búsqueda Tabú - BSFTS
+
+- Diversificación discontinua.
+- Guardamos la mejor solución de la iteración para efectuar el reinicio.
+- Eliminamos todo rastro de memoria.
+- Comportamiento similar al RDTS.
+
+- -
+
+## Variaciones de la Búsqueda Tabú - DivTS
+
+- Diversificación discontinua.
+- La nueva solución es una mezcla de la mejor solución encontrada y
+  transformaciones hechas con menor frecuencia.
+- Favorece la exploración de nuevos entornos.
+
+<style>
+.slide p {
+    text-align: left;
+}
+
+.slide h1 {
+    font-size: 72pt;
+}
+
+.slide h2,
+.slide h3 {
+    opacity: 0.4;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+</style>

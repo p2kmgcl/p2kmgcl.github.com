@@ -1,0 +1,33 @@
+---
+---
+
+{% assign mote_id = 'mote/' | append:page.title | append:'/' %}
+
+{% comment %}
+    First we write all load dependencies
+{% endcomment %}
+{% assign mote_import = mote_id | append:'import.html' %}
+<link rel="import" href="{{ site.baseurl }}/js/polymer.html" />
+{% include {{ mote_import }} %}
+
+{% comment %}
+    Now we build the complete component result.
+{% endcomment %}
+<dom-module id="{{ page.title }}">
+    {% assign mote_style = mote_id | append:'index.sass' %}
+    {% assign mote_template = mote_id | append:'index.html' %}
+    {% assign mote_script = mote_id | append:'index.js' %}
+    {% capture mote_style %}{% include {{ mote_style }} %}{% endcapture %}
+
+    <style>{{ mote_style | sassify }}</style>
+    <template>{% include {{ mote_template }} %}</template>
+    <script>{% include {{ mote_script }} %}</script>
+</dom-module>
+
+{% comment %}
+    We store our demo inside a template.
+{% endcomment %}
+<template id="mote_demo">
+    {% assign mote_demo = mote_id | append:'demo.html' %}
+    {% include {{ mote_demo }} %}
+</template>

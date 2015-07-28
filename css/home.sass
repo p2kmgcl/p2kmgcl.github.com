@@ -1,0 +1,318 @@
+---
+---
+
+$color:           #11161F
+$color-bg:        #FFFFFA
+$color-header-bg: #00b4ff
+$color-tag:       darken($color-header-bg, 20%)
+$color-h:         $color-header-bg
+$color-h2:        $color-h
+$color-h2-lines:  $color-header-bg
+$color-h3:        $color-h
+$color-h3-2:      $color-bg
+$color-h3-bg:     $color-tag
+$color-h4:        $color-h3
+
+$logo-height: 126px
+$photo-displacement: 2vw
+$photo-width: 130px
+$on-palm: 600px
+$spacing-unit: 30px
+
+// ---
+
+.page-content
+    padding-bottom: $spacing-unit
+
+.site-footer
+    position: relative
+    top: auto
+    bottom: auto
+    transform: none
+    padding: $spacing-unit 0
+    white-space: normal
+    &:hover
+        transform: none
+        box-shadow: none
+        background-color: transparent
+
+.homeHeader
+    $size: 0.4em
+    $duration: 0.3s
+    $home-header-color: mix($color-bg, $color-header-bg, 50%)
+    $home-header-color-hover: mix($color-bg, $color-header-bg, 25%)
+
+    padding: 1em 0
+    font-weight: 400
+
+    @media (max-width: 22cm)
+        padding: 0.5em 1em
+
+    a,
+    a:active
+        color: $home-header-color
+
+    a:hover
+        color: $home-header-color-hover
+
+    ul
+        list-style: none
+        padding: 0
+        margin: 0
+        float: right
+        cursor: default
+        color: $home-header-color
+
+    li
+        display: inline-block
+        position: relative
+
+        i
+            font-size: 0.8em
+            padding: 0.25em
+            background-color: $home-header-color
+            color: $color-bg
+            border-radius: 3px
+
+        span
+            top: 2em
+            right: 0.4em
+            padding: 0.25em 0.5em
+            display: inline-block
+            position: absolute
+            background-color: $color
+            color: $color-bg
+            z-index: -1
+            opacity: 0
+            white-space: nowrap
+            transform: translateY(-20%)
+            border-radius: 3px
+            transition: all ease $duration, z-index linear 0s $duration
+
+        span::before
+            content: ''
+            position: absolute
+            top: -$size
+            right: 0
+            width: 0
+            height: 0
+            border-top: $size solid transparent
+            border-bottom: $size solid transparent
+            border-right: $size solid $color
+
+        &:hover
+            i
+                background-color: $home-header-color-hover
+
+            span
+                z-index: 1000
+                opacity: 0.9
+                transform: translateY(0)
+                transition: all ease $duration
+
+    ul:first-child
+        float: left
+
+        span
+            right: auto
+            left: 0.4em
+
+        span::before
+            left: 0
+            right: auto
+            border-top: $size solid transparent
+            border-bottom: $size solid transparent
+            border-right: none
+            border-left: $size solid $color
+
+.homeWrapper
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
+    padding-top: 13vmin
+    padding-bottom: $spacing-unit
+    text-align: center
+    max-width: calc(21cm - #{$spacing-unit} * 2)
+    overflow: hidden
+    color: $color
+    background-color: $color-bg
+
+.homeWrapper > article
+
+    >header
+        >h1
+            background: url({{ site.baseurl }}/assets/logo.png)
+            background-repeat: no-repeat
+            background-position: top center
+            background-size: contain
+            border: none
+            box-shadow: none
+            color: transparent
+            font-size: 0
+            height: 24vw
+            margin: 0 auto
+            max-height: $logo-height
+            max-width: 90%
+            opacity: 0.95
+            width: 100vw
+            z-index: 10
+            position: relative
+
+        >figure
+            position: relative
+
+            >img
+                border-radius: 50%
+                margin: 0 auto
+                position: relative
+                top: -$photo-displacement
+                max-width: $photo-width
+                width: 20vw
+                z-index: 2
+                box-shadow: 0 4px 0 rgba(0, 0, 0, .12)
+
+            &:before
+                content: ''
+                position: absolute
+                top: -100vh
+                left: -$spacing-unit
+                right: -$spacing-unit
+                bottom: calc(50% + #{$photo-displacement})
+                background-color: $color-header-bg
+                box-shadow: 0 4px 0 rgba(0, 0, 0, .12)
+                z-index: auto
+
+    >section
+        padding: 0 2cm
+        padding-top: 2em
+
+        @media (max-width: $on-palm)
+            padding: 0 4vw
+
+        h2
+            border-top: solid thin $color-h2-lines
+            border-bottom: solid thin $color-h2-lines
+            color: $color-h2
+            margin-bottom: 1em
+            padding: 0.25em 0
+            text-transform: uppercase
+
+            @media (max-width: $on-palm)
+                font-size: 1.25em
+
+        h3
+            color: $color-h3
+            font-weight: 400
+            text-align: left
+
+        ul,
+        p
+            list-style-type: square
+            text-align: left
+
+    >section.awards,
+    >section.extra-formation,
+    >section.personal-projects
+        h3
+            background-color: $color-h3-bg
+            color: $color-h3-2
+            display: inline-block
+            font-weight: 400
+            text-align: left
+            float: left
+            font-size: 1em
+            padding: 0.25em 1em
+            text-transform: uppercase
+
+        h4
+            clear: both
+            color: $color-h4
+            font-weight: 400
+            text-align: left
+            font-size: 1.17em
+
+    >section.personal-information
+        ul
+            text-align: right
+            list-style: none
+            margin-left: 0
+
+            >li
+                padding: 0.33em 0
+
+            >li:nth-child(odd)
+                text-align: left
+                float: left
+
+            li>span:first-child
+                color: $color-tag
+                display: block
+                font-size: 0.8em
+                line-height: 0.8em
+                text-transform: uppercase
+
+            @media (max-width: $on-palm)
+                text-align: left
+                >li:nth-child(odd)
+                    float: none
+
+            a
+                color: inherit
+
+    ul.professional-experience-data
+        list-style: none
+        margin-left: 0
+
+    @media print
+        $photo-displacement: 0.5cm
+        background-color: white
+
+        >header
+            >h1
+                height: $logo-height
+                margin-top: 2.5cm
+                width: 90%
+                background-image: url({{ site.baseurl }}/assets/logo_black.png)
+
+            >figure>img
+                box-shadow: none
+                top: -$photo-displacement
+                width: $photo-width
+
+            >figure:before
+                display: none
+
+        >section,
+        >section section
+            page-break-inside: avoid
+
+        >section.personal-information,
+        >section.personal-information h2,
+        >section.professional-experiences,
+        >section.professional-experiences h2
+            page-break-inside: auto
+            page-break-before: auto
+
+        >section.personal-projects
+            page-break-before: always
+
+        >section.personal-information ul
+            @media (max-width: $on-palm)
+                text-align: right
+                >li:nth-child(odd)
+                    float: left
+
+@page
+    margin: 2.5cm
+
+@page :first
+    margin-top: 0
+
+@media print
+    .site-footer
+        display: none
+
+    .homeHeader
+        display: none
+
+    .homeWrapper
+        box-shadow: none
+        padding: 0

@@ -1,0 +1,6 @@
+# robotstxt.org/
+
+User-agent: *
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/

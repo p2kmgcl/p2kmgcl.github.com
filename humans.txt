@@ -1,0 +1,13 @@
+/* TEAM */
+Webmaster: Pablo Molina
+Contact: contact@pablomolina.me
+Website: http://pablomolina.me/
+Location: Spain
+
+/* THANKS */
+Name: Lorena Garrido - https://plus.google.com/106295122995551671658/
+Reason: She makes my life better.
+
+/* SITE */
+Software: Jekyll, Github Pages
+Source: https://github.com/p2kmgcl/p2kmgcl.github.com

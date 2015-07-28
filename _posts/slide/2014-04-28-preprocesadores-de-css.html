@@ -1,0 +1,235 @@
+---
+title: Preprocesadores de CSS
+theme: simple
+---
+
+# Preprocesadores de CSS
+
+- - -
+
+Son lenguajes que nos permiten crear hojas de estilo dinámicas que se
+convertirán en CSS.
+
+{% highlight sass %}
+$col: #123456
+$colDark: darken($col, 20%)
+
+=title ($fs: 5em, $col: $col)
+    color: $col
+    font-size: $fs
+    text-shadow: saturate($col, 10%)
+
+.myPage
+    .myMainTitle
+        +title(10em)
+    .myTitle
+        +title()
+    .mySubTitle
+        +title(2.5em, $colDark)
+{% endhighlight %}
+
+{% highlight css %}
+.myPage .myMainTitle {
+    font-size: 10em;
+    color: #123456;
+    text-shadow: #0d345b;
+}
+.myPage .myTitle {
+    font-size: 5em;
+    color: #123456;
+    text-shadow: #0d345b;
+}
+.myPage .mySubTitle {
+    font-size: 2.5em;
+    color: #000102;
+    text-shadow: #000102;
+}
+{% endhighlight %}
+
+- - -
+
+## Lenguages predominantes
+
+- [LESS](http://lesscss.org/):
+    - Escrito en JavaScript.
+    - No altera sintaxis CSS.
+- [SASS](http://sass-lang.com/):
+    - Escrito en ruby.
+    - Da opción de simplificar la escritura eliminando llaves y demás.
+- [Stylus](http://learnboost.github.io/stylus/):
+    - Basado en JavaScript (sólo nodejs).
+    - Da opción de simplificar la escritura eliminando llaves y demás.
+
+- - -
+
+## Opciones de uso
+En general podemos distinguir dos tendencias:
+
+- CSS purista (posteriormente compilado).
+- Uso de LESS o SASS en función usar ruby o nodejs.
+- Los potenciales usuarios de Stylus suelen decantarse más por LESS.
+
+- - -
+
+## Utilidades
+
+- Minimizan el resultado de las hojas de estilo para reducir su tamaño. <em>Este
+    punto no es realmente innovador, que puede hacerse directamente con
+    compresores de CSS.</em>
+
+- Añaden diversas utilidades para que programar CSS sea menos redundante.
+    - Variables.
+    - Anidado de reglas.
+    - Creación de “mixins”.
+    - Manipulación de valores.
+
+- -
+
+## Utilidades: variables
+
+{% highlight sass %}
+$col: #123456
+.myPage .myMainTitle
+    color: @col
+{% endhighlight %}
+
+{% highlight css %}
+.myPage .myMainTitle {
+    color: #123456;
+}
+{% endhighlight %}
+
+- -
+
+## Utilidades: anidado
+
+{% highlight sass %}
+.myPage
+    .myMainTitle
+    .myTitle
+    .mySubTitle
+{% endhighlight %}
+
+{% highlight css %}
+.myPage .myMainTitle {}
+.myPage .myTitle {}
+.myPage .mySubTitle {}
+{% endhighlight %}
+
+- -
+
+## Utilidades: funciones
+
+{% highlight sass %}
+$col: #123456
+.myPage .myMainTitle
+    color: $col
+    background: saturate($col, 10%)
+{% endhighlight %}
+
+{% highlight css %}
+.myPage .myMainTitle {
+    color: #123456;
+    background: #0d345b;
+}
+{% endhighlight %}
+
+- -
+
+## Utilidades: mixins
+
+{% highlight scss %}
+@mixin button(@size: 0.5em) {
+    font-size: @size;
+    border-radius: 0.25em;
+    display: inline-block;
+}
+
+@mixin buttonBlue() {
+    @include button(1em);
+    color: blue;
+    background-color: lightblue;
+}
+
+div button {
+    @include buttonBlue;
+    // Más estilos muy chulis
+}
+{% endhighlight %}
+
+{% highlight css %}
+div button {
+    font-size: 1em;
+    border-radius: 0.25em;
+    display: inline-block;
+    color: blue;
+    background-color: lightblue;
+}
+{% endhighlight %}
+
+- - -
+
+## Caso de uso: LESS + CodeIgniter
+
+Distinguimos dos entornos en los que necesitamos utilizar nuestro preprocesador
+de CSS:
+
+- Desarrollo: compilación rápida de las hojas de estilo y nada de cacheado.
+- Producción: hojas de estilo compiladas, minimizadas y cacheadas.
+
+> lessphp al rescate
+
+- -
+
+## Caso de uso: LESS + CodeIgniter
+
+Para utilizar lessphp:
+
+1. Guardar correctamente el fichero lessphp.php dentro de nuestro proyecto
+    de CodeIgniter.
+2. Crear ficheros .less en una ruta accesible desde el exterior (añadir
+    excepciones a ficheros .htaccess).
+3. Crear script de compilación para cachear el código generado.
+
+> Pausa para ejemplo
+
+- - -
+
+## Conclusión
+
+Los preprocesadores de CSS:
+
+- Son una herramienta fácil de incorporar a nuestro proyecto.
+- Nos ahorran un par de kilobytes que pueden ser cruciales.
+- Facilitan la modularización del CSS.
+- Evitan en muchas ocasiones la repetición de código.
+
+- - -
+
+## Recursos
+
+- [Comparing SASS, LESS and Stylus](http://www.slideshare.net/patricka1/css-preprocessors-sass-less-and-stylus).
+- [CSSTricks preprocessors use poll](http://css-tricks.com/poll-results-popularity-of-css-preprocessors).
+- [SASS vs LESS](http://www.hongkiat.com/blog/sass-vs-less/).
+- [Port LESS to CodeIgniter](http://ellislab.com/forums/viewthread/164741/).
+
+<style>
+@media screen {
+    .highlight {
+        width: 50%;
+        margin: 0;
+        float: left;
+    }
+}
+
+.slide p {
+    text-align: left;
+}
+
+.slide h2,
+.slide h3 {
+    opacity: 0.4;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+</style>

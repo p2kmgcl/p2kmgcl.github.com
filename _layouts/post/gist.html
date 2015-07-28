@@ -1,0 +1,132 @@
+---
+layout: post
+---
+
+{% comment %}
+    Options for compilers:
+        page.html_compiler: 'markdown'   # none/markdown
+        page.css_compiler: 'sass'        # none/scss/sass
+        page.js_compiler: 'coffeescript' # none/coffeescript
+{% endcomment %}
+
+{% comment %}
+    Now we generate an unique sandbox_id for each post. Used for wrapping
+    everything (continue reading for more information).
+{% endcomment %}
+{% assign sandbox_id = 'sandbox-' | append: page.url | slugify %}
+
+{% comment %}
+    Then the content is splitted in three parts:
+     - content_content is the first part, will be rendered as html. All the
+       content will be wrapped inside div with "sandbox_id" id.
+     - content_style is the css wrapped with scss inside another "sandbox_id"
+       element.
+     - content_script contains javascript, we will provide a scoped variable
+       called 'SANDBOX_WRAPPER' which is the wrapper element of the gist. Also
+       the whole script is executed inside an anonymous self executed function,
+       so no variable is exposed.
+{% endcomment %}
+{% assign splitted_content = content | split: site.excerpt_separator %}
+{% assign content_content = splitted_content[0] %}
+{% assign content_style = splitted_content[1] %}
+{% assign content_script = splitted_content[2] %}
+
+{% comment %}
+    Now we compile our styles with either scss or sass and render them inside
+    an style tag.
+{% endcomment %}
+{% capture sandboxed_style %}
+    #{{ sandbox_id }} {
+        {% if page.css_compiler == 'scss' %}
+            {{ content_style | scssify }}
+        {% else if page.css_compiler == 'sass' %}
+            {{ content_style | sassify }}
+        {% else %}
+            {{ content_style }}
+        {% endif %}
+    }
+{% endcapture %}
+<style>
+    /* Sandboxed style id: {{ sandbox_id }} */
+    {{ sandboxed_style | scssify }}
+</style>
+
+{% comment %}
+    Then we render our content the same way, adding a 'sandbox' class too for
+    easy styling. We also wrap everything with another sandboxWrapper that will
+    be used as 'body' element.
+{% endcomment %}
+<div class="sandbox" id="{{ sandbox_id }}">
+    <div class="sandboxWrapper">
+        {% if page.html_compiler == 'markdown' %}
+            {{ content_content | markdownify }}
+        {% else %}
+            {{ content_content }}
+        {% endif %}
+    </div>
+</div>
+
+{% comment %}
+    Finaly we render the script. This part is a little more complex:
+     - If the script isn't coffeescript we just put everything inside a function
+       with the wrapper (see the `else` block).
+     - Otherwise we create a script tag with text/coffeescript type. Then we
+       dinamically load Coffeescript and compile all. This last part happens
+       inside the browser.
+{% endcomment %}
+{% if page.js_compiler == 'coffeescript' %}
+    <script id="coffee-{{ sandbox_id }}" type="text/coffeescript">
+SANDBOX_WRAPPER = document.querySelector '#{{ sandbox_id }} > .sandboxWrapper'
+{{ content_script }}
+    </script>
+    <script>(function () {
+        function runCode () {
+            var content = document.getElementById("coffee-{{ sandbox_id }}");
+            CoffeeScript.run(content.innerHTML);
+        }
+        if (typeof CoffeeScript !== 'object') {
+            var script = document.createElement('script');
+            script.onload = runCode;
+            script.src = '{{ site.baseurl }}/js/coffee-script.js';
+            document.body.appendChild(script);
+        } else {
+            runCode();
+        }
+    }());</script>
+{% else %}
+    <script>
+        (function () {
+            var SANDBOX_WRAPPER = document.querySelector(
+                "#{{ sandbox_id }} > .sandboxWrapper");
+            {{ content_script }}
+        }());
+    </script>
+{% endif %}
+
+{% comment %}
+    And we add a little script for 'full-screen-gists'
+{% endcomment %}
+<script>(function () {
+    var $button = document.createElement('a'),
+        $subtext = document.getElementById('site-subtext'),
+        buttonContent = '<i class="fa fa-expand"></i>',
+        buttonFullContent = '<i class="fa fa-compress"></i>',
+        fullWord = '?full',
+        href = window.location.href;
+
+    var showFull = function () {
+        document.body.className = 'body fullContent';
+        $button.innerHTML = buttonFullContent;
+    };
+
+    $button.innerHTML = buttonContent;
+    $button.className = 'sandboxFullScreenButton';
+    $button.href = "{{ page.url | prepend:site.baseurl }}?full";
+    $subtext.appendChild($button);
+
+    if (href.substr(href.length - fullWord.length) === '?full') {
+        document.body.className = 'body fullContent';
+        $button.innerHTML = buttonFullContent;
+        $button.href = "{{ page.url | prepend:site.baseurl }}";
+    }
+}());</script>

@@ -1,0 +1,17 @@
+{% if page.back_url != ' ' %}
+    <header class="site-header">
+        <div id="site-header-wrapper" class="wrapper">
+            <h1 class="site-title">
+                <a href="{{ site.baseurl }}/{{ page.back_url }}">
+                    <i class="fa fa-long-arrow-left"></i>
+                    {{ page.back_text }}
+                </a>
+            </h1>
+            <div id="site-subtext" class="site-subtext {{ page.categories }}">
+                {% if page.categories contains 'gist' %}
+                    {{ page.title }}
+                {% endif %}
+            </div>
+        </div>
+    </header>
+{% endif %}

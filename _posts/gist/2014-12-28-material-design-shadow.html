@@ -1,0 +1,64 @@
+---
+title: Material design shadow
+html_compiler: none
+css_compiler: scss
+js_compiler: none
+---
+
+<div class="box box1">1</div>
+<div class="box box2">2</div>
+
+- - -
+
+@mixin zdepth($depth: 1) {
+    $z0: 0 0    0    rgba(0, 0, 0, 0.00), 0 0    0    rgba(0, 0, 0, 0.00);
+    $z1: 0 1px  3px  rgba(0, 0, 0, 0.12), 0 1px  2px  rgba(0, 0, 0, 0.24);
+    $z2: 0 3px  6px  rgba(0, 0, 0, 0.16), 0 3px  6px  rgba(0, 0, 0, 0.23);
+    $z3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px  6px  rgba(0, 0, 0, 0.23);
+    $z4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    $z5: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+    @if      $depth == 0 { box-shadow: $z0; }
+    @else if $depth == 1 { box-shadow: $z1; }
+    @else if $depth == 2 { box-shadow: $z2; }
+    @else if $depth == 3 { box-shadow: $z3; }
+    @else if $depth == 4 { box-shadow: $z4; }
+    @else if $depth == 5 { box-shadow: $z5; }
+}
+
+@keyframes shadow1 {
+    from { @include zdepth(0); }
+    to   { @include zdepth(5); }
+}
+
+@keyframes shadow2 {
+    0%   { @include zdepth(0); }
+    20%  { @include zdepth(1); }
+    40%  { @include zdepth(2); }
+    60%  { @include zdepth(3); }
+    80%  { @include zdepth(4); }
+    100% { @include zdepth(5); }
+}
+
+.box {
+    background-color: #88f;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.25);
+    display: inline-block;
+    font-size: 10vmin;
+    font-weight: bold;
+    height: 25vmin;
+    line-height: 25vmin;
+    margin: 7.5vmin;
+    width: 25vmin;
+}
+
+.box1 { animation: shadow1 2s steps(5, end) infinite alternate; }
+.box2 { animation: shadow2 2s steps(1, end) infinite alternate; }
+
+.sandboxWrapper {
+    background-color: #eef;
+    text-align: center;
+}
+
+- - -

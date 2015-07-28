@@ -1,0 +1,30 @@
+---
+layout: default
+title: Tessera
+---
+
+<div class="tessera">
+    <h1 class="page-heading">Tessera</h1>
+    <p>Contraseña, dado, parte de un todo. Aquí dejo una mezcla de
+    investigaciones, experimentos, entradas de blog... lo que sea. Estará en
+    inglés, español o cualquier idioma con el que me sienta cómodo. Podría
+    desaparecer en cualquier momento, pero al menos está bien ordenada.</p>
+    <ul class="post-list">
+        {% for post in site.posts %}
+            <li data-categories="{{ post.categories }}">
+                <span class="post-meta">
+                    <span class="post-meta-categories {{ post.categories }}">
+                        {{ post.categories }}
+                    </span>
+                </span>
+                <a class="post-link" href="
+                {% if post.categories contains 'mote' %}
+                    {{ site.baseurl }}/tessera/mote/?{{ post.title }}
+                {% else %}
+                    {{ post.url | prepend: site.baseurl | remove: 'index.html' }}
+                {% endif %}
+                ">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
