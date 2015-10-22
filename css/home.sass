@@ -1,6 +1,12 @@
 ---
 ---
 
+// Some notes about styling:
+// - English people don't like having
+//   photos on a cv because of sex discrimination.
+
+// ---
+
 $color:           #11161F
 $color-bg:        #FFFFFA
 $color-header-bg: #00b4ff
@@ -135,6 +141,10 @@ $spacing-unit: 30px
     color: $color
     background-color: $color-bg
 
+    // If English, no photo
+    html.lang_en &
+        padding-top: 7vmin
+
 .homeWrapper > article
 
     >header
@@ -156,6 +166,10 @@ $spacing-unit: 30px
             z-index: 10
             position: relative
 
+            // If English, no photo
+            html.lang_en &
+                margin-bottom: $photo-displacement * 2
+
         >figure
             position: relative
 
@@ -169,6 +183,10 @@ $spacing-unit: 30px
                 z-index: 2
                 box-shadow: 0 4px 0 rgba(0, 0, 0, .12)
 
+                // If English, no photo
+                html.lang_en &
+                    display: none
+
             &:before
                 content: ''
                 position: absolute
@@ -180,12 +198,22 @@ $spacing-unit: 30px
                 box-shadow: 0 4px 0 rgba(0, 0, 0, .12)
                 z-index: auto
 
+                html.lang_en &
+                    bottom: 50%
+
     >section
         padding: 0 2cm
         padding-top: 2em
 
         @media (max-width: $on-palm)
             padding: 0 4vw
+
+        blockquote
+            font-size: 1em
+            text-align: left
+            margin: $spacing-unit / 2 auto
+            padding: $spacing-unit / 4 $spacing-unit / 2
+            background-color: rgba(0, 0, 0, 0.025)
 
         h2
             border-top: solid thin $color-h2-lines
@@ -263,7 +291,7 @@ $spacing-unit: 30px
 
     @media print
         $photo-displacement: 0.5cm
-        background-color: white
+        background-color: transparent
 
         >header
             >h1
@@ -271,6 +299,10 @@ $spacing-unit: 30px
                 margin-top: 2.5cm
                 width: 90%
                 background-image: url({{ site.baseurl }}/assets/logo_black.png)
+
+                // If English, no photo
+                html.lang_en &
+                    padding-bottom: $photo-displacement * 3
 
             >figure>img
                 box-shadow: none
@@ -301,12 +333,10 @@ $spacing-unit: 30px
                     float: left
 
 @page
-    margin: 2.5cm
-
-@page :first
-    margin-top: 0
+    margin-top: 20mm
 
 @media print
+
     .site-footer
         display: none
 
@@ -315,4 +345,11 @@ $spacing-unit: 30px
 
     .homeWrapper
         box-shadow: none
-        padding: 0
+        padding: 0 10mm
+
+    html,
+    body,
+    .homeWrapper,
+    article,
+    section
+        background-color: transparent
