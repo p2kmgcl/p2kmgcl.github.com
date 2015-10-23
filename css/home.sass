@@ -236,6 +236,9 @@ $spacing-unit: 30px
             list-style-type: square
             text-align: left
 
+        &.resume p
+            text-align: justify
+
     >section.awards,
     >section.extra-formation,
     >section.personal-projects
@@ -284,6 +287,11 @@ $spacing-unit: 30px
 
             a
                 color: inherit
+
+
+        html.lang_en &
+            @media (max-width: $on-palm)
+                padding-top: $spacing-unit
 
     ul.professional-experience-data
         list-style: none
