@@ -60,12 +60,12 @@
         {{ content }}
     </div>
     {% include footer.html %}
-    <script>
+    <script>(function () {
         // Preload print logo
         var img = document.createElement('img');
             img.src = '{{ site.baseurl }}/assets/logo_black.png';
             img.style.display = 'none';
             document.body.appendChild(img);
-    </script>
+    }());</script>
 </body>
 </html>

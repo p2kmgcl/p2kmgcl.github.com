@@ -238,6 +238,11 @@ $spacing-unit: 30px
 
         &.resume p
             text-align: justify
+            margin-bottom: $spacing-unit
+
+            @media print
+                margin-top: $spacing-unit * 2
+                margin-bottom: $spacing-unit * 4
 
     >section.awards,
     >section.extra-formation,
@@ -331,6 +336,13 @@ $spacing-unit: 30px
             page-break-inside: auto
             page-break-before: auto
 
+        >section h2
+            margin-top: $spacing-unit * 2
+
+        >section.personal-information h2,
+            margin-top: 0
+
+        >section.professional-experiences,
         >section.personal-projects
             page-break-before: always
 
@@ -341,6 +353,8 @@ $spacing-unit: 30px
                     float: left
 
 @page
+    margin-left: 20mm
+    margin-right: 20mm
     margin-top: 20mm
 
 @media print
