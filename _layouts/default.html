@@ -7,7 +7,7 @@
   <title>{{ page.title }}</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="descrition" content="{{ page.description }}">
   <meta name="keywords" content="{{ page.keywords }}">
   <meta name="distribution" content="web">
@@ -117,14 +117,13 @@
   <article>{{ content }}</article>
 
   <footer>
-    <a class="license" rel="license"
-        href="http://creativecommons.org/licenses/by/4.0/">
+    <div class="license" rel="license">
         <img class="license__image"
             alt="{{ page.license_alt }}"
             width="80" height="15"
             src="https://i.creativecommons.org/l/by/4.0/80x15.png">
         <span class="license__summary">{{ page.license_description }}</span>
-    </a>
+    </div>
 
     <a class="source"
       href="{{ site.source_url }}">
