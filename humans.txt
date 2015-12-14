@@ -1,11 +1,10 @@
 /* TEAM */
-Webmaster: Pablo Molina
+Owner: Pablo Molina
 Contact: contact@pablomolina.me
-Website: http://pablomolina.me/
-Location: Spain
+Website: http://www.pablomolina.me/
 
 /* THANKS */
-Name: Lorena Garrido - https://plus.google.com/106295122995551671658/
+Name: Lorena Garrido
 Reason: She makes my life better.
 
 /* SITE */
