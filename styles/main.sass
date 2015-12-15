@@ -65,8 +65,10 @@ article
     box-shadow: none
     padding-bottom: $document-padding / 2
     background-color: transparent
-    border-bottom: solid $border-color thin
     overflow-x: hidden
+
+  @media screen and (max-width: $media-size)
+    border-bottom: solid $border-color thin
 
   // CV Generic styles ---------------------------------------------------------
 
@@ -87,7 +89,7 @@ article
   a:active
     color: $link-color
 
-    @media (max-width: $media-size)
+    @media screen and (max-width: $media-size)
       display: inline-block
       margin: 0.5em 0
 

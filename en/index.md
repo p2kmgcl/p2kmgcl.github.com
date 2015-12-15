@@ -194,8 +194,6 @@ understanding which is the final __JavaScript__ that is going to be used.
 
 ## Extra information
 
- > Available for full time job with relocation if necessary
-
 ### Winner of __Fujitsu Linked Open Data Challenge__ Spain 2015
 
 I presented along with my professor Arturo Montejo documentation at the
@@ -204,6 +202,8 @@ you enhance their data using semantic web. Full article (English and Spanish)
 can be read here:
 
 [drive.google.com/file/d/0By5_U28EwAT0NVRCNHppcXA3Nnc][18]
+
+ > Available for full time job with relocation if necessary
 
 
  [1]: mailto:contact@pablomolina.me

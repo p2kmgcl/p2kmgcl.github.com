@@ -18,6 +18,7 @@ github_description: Ver código fuente
  - __Correo electrónico__: [contacto@pablomolina.me][1]
  - __Lugar de residencia__: [Hayes, Middlesex, London][2]
  - __Teléfono__: [+44 7541 917058][3]
+ - __Teléfono español (sólo Whatsapp)__: [+34 687 233 066][3.1]
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
  - __Página web__: [pablomolina.me][6]
@@ -186,8 +187,6 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
 ## Información adicional
 
- > Disponible para trabajo a tiempo completo con reubicación si fuera necesaria
-
 ### Ganador del __Fujitsu Linked Open Data Challenge__ España 2015
 
 Presenté junto con mi profesor Arturo Montejo documentación para la categoría de
@@ -197,22 +196,25 @@ español) puede leerse aquí:
 
 [drive.google.com/file/d/0By5_U28EwAT0NVRCNHppcXA3Nnc][18]
 
+ > Disponible para trabajo a tiempo completo con reubicación si fuera necesaria
 
- [1]: mailto:contacto@pablomolina.me
- [2]: https://www.google.es/maps/place/Hayes,+Greater+London,+United+Kingdom/
- [3]: tel:+447541917058
- [4]: https://github.com/p2kmgcl
- [5]: https://linkedin.com/in/p2kmgcl
- [6]: http://www.pablomolina.me
- [7]: https://youtu.be/RBUBib8IlR8
- [8]: https://github.com/p2kmgcl/mvc_html5player
- [9]: http://www.pablomolina.me/mvc_html5player/app/
- [10]: https://github.com/p2kmgcl/Alibel-TPV
- [11]: http://www.pablomolina.me/Alibel-TPV
- [12]: https://github.com/p2kmgcl/kat/tree/preDevelop
- [13]: https://github.com/p2kmgcl/slices
- [14]: http://www.pablomolina.me/slices
- [15]: http://codepen.io/p2kmgcl/pen/tbxkp
- [16]: http://codepen.io/p2kmgcl/pen/zJGHq
- [17]: http://codepen.io/p2kmgcl/pen/KwaGYr
- [18]: https://drive.google.com/file/d/0By5_U28EwAT0NVRCNHppcXA3Nnc
+
+ [1]:   mailto:contacto@pablomolina.me
+ [2]:   https://www.google.es/maps/place/Hayes,+Greater+London,+United+Kingdom/
+ [3]:   tel:+447541917058
+ [3.1]: tel:+34687233066
+ [4]:   https://github.com/p2kmgcl
+ [5]:   https://linkedin.com/in/p2kmgcl
+ [6]:   http://www.pablomolina.me
+ [7]:   https://youtu.be/RBUBib8IlR8
+ [8]:   https://github.com/p2kmgcl/mvc_html5player
+ [9]:   http://www.pablomolina.me/mvc_html5player/app/
+ [10]:  https://github.com/p2kmgcl/Alibel-TPV
+ [11]:  http://www.pablomolina.me/Alibel-TPV
+ [12]:  https://github.com/p2kmgcl/kat/tree/preDevelop
+ [13]:  https://github.com/p2kmgcl/slices
+ [14]:  http://www.pablomolina.me/slices
+ [15]:  http://codepen.io/p2kmgcl/pen/tbxkp
+ [16]:  http://codepen.io/p2kmgcl/pen/zJGHq
+ [17]:  http://codepen.io/p2kmgcl/pen/KwaGYr
+ [18]:  https://drive.google.com/file/d/0By5_U28EwAT0NVRCNHppcXA3Nnc
