@@ -13,6 +13,14 @@
   <meta name="distribution" content="web">
   <meta name="robots" content="index, follow">
 
+  {% if page.language == 'en' %}
+    <link rel="canonical" href="http://www.pablomolina.me/en/">
+    <link rel="alternate" hreflang="es" href="http://www.pablomolina.me/">
+  {% else %}
+    <link rel="canonical" href="http://www.pablomolina.me/">
+    <link rel="alternate" hreflang="en" href="http://www.pablomolina.me/en/">
+  {% endif %}
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,500">
   <link rel="stylesheet" href="{{ site.baseurl }}/styles/main.css">
 </head>
