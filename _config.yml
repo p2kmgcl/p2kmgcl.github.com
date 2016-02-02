@@ -11,6 +11,5 @@ exclude:
     - .git
     - .sass-cache
 
-markdown: 'redcarpet'
 sass:
     style: 'compressed'
