@@ -16,16 +16,15 @@ github_description: Ver código fuente
 ## Información personal
 
  - __Correo electrónico__: [contacto@pablomolina.me][1]
- - __Lugar de residencia__: [Hayes, Middlesex, London][2]
- - __Teléfono__: [+44 7541 917058][3]
- - __Teléfono español (sólo Whatsapp)__: [+34 687 233 066][3.1]
+ - __Lugar de residencia__: [Jaén (Jaén), España][2]
+ - __Teléfono__: [+34 687 233 066][3]
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
  - __Página web__: [pablomolina.me][6]
 
 ## Resumen
 
-Soy un desarrollador apasionado que siempre intenta aprender más y más, uno de aquellos que consideran programar tanto un trabajo como un hobby. Como entusiasta de __GNU/Linux__ y dueño de dos __Raspberry Pi__, me gusta exterimentar con las tecnologías más modernas, y nunca he sentido miedo de empezar un proyecto completo desde cero.
+Soy un desarrollador apasionado que siempre intenta aprender más y más, uno de aquellos que consideran programar tanto un trabajo como un hobby. Como entusiasta de __GNU/Linux__ y dueño de dos __Raspberry Pi__, me gusta exterimentar con las tecnologías más modernas como el estándar ECMAScript 2015, y nunca he sentido miedo de empezar un proyecto completo desde cero.
 
 Cuando estoy desarrollando software para mí todo detalle es importante: me gusta mantener mi código bonito y fácil de leer, e intento aprender y aplicar __patrones de diseño__ y __metodologías de desarrollo__ tan frecuentemente
 como pueda.
@@ -101,18 +100,20 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
 ### Becario de Investigación en Fujitsu Laboratories of Europe
 
- - __Periodo__: Septiembre de 2015 - Actualmente
+ - __Periodo__: Septiembre de 2015 - Enero de 2016
  - __Ubicación__: Fujitsu Laboratories of Europe (Hayes, Middlesex, London)
 
 
  - Desarrollo de software con __Python__, testeo con __Nosetest__ y manejo de
    dependencias con __Setuptools__
- - Creación de un servidor usando __Flask__
+ - Creación de una API REST usando __Flask__
+ - Manejo de __múltiples procesos__ en paralelo con con __Python__
  - Desarrollo de software con __Java__, testeo y manejo de dependencias con
    __Maven__
  - Desarrollo de software usando tecnologías relacionadas con la
    __Web Semántica__
- - Investigación sobre __Spark__
+ - Uso de __BabelJS__ para una aplicación web
+ - Investigación sobre __Spark__ y su funcionamiento
 
 ### Desarrollador con la Beca Talentum de Telefónica
 
@@ -200,9 +201,8 @@ español) puede leerse aquí:
 
 
  [1]:   mailto:contacto@pablomolina.me
- [2]:   https://www.google.es/maps/place/Hayes,+Greater+London,+United+Kingdom/
- [3]:   tel:+447541917058
- [3.1]: tel:+34687233066
+ [2]:   https://www.google.es/maps/place/Jaén+(Jaén),+España/
+ [3]:   tel:+34687233066
  [4]:   https://github.com/p2kmgcl
  [5]:   https://linkedin.com/in/p2kmgcl
  [6]:   http://www.pablomolina.me

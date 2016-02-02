@@ -16,8 +16,8 @@ github_description: View source code
 ## Personal information
 
  - __Email__: [contact@pablomolina.me][1]
- - __Residence__: [Hayes, Middlesex, London][2]
- - __Phone__: [+44 7541 917058][3]
+ - __Residence__: [Jaen (Jaen), Spain][2]
+ - __Phone__: [+34 687 233 066][3]
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
  - __Website__: [pablomolina.me][6]
@@ -27,7 +27,7 @@ github_description: View source code
 I am a passionate developer who always aims for getting more knowledge, besides
 one of those who consider programming both a job and a hobby. As __GNU/Linux__
 enthusiast and __Raspberry Pi__ owner, I like expetimenting with cutting edge
-technologies, and I am never afraid of starting a project from scratch.
+technologies like the ECMAScript 2015 standard, and I am never afraid of starting a project from scratch.
 
 While I am producing code every detail is important: I like keeping my source
 code beautiful and easy to read, and I learn and apply __design patterns__
@@ -111,16 +111,17 @@ understanding which is the final __JavaScript__ that is going to be used.
 
 ### Researcher Intern at Fujitsu Laboratories of Europe
 
- - __Term__: September 2015 - Currently
+ - __Term__: September 2015 - January 2016
  - __Place__: Fujitsu Laboratories of Europe (Hayes, Middlesex, London)
 
 
  - __Python__ software development, testing with __Nosetest__ and dependency
    management with __Setuptools__
- - Creation of server using __Flask__
+ - Creation of a REST API using __Flask__
  - __Java__ software development, testing and dependency management with
    __Maven__
  - Development using __Semantic Web__ related technologies
+ - __BabelJS__ for web applications
  - Investigation about __Spark__
 
 ### Developer with Talentum Internship at Telefonica
@@ -207,8 +208,8 @@ can be read here:
 
 
  [1]: mailto:contact@pablomolina.me
- [2]: https://www.google.com/maps/place/Hayes,+Greater+London,+United+Kingdom/
- [3]: tel:+447541917058
+ [2]: https://www.google.co.uk/maps/place/Jaen+(Jaen),+Spain/
+ [3]: tel:+34687233066
  [4]: https://github.com/p2kmgcl
  [5]: https://linkedin.com/in/p2kmgcl
  [6]: http://www.pablomolina.me
