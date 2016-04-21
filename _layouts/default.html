@@ -72,100 +72,92 @@ this code. Anyway, enjoy it.
 </head>
 <body>
   <nav class="navigation">
-    <ul class="social-links">
-      <li class="rounded-label">
-        <a class="rounded-label__link"
+    <ul class="navigation-list">
+      <li class="navigation-list__element">
+        <a class="navigation-list__element__link"
           title="Codepen"
           href="http://codepen.io/p2kmgcl/public/">
-          <img class="rounded-label__icon"
+          <img class="navigation-list__element__icon"
             src="{{ site.baseurl }}/assets/icon-codepen.svg"
             alt="Codepen">
-          <span class="rounded-label__text">Codepen</span>
+          <span class="navigation-list__element__text">Codepen</span>
         </a>
       </li>
-      <li class="rounded-label">
-        <a class="rounded-label__link"
+      <li class="navigation-list__element">
+        <a class="navigation-list__element__link"
           title="Geekytheory"
           href="http://geekytheory.com/author/p2kmgcl/">
-          <img class="rounded-label__icon"
+          <img class="navigation-list__element__icon"
             src="{{ site.baseurl }}/assets/icon-geekytheory.svg"
             alt="Geekytheory">
-          <span class="rounded-label__text">Geekytheory</span>
+          <span class="navigation-list__element__text">Geekytheory</span>
         </a>
       </li>
-      <li class="rounded-label">
-        <a class="rounded-label__link"
+      <li class="navigation-list__element">
+        <a class="navigation-list__element__link"
           title="Github"
           href="https://github.com/p2kmgcl">
-          <img class="rounded-label__icon"
+          <img class="navigation-list__element__icon"
             src="{{ site.baseurl }}/assets/icon-github.svg"
             alt="Github">
-          <span class="rounded-label__text">Github</span>
+          <span class="navigation-list__element__text">Github</span>
         </a>
       </li>
-      <li class="rounded-label">
-        <a class="rounded-label__link"
+      <li class="navigation-list__element">
+        <a class="navigation-list__element__link"
           title="LinkedIn"
           href="https://www.linkedin.com/in/p2kmgcl">
-          <img class="rounded-label__icon"
+          <img class="navigation-list__element__icon"
             src="{{ site.baseurl }}/assets/icon-linkedin.svg"
             alt="LinkedIn">
-          <span class="rounded-label__text">LinkedIn</span>
+          <span class="navigation-list__element__text">LinkedIn</span>
         </a>
       </li>
-      <li class="rounded-label">
-        <a class="rounded-label__link"
-          title="Google+"
-          href="https://plus.google.com/+PabloMolina">
-          <img class="rounded-label__icon"
-            src="{{ site.baseurl }}/assets/icon-googleplus.svg"
-            alt="Google+">
-          <span class="rounded-label__text">Google+</span>
-        </a>
-      </li>
-      <li class="rounded-label">
-        <a class="rounded-label__link"
-          title="Twitter"
-          href="https://twitter.com/p2kmgcl">
-          <img class="rounded-label__icon"
-            src="{{ site.baseurl }}/assets/icon-twitter.svg"
-            alt="Twitter">
-          <span class="rounded-label__text">Twitter</span>
-        </a>
-      </li>
-    </ul><!-- social-links -->
-
-    <ul class="language-links">
       {% if page.language != 'en' %}
-      <li class="rounded-label">
-        <a class="rounded-label__link"
+      <li class="navigation-list__element navigation-list__element-language">
+        <a class="navigation-list__element__link"
           title="English"
           href="{{ site.baseurl }}/en">
-          <span class="rounded-label__text">English</span>
+          <img class="navigation-list__element__icon"
+            src="{{ site.baseurl }}/assets/icon-language.svg"
+            alt="English">
+          <span class="navigation-list__element__text">English</span>
+        </a>
+      </li>
+      <li class="navigation-list__element navigation-list__element-download">
+        <a class="navigation-list__element__link"
+          title="{{ page.download_cv_text }}"
+          href="/assets/pablomolina-cv-{{ page.language }}.pdf">
+          <img class="navigation-list__element__icon"
+            src="{{ site.baseurl }}/assets/icon-download.svg"
+            alt="{{ page.download_cv_text }}">
+          <span class="navigation-list__element__text">Descargar</span>
         </a>
       </li>
       {% endif %}
       {% if page.language != 'es' %}
-      <li class="rounded-label">
-        <a class="rounded-label__link"
+      <li class="navigation-list__element navigation-list__element-language">
+        <a class="navigation-list__element__link"
           title="Español"
           href="{{ site.baseurl }}/">
-          <span class="rounded-label__text">Español</span>
+          <img class="navigation-list__element__icon"
+            src="{{ site.baseurl }}/assets/icon-language.svg"
+            alt="Spanish">
+          <span class="navigation-list__element__text">Español</span>
+        </a>
+      </li>
+      <li class="navigation-list__element navigation-list__element-download">
+        <a class="navigation-list__element__link"
+          title="{{ page.download_cv_text }}"
+          href="/assets/pablomolina-cv-{{ page.language }}.pdf">
+          <img class="navigation-list__element__icon"
+            src="{{ site.baseurl }}/assets/icon-download.svg"
+            alt="{{ page.download_cv_text }}">
+          <span class="navigation-list__element__text">Download</span>
         </a>
       </li>
       {% endif %}
-
-      <li class="rounded-label">
-        <a class="rounded-label__link"
-          title="{{ page.download_cv_text }}"
-          href="/assets/pablomolina-cv-{{ page.language }}.pdf">
-          <img class="rounded-label__icon"
-            src="{{ site.baseurl }}/assets/icon-download.svg"
-            alt="{{ page.download_cv_text }}">
-          <span class="rounded-label__text">PDF</span>
-        </a>
-      </li>
-    </ul><!-- language-links -->
+    </ul>
   </nav>
 
   <article>{{ content }}</article>

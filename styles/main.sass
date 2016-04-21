@@ -8,11 +8,15 @@ $logo-width: 525px
 $logo-height: 127px
 $document-padding: 75px
 $document-width: $logo-width + $document-padding * 2
-$media-size: $document-width + $document-padding
+
+$media-size-tablet: 750px
+$media-size-phone: 560px
 
 $body-background-color: #fdfdfd
 $article-background-color: #ffffff
 $blockquote-background-color: darken($article-background-color, 2.5%)
+$secondary-color: #aaaaaa
+$secondary-background-color: $blockquote-background-color
 $color: black
 $highlight-color: #0085B0
 $border-color: $highlight-color
@@ -34,8 +38,8 @@ body
   @media screen
     background-color: $body-background-color
 
-  @media (max-width: $media-size)
-    background-color: $article-background-color
+  @media screen and (max-width: $media-size-tablet)
+    padding: 0 1em
 
 article
   font-family: $font-family
@@ -57,18 +61,12 @@ article
     margin-bottom: 2em
     background-color: $article-background-color
 
-  @media (max-width: $media-size)
-    padding-left: 1em
-    padding-right: 1em
-    margin-bottom: 0
+  @media (max-width: $media-size-tablet)
+    padding-left: 10vw
+    padding-right: 10vw
     padding-top: 0
-    box-shadow: none
     padding-bottom: $document-padding / 2
-    background-color: transparent
     overflow-x: hidden
-
-  @media screen and (max-width: $media-size)
-    border-bottom: solid $border-color thin
 
   // CV Generic styles ---------------------------------------------------------
 
@@ -89,7 +87,7 @@ article
   a:active
     color: $link-color
 
-    @media screen and (max-width: $media-size)
+    @media screen and (max-width: $media-size-tablet)
       display: inline-block
       margin: 0.5em 0
 
@@ -144,8 +142,8 @@ article
     @media screen
       margin: 2em auto
 
-    @media screen and (max-width: $media-size)
-      margin: 5vw auto
+    @media screen and (max-width: $media-size-tablet)
+      margin: 10vw auto
 
   // Section Headers -----------------------------------------------------------
 
@@ -160,7 +158,7 @@ article
 
   // Force new lines on small screens ------------------------------------------
 
-  @media (max-width: $media-size)
+  @media (max-width: $media-size-tablet)
     overflow-wrap: break-word
     word-wrap: break-word
     -webkit-hyphens: auto
@@ -173,74 +171,77 @@ article
 .navigation
   max-width: $document-width
   margin: 0 auto
-
-  @media (max-width: $media-size)
-    padding: 0 1em
-    max-width: $logo-width
-    text-align: center
-
-    ul,
-    li
-      margin-bottom: 0
-      padding-bottom: 0
+  margin-bottom: 1em
 
   @media print
     display: none
 
-.social-links,
-.language-links
+.navigation-list
   display: inline-block
   list-style: none
   padding: 0
   margin: 0
+  width: 100%
 
-  li
-    float: left
-
-  @media (max-width: $media-size)
+  @media (max-width: $media-size-tablet)
     margin: 0 auto
 
-.language-links
-  float: right
-
-  @media (max-width: $media-size)
+  @media (max-width: $media-size-tablet)
     float: none
     margin: 0 auto
 
+  @media screen and (max-width: $media-size-phone)
+    margin-top: 1em
+
 // Top navigation buttons ------------------------------------------------------
 
-.rounded-label
+.navigation-list__element
   display: inline-block
-  margin: 0.5em 0.25em
+  margin: 0
+  float: left
 
   &__link
     display: block
     text-align: center
-    height: 1em
+    height: 1.8em
     min-width: 1.75em
-    padding: 0.4em 0
-    background-color: $highlight-color
-    border-radius: 0.25em
+    padding: 0
+    background-color: $secondary-background-color
     vertical-align: middle
-    color: white
+    color: $secondary-color
     text-decoration: none
     transition: background-color ease 0.2s
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)
 
     &:hover
-      background-color: $link-hover-color
+      background-color: darken($secondary-background-color, 5%)
+
+  &-language,
+  &-download
+    float: right
+
+    & .navigation-list__element__link
+      background-color: darken($secondary-background-color, 2.5%)
+      font-weight: bolder
 
   &__icon
     width: 1em
+    padding: 0.4em
+    padding-right: 0
 
   &__text
-    padding: 0 0.5em
-    font-size: 1.0em
-    padding-top: 0
+    display: inline-block
+    padding: 0.7em 0.5em
+    padding-right: 0.7em
+    font-size: 0.75em
+    vertical-align: top
 
-  &__icon + &__text
-    opacity: 0
-    display: none
+  @media screen and (max-width: $media-size-phone)
+    width: 50%
+    float: right
+
+    &__text
+      width: 10ch
 
 // Footer (license and fork info) ----------------------------------------------
 
@@ -255,15 +256,11 @@ footer
     font-size: 0.9em
     color: $link-color
     margin-bottom: 0.25em
-    @media (max-width: $media-size)
+    @media (max-width: $media-size-tablet)
       font-size: 1em
 
   @media print
     display: none
-
-  @media (max-width: $media-size)
-    padding-top: 2em
-    background-color: $blockquote-background-color
 
 .license
   text-align: center
