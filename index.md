@@ -17,7 +17,7 @@ github_description: Ver código fuente
 
  - __Correo electrónico__: [contacto@pablomolina.me][1]
  - __Lugar de residencia__: [Jaén (Jaén), España][2]
- - __Teléfono__: [+34 687 233 066][3]
+ <span class="phone-wrapper">__Teléfono__: [+34 687 233 066][3]</span>
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
  - __Página web__: [pablomolina.me][6]

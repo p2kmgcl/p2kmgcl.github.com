@@ -17,7 +17,7 @@ github_description: View source code
 
  - __Email__: [contact@pablomolina.me][1]
  - __Residence__: [Jaen (Jaen), Spain][2]
- - __Phone__: [+34 687 233 066][3]
+ <span class="phone-wrapper">__Phone__: [+34 687 233 066][3]</span>
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
  - __Website__: [pablomolina.me][6]
