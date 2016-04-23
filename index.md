@@ -98,6 +98,18 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
 ## Experiencia
 
+### Programador principal en Yottacode
+
+ - __Periodo__: Abril de 2016 - Actualmente
+ - __Ubicación__: Jaén, Jaén, España
+
+
+ - Desarrollo __Android__ con comunicación __websockets__ a un servidor
+ - Desarrollo de un servidor resfull con funcionalidades de
+   __websockets en NodeJS__, ayudado por el framework __sailsjs__
+ - Desarrollo de una aplicación JavaScript con __angularjs__ (1.0) con
+   sincronización con un servidor mediante __websockets__
+
 ### Becario de Investigación en Fujitsu Laboratories of Europe
 
  - __Periodo__: Septiembre de 2015 - Enero de 2016
@@ -115,6 +127,8 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
  - Uso de __BabelJS__ para una aplicación web
  - Investigación sobre __Spark__ y su funcionamiento
 
+--------------------------------------------------------------------------------
+
 ### Desarrollador con la Beca Talentum de Telefónica
 
  - __Periodo__: de Junio a Septiembre de 2015
@@ -130,8 +144,6 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
  - __Bootstrap__ y creación de un tema de __Bootstrap__ con __LESS__ para la
    creación de la interfaz
  - __Demo del proyecto__: [youtu.be/RBUBib8IlR8][7]
-
---------------------------------------------------------------------------------
 
 ## Actividades
 
@@ -168,6 +180,8 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
    - Código fuente: [github.com/p2kmgcl/slices][13]
    - Demo: [pablomolina.me/slices][14]
 
+--------------------------------------------------------------------------------
+
 ### Muestra de Codepen
 
  - Entendiendo la __propagación de eventos en JavaScript__:
@@ -177,14 +191,12 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
  - __Centrando elementos verticalmente__ con __CSS__:
    [codepen.io/p2kmgcl/pen/KwaGYr][17]
 
---------------------------------------------------------------------------------
-
 ## Idiomas
 
  - __Español__: Idioma nativo
  - __Inglés__: Habla fluida con First Certificate of English de Cambridge
    (nivel B2) y experiencia trabajando en Reino Unido
-   (Septiembre de 2015 - Actualmente)
+   (Septiembre de 2015 - Enero de 2016)
 
 ## Información adicional
 

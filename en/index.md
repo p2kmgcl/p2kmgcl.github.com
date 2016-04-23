@@ -109,6 +109,18 @@ understanding which is the final __JavaScript__ that is going to be used.
 
 ## Experience
 
+### Lead developer in Yottacode
+
+ - __Term__: April 2016 - Currently working
+ - __Place__: Jaen, Jaen, Spain
+
+
+ - __Android__ development using __websockets__ for server communication
+ - RestFul server development using __websockets in NodeJS__, working with
+   the framework __sailsjs__
+ - JavaScript application development with __angularjs__ (1.0) with server
+   synchronization via __websockets__
+
 ### Researcher Intern at Fujitsu Laboratories of Europe
 
  - __Term__: September 2015 - January 2016
@@ -124,6 +136,8 @@ understanding which is the final __JavaScript__ that is going to be used.
  - __BabelJS__ for web applications
  - Investigation about __Spark__
 
+--------------------------------------------------------------------------------
+
 ### Developer with Talentum Internship at Telefonica
 
  - __Term__: June - September 2015
@@ -138,8 +152,6 @@ understanding which is the final __JavaScript__ that is going to be used.
  - __CoffeeScript__ for full interface interface development
  - __Bootstrap__ and __Bootstrap__ theme with __LESS__ for interface creation
  - __Project demo__: [youtu.be/RBUBib8IlR8][7]
-
---------------------------------------------------------------------------------
 
 ## Activities
 
@@ -175,6 +187,8 @@ understanding which is the final __JavaScript__ that is going to be used.
    - Source code: [github.com/p2kmgcl/slices][13]
    - Demo: [pablomolina.me/slices][14]
 
+--------------------------------------------------------------------------------
+
 ### Codepen Showcase
 
  - Understanding __event propagation in JavaScript__:
@@ -184,14 +198,12 @@ understanding which is the final __JavaScript__ that is going to be used.
  - __Vertical centering__ elements with __CSS__:
    [codepen.io/p2kmgcl/pen/KwaGYr][17]
 
---------------------------------------------------------------------------------
-
 ## Languages
 
  - __Spanish__: Native language
  - __English__: Fluent speaking certified by First Certificate of English by
    Cambridge (B2 level) with experience working at United Kingdom
-   (September 2015 - Actually)
+   (September 2015 - January 2016)
 
 ## Extra information
 
