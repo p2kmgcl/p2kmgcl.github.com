@@ -197,8 +197,6 @@ español) puede leerse aquí:
 
 [drive.google.com/file/d/0By5_U28EwAT0NVRCNHppcXA3Nnc][18]
 
- > Disponible para trabajo a tiempo completo con reubicación si fuera necesaria
-
 
  [1]:   mailto:contacto@pablomolina.me
  [2]:   https://www.google.es/maps/place/Jaén+(Jaén),+España/

@@ -204,8 +204,6 @@ can be read here:
 
 [drive.google.com/file/d/0By5_U28EwAT0NVRCNHppcXA3Nnc][18]
 
- > Available for full time job with relocation if necessary
-
 
  [1]: mailto:contact@pablomolina.me
  [2]: https://www.google.co.uk/maps/place/Jaen+(Jaen),+Spain/

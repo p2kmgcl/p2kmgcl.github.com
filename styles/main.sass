@@ -14,9 +14,10 @@ $media-size-phone: 560px
 
 $body-background-color: #fdfdfd
 $article-background-color: #ffffff
-$blockquote-background-color: darken($article-background-color, 2.5%)
+// WARN Activate if quote needed
+// $blockquote-background-color: darken($article-background-color, 2.5%)
 $secondary-color: #aaaaaa
-$secondary-background-color: $blockquote-background-color
+$secondary-background-color: darken($article-background-color, 2.5%)
 $color: black
 $highlight-color: #0085B0
 $border-color: $highlight-color
@@ -95,15 +96,16 @@ article
   a:active:hover
     color: $link-hover-color
 
-  blockquote
-    border-left: solid 0.5em $border-color
-    padding: 0.75em 1em
-    margin-left: 0
-    margin-right: 0
-    background-color: $blockquote-background-color
-
-    p
-      margin: 0
+  // WARN Activate if quote needed
+  // blockquote
+  //   border-left: solid 0.5em $border-color
+  //   padding: 0.75em 1em
+  //   margin-left: 0
+  //   margin-right: 0
+  //   background-color: $blockquote-background-color
+  //
+  //   p
+  //     margin: 0
 
   p,
   ul
