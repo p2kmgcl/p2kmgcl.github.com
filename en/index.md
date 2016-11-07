@@ -44,11 +44,13 @@ understanding which is the final __JavaScript__ that is going to be used.
 ### JavaScript
 
  - Use of NodeJS for server side development (__Yeoman__, __Gulp__, __Grunt__,
-   __PhantomJS__, __Electron__, __Browsersync__)
+   __ExpressJS__, __Electron__, __Webpack__)
  - Deep understanding of __jQuery__, __jQuery UI__ and when you should/shouldn't
    use them, as other utility libraries like __Underscore__ or __Lodash__
- - Usage of multiple UI Frameworks like __Bootstrap__, __Skeleton__ and
-   __Materialize__
+ - Component based structuring of a web application using __React__ and
+   __Redux__
+ - Usage of multiple UI Frameworks like __Bootstrap__, __Material UI__ and
+   __UIKit__
  - Usage of MVC Frameworks for development: __AngularJS__, __Backbone.js__,
    __Backbone.Marionette__
  - Creation of interfaces with plain CSS
@@ -56,7 +58,7 @@ understanding which is the final __JavaScript__ that is going to be used.
  - Development with __CSS__ preprocessors (__LESS__, __SASS__)
  - Creation of __web components__ undestanding the __Shadow DOM__ and how it
    should be used
- - Unit testing with __Mocha__
+ - Unit testing with __Mocha__ and __Chai__
 
 ### Versioning
 

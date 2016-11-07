@@ -37,15 +37,18 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
 ### JavaScript
 
- - Uso de NodeJS para desarrollo en servidor (__Yeoman__, __Gulp__, __Grunt__, __PhantomJS__, __Electron__, __Browsersync__)
+ - Uso de NodeJS para desarrollo en servidor (__Yeoman__, __Gulp__, __Grunt__,
+   __ExpressJS__, __Electron__, __Webpack__)
  - Gran entendimiento de __jQuery__, __jQuery UI__ y cuando se deberían/no deberían utilizar, al igual que otras librerías de utilidades como __Underscore__ o __Lodash__
- - Uso de múltiples Frameworks para interfaces gráficas como __Bootstrap__, __Skeleton__ y __Materialize__
+ - Component based structuring of a web application using __React__ and
+   __Redux__
+ - Uso de múltiples Frameworks para interfaces gráficas como __Bootstrap__, __Material UI__ y __UIKit__
  - Uso de Frameworks Modelo-Vista-Controlador para desarrollo: __AngularJS__, __Backbone.js__, __Backbone.Marionette__
  - Creación de interfaces con CSS _puro_
  - Gran entendimiento de la separación entre __HTML__, __CSS__ y __Javascript__
  - Desarrollo con preprocesadores de __CSS__ (__LESS__, __SASS__)
  - Creación de __componentes web__ entendiendo qué es el __Shadow DOM__ y cómo debería usarse
- - Creación de tests de unidad con __Mocha__
+ - Creación de tests de unidad con __Mocha__ and __Chai__
 
 ### Control de versiones
 
