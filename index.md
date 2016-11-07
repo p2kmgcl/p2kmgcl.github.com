@@ -16,7 +16,7 @@ github_description: Ver código fuente
 ## Información personal
 
  - __Correo electrónico__: [contacto@pablomolina.me][1]
- - __Lugar de residencia__: [Jaén (Jaén), España][2]
+ - __Lugar de residencia__: [Madrid (Madrid), España][2]
  <span class="phone-wrapper">__Teléfono__: [+34 687 233 066][3]</span>
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
@@ -98,9 +98,21 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
 ## Experiencia
 
+### Lead Front-End Developer en MedLab Media Group
+
+ - __Periodo__: Junio de 2016 - Actualmente
+ - __Ubicación__: Madrid, Madrid, España
+
+ - Desarrollo de una aplicación web con __React__ y __Redux__
+ - Aprendizaje de la sintaxis de __ECMASript__ de 2015 y 2016
+ - Manejo del IDE __WebStorm__
+ - Compilación de projectos con __Webpack 2__
+ - Práctica de técnicas de programación funcional con el uso de __map__,
+   __reduce__ e __ImmutableJS__
+
 ### Programador principal en Yottacode
 
- - __Periodo__: Abril de 2016 - Actualmente
+ - __Periodo__: Abril de 2016 - Junio de 2016
  - __Ubicación__: Jaén, Jaén, España
 
 
@@ -165,7 +177,7 @@ español) puede leerse aquí:
 
 
  [1]:   mailto:contacto@pablomolina.me
- [2]:   https://www.google.es/maps/place/Jaén+(Jaén),+España/
+ [2]:   https://www.google.es/maps/place/Madrid+(Madrid),+España/
  [3]:   tel:+34687233066
  [4]:   https://github.com/p2kmgcl
  [5]:   https://linkedin.com/in/p2kmgcl

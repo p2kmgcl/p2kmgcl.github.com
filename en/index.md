@@ -16,7 +16,7 @@ github_description: View source code
 ## Personal information
 
  - __Email__: [contact@pablomolina.me][1]
- - __Residence__: [Jaen (Jaen), Spain][2]
+ - __Residence__: [Madrid (Madrid), Spain][2]
  <span class="phone-wrapper">__Phone__: [+34 687 233 066][3]</span>
  - __Github__: [github.com/p2kmgcl][4]
  - __LinkedIn__: [linkedin.com/in/p2kmgcl][5]
@@ -109,9 +109,21 @@ understanding which is the final __JavaScript__ that is going to be used.
 
 ## Experience
 
+
+### Lead Front-End Developer at MedLab Media Group
+
+ - __Term__: June 2016 - Currently working
+ - __Place__: Madrid, Madrid, España
+
+ - Webapp development with __React__ and __Redux__
+ - Learning of __ECMASript__'s 2015 and 2016 syntax
+ - Use of the __WebStorm__ IDE
+ - Project compilation with __Webpack 2__
+ - Functional programming practice with __map__, __reduce__ and __ImmutableJS__
+
 ### Lead developer in Yottacode
 
- - __Term__: April 2016 - Currently working
+ - __Term__: April 2016 - June 2016
  - __Place__: Jaen, Jaen, Spain
 
 
@@ -173,7 +185,7 @@ can be read here:
 
 
  [1]: mailto:contact@pablomolina.me
- [2]: https://www.google.co.uk/maps/place/Jaen+(Jaen),+Spain/
+ [2]: https://www.google.co.uk/maps/place/Madrid+(Madrid),+Spain/
  [3]: tel:+34687233066
  [4]: https://github.com/p2kmgcl
  [5]: https://linkedin.com/in/p2kmgcl
