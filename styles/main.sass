@@ -14,8 +14,6 @@ $media-size-phone: 560px
 
 $body-background-color: #fdfdfd
 $article-background-color: #ffffff
-// WARN Activate if quote needed
-// $blockquote-background-color: darken($article-background-color, 2.5%)
 $secondary-color: #aaaaaa
 $secondary-background-color: darken($article-background-color, 2.5%)
 $color: black
@@ -31,7 +29,7 @@ $font-bold-weight: 500
 // Body and wrapper styling ----------------------------------------------------
 
 @page
-  margin: 15mm 20mm
+  margin: 15mm 0
 
 body
   font-size: $font-size
@@ -52,10 +50,10 @@ article
   line-height: 1.25
 
   @media screen
-    max-width: $logo-width
+    max-width: $logo-width + $document-padding * 2
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
-    padding-left: $document-padding
-    padding-right: $document-padding
+    padding-left: 0
+    padding-right: 0
     padding-top: $document-padding / 2
     padding-bottom: $document-padding
     margin-top: 0
@@ -63,22 +61,13 @@ article
     background-color: $article-background-color
 
   @media (max-width: $media-size-tablet)
-    padding-left: 10vw
-    padding-right: 10vw
+    padding-left: 0
+    padding-right: 0
     padding-top: 0
     padding-bottom: $document-padding / 2
     overflow-x: hidden
 
-  // CV Generic styles ---------------------------------------------------------
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6
-    color: $highlight-color
-    font-weight: $font-bold-weight
+  // CV Inline elements styles -------------------------------------------------
 
   strong
     font-weight: $font-bold-weight
@@ -101,21 +90,6 @@ article
     @media screen
       display: none
 
-  // WARN Activate if quote needed
-  // blockquote
-  //   border-left: solid 0.5em $border-color
-  //   padding: 0.75em 1em
-  //   margin-left: 0
-  //   margin-right: 0
-  //   background-color: $blockquote-background-color
-  //
-  //   p
-  //     margin: 0
-
-  p,
-  ul
-    page-break-inside: avoid
-
   ul
     padding-left: 1.5em
     list-style: square
@@ -132,9 +106,9 @@ article
     margin: 0
     text-align: left
 
-  // CV Big Logo ---------------------------------------------------------------
+  // CV Block elements styles --------------------------------------------------
 
-  h1
+  > h1
     color: transparent
     background-image: url({{ site.baseurl }}/assets/logo.svg)
     background-size: contain
@@ -143,20 +117,69 @@ article
     height: $logo-height
     margin-top: 2em
     margin-bottom: 3em
-    margin-left: auto
-    margin-right: auto
+    margin-right: $document-padding
+    margin-left: $document-padding
 
     @media screen
-      margin: 10vh auto
+      margin: 5vh auto
+      margin-bottom: 7.5vh
+      margin-left: 1rem
+      margin-right: 1rem
       font-size: 0
 
     @media screen and (max-width: $media-size-tablet)
-      margin: 10vw auto
+      margin: 10vw 1rem
 
-  // Section Headers -----------------------------------------------------------
+    @media print
+      margin-left: 0
+      margin-right: 25mm
 
-  h2
-    border-bottom: solid 1px $border-color
+  > h2,
+  > h3
+    color: $highlight-color
+    font-weight: $font-bold-weight
+    padding-left: $document-padding
+    padding-right: $document-padding
+    text-align: left
+    @media (max-width: $media-size-tablet)
+      padding-left: 10vw
+      padding-right: 10vw
+    @media print
+      padding-left: 25mm
+      padding-right: 48mm
+
+  > h2
+    background-color: $highlight-color
+    color: $article-background-color
+    display: inline-block
+    padding-right: 1em
+    padding-top: 0.25em
+    padding-bottom: 0.25em
+    border-top-right-radius: 1em
+    border-bottom-right-radius: 1em
+    font-weight: 300
+
+  > p
+    page-break-inside: avoid
+    padding-left: $document-padding
+    padding-right: $document-padding
+    @media (max-width: $media-size-tablet)
+      padding-left: 10vw
+      padding-right: 10vw
+    @media print
+      padding-left: 25mm
+      padding-right: 48mm
+
+  > ul,
+    page-break-inside: avoid
+    padding-left: $document-padding + $font-size * 1.5
+    padding-right: $document-padding + $font-size * 1.5
+    @media (max-width: $media-size-tablet)
+      padding-left: calc(10vw + 1.5em)
+      padding-right: calc(10vw + 1.5em)
+    @media print
+      padding-left: calc(25mm + 1.5em)
+      padding-right: calc(48mm + 1.5em)
 
   // Page separators -----------------------------------------------------------
 
