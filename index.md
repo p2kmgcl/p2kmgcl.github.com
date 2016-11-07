@@ -24,7 +24,7 @@ github_description: Ver código fuente
 
 ## Resumen
 
-Soy un desarrollador apasionado que siempre intenta aprender más y más, uno de aquellos que consideran programar tanto un trabajo como un hobby. Como entusiasta de __GNU/Linux__ y dueño de dos __Raspberry Pi__, me gusta exterimentar con las tecnologías más modernas como el estándar ECMAScript 2015, y nunca he sentido miedo de empezar un proyecto completo desde cero.
+Soy un desarrollador apasionado que siempre intenta aprender más y más, uno de aquellos que consideran programar tanto un trabajo como un hobby. Como entusiasta de __GNU/Linux__ y dueño de dos __Raspberry Pi__, me gusta exterimentar con las tecnologías más modernas como el estándar ECMAScript 2016, y nunca he sentido miedo de empezar un proyecto completo desde cero.
 
 Cuando estoy desarrollando software para mí todo detalle es importante: me gusta mantener mi código bonito y fácil de leer, e intento aprender y aplicar __patrones de diseño__ y __metodologías de desarrollo__ tan frecuentemente
 como pueda.

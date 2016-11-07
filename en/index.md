@@ -27,7 +27,7 @@ github_description: View source code
 I am a passionate developer who always aims for getting more knowledge, besides
 one of those who consider programming both a job and a hobby. As __GNU/Linux__
 enthusiast and __Raspberry Pi__ owner, I like expetimenting with cutting edge
-technologies like the ECMAScript 2015 standard, and I am never afraid of starting a project from scratch.
+technologies like the ECMAScript 2016 standard, and I am never afraid of starting a project from scratch.
 
 While I am producing code every detail is important: I like keeping my source
 code beautiful and easy to read, and I learn and apply __design patterns__
