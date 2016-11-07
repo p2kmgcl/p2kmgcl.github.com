@@ -24,12 +24,20 @@ github_description: Ver código fuente
 
 ## Resumen
 
-Soy un desarrollador apasionado que siempre intenta aprender más y más, uno de aquellos que consideran programar tanto un trabajo como un hobby. Como entusiasta de __GNU/Linux__ y dueño de dos __Raspberry Pi__, me gusta exterimentar con las tecnologías más modernas como el estándar ECMAScript 2016, y nunca he sentido miedo de empezar un proyecto completo desde cero.
+Soy un desarrollador apasionado que siempre intenta aprender más y más, uno de
+aquellos que consideran programar tanto un trabajo como un hobby. Como
+entusiasta de __GNU/Linux__ y dueño de dos __Raspberry Pi__, me gusta
+exterimentar con las tecnologías más modernas como el estándar ECMAScript 2016,
+y nunca he sentido miedo de empezar un proyecto completo desde cero.
 
-Cuando estoy desarrollando software para mí todo detalle es importante: me gusta mantener mi código bonito y fácil de leer, e intento aprender y aplicar __patrones de diseño__ y __metodologías de desarrollo__ tan frecuentemente
+Cuando estoy desarrollando software para mí todo detalle es importante: me gusta
+mantener mi código bonito y fácil de leer, e intento aprender y aplicar
+__patrones de diseño__ y __metodologías de desarrollo__ tan frecuentemente
 como pueda.
 
-Me encantan los lenguajes de programación que fuerzan un estilo concreto como __Python__, __Ruby__ y __CoffeeScript__. Este último es mi favorito, pero siempre entendiendo cuál es el __JavaScript__ final que se genera.
+Me encantan los lenguajes de programación que fuerzan un estilo concreto como
+__Python__, __Ruby__ y __CoffeeScript__. Este último es mi favorito, pero
+siempre entendiendo cuál es el __JavaScript__ final que se genera.
 
 --------------------------------------------------------------------------------
 
@@ -39,15 +47,20 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
  - Uso de NodeJS para desarrollo en servidor (__Yeoman__, __Gulp__, __Grunt__,
    __ExpressJS__, __Electron__, __Webpack__)
- - Gran entendimiento de __jQuery__, __jQuery UI__ y cuando se deberían/no deberían utilizar, al igual que otras librerías de utilidades como __Underscore__ o __Lodash__
+ - Gran entendimiento de __jQuery__, __jQuery UI__ y cuando se deberían/no
+   deberían utilizar, al igual que otras librerías de utilidades como
+   __Underscore__ o __Lodash__
  - Component based structuring of a web application using __React__ and
    __Redux__
- - Uso de múltiples Frameworks para interfaces gráficas como __Bootstrap__, __Material UI__ y __UIKit__
- - Uso de Frameworks Modelo-Vista-Controlador para desarrollo: __AngularJS__, __Backbone.js__, __Backbone.Marionette__
+ - Uso de múltiples Frameworks para interfaces gráficas como __Bootstrap__,
+   __Material UI__ y __UIKit__
+ - Uso de Frameworks Modelo-Vista-Controlador para desarrollo: __AngularJS__,
+   __Backbone.js__, __Backbone.Marionette__
  - Creación de interfaces con CSS _puro_
  - Gran entendimiento de la separación entre __HTML__, __CSS__ y __Javascript__
  - Desarrollo con preprocesadores de __CSS__ (__LESS__, __SASS__)
- - Creación de __componentes web__ entendiendo qué es el __Shadow DOM__ y cómo debería usarse
+ - Creación de __componentes web__ entendiendo qué es el __Shadow DOM__ y cómo
+   debería usarse
  - Creación de tests de unidad con __Mocha__ and __Chai__
 
 ### Control de versiones
@@ -57,7 +70,8 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
 ### Edición
 
- - IDEs: __cloud9__, __Netbeans__, __Eclipse__ (y Aptana), __Webstorm__ (y otros IDEs basados en __IntelliJ__)
+ - IDEs: __cloud9__, __Netbeans__, __Eclipse__ (y Aptana), __Webstorm__ (y otros
+   IDEs basados en __IntelliJ__)
  - Editores: __Sublime Text__, __Atom__, __VIM__, __Notepad++__, __nano__
  - Diseño gráfico: __Blender__, __GIMP__, __Inkscape__, __Pencil__
 
@@ -65,19 +79,23 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
 
  - __Mac OS X__
  - __Windows 98/XP/7/8/10__
- - __Ubuntu__ (y muchos de sus _flavours_), __Archlinux__, __CentOS__, __Debian__, __OpenSuse__, __Asterisk__ y muchos otros
+ - __Ubuntu__ (y muchos de sus _flavours_), __Archlinux__, __CentOS__,
+   __Debian__, __OpenSuse__, __Asterisk__ y muchos otros
+
+-----
 
 ### Servidor
 
- - Instalación y configuración de __Jenkins__ con __Gitlab__ para __Integración Contínua__
+ - Instalación y configuración de __Jenkins__ con __Gitlab__ para
+   __Integración Contínua__
  - Generación de máquinas virtuales con __Vagrant__ y __Ansible__
  - __Django__ y __Codeigniter__ para la creación de un servidor
  - Administración de bases de datos con __Oracle__ y __MySQL__
  - Instalación y de __Wordpress__ y desarrollo de temas completos
- - Configuración de un servidor con __CentOS__ para crear un balanceador de carga usando __piranha__
- - Creación de un servidor __VoIP__ usando __Asterisk__ dentro de una __Raspberry Pi__
-
---------------------------------------------------------------------------------
+ - Configuración de un servidor con __CentOS__ para crear un balanceador de
+   carga usando __piranha__
+ - Creación de un servidor __VoIP__ usando __Asterisk__ dentro de una
+   __Raspberry Pi__
 
 ## Educación
 
@@ -113,6 +131,8 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
  - Práctica de técnicas de programación funcional con el uso de __map__,
    __reduce__ e __ImmutableJS__
 
+-----
+
 ### Programador principal en Yottacode
 
  - __Periodo__: Abril de 2016 - Junio de 2016
@@ -142,8 +162,6 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
  - Uso de __BabelJS__ para una aplicación web
  - Investigación sobre __Spark__ y su funcionamiento
 
---------------------------------------------------------------------------------
-
 ### Desarrollador con la Beca Talentum de Telefónica
 
  - __Periodo__: de Junio a Septiembre de 2015
@@ -166,6 +184,8 @@ Me encantan los lenguajes de programación que fuerzan un estilo concreto como _
  - __Inglés__: Habla fluida con First Certificate of English de Cambridge
    (nivel B2) y experiencia trabajando en Reino Unido
    (Septiembre de 2015 - Enero de 2016)
+
+-----
 
 ## Información adicional
 

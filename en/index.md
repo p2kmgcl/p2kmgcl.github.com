@@ -27,7 +27,8 @@ github_description: View source code
 I am a passionate developer who always aims for getting more knowledge, besides
 one of those who consider programming both a job and a hobby. As __GNU/Linux__
 enthusiast and __Raspberry Pi__ owner, I like expetimenting with cutting edge
-technologies like the ECMAScript 2016 standard, and I am never afraid of starting a project from scratch.
+technologies like the ECMAScript 2016 standard, and I am never afraid of
+starting a project from scratch.
 
 While I am producing code every detail is important: I like keeping my source
 code beautiful and easy to read, and I learn and apply __design patterns__
@@ -89,8 +90,6 @@ understanding which is the final __JavaScript__ that is going to be used.
  - Setup of __CentOS__ server with load balancer using __piranha__
  - Creation of a __VoIP server__ using __Asterisk__ inside a __Raspberry Pi__
 
---------------------------------------------------------------------------------
-
 ## Education
 
 ### BSc Computer Science Engineering at University of Jaen (Spain) (2:1)
@@ -135,6 +134,8 @@ understanding which is the final __JavaScript__ that is going to be used.
  - JavaScript application development with __angularjs__ (1.0) with server
    synchronization via __websockets__
 
+-----
+
 ### Researcher Intern at Fujitsu Laboratories of Europe
 
  - __Term__: September 2015 - January 2016
@@ -149,8 +150,6 @@ understanding which is the final __JavaScript__ that is going to be used.
  - Development using __Semantic Web__ related technologies
  - __BabelJS__ for web applications
  - Investigation about __Spark__
-
---------------------------------------------------------------------------------
 
 ### Developer with Talentum Internship at Telefonica
 
