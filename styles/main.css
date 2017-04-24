@@ -1,0 +1,136 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 15px;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-weight: 300;
+  color: #000;
+  background-color: #ffeb3b;
+  position: relative;
+  padding: 1em;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-title {
+  font-family: 'Vidaloka', serif;
+  font-weight: 400;
+  font-size: 10vmax;
+  margin: 20vh 0 0;
+  text-align: center;
+}
+
+.navigation {
+  margin: 2em auto;
+}
+
+  @media (min-width: 1000px) {
+    .navigation {
+      margin: 4em auto 0;
+    }
+  }
+
+  .navigation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+    .navigation-list__element {
+      display: inline-block;
+      margin: 0;
+      opacity: 0.25;
+      will-change: opacity;
+      transition: ease opacity 0.3s;
+    }
+
+      @media (min-width: 1000px) {
+        .navigation-list__element {
+          margin: 0 1em;
+        }
+      }
+
+      .navigation-list__element:hover {
+        opacity: 1;
+      }
+
+      .navigation-list__element__link {
+        display: block;
+        text-decoration: none;
+        color: #000;
+      }
+
+        .navigation-list__element__icon {
+          display: block;
+          width: 36px;
+          height: 36px;
+          margin: 0 auto;
+        }
+
+        @media (min-width: 1000px) {
+          .navigation-list__element__icon {
+            width: 56px;
+            height: 56px;
+          }
+        }
+
+        .navigation-list__element__text {
+          display: block;
+          padding: 0.25em 0.5em;
+          transform: translateY(-1em);
+          opacity: 0;
+          will-change: transform, opacity;
+          transition: transform ease 0.3s, opacity ease 0.3s;
+        }
+
+        @media (min-width: 1000px) {
+          .navigation-list__element__text {
+            font-size: 1.5em;
+          }
+        }
+
+        .navigation-list__element:hover .navigation-list__element__text {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+.footer {
+  display: block;
+  padding: 1em 2em 0 2em;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 1em;
+  width: calc(100% - 2em);
+  opacity: 0.25;
+}
+
+  .source {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 0.25em;
+  }
+
+  .source,
+  .source:hover,
+  .source:active,
+  .source:visited {
+    color: inherit;
+  }
+
+  .license {
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+
+    .license__image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0.5em;
+    }

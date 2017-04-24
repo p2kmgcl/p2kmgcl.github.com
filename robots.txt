@@ -1,4 +1,6 @@
 # robotstxt.org/
 
 User-agent: *
-Disallow: /styles/
+Disallow: ./assets/
+Disallow: ./favicon/
+Disallow: ./styles/
