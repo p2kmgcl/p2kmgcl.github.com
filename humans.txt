@@ -1,11 +1,7 @@
 /* TEAM */
 Owner: Pablo Molina
 Contact: contact@pablomolina.me
-Website: http://www.pablomolina.me/
-
-/* THANKS */
-Name: Lorena Garrido
-Reason: She makes my life better.
+Website: https://pablomolina.me
 
 /* SITE */
 Software: Jekyll, Github Pages
