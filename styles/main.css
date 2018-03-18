@@ -52,14 +52,14 @@ body {
   .link__icon {
     border-bottom: solid transparent 2px;
     fill: #444;
-    height: 1em;
+    height: 1.5em;
     padding-bottom: 0.25em;
     transition:
       fill ease 0.2s,
       border-bottom-color ease 0.2s
     ;
     vertical-align: sub;
-    width: 1em;
+    width: 1.5em;
     will-change: fill, border-bottom-color;
   }
 
