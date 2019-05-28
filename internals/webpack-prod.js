@@ -38,7 +38,11 @@ module.exports = {
     webpackBase.htmlPlugin('index'),
     webpackBase.htmlPlugin('404'),
     miniCssExtractPlugin,
-    new HTMLInlineCSSWebpackPlugin(),
+    new HTMLInlineCSSWebpackPlugin({
+      filter(fileName) {
+        return fileName.includes('index');
+      },
+    }),
     new ResourceHintWebpackPlugin(),
     offlinePlugin,
   ],
