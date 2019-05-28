@@ -1,8 +1,0 @@
-/* TEAM */
-Owner: Pablo Molina
-Contact: contact@pablomolina.me
-Website: https://pablomolina.me
-
-/* SITE */
-Software: Jekyll, Github Pages
-Source: https://github.com/p2kmgcl/p2kmgcl.github.com

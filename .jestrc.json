@@ -1,0 +1,4 @@
+{
+  "testEnvironment": "./internals/jest-test-environment.js",
+  "preset": "jest-puppeteer"
+}

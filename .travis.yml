@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - 10
+
+script:
+  - npm install || travis_terminate 1;
+  - npm run typecheck:all || travis_terminate 1;
+  - npm run test || travis_terminate 1;
+  - npm run build || travis_terminate 1;
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  local-dir: build/
+  target-branch: gh-pages
+  on:
+    branch: master

@@ -1,0 +1,110 @@
+@import '../node_modules/normalize.css/normalize.css';
+
+:root {
+  --background: #fff;
+  --primary: #000;
+  --secondary: #aaa;
+  --accent: #d9a7c7;
+  --accent-2: #fffcdc;
+
+  --font-family: 'Source Sans Pro', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  --font-size: 20px;
+  --font-weight: 300;
+
+  --border-size: 2px;
+  --roundness: 4px;
+  --spacing: 8px;
+  --transition-duration: 300ms;
+  --transition-timing-function: ease;
+  --transition: var(--transition-timing-function) var(--transition-duration);
+}
+
+body {
+  color: var(--primary);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  min-height: 100vh;
+
+  /**
+  * As an application, text selection is not the common user behavior.
+  * We should hide extra artifacts, like the highlight shown when
+  * buttons are tapped in Android.
+  */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-duration: 0;
+  }
+}
+
+/**
+ * Splash Screen
+ */
+
+@keyframes splashScreenFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+#splash-screen.hidden {
+  display: none;
+}
+
+#splash-screen {
+  background: var(--background);
+  background: linear-gradient(
+    150deg,
+    var(--accent-2),
+    var(--accent),
+    var(--accent),
+    var(--accent-2),
+    var(--accent)
+  );
+  background-size: 400% 400%;
+  animation: splashScreenFlow linear 13s infinite;
+  min-height: 100vh;
+}
+
+#splash-screen .logo {
+  margin: 0 auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#splash-screen .message {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-family: var(--font-family, sans-serif);
+  max-width: 16ch;
+  white-space: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.6;
+  position: absolute;
+  top: calc(45% + 96px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
