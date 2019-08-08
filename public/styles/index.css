@@ -1,0 +1,117 @@
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toTranslateXZero {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateToCenter {
+  from {
+    transform: translateY(-0.5em);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 80vw;
+  box-sizing: border-box;
+  padding: 1em 2em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+}
+
+.title,
+.subtitle {
+  opacity: 0;
+  margin: 0;
+  transform: translateX(-0.5ch);
+  animation: fadeIn ease-out 2s, toTranslateXZero ease-out 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.title {
+  font-size: 32px;
+  animation-delay: 0.25s;
+  font-weight: 900;
+}
+
+.subtitle {
+  transform: translateX(-2ch);
+  animation-delay: 1s;
+}
+
+.link-list {
+  margin-top: 1em;
+}
+
+.link {
+  opacity: 0;
+  display: inline-flex;
+  animation: fadeIn ease-out 0.6s, rotateToCenter ease-out 0.6s;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 50%;
+  text-decoration: none;
+  transition: box-shadow ease 0.3s;
+  will-change: box-shadow;
+}
+
+.link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px black;
+}
+
+.link:nth-child(1) {
+  animation-delay: 1.75s;
+}
+
+.link:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.link:nth-child(3) {
+  animation-delay: 2.25s;
+}
+
+.link:nth-child(4) {
+  animation-delay: 2.5s;
+}
+
+.link + .link {
+  margin-left: 0.25ch;
+}
+
+.link-icon {
+  fill: #999;
+  width: 24px;
+  height: 24px;
+  transition: fill ease 0.3s;
+}
+
+.link:hover > .link-icon {
+  fill: #000;
+}
+
+.link-text {
+  opacity: 0;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
