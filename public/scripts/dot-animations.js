@@ -92,7 +92,7 @@ export const randomDots = () => {
       dot.color = `rgba(255, 255, 255, ${Math.random() / 5})`;
       dot.dir = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
       dots.push(dot);
-    }, 5000 * i);
+    }, Math.random() * 5000 * i);
   }
 
   const draw = () => {
