@@ -36,18 +36,16 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       (async function() {
         const cache = await caches.open(CACHE_ID);
-        const cachedResponse = await cache.match(event.request.url);
-        const responsePromise = fetch(event.request);
 
-        responsePromise.then((response) => {
-          cache.put(event.request.url, response);
-        });
-
-        if (cachedResponse) {
-          return cachedResponse;
+        try {
+          const response = await fetch(event.request);
+          console.log('online');
+          cache.put(event.request.url, response.clone());
+          return response;
+        } catch (error) {
+          console.log('cache');
+          return cache.match(event.request.url);
         }
-
-        return responsePromise;
       })(),
     );
   }
