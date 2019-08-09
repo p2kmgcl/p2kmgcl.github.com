@@ -32,7 +32,7 @@ self.addEventListener('activate', (event) =>
 );
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.method === 'GET' && location.hostname !== 'localhost') {
+  if (event.request.method === 'GET') {
     event.respondWith(
       (async function() {
         const cache = await caches.open(CACHE_ID);

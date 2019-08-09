@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes rotateToCenter {
+@keyframes translateToCenter {
   from {
     transform: translateY(-0.5em);
   }
@@ -28,8 +28,10 @@ body {
 body {
   display: flex;
   justify-content: center;
+  white-space: nowrap;
   align-items: center;
   min-height: 80vh;
+  white-space: nowrap;
   width: 80vw;
   box-sizing: border-box;
   padding: 1em 2em;
@@ -63,10 +65,12 @@ body {
 }
 
 .link {
+  color: inherit;
   opacity: 0;
   display: inline-flex;
-  animation: fadeIn ease-out 0.6s, rotateToCenter ease-out 0.6s;
+  animation: fadeIn ease-out 0.6s, translateToCenter ease-out 0.6s;
   animation-fill-mode: forwards;
+  padding: 8px;
   transform-origin: 50% 50%;
   text-decoration: none;
   transition: box-shadow ease 0.3s;
@@ -75,7 +79,7 @@ body {
 
 .link:focus {
   outline: none;
-  box-shadow: 0 0 0 2px black;
+  box-shadow: 0 0 0 2px #888;
 }
 
 .link:nth-child(1) {
@@ -95,18 +99,18 @@ body {
 }
 
 .link + .link {
-  margin-left: 0.25ch;
+  margin-left: 6px;
 }
 
 .link-icon {
-  fill: #999;
+  fill: currentColor;
   width: 24px;
   height: 24px;
   transition: fill ease 0.3s;
 }
 
 .link:hover > .link-icon {
-  fill: #000;
+  fill: #888;
 }
 
 .link-text {
@@ -114,4 +118,28 @@ body {
   position: absolute;
   top: -9999px;
   left: -9999px;
+}
+
+@keyframes toWhite {
+  from {
+    color: black;
+  }
+  to {
+    background-color: black;
+    color: white;
+  }
+}
+
+.canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+body.white {
+  animation: toWhite ease-in 0.3s 0.3s;
+  animation-fill-mode: forwards;
 }
