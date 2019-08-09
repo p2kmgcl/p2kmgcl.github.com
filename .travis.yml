@@ -14,7 +14,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: false
-  local-dir: build/
+  local-dir: public/
   target-branch: master
   on:
     branch: develop

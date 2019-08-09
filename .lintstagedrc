@@ -1,5 +1,0 @@
-{
-  "*": ["npm run format --", "git add"],
-  "*.{js,ts,js1}": ["npm run typecheck --"],
-  "*.{js,ts,js2}": ["npm run test -- --bail --findRelatedTests --passWithNoTests"]
-}
