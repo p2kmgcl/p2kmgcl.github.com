@@ -12,4 +12,4 @@ else
 fi
 
 echo Running playbook
-ansible-pull --url https://github.com/p2kmgcl/chachi-shell.git --directory $HOME/.chachi-shell --only-if-changed playbook.yml
+ansible-pull --url https://github.com/p2kmgcl/chachi-shell.git --directory $HOME/.chachi-shell --ask-become-pass --only-if-changed playbook.yml
