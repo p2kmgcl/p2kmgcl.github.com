@@ -20,11 +20,6 @@
   }
 }
 
-html,
-body {
-  margin: 0;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -36,9 +31,6 @@ body {
   box-sizing: border-box;
   font-size: 24px;
   padding: 1em 2em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
 }
 
 .title,
@@ -62,10 +54,12 @@ body {
 }
 
 .link-list {
-  margin-top: 1em;
+  margin-top: 8px;
+  transform: translateX(-12px);
 }
 
 .link {
+  padding: 12px;
   color: inherit;
   opacity: 0;
   display: inline-flex;
@@ -98,14 +92,10 @@ body {
   animation-delay: 2.5s;
 }
 
-.link + .link {
-  margin-left: 1ch;
-}
-
 .link-icon {
   fill: currentColor;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   transition: fill ease 0.3s;
 }
 

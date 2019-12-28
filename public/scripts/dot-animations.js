@@ -1,6 +1,4 @@
-/** @type {HTMLCanvasElement} */
 let canvas = document.getElementById('canvas');
-/** @type {CanvasRenderingContext2D} */
 let context = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
@@ -78,7 +76,7 @@ class Dot {
   }
 }
 
-export const randomDots = () => {
+const randomDots = () => {
   let dots = [];
 
   for (let i = 0; i < 10; i++) {
@@ -117,7 +115,7 @@ export const randomDots = () => {
   draw();
 };
 
-export const goBlack = () => {
+const goBlack = () => {
   const ref = document.querySelector('.link:last-child');
   const refClientRect = ref.getBoundingClientRect();
 
@@ -161,3 +159,5 @@ export const goBlack = () => {
 
   ref.addEventListener('animationstart', begin);
 };
+
+goBlack();
