@@ -76,8 +76,10 @@ class Dot {
   }
 }
 
-const randomDots = () => {
+const randomDots = (color) => {
+  const bgColor = Math.abs(color - 255);
   let dots = [];
+  let stop = false;
 
   for (let i = 0; i < 10; i++) {
     setTimeout(() => {
@@ -87,14 +89,14 @@ const randomDots = () => {
       );
 
       dot.speed = 1;
-      dot.color = `rgba(255, 255, 255, ${Math.random() / 5})`;
+      dot.color = `rgba(${color}, ${color}, ${color}, ${Math.random() / 10})`;
       dot.dir = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
       dots.push(dot);
     }, Math.random() * 5000 * i);
   }
 
   const draw = () => {
-    context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    context.fillStyle = `rgba(${bgColor}, ${bgColor}, ${bgColor}, 0.1)`;
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     dots.forEach((dot) => {
@@ -109,55 +111,91 @@ const randomDots = () => {
       }
     });
 
-    requestAnimationFrame(draw);
-  };
-
-  draw();
-};
-
-const goBlack = () => {
-  const ref = document.querySelector('.link:last-child');
-  const refClientRect = ref.getBoundingClientRect();
-
-  const dot = new Dot(
-    refClientRect.left + refClientRect.width / 2,
-    refClientRect.bottom - refClientRect.height / 2,
-  );
-
-  const dotMaxSize = Math.min(canvas.height, canvas.width) * 0.7;
-  let dotLastDir = dot.dir;
-  let maskOpacity = 1;
-
-  const draw = () => {
-    context.fillStyle = `rgba(255, 255, 255, ${maskOpacity})`;
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    dot.update();
-    dot.flip();
-    dot.draw();
-
-    if (dot.dir !== dotLastDir) {
-      dot.size *= 1.1;
-      dotLastDir = dot.dir;
-    }
-
-    dot.speed *= 1.02;
-    maskOpacity = Math.max(0, maskOpacity - 0.005);
-
-    if (dot.size >= dotMaxSize) {
-      document.body.classList.add('white');
-      setTimeout(randomDots, 1000);
-    } else {
+    if (!stop) {
       requestAnimationFrame(draw);
     }
   };
 
-  const begin = () => {
-    ref.removeEventListener('animationstart', begin);
-    setTimeout(draw, 100);
-  };
+  draw();
 
-  ref.addEventListener('animationstart', begin);
+  return () => {
+    stop = true;
+  };
 };
 
-goBlack();
+const toggleBlack = (ref) =>
+  new Promise((resolve) => {
+    const toDark = ref.getAttribute('aria-pressed') === 'true';
+    const refClientRect = ref.getBoundingClientRect();
+
+    const dot = new Dot(
+      refClientRect.left + refClientRect.width / 2,
+      refClientRect.bottom - refClientRect.height / 2,
+    );
+
+    dot.color = toDark ? '#000' : '#fff';
+
+    const dotMaxSize = Math.min(canvas.height, canvas.width) * 0.7;
+    let dotLastDir = dot.dir;
+    let maskOpacity = 1;
+
+    const draw = () => {
+      const color = toDark ? 255 : 0;
+      context.fillStyle = `rgba(${color}, ${color}, ${color}, ${maskOpacity})`;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      dot.update();
+      dot.flip();
+      dot.draw();
+
+      if (dot.dir !== dotLastDir) {
+        dot.size *= 1.1;
+        dotLastDir = dot.dir;
+      }
+
+      dot.speed *= 1.02;
+      maskOpacity = Math.max(0, maskOpacity - 0.005);
+
+      if (dot.size >= dotMaxSize) {
+        document.body.classList.toggle('dark', toDark);
+        setTimeout(() => {
+          resolve(randomDots(color));
+        }, 1000);
+      } else {
+        requestAnimationFrame(draw);
+      }
+    };
+
+    draw();
+  });
+
+function bindButton() {
+  const button = document.getElementById('toggleDarkThemeButton');
+  let stopBackground = null;
+
+  button.addEventListener('click', async () => {
+    stopBackground && stopBackground();
+    button.setAttribute(
+      'aria-pressed',
+      button.getAttribute('aria-pressed') === 'true' ? 'false' : 'true',
+    );
+    button.disabled = true;
+
+    const { matches: prefersReducedMotion } = matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    );
+
+    if (prefersReducedMotion) {
+      document.body.classList.toggle(
+        'dark',
+        button.getAttribute('aria-pressed') === 'true',
+      );
+    } else {
+      stopBackground = await toggleBlack(button);
+    }
+
+    button.disabled = false;
+  });
+}
+
+bindButton();

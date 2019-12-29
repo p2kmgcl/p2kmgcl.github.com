@@ -1,0 +1,15 @@
+collections:
+  experiments:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "experiments"
+    values:
+      layout: "experiment"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
