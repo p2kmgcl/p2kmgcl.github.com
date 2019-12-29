@@ -6,44 +6,50 @@ description: "Pablo Molina's website with links to his social network profiles, 
 <link rel="stylesheet" href="/styles/home.css" />
 <script async src="/scripts/dot-animations.js" type="module"></script>
 <script async src="/scripts/install-service-worker.js" type="module"></script>
-<canvas id="canvas" class="canvas"></canvas>
+<canvas></canvas>
 
-<main id="main" class="main">
+<main>
   <header>
-    <h1 class="title">Pablo Molina</h1>
-    <p class="subtitle">Engineer, Human, Chachi.</p>
-
-    <nav class="link-list">
-      <a class="link" href="https://github.com/p2kmgcl" title="Pablo Molina's Github profile">
-        <svg class="link-icon"><use xlink:href="#githubIcon"></use></svg>
-        <span class="link-text">Pablo Molina's Github profile</span>
-      </a>
-      <a class="link" href="https://mobile.twitter.com/p2kmgcl" title="Pablo Molina's Twitter profile">
-        <svg class="link-icon"><use xlink:href="#twitterIcon"></use></svg>
-        <span class="link-text">Pablo Molina's Twitter profile</span>
-      </a>
-      <a class="link" href="https://www.linkedin.com/in/p2kmgcl/" title="Pablo Molina's LinkedIn profile">
-        <svg class="link-icon"><use xlink:href="#linkedinIcon"></use></svg>
-        <span class="link-text">Pablo Molina's LinkedIn profile</span>
-      </a>
-    </nav>
+    <h1>Pablo Molina</h1>
+    <p>Engineer, Human, Chachi.</p>
   </header>
 
-  <button class="toggle-dark-theme-button" id="toggleDarkThemeButton" type="button" aria-pressed="false">
+  <button type="button" aria-pressed="false">
     <svg><use xlink:href="#bulbIcon"></use></svg>
     <span class="sr-only">Toggle dark theme</span>
   </button>
 
-  <section class="experiments">
-    <h2>Experiments</h2>
-
-    <nav>
-      {% for experiment in site.experiments %}
-      <a href="{{ experiment.url }}">{{ experiment.title }}</a>
-      {% endfor %}
-    </nav>
-  </section>
+  <nav>
+    <a href="https://github.com/p2kmgcl" title="Pablo Molina's Github profile">
+      <svg><use xlink:href="#githubIcon"></use></svg>
+      <span class="sr-only">Pablo Molina's Github profile</span>
+    </a>
+    <a href="https://mobile.twitter.com/p2kmgcl" title="Pablo Molina's Twitter profile">
+      <svg><use xlink:href="#twitterIcon"></use></svg>
+      <span class="sr-only">Pablo Molina's Twitter profile</span>
+    </a>
+    <a href="https://www.linkedin.com/in/p2kmgcl/" title="Pablo Molina's LinkedIn profile">
+      <svg><use xlink:href="#linkedinIcon"></use></svg>
+      <span class="sr-only">Pablo Molina's LinkedIn profile</span>
+    </a>
+  </nav>
 </main>
+
+<section class="experiments">
+  <h2>Experiments</h2>
+
+  {% for experiment in site.experiments %}
+  <article>
+    <h3>
+      <a href="{{ experiment.url }}">
+        {{ experiment.title }}
+      </a>
+    </h3>
+
+    <p>{{ experiment.description }}.</p>
+  </article>
+  {% endfor %}
+</section>
 
 <svg class="sr-only" id="iconDefinitions">
   <defs>
@@ -74,12 +80,19 @@ description: "Pablo Molina's website with links to his social network profiles, 
   const { matches: prefersDark } = matchMedia('(prefers-color-scheme: dark)');
 
   if (prefersDark) {
+    const button = document.querySelector('button');
     document.body.style.transition = 'none';
     document.body.classList.add('dark');
-    document.getElementById('toggleDarkThemeButton').setAttribute('aria-pressed', true);
+    button.setAttribute('aria-pressed', true);
 
     requestAnimationFrame(() => {
       document.body.style.transition = '';
     });
   }
+</script>
+
+<script>
+  document.querySelectorAll('nav a').forEach((element, index) => {
+    element.style.animationDelay = `${1.75 + 0.25 * index}s`;
+  });
 </script>

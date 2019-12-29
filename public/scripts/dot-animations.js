@@ -1,4 +1,4 @@
-let canvas = document.getElementById('canvas');
+let canvas = document.querySelector('canvas');
 let context = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
@@ -170,7 +170,7 @@ const toggleBlack = (ref) =>
   });
 
 function bindButton() {
-  const button = document.getElementById('toggleDarkThemeButton');
+  const button = document.querySelector('button');
   let stopBackground = null;
 
   button.addEventListener('click', async () => {
