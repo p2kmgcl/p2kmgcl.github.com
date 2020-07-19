@@ -27,7 +27,7 @@
 
 .section.main {
   padding-top: 20vh;
-  max-width: 80ch;
+  max-width: 60ch;
 }
 
 .title,
@@ -41,7 +41,7 @@
 }
 
 .title {
-  font-size: 7rem;
+  font-size: 6rem;
   animation-delay: var(--transition-duration);
   font-weight: 900;
   line-height: 1;
