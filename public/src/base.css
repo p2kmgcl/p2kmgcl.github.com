@@ -4,7 +4,7 @@ body {
 }
 
 html {
-  --color: #444;
+  --color: #222;
   --highlight-color: #0074d9;
   --background: #fafafa;
   --transition-duration: 0.3s;
@@ -16,7 +16,7 @@ html {
 }
 
 body.dark {
-  --color: #f1f1f1;
+  --color: #fafafa;
   --background: #222;
 }
 
