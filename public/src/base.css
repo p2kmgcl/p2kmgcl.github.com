@@ -1,0 +1,89 @@
+html,
+body {
+  margin: 0;
+}
+
+html {
+  --color: #444;
+  --highlight-color: #0074d9;
+  --background: #fafafa;
+  --transition-duration: 0.3s;
+
+  font-size: 24px;
+  font-family: monospace, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+body.dark {
+  --color: #f1f1f1;
+  --background: #222;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    --transition-duration: 0s;
+  }
+}
+
+body {
+  color: var(--color);
+  background-color: var(--background);
+  transition: color ease var(--transition-duration),
+    background-color ease var(--transition-duration);
+  will-change: color, background-color;
+  padding-left: 7vw;
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 22px;
+  }
+
+  body {
+    padding-left: 1rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  opacity: 0;
+}
+
+a,
+button {
+  border-radius: 0.25rem;
+  color: var(--color);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: box-shadow ease var(--transition-duration),
+    color ease var(--transition-duration);
+  will-change: box-shadow, color;
+}
+
+a:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--highlight-color);
+}
+
+a:hover,
+button:hover {
+  color: var(--highlight-color);
+}
+
+a:disabled,
+button:disabled {
+  color: var(--color);
+  cursor: default;
+  opacity: 0.5;
+}
+
+svg {
+  fill: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+}
