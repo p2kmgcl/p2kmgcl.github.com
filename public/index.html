@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="/src/base.css" />
     <link rel="stylesheet" href="/src/home.css" />
-    <link rel="stylesheet" href="/src/dot-animations.css" />
+    <link rel="stylesheet" href="/src/dark-theme-animation.css" />
     <link rel="stylesheet" href="/src/title-colors.css" />
   </head>
   <body>
@@ -25,7 +25,7 @@
         <p class="subtitle">Engineer, Human, Chachi.</p>
       </header>
 
-      <button type="button" aria-pressed="false" id="dotAnimationsButton">
+      <button type="button" aria-pressed="false" id="darkThemeButton">
         <svg><use xlink:href="#bulbIcon"></use></svg>
         <span class="sr-only">Toggle dark theme</span>
       </button>
@@ -80,9 +80,8 @@
       });
     </script>
 
-    <canvas id="dotAnimationCanvas"></canvas>
     <script src="/src/auto-change-dark-theme.js" type="module"></script>
-    <script async src="/src/dot-animations.js" type="module"></script>
+    <script async src="/src/dark-theme-animation.js" type="module"></script>
     <script async src="/src/title-colors.js" type="module"></script>
     <script async src="/src/konami-code.js" type="module"></script>
   </body>
