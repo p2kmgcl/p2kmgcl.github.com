@@ -17,11 +17,23 @@ const draw = () => {
     element.classList.add('title-fragment');
 
     const glitch = () => {
+      const speedA = Math.random() * 200 + 50;
+      const speedB = Math.random() * 200 + 50;
+      const speedC = Math.random() * 200 + 50;
+      const duration = (Math.random() + 1) * Math.max(speedA, speedB, speedC);
+      const glitchness = Math.random() * 5 + 5;
+
+      element.style.setProperty('--glitch-translate', `${glitchness}px`);
+      element.style.setProperty('--glitch-skew', `${glitchness}deg`);
+      element.style.setProperty('--glitch-speed-a', `${speedA}ms`);
+      element.style.setProperty('--glitch-speed-b', `${speedB}ms`);
+      element.style.setProperty('--glitch-speed-c', `${speedC}ms`);
+
       element.classList.add('animated');
 
       setTimeout(() => {
         element.classList.remove('animated');
-      }, 200);
+      }, duration);
     };
 
     const timeout = timeouts[Math.floor(Math.random() * timeouts.length)];

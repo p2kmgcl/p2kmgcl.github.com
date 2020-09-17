@@ -1,34 +1,43 @@
 @keyframes glitchLeft {
   from {
+    color: var(--color);
     transform: translateX(0);
   }
   to {
-    color: rgba(0, 0, 255, 0.5);
-    transform: translateX(-8px);
+    color: rgb(0, 0, 150);
+    transform: translateX(calc(var(--glitch-translate) * -1));
   }
 }
 
 @keyframes glitchRight {
   from {
+    color: var(--color);
     transform: translateX(0);
   }
   to {
-    color: rgba(255, 0, 0, 0.5);
-    transform: translateX(8px);
+    color: rgb(150, 0, 0);
+    transform: translateX(var(--glitch-translate));
   }
 }
 
 @keyframes glitchCenter {
   from {
+    color: var(--color);
     transform: translateX(0);
   }
   to {
-    color: rgba(0, 255, 0, 0.5);
-    transform: skew(8deg);
+    color: rgb(0, 150, 0);
+    transform: skew(var(--glitch-skew));
   }
 }
 
 .title-fragment {
+  --glitch-translate: 8px;
+  --glitch-skew: 8deg;
+  --glitch-speed-a: 100ms;
+  --glitch-speed-b: 100ms;
+  --glitch-speed-c: 100ms;
+
   display: inline-block;
   position: relative;
   clip: rect(0 1ch 0.5em 0);
@@ -48,17 +57,21 @@
   clip: rect(0.5em auto auto 0);
 }
 
+.title-fragment.animated {
+  color: transparent;
+}
+
 .title-fragment.animated:nth-child(odd)::before,
 .title-fragment.animated:nth-child(even)::after {
-  animation: glitchRight linear 0.1s infinite;
+  animation: glitchRight linear var(--glitch-speed-a) infinite;
 }
 
 .title-fragment.animated:nth-child(odd)::after,
 .title-fragment.animated:nth-child(even)::before {
-  animation: glitchLeft linear 0.1s infinite;
+  animation: glitchLeft linear var(--glitch-speed-b) infinite;
 }
 
 .title-fragment.animated:nth-child(3n)::after,
 .title-fragment.animated:nth-child(4n)::before {
-  animation: glitchCenter linear 0.1s infinite;
+  animation: glitchCenter linear var(--glitch-speed-c) infinite;
 }
