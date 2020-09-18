@@ -1,15 +1,4 @@
 collections:
-  experiments:
+  pages:
     output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: "experiments"
-    values:
-      layout: "experiment"
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
+    permalink: :title
