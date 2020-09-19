@@ -5,6 +5,7 @@ body {
 
 html {
   --color: #222;
+  --secondary-color: #888;
   --highlight-color: #0074d9;
   --background: #fafafa;
   --transition-duration: 0.3s;
@@ -17,6 +18,7 @@ html {
 
 body.dark {
   --color: #fafafa;
+  --secondary-color: #ccc;
   --background: #222;
 }
 
@@ -32,13 +34,14 @@ body {
   transition: color ease var(--transition-duration),
     background-color ease var(--transition-duration);
   will-change: color, background-color;
-  padding-left: 7vw;
-  padding-right: 0.5rem;
+  margin: 0 auto;
+  max-width: 60ch;
+  padding: 0 7vw;
 }
 
 @media (max-width: 640px) {
   html {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   body {
@@ -62,6 +65,11 @@ button {
   transition: box-shadow ease var(--transition-duration),
     color ease var(--transition-duration);
   will-change: box-shadow, color;
+}
+
+li a {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
 }
 
 a:focus,

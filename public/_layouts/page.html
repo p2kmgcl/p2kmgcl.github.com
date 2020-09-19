@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<style>
+  article .content {
+    text-align: justify;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  header p {
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    max-width: 80%;
+  }
+
+  .page-main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding-right: 1.5rem;
+    padding-top: 0.15rem;
+    margin-bottom: 4rem;
+  }
+
+  .page-main-nav a {
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+  }
+
+  .page-main-nav > a:first-child {
+    font-weight: 800;
+    margin-right: 2rem;
+  }
+
+  .page-main-nav-others a {
+    color: var(--secondary-color);
+  }
+
+  .page-main-nav-others a:hover {
+    color: var(--highlight-color);
+  }
+</style>
+
+<nav class="page-main-nav">
+  <a href="{{ site.baseurl }}">pablomolina.me</a>
+
+  <div class="page-main-nav-others">
+    <a href="{{ site.baseurl }}#blog">Blog</a>
+    <a href="{{ site.baseurl }}#projects">Projects</a>
+  </div>
+</nav>
+
+<article>
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p>
+  </header>
+
+  <div class="content">
+    {{ content }}
+  </div>
+</article>

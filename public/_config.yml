@@ -1,4 +1,27 @@
+title: Pablo Molina
+description: Pablo Molina's website with links to his social network profiles, contact information and projects
+url: https://pablomolina.me
+baseurl: /
+themeColor: "#444"
+data_dir: _data
+includes_dir: _data
+favicons: [32, 192, 512]
+
 collections:
   pages:
     output: true
     permalink: :title
+
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: 'default'
+  - scope:
+      path: '_pages'
+    values:
+      layout: 'page'
+  - scope:
+      path: '_posts'
+    values:
+      layout: 'post'
