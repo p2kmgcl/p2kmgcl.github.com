@@ -35,8 +35,15 @@ body {
     background-color ease var(--transition-duration);
   will-change: color, background-color;
   margin: 0 auto;
+}
+
+.container {
   max-width: 60ch;
   padding: 0 7vw;
+  overflow-y: scroll;
+  max-height: 100vh;
+  scroll-snap-type: y mandatory;
+  position: relative;
 }
 
 @media (max-width: 640px) {
@@ -44,7 +51,7 @@ body {
     font-size: 18px;
   }
 
-  body {
+  .container {
     padding-left: 1rem;
   }
 }

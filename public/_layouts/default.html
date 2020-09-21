@@ -48,27 +48,30 @@ modules:
     {% endfor %}
   </head>
   <body>
-    {% for moduleName in layout.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-    {% endfor %}
 
-    {% for moduleName in page.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-    {% endfor %}
+    <div class="container">
+      {% for moduleName in layout.modules %}
+        {% assign module = site.data.modules[moduleName][moduleName] %}
+        {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
+      {% endfor %}
 
-    {{ content }}
+      {% for moduleName in page.modules %}
+        {% assign module = site.data.modules[moduleName][moduleName] %}
+        {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
+      {% endfor %}
 
-    {% for moduleName in layout.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for html in module.after-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-    {% endfor %}
+      {{ content }}
 
-    {% for moduleName in page.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for html in module.after-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-    {% endfor %}
+      {% for moduleName in layout.modules %}
+        {% assign module = site.data.modules[moduleName][moduleName] %}
+        {% for html in module.after-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
+      {% endfor %}
+
+      {% for moduleName in page.modules %}
+        {% assign module = site.data.modules[moduleName][moduleName] %}
+        {% for html in module.after-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
+      {% endfor %}
+    </div>
 
     {% for moduleName in layout.modules %}
       {% assign module = site.data.modules[moduleName][moduleName] %}
