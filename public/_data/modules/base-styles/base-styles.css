@@ -38,11 +38,7 @@ body {
 }
 
 .container {
-  max-width: 60ch;
   padding: 0 7vw;
-  overflow-y: scroll;
-  max-height: 100vh;
-  scroll-snap-type: y mandatory;
   position: relative;
 }
 
@@ -52,7 +48,11 @@ body {
   }
 
   .container {
+    max-width: 60ch;
     padding-left: 1rem;
+    overflow-y: scroll;
+    max-height: 100vh;
+    scroll-snap-type: y mandatory;
   }
 }
 
