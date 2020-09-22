@@ -1,6 +1,4 @@
 ---
-modules:
-  - title-colors
 ---
 
 <style>
@@ -30,19 +28,9 @@ modules:
     margin-bottom: 1em;
   }
 
-  .section {
-    min-height: calc(100vh - 3rem);
-    padding: 3rem 2rem;
-    box-sizing: border-box;
-    scroll-snap-align: start;
-  }
-
-  .section:nth-child(odd) h1 {
-    text-align: right;
-  }
-
   .section.main {
-    padding-top: 20vh;
+    padding: 10vh 2rem 3rem 2rem;
+    box-sizing: border-box;
     max-width: 60ch;
   }
 
@@ -83,31 +71,8 @@ modules:
     transform-origin: 50% 50%;
   }
 
-  .project-list {
-    list-style: none;
-    text-align: right;
-  }
-
-  .project {
-    margin-bottom: 3rem;
-  }
-
-  .project h2 {
-    margin: 0;
-  }
-
-  .project p {
-    color: var(--secondary-color);
-    max-width: 40ch;
-    margin-left: auto;
-    margin-right: 0;
-  }
 
   @media (max-width: 800px) {
-    .section.main {
-      padding-top: 30vh;
-    }
-
     .title {
       font-size: 5rem;
     }
@@ -135,32 +100,6 @@ modules:
     </a>
   </nav>
 </main>
-
-<section class="projects section" id="projects">
-  <h1>Projects</h1>
-
-  <nav>
-    <ul class="project-list">
-      {% for projectEntry in site.data.projects %}
-        {% assign project = projectEntry | last %}
-
-        <li class="project">
-          <a href="{{ project.url | absolute_url }}">
-            <h2>{{ project.title }}</h2>
-          </a>
-
-          <p>{{ project.description }}</p>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
-</section>
-
-<section class="blog section" id="blog">
-  <h1>Blog</h1>
-
-  <p style="color: var(--secondary-color);">Comming soon...</p>
-</section>
 
 <svg class="sr-only" id="iconDefinitions">
   <defs>

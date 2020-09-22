@@ -50,9 +50,6 @@ body {
   .container {
     max-width: 60ch;
     padding-left: 1rem;
-    overflow-y: scroll;
-    max-height: 100vh;
-    scroll-snap-type: y mandatory;
   }
 }
 
@@ -101,4 +98,32 @@ svg {
   fill: currentColor;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.page-main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  padding-right: 1.5rem;
+  padding-top: 0.55rem;
+  margin-bottom: 4rem;
+}
+
+.page-main-nav a {
+  padding: 0;
+  font-size: 0.75rem;
+}
+
+.page-main-nav > :first-child {
+  font-weight: 800;
+  margin-right: 2rem;
+}
+
+.page-main-nav-others a {
+  color: var(--secondary-color);
+}
+
+.page-main-nav-others a:hover {
+  color: var(--highlight-color);
 }

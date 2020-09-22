@@ -3,6 +3,7 @@ modules:
   - base-styles
   - dark-theme
   - konami-code
+  - title-colors
 ---
 
 <!DOCTYPE html>
@@ -48,8 +49,21 @@ modules:
     {% endfor %}
   </head>
   <body>
-
     <div class="container">
+      <nav class="page-main-nav">
+        {% if page.url != "/" %}
+          <a id="title" href="{{ "/" | absolute_url }}">pablomolina.me</a>
+        {% else %}
+          <span></span>
+        {% endif %}
+
+        <div class="page-main-nav-others">
+          <a href="{{ "/about" | absolute_url }}">About<a>
+          <a href="{{ "/blog" | absolute_url }}">Blog</a>
+          <a href="{{ "/projects" | absolute_url }}">Projects</a>
+        </div>
+      </nav>
+
       {% for moduleName in layout.modules %}
         {% assign module = site.data.modules[moduleName][moduleName] %}
         {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}

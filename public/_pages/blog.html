@@ -1,0 +1,60 @@
+---
+title: Blog
+---
+
+<style>
+  .post-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .post {
+    margin-bottom: 3rem;
+    margin-right: 0;
+    margin-left: auto;
+    max-width: 40ch;
+  }
+
+  .post {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .post a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    transform: translateX(0.4rem);
+  }
+
+  .post a {
+    transform: translateX(-0.4rem);
+  }
+
+  .post time {
+    white-space: nowrap;
+    color: var(--secondary-color);
+  }
+
+  .post p {
+    color: var(--secondary-color);
+  }
+</style>
+
+<nav>
+  <ul class="post-list">
+    {% for post in site.posts %}
+
+    <li class="post">
+      <a href="{{ post.url | absolute_url }}">
+        {{ post.title }}
+      </a>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string: "ordinal", "US" }}</time>
+
+      <p>{{ post.description }}</p>
+    </li>
+    {% else %}
+      <p style="color: var(--secondary-color);">Comming soon...</p>
+    {% endfor %}
+  </ul>
+</nav>

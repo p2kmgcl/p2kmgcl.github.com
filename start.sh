@@ -5,4 +5,4 @@ docker run \
   --publish="4000:4000" \
   --volume="$PWD/public:/srv/jekyll" \
   -it jekyll/jekyll \
-  jekyll serve --destination /tmp/jekyll-site
+  jekyll serve --drafts --destination /tmp/jekyll-site
