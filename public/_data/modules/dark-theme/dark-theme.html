@@ -10,3 +10,19 @@
     />
   </symbol>
 </svg>
+
+<script>
+  const { matches: prefersDark } = matchMedia('(prefers-color-scheme: dark)');
+  const selectedTheme = localStorage.getItem('selectedTheme');
+
+  if (selectedTheme === 'dark' || (!selectedTheme && prefersDark)) {
+    const button = document.querySelector('button');
+    document.body.style.transition = 'none';
+    document.body.classList.add('dark');
+    button.setAttribute('aria-pressed', true);
+
+    requestAnimationFrame(() => {
+      document.body.style.transition = '';
+    });
+  }
+</script>
