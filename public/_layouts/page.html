@@ -9,7 +9,7 @@ layout: default
     padding-bottom: 10vh;
   }
 
-  article .content {
+  article .article-content {
     text-align: justify;
   }
 
@@ -26,12 +26,12 @@ layout: default
 </style>
 
 <article>
-  <header>
+  <header class="article-header">
     <h1>{{ page.title }}</h1>
     <p>{{ page.description }}</p>
   </header>
 
-  <div class="content">
+  <div class="article-content">
     {{ content }}
   </div>
 </article>

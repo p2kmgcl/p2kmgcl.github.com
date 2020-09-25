@@ -3,6 +3,9 @@
 
 <style>
   @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
     to {
       opacity: 1;
     }
@@ -23,8 +26,8 @@
     }
   }
 
-  .container {
-    padding: 0 7vw;
+  .content {
+    padding-left: 7vw;
   }
 
   h1 {
@@ -71,12 +74,17 @@
     display: inline-flex;
     animation: fadeIn ease-out calc(var(--transition-duration) * 2), translateToCenter ease-out calc(var(--transition-duration) * 2);
     animation-fill-mode: forwards;
+    animation-delay: 1s;
     text-decoration: none;
     transform-origin: 50% 50%;
   }
 
 
   @media (max-width: 800px) {
+    .content {
+      padding-left: 2vw;
+    }
+
     .title {
       font-size: 5rem;
     }

@@ -50,19 +50,33 @@ modules:
   </head>
   <body>
     <div class="container">
-      <nav class="page-main-nav">
-        {% if page.url != "/" %}
-          <a id="title" href="{{ "/" | absolute_url }}">pablomolina.me</a>
-        {% else %}
-          <span></span>
-        {% endif %}
+      <header class="header">
+        <div class="header-content">
+          <div class="header-content-left">
+            {% if page.url != "/" %}
+              <a id="title" href="{{ "/" | absolute_url }}">pablomolina.me</a>
+            {% endif %}
+          </div>
 
-        <div class="page-main-nav-others">
-          <a href="{{ "/about" | absolute_url }}">About<a>
-          <a href="{{ "/blog" | absolute_url }}">Blog</a>
-          <a href="{{ "/projects" | absolute_url }}">Projects</a>
+          <div class="header-content-right">
+            {% for page in site.pages %}
+              <a href="{{ page.url | absolute_url }}">{{ page.title }}</a>
+            {% endfor %}
+          </div>
         </div>
-      </nav>
+
+        <div class="header-modules">
+          {% for moduleName in layout.modules %}
+            {% assign module = site.data.modules[moduleName][moduleName] %}
+            {% for html in module.header %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
+          {% endfor %}
+
+          {% for moduleName in page.modules %}
+            {% assign module = site.data.modules[moduleName][moduleName] %}
+            {% for html in module.header %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
+          {% endfor %}
+        </div>
+      </header>
 
       {% for moduleName in layout.modules %}
         {% assign module = site.data.modules[moduleName][moduleName] %}
@@ -74,7 +88,9 @@ modules:
         {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
       {% endfor %}
 
-      {{ content }}
+      <div class="content">
+        {{ content }}
+      </div>
 
       {% for moduleName in layout.modules %}
         {% assign module = site.data.modules[moduleName][moduleName] %}

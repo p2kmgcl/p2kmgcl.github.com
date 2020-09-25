@@ -1,3 +1,3 @@
 styles: [dark-theme.css]
-before-content: [dark-theme.html]
+header: [dark-theme.html]
 scripts: [dark-theme.js]

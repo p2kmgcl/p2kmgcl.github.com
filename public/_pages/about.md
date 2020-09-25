@@ -1,5 +1,5 @@
 ---
-title: About me
+title: About
 ---
 
 <style>
@@ -7,7 +7,7 @@ title: About me
     color: var(--highlight-color);
   }
 
-  header {
+  .article-header {
     position: absolute;
     top: -999999px;
     left: -999999px;
@@ -21,13 +21,13 @@ title: About me
     width: 70%;
   }
 
-  .content {
+  .article-content {
     margin-top: 450px;
     padding-left: 30%;
     position: relative;
   }
 
-  .content p {
+  .article-content p {
     background-color: var(--background);
   }
 
@@ -39,7 +39,7 @@ title: About me
         left: 0;
     }
 
-    .content {
+    .article-content {
         margin-top: 400px;
         padding-left: 0;
         padding-top: 0.5rem;
