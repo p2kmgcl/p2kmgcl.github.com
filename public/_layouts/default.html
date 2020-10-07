@@ -59,7 +59,9 @@ modules:
           </div>
 
           <div class="header-content-right">
-            {% for page in site.pages %}
+            {% assign publicPages = site.pages | where: "public", "true" %}
+
+            {% for page in publicPages %}
               <a href="{{ page.url | absolute_url }}">{{ page.title }}</a>
             {% endfor %}
           </div>
