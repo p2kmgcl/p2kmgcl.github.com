@@ -22,3 +22,43 @@ document.addEventListener('keyup', (event) => {
     pressedKeys = '';
   }
 });
+
+const randomThemeButton = document.getElementById('random-theme-button');
+
+randomThemeButton.addEventListener('click', () => {
+  randomThemeButton.disabled = true;
+
+  fetch('/assets/themes/index.json')
+    .then((response) => response.json())
+    .then(({ themes }) => {
+      if (themes.length <= 1) {
+        randomThemeButton.disabled = false;
+        return;
+      }
+
+      const themeElement = document.getElementById('theme');
+
+      const currentTheme = themeElement.href.replace(
+        window.location.origin,
+        '',
+      );
+
+      const nextTheme = themes.filter((theme) => theme !== currentTheme)[
+        Math.floor(Math.random() * (themes.length - 1))
+      ];
+
+      const nextThemeElement = document.createElement('link');
+      nextThemeElement.rel = 'stylesheet';
+      nextThemeElement.href = nextTheme;
+
+      nextThemeElement.addEventListener('load', () => {
+        setTimeout(() => {
+          themeElement.parentElement.removeChild(themeElement);
+          nextThemeElement.id = 'theme';
+          randomThemeButton.disabled = false;
+        }, 500);
+      });
+
+      themeElement.parentElement.appendChild(nextThemeElement);
+    });
+});

@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;900&display=block');
 
 body {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Inconsolata', Inconsolata, monospace;
   font-size: 16px;
   margin: 1rem;
 }
@@ -48,6 +48,11 @@ img {
 
 #footer-name {
   display: block;
+}
+
+#random-theme-button {
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
 
 .emoji {

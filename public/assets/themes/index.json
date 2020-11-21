@@ -1,0 +1,16 @@
+---
+layout: none
+---
+
+{% assign themes = '' %}
+{% for file in site.static_files %}
+{% assign fileBasePath = file.path | slice: 0, 15 %}
+{% if fileBasePath == '/assets/themes/' %}
+{% capture theme %}"{{ file.path }}",{% endcapture %}
+{% assign themes = themes | append: theme %}
+{% endif %}
+{% endfor %}
+
+{
+  "themes": [{{ themes | split: "," | join: "," }}]
+}
