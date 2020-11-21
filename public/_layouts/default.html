@@ -1,11 +1,3 @@
----
-modules:
-  - base-styles
-  - dark-theme
-  - konami-code
-  - title-colors
----
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,106 +5,54 @@ modules:
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="{{ "/manifest.json" | absolute_url }}" />
+    <link rel="manifest" href="/manifest.json" />
 
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title id="head-title">{% if page.title != "Index" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}" />
     <meta name="theme-color" content="{{ site.themeColor }}" />
 
     {% for favicon in site.favicons %}
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="{{ favicon }}x{{ favicon }}"
-        href="{{ "/favicon/favicon-" | append: favicon | append: ".png" | absolute_url }}"
-      />
+    <link rel="icon" type="image/png" sizes="{{ favicon }}x{{ favicon }}" href="{{ '/favicon/favicon-' | append: favicon | append: '.png' }}" />
     {% endfor %}
 
-    {% for moduleName in layout.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for html in module.head %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-    {% endfor %}
-
-    {% for moduleName in page.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for html in module.head %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-    {% endfor %}
-
-    {% for moduleName in layout.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for style in module.styles %}<style>{% include modules/{{ moduleName }}/{{ style }} %}</style>{% endfor %}
-    {% endfor %}
-
-    {% for moduleName in page.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for style in module.styles %}<style>{% include modules/{{ moduleName }}/{{ style }} %}</style>{% endfor %}
-    {% endfor %}
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="/assets/main.css" />
   </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <div class="header-content">
-          <div class="header-content-left">
-            {% if page.url != "/" %}
-              <a id="title" href="{{ "/" | absolute_url }}">pablomolina.me</a>
-            {% endif %}
-          </div>
+  <body class="body body--{{ page.slug }}">
+    <div id="wrapper">
+      <nav id="main-menu">
+        <a class="main-menu-link" href="/">pablomolina.me</a>
 
-          <div class="header-content-right">
-            {% assign publicPages = site.pages | where: "public", "true" %}
+        <span id="main-menu-link-list">
+          {% for page in site.pages %} {% if page.title != "Index" %}
+          <a class="main-menu-link" href="{{ page.url }}"
+            >{% if page.emoji %}<span class="emoji">{{ page.emoji }}</span>{% endif %}{{ page.title }}</a
+          >
+          {% endif %} {% endfor %}
+        </span>
+      </nav>
 
-            {% for page in publicPages %}
-              <a href="{{ page.url | absolute_url }}">{{ page.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-
-        <div class="header-modules">
-          {% for moduleName in layout.modules %}
-            {% assign module = site.data.modules[moduleName][moduleName] %}
-            {% for html in module.header %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-          {% endfor %}
-
-          {% for moduleName in page.modules %}
-            {% assign module = site.data.modules[moduleName][moduleName] %}
-            {% for html in module.header %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-          {% endfor %}
-        </div>
-      </header>
-
-      {% for moduleName in layout.modules %}
-        {% assign module = site.data.modules[moduleName][moduleName] %}
-        {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-      {% endfor %}
-
-      {% for moduleName in page.modules %}
-        {% assign module = site.data.modules[moduleName][moduleName] %}
-        {% for html in module.before-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-      {% endfor %}
-
-      <div class="content">
+      <main id="content">
+        <h1 id="title">{% if page.title != "Index" %}{{ page.title }}{% else %}Pablo Molina{% endif %}</h1>
         {{ content }}
-      </div>
+      </main>
 
-      {% for moduleName in layout.modules %}
-        {% assign module = site.data.modules[moduleName][moduleName] %}
-        {% for html in module.after-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-      {% endfor %}
+      <footer id="footer">
+        <strong id="footer-name">Pablo Molina</strong>
+        <a id="footer-email" href="mailto:contact@pablomolina.me"><span class="emoji">📮</span>contact@pablomolina.me</a>
 
-      {% for moduleName in page.modules %}
-        {% assign module = site.data.modules[moduleName][moduleName] %}
-        {% for html in module.after-content %}{% include modules/{{ moduleName }}/{{ html }} %}{% endfor %}
-      {% endfor %}
+        <nav id="footer-links">
+          <a class="footer-link" href="https://github.com/p2kmgcl" title="Pablo Molina's Github profile"><span class="emoji">🐱</span>Github</a>
+          <a class="footer-link" href="https://mobile.twitter.com/p2kmgcl" title="Pablo Molina's Twitter profile"
+            ><span class="emoji">🐦</span>Twitter</a
+          >
+          <a class="footer-link" href="https://www.linkedin.com/in/p2kmgcl/" title="Pablo Molina's LinkedIn profile"
+            ><span class="emoji">👔</span>LinkedIn</a
+          >
+        </nav>
+      </footer>
     </div>
 
-    {% for moduleName in layout.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for script in module.scripts %}<script type="module">{% include modules/{{ moduleName }}/{{ script }} %}</script>{% endfor %}
-    {% endfor %}
-
-    {% for moduleName in page.modules %}
-      {% assign module = site.data.modules[moduleName][moduleName] %}
-      {% for script in module.scripts %}<script type="module">{% include modules/{{ moduleName }}/{{ script }} %}</script>{% endfor %}
-    {% endfor %}
+    <script defer async type="module" src="/assets/main.js"></script>
   </body>
 </html>

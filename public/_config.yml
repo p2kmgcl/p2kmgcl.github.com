@@ -3,8 +3,6 @@ description: Pablo Molina's website with links to his social network profiles, c
 url: https://pablomolina.me
 baseurl: /
 themeColor: "#444"
-data_dir: _data
-includes_dir: _data
 favicons: [32, 192, 512]
 
 collections:
@@ -17,15 +15,6 @@ defaults:
       path: ''
     values:
       layout: 'default'
-  - scope:
-      path: '_pages'
-    values:
-      layout: 'page'
-  - scope:
-      path: '_posts'
-    values:
-      layout: 'post'
-  - scope:
-      path: '_drafts'
-    values:
-      layout: 'post'
+
+sass:
+  style: compressed
