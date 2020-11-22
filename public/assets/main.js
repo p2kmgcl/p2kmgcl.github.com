@@ -36,30 +36,16 @@ randomThemeButton.addEventListener('click', () => {
         return;
       }
 
-      const themeElement = document.getElementById('theme');
+      const currentTheme = window.localStorage.getItem('random-theme');
 
-      const currentTheme = themeElement.href.replace(
-        window.location.origin,
-        '',
+      window.localStorage.setItem(
+        'random-theme',
+        themes.filter((theme) => theme !== currentTheme)[
+          Math.floor(Math.random() * (themes.length - 1))
+        ],
       );
 
-      const nextTheme = themes.filter((theme) => theme !== currentTheme)[
-        Math.floor(Math.random() * (themes.length - 1))
-      ];
-
-      const nextThemeElement = document.createElement('link');
-      nextThemeElement.rel = 'stylesheet';
-      nextThemeElement.href = nextTheme;
-      window.localStorage.setItem('random-theme', nextTheme);
-
-      nextThemeElement.addEventListener('load', () => {
-        setTimeout(() => {
-          themeElement.parentElement.removeChild(themeElement);
-          nextThemeElement.id = 'theme';
-          randomThemeButton.disabled = false;
-        }, 500);
-      });
-
-      themeElement.parentElement.appendChild(nextThemeElement);
+      window.scrollTo(0, 0);
+      window.location.reload();
     });
 });

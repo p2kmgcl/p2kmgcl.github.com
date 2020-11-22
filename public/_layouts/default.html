@@ -15,15 +15,32 @@
     <link rel="icon" type="image/png" sizes="{{ favicon }}x{{ favicon }}" href="{{ '/favicon/favicon-' | append: favicon | append: '.png' }}" />
     {% endfor %}
 
+    <link rel="preconnect" href="{{ site.url }}" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link id="theme" rel="stylesheet" href="/assets/themes/simplicity.css" />
 
-    <script type="module">
-      const lastRandomTheme = localStorage.getItem('random-theme');
-      if (lastRandomTheme) document.getElementById('theme').href = lastRandomTheme;
+    <script>
+      (function () {
+        const defaultTheme = '/assets/themes/simplicity.css';
+        const theme = localStorage.getItem('random-theme') || defaultTheme;
+
+        localStorage.setItem('random-theme', theme);
+
+        const linkElement = document.createElement('link');
+        linkElement.rel = 'stylesheet';
+        linkElement.href = theme;
+
+        linkElement.addEventListener('load', () =>
+          requestAnimationFrame(() => {
+            document.body.style.opacity = '1';
+            document.body.style.overflow = 'auto';
+          }),
+        );
+
+        document.head.appendChild(linkElement);
+      })();
     </script>
   </head>
-  <body class="body body--{{ page.slug }}">
+  <body class="body body--{{ page.slug }}" style="opacity: 0; overflow: hidden">
     <div id="wrapper">
       <nav id="main-menu">
         <a class="main-menu-link" href="/">pablomolina.me</a>

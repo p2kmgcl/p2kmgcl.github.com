@@ -1,5 +1,5 @@
-@import url('./simplicity.css');
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=block');
+@import url('/assets/themes/simplicity.css');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 body {
   font-family: 'Satisfy', serif;
