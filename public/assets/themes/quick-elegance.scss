@@ -14,6 +14,24 @@ a {
   color: #9d1a80;
 }
 
+blockquote {
+  padding-left: 1ch;
+  border-left: 0;
+  position: relative;
+
+  border-top: solid rgba(155, 155, 155, 0.5) 1px;
+  border-bottom: solid rgba(155, 155, 155, 0.5) 1px;
+
+  p:first-child:before {
+    content: '“';
+    font-size: 6em;
+    height: 0.4em;
+    overflow: hidden;
+    display: inline-block;
+    opacity: 0.5;
+  }
+}
+
 h1 {
   text-align: center;
   color: #333;

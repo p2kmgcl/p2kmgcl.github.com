@@ -26,6 +26,29 @@ a {
   align-items: center;
 }
 
+blockquote {
+  border-left: solid 1ch rgba(155, 155, 155, 0.5);
+  padding-left: 2em;
+  margin-left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+pre {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  border-top: solid rgba(155, 155, 155, 0.5) 1px;
+  border-bottom: solid rgba(155, 155, 155, 0.5) 1px;
+  padding: 1em 1ch;
+  background: rgba(155, 155, 155, 0.1);
+
+  code {
+    font-family: 'Inconsolata', Inconsolata, monospace;
+    font-weight: 400;
+  }
+}
+
 h1 {
   font-weight: 400;
 }
