@@ -1,0 +1,26 @@
+@import url('./simplicity.css');
+
+body {
+  color: #fafafa;
+  background: #222;
+}
+
+a {
+  color: #ccf;
+  opacity: 0.8;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+a:active {
+  opacity: 0.4;
+}
+
+#random-theme-button {
+  background: #333;
+  border: solid #666 thin;
+  color: #fafafa;
+  border-radius: 4px;
+}

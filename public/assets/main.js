@@ -50,6 +50,7 @@ randomThemeButton.addEventListener('click', () => {
       const nextThemeElement = document.createElement('link');
       nextThemeElement.rel = 'stylesheet';
       nextThemeElement.href = nextTheme;
+      window.localStorage.setItem('random-theme', nextTheme);
 
       nextThemeElement.addEventListener('load', () => {
         setTimeout(() => {

@@ -16,6 +16,15 @@ img {
   max-width: 100%;
 }
 
+button {
+  font-family: inherit;
+  font-size: 1em;
+  height: 1.5em;
+  border: solid thin rgba(150, 150, 150, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 #title {
   font-weight: 200;
   font-size: 3em;

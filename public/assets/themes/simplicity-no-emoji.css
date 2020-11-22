@@ -1,0 +1,49 @@
+@import url('./simplicity.css');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=block');
+
+body {
+  font-family: 'Satisfy', serif;
+}
+
+a {
+  color: #f012be;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+  text-decoration: underline;
+  margin-bottom: 1em;
+}
+
+.body--index #title {
+  margin-bottom: 1em;
+}
+
+.body--links ul,
+.body--links ol {
+  margin: 0 auto;
+  max-width: 40ch;
+}
+
+.body--blog {
+  text-align: center;
+}
+
+strong {
+  color: #aaa;
+}
+
+.emoji {
+  display: none;
+}
+
+#magical-image {
+  display: none;
+}
+
+#footer {
+  text-align: center;
+  width: 100%;
+}

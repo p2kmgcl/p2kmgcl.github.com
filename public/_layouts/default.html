@@ -17,6 +17,11 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link id="theme" rel="stylesheet" href="/assets/themes/simplicity.css" />
+
+    <script type="module">
+      const lastRandomTheme = localStorage.getItem('random-theme');
+      if (lastRandomTheme) document.getElementById('theme').href = lastRandomTheme;
+    </script>
   </head>
   <body class="body body--{{ page.slug }}">
     <div id="wrapper">
@@ -51,10 +56,7 @@
           >
         </nav>
 
-        <button id="random-theme-button" type="button">
-          <span class="emoji">🎲</span>
-          <span id="random-theme-text">Change CSS</span>
-        </button>
+        <button id="random-theme-button" type="button"><span class="emoji">🎲</span><span id="random-theme-text">Change CSS</span></button>
       </footer>
     </div>
 
