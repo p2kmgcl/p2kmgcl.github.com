@@ -6,6 +6,11 @@ body {
   margin: 1rem;
 }
 
+h1,
+h2 {
+  font-weight: 400;
+}
+
 a {
   display: inline-flex;
   min-height: 2em;
