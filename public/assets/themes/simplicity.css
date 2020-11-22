@@ -30,7 +30,7 @@ button {
   cursor: pointer;
 }
 
-#title {
+#content > h1 {
   font-weight: 200;
   font-size: 3em;
 }
@@ -76,11 +76,11 @@ button {
   margin-right: 0.75ch;
 }
 
-.body--index #title {
+.body--index #content > h1 {
   margin-bottom: 0;
 }
 
-.body--index #title + p {
+.body--index #content > h1 + p {
   margin-top: 0.5rem;
 }
 
@@ -123,7 +123,7 @@ button {
     max-width: 70ch;
   }
 
-  #title {
+  #content > h1 {
     margin-top: 1em;
   }
 
