@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
 
-    <title id="head-title">{% if page.title != "Index" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if page.title != "Index" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}" />
     <meta name="theme-color" content="{{ site.themeColor }}" />
 
@@ -40,39 +40,53 @@
       })();
     </script>
   </head>
-  <body class="body body--{{ page.slug }}" style="opacity: 0; overflow: hidden">
-    <div id="wrapper">
+  <body style="opacity: 0; overflow: hidden">
+    <main id="wrapper">
       <nav id="main-menu">
-        <a class="main-menu-link" href="/">pablomolina.me</a>
+        <a href="/">pablomolina.me</a>
 
         <span id="main-menu-link-list">
-          {% for page in site.pages %} {% if page.title != "Index" %}
-          <a class="main-menu-link" href="{{ page.url }}"
-            >{% if page.emoji %}<span class="emoji">{{ page.emoji }}</span>{% endif %}{{ page.title }}</a
-          >
-          {% endif %} {% endfor %}
+          {% for page in site.pages %}{% if page.title != "Index" %}
+          <a href="{{ page.url }}">
+            {% if page.emoji %}<span class="emoji">{{ page.emoji }}</span>{% endif %}
+            <span>{{ page.title }}</span>
+          </a>
+          {% endif %}{% endfor %}
         </span>
       </nav>
 
-      <main id="content">{{ content }}</main>
+      <div
+        id="content"
+        class="{% if page.layout == 'default' %}content-page content-page-{{ page.slug }}{% else %}content-{{ page.layout }}{% endif %}"
+      >
+        {{ content }}
+      </div>
 
       <footer id="footer">
-        <strong id="footer-name">Pablo Molina</strong>
+        <h1 id="footer-name">Pablo Molina</h1>
         <a id="footer-email" href="mailto:contact@pablomolina.me"><span class="emoji">📮</span>contact@pablomolina.me</a>
 
         <nav id="footer-links">
-          <a class="footer-link" href="https://github.com/p2kmgcl" title="Pablo Molina's Github profile"><span class="emoji">🐱</span>Github</a>
-          <a class="footer-link" href="https://mobile.twitter.com/p2kmgcl" title="Pablo Molina's Twitter profile"
-            ><span class="emoji">🐦</span>Twitter</a
-          >
-          <a class="footer-link" href="https://www.linkedin.com/in/p2kmgcl/" title="Pablo Molina's LinkedIn profile"
-            ><span class="emoji">👔</span>LinkedIn</a
-          >
+          <a href="https://github.com/p2kmgcl" title="Pablo Molina's Github profile">
+            <span class="emoji">🐱</span>
+            <span>Github</span>
+          </a>
+          <a href="https://mobile.twitter.com/p2kmgcl" title="Pablo Molina's Twitter profile">
+            <span class="emoji">🐦</span>
+            <span>Twitter</span>
+          </a>
+          <a href="https://www.linkedin.com/in/p2kmgcl/" title="Pablo Molina's LinkedIn profile">
+            <span class="emoji">👔</span>
+            <span>LinkedIn</span>
+          </a>
         </nav>
 
-        <button id="random-theme-button" type="button"><span class="emoji">🎲</span><span id="random-theme-text">Change CSS</span></button>
+        <button id="random-theme-button" type="button">
+          <span class="emoji">🎲</span>
+          <span>Change CSS</span>
+        </button>
       </footer>
-    </div>
+    </main>
 
     <script defer async type="module" src="/assets/main.js"></script>
   </body>

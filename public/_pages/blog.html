@@ -3,16 +3,20 @@ title: Blog
 emoji: 📓
 ---
 
-<em>Working on it...</em>
-
-<nav>
-  <ul>
-    {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+<section>
+  <h1>Blog</h1>
+  {% for post in site.posts %}
+  <article>
+    <header>
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string: "ordinal", "US" }}</time>
-      <p>{{ post.description }}</p>
-    </li>
-    {% endfor %}
-  </ul>
-</nav>
+      <h1><a lang="{{ post.language }}" href="{{ post.url | absolute_url }}">{{ post.title }}</a></h1>
+    </header>
+    <p>
+      {{ post.content | strip_html | split: ' ' | slice: 0, 40 | join: ' ' }}...
+      <a href="{{ post.url }}"><span class="emoji">➡️ </span>Continue reading</a>
+    </p>
+  </article>
+  {% else %}
+  <em>Work in progress...</em>
+  {% endfor %}
+</section>

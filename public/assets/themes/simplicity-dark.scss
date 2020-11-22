@@ -1,4 +1,7 @@
-@import url('/assets/themes/simplicity.css');
+---
+---
+
+@import 'simplicity';
 
 body {
   color: #fafafa;
@@ -18,7 +21,7 @@ a:active {
   opacity: 0.4;
 }
 
-#random-theme-button {
+#footer #random-theme-button {
   background: #333;
   border: solid #666 thin;
   color: #fafafa;

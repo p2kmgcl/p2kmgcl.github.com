@@ -1,0 +1,70 @@
+---
+---
+
+@import 'simplicity';
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Kalam', serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+a {
+  color: #9d1a80;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  text-decoration: underline;
+  margin-bottom: 1em;
+  line-height: 1;
+}
+
+article,
+section article h1,
+section article h1 a {
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+}
+
+strong {
+  color: #9d1a80;
+  font-weight: 700;
+}
+
+.emoji {
+  display: none;
+}
+
+#wrapper {
+  #footer {
+    max-width: 100%;
+
+    @media (min-width: 768px) {
+      max-width: 100%;
+    }
+
+    #footer-name {
+      margin-bottom: 0;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+}
+
+#content.content-page-index {
+  header h1 {
+    margin-bottom: 1em;
+  }
+
+  picture {
+    display: none;
+  }
+}
+
+#content.content-post article header time {
+  text-align: center;
+}

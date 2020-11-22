@@ -14,7 +14,15 @@ defaults:
   - scope:
       path: ''
     values:
-      layout: 'page'
+      layout: 'default'
+  - scope:
+      path: '_posts'
+    values:
+      layout: 'post'
+  - scope:
+      path: 'assets'
+    values:
+      layout: 'none'
 
 sass:
   style: compressed
