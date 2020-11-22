@@ -10,6 +10,7 @@
     <title>{% if page.title != "Index" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}" />
     <meta name="theme-color" content="{{ site.themeColor }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml" />
 
     {% for favicon in site.favicons %}
     <link rel="icon" type="image/png" sizes="{{ favicon }}x{{ favicon }}" href="{{ '/favicon/favicon-' | append: favicon | append: '.png' }}" />
