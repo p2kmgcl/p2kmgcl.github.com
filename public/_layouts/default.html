@@ -20,10 +20,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
 
     <script>
-      (function () {
-        const defaultTheme = '/assets/themes/simplicity.css';
-        const theme = localStorage.getItem('random-theme') || defaultTheme;
+      const DEFAULT_THEME = '/assets/themes/simplicity.css';
 
+      function loadCSSTheme(theme) {
         localStorage.setItem('random-theme', theme);
 
         const linkElement = document.createElement('link');
@@ -37,7 +36,18 @@
           }),
         );
 
+        linkElement.addEventListener('error', () => {
+          if (theme !== DEFAULT_THEME) {
+            loadCSSTheme(DEFAULT_THEME);
+          }
+        });
+
         document.head.appendChild(linkElement);
+      }
+
+      (function () {
+        const theme = localStorage.getItem('random-theme') || DEFAULT_THEME;
+        loadCSSTheme(theme);
       })();
     </script>
   </head>
