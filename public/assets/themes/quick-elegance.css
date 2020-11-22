@@ -47,3 +47,14 @@ strong {
   text-align: center;
   width: 100%;
 }
+
+@media (min-width: 768px) {
+  .body--links ul,
+  .body--links ol {
+    max-width: 50ch;
+  }
+
+  .body--links footer {
+    width: 50ch;
+  }
+}
