@@ -115,12 +115,21 @@ window.themeManager = {
           linkElement.rel = 'stylesheet';
           linkElement.href = theme;
 
-          linkElement.addEventListener('load', () =>
-            requestAnimationFrame(() => {
+          linkElement.addEventListener('load', () => {
+            document.body.style.transition = 'opacity ease 500ms';
+
+            setTimeout(() => {
               document.body.style.opacity = '1';
               document.body.style.overflow = 'auto';
-            }),
-          );
+
+              const handleTransitionEnd = () => {
+                document.body.removeEventListener('transitionend', handleTransitionEnd);
+                document.body.style.transition = '';
+              };
+
+              document.body.addEventListener('transitionend', handleTransitionEnd);
+            }, 100);
+          });
 
           linkElement.addEventListener('error', () => {
             if (theme !== DEFAULT_THEME) {
