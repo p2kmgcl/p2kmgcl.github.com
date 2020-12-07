@@ -1,0 +1,371 @@
+---
+---
+
+@import 'pygments-themes/github';
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poor+Story&family=Inconsolata&family=Passion+One&display=block');
+
+@mixin vignette() {
+  $selectors: 1, 2, 3, 5, 7, 11;
+
+  @each $selector in $selectors {
+    &:nth-child(#{$selector}n + #{$selector}) {
+      transform: rotateZ(0deg);
+
+      border-left: solid black #{random() * 0.1 + 0.1}em;
+      border-right: solid black #{random() * 0.1 + 0.1}em;
+      border-top: solid black #{random() * 0.1 + 0.1}em;
+      border-bottom: solid black #{random() * 0.1 + 0.1}em;
+    }
+  }
+
+  padding: 0.5em;
+  box-shadow: 0.2em 0.2em 0 rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+@mixin textShadow($color, $from, $to) {
+  $textShadows: ();
+
+  @for $i from $from through $to {
+    $textShadows: append($textShadows, #{$i}px #{$i}px 0 #{$color}, comma);
+  }
+
+  text-shadow: $textShadows;
+}
+
+body {
+  font-family: 'Poor Story', cursive;
+  font-size: 24px;
+
+  &::after {
+    content: '';
+    display: block;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==');
+    background-size: 4px 4px;
+    background-repeat: repeat;
+    position: fixed;
+    width: 100vmax;
+    height: 100vmax;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0.2;
+    transform-origin: 50% 50%;
+    transform: rotateZ(33deg) scale(1.5);
+  }
+}
+
+a {
+  font-family: 'Passion One', sans-serif;
+  text-decoration: none;
+  border-bottom: solid 3px;
+  display: inline-block;
+  margin: 0.2em 0.1em;
+  font-weight: bolder;
+  color: red;
+  transition: color ease 0.3s, text-shadow ease 0.3s;
+  will-change: color, text-shadow;
+
+  &:hover,
+  &:focus {
+    color: orange;
+    border-color: firebrick;
+    @include textShadow(red, -4, 1);
+  }
+}
+
+blockquote {
+  font-family: 'Passion One', sans-serif;
+  margin: 2em;
+
+  > p:first-child:before {
+    content: '“';
+  }
+
+  > p:last-child:after {
+    content: '"';
+  }
+}
+
+pre {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: solid thin;
+  border-top: solid thin;
+}
+
+code {
+  font-family: 'Inconsolata', monospace;
+  font-size: 18px;
+}
+
+h1 {
+  font-family: 'Bangers', cursive;
+  color: orange;
+  position: relative;
+  text-align: center;
+  font-size: 2em;
+  @include textShadow(firebrick, -6, 2);
+}
+
+img {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+strong {
+  font-family: 'Passion One', sans-serif;
+  font-size: 0.9em;
+}
+
+#wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+
+  #main-menu {
+    @include vignette;
+
+    #main-menu-link-list {
+      float: right;
+    }
+  }
+
+  #footer {
+    @include vignette;
+    margin-top: 2em;
+
+    #footer-name {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+#content.content-page-index {
+  article {
+    position: relative;
+    margin-top: 1em;
+
+    header {
+      h1 {
+        position: absolute;
+        z-index: 1;
+        transform: translateX(-50%) scale(1.25) rotateZ(-10deg);
+        top: 80vw;
+        left: 50%;
+        width: 100%;
+        font-size: 10vw;
+      }
+
+      p {
+        position: absolute;
+        top: -1em;
+        font-size: 0.9em;
+        z-index: 1;
+      }
+    }
+
+    picture {
+      img {
+        @include vignette;
+      }
+    }
+
+    p {
+      @include vignette;
+    }
+  }
+}
+
+#content.content-page-blog {
+  margin: 1em auto;
+
+  > section > em {
+    display: block;
+    @include vignette;
+  }
+
+  article {
+    @include vignette;
+    margin-bottom: 1em;
+    position: relative;
+
+    header {
+      display: flex;
+      flex-direction: column-reverse;
+
+      h1 {
+        text-shadow: none;
+        position: static;
+        font-size: 1.25em;
+        text-align: left;
+        margin: 0 0 0.5em 0;
+
+        a::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    p a {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+#content.content-page-links {
+  section {
+    article {
+      @include vignette;
+      margin: 1em auto;
+
+      h1 {
+        text-shadow: none;
+        position: static;
+        font-size: 1.25em;
+        text-align: left;
+        margin: 0 0 0.5em 0;
+
+        a::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+#content.content-post article {
+  @include vignette;
+  padding: 0;
+  margin-top: 1em;
+
+  time,
+  p,
+  pre,
+  table,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #content.content-page-index {
+    article {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 1em;
+
+      header {
+        position: absolute;
+        width: 50%;
+
+        h1 {
+          font-size: 4.5em;
+          left: 0;
+          top: 14rem;
+          transform: rotateZ(0deg);
+          width: 200%;
+        }
+
+        p:nth-child(n):last-child {
+          top: 0;
+          width: auto;
+        }
+      }
+
+      picture {
+        margin: 0 0 1em 0;
+        width: calc(50% - 0.5em);
+
+        img {
+          width: 100%;
+        }
+      }
+
+      p {
+        box-sizing: border-box;
+        width: calc(50% - 0.5em);
+        margin: 0 0 1em 0;
+      }
+
+      p:nth-child(even):last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  #content.content-page-links {
+    display: flex;
+    justify-content: space-between;
+
+    section {
+      width: calc(50% - 0.25em);
+    }
+  }
+
+  #content.content-page-blog section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > h1 {
+      width: 100%;
+    }
+
+    article {
+      box-sizing: border-box;
+      width: calc(50% - 0.5em);
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    display: flex;
+    font-size: 4em;
+    min-height: 2.2em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #content.content-page-index {
+    article {
+      header {
+        h1 {
+          top: 0.75em;
+          font-size: 6em;
+        }
+      }
+    }
+  }
+
+  #wrapper #footer {
+    margin-top: 4em;
+  }
+}
