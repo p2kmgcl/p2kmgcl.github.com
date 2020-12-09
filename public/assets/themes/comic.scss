@@ -186,8 +186,9 @@ strong {
   margin: 1em auto;
 
   > section > em {
-    display: block;
     @include vignette;
+    display: block;
+    margin: 0 auto;
   }
 
   article {
