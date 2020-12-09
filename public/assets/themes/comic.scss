@@ -190,7 +190,10 @@ strong {
     display: block;
     margin: 0 auto;
   }
+}
 
+#content.content-page-blog,
+#content.content-page-links {
   article {
     @include vignette;
     margin-bottom: 1em;
@@ -199,22 +202,28 @@ strong {
     header {
       display: flex;
       flex-direction: column-reverse;
+    }
 
-      h1 {
-        text-shadow: none;
-        position: static;
-        font-size: 1.25em;
-        text-align: left;
-        margin: 0 0 0.5em 0;
+    h1 {
+      text-shadow: none;
+      position: static;
+      font-size: 1.25em;
+      text-align: left;
+      margin: 0 0 0.5em 0;
 
-        a::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          left: 0;
-          top: 0;
-        }
+      a {
+        display: block;
+        font-size: 1em;
+        width: 100%;
+      }
+
+      a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
       }
     }
 
@@ -224,32 +233,6 @@ strong {
       height: 0;
       overflow: hidden;
       opacity: 0;
-    }
-  }
-}
-
-#content.content-page-links {
-  section {
-    article {
-      @include vignette;
-      margin: 1em auto;
-
-      h1 {
-        text-shadow: none;
-        position: static;
-        font-size: 1.25em;
-        text-align: left;
-        margin: 0 0 0.5em 0;
-
-        a::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          left: 0;
-          top: 0;
-        }
-      }
     }
   }
 }
