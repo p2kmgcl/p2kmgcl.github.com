@@ -155,11 +155,11 @@ strong {
       h1 {
         position: absolute;
         z-index: 1;
-        transform: translateX(-50%) scale(1.25) rotateZ(-10deg);
+        transform: translateX(-50%) rotateZ(-10deg);
         top: 80vw;
         left: 50%;
-        width: 100%;
-        font-size: 10vw;
+        width: 90%;
+        font-size: 15vw;
       }
 
       p {
