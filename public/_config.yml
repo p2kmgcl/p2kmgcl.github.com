@@ -5,6 +5,9 @@ baseurl: /
 themeColor: "#444"
 favicons: [32, 192, 512]
 
+include:
+  - .well-known
+
 collections:
   pages:
     output: true
