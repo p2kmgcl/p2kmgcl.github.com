@@ -127,8 +127,14 @@ strong {
   #main-menu {
     @include vignette;
 
-    #main-menu-link-list {
-      float: right;
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+
+    > a {
+      margin-right: 1ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
