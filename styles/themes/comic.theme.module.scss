@@ -1,0 +1,490 @@
+@import '../content';
+@import '~@fontsource/bangers';
+@import '~@fontsource/inconsolata';
+@import '~@fontsource/comic-neue';
+
+@mixin vignette() {
+  $selectors: 1, 2, 3, 5, 7, 11;
+
+  @each $selector in $selectors {
+    &:nth-child(#{$selector}n + #{$selector}) {
+      transform: rotateZ(0deg);
+
+      border-left: solid #222 #{random() * 0.1 + 0.1}em;
+      border-right: solid #222 #{random() * 0.1 + 0.1}em;
+      border-top: solid #222 #{random() * 0.1 + 0.1}em;
+      border-bottom: solid #222 #{random() * 0.1 + 0.1}em;
+    }
+  }
+
+  box-shadow: 0.2em 0.2em 0 rgba(0, 0, 0, 0.1);
+  background: white;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+
+@mixin textShadow($color, $from, $to) {
+  $textShadows: ();
+
+  @for $i from $from through $to {
+    $textShadows: append($textShadows, #{$i}px #{$i}px 0 #{$color}, comma);
+  }
+
+  text-shadow: $textShadows;
+}
+
+.html {
+  font-family: 'Comic Neue', sans-serif;
+  font-size: 18px;
+}
+
+.body {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 2em;
+  max-width: 1300px;
+  background: #eee;
+
+  @media (max-width: 700px) {
+    padding: 0.25em;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.anchor {
+  text-decoration: underline;
+  display: inline-block;
+  margin: 0.2em 0.1em;
+  color: inherit;
+
+  &:hover {
+    color: orange;
+  }
+}
+
+.image {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.mainMenu {
+  @include vignette;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0.25em 0.5em 0 0.5em;
+  font-size: 1rem;
+
+  .anchor {
+    margin-right: 1ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.footer {
+  @include vignette;
+
+  font-size: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  justify-content: space-between;
+
+  > .heading {
+    position: absolute;
+    margin: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.entryList {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  grid-column-gap: 0.25em;
+  grid-row-gap: 0.25em;
+  margin: 0.25em 0 2em 0;
+}
+
+.entryListItem {
+  @include vignette;
+  padding: 0.5em;
+  position: relative;
+
+  > .header {
+    margin-bottom: 0.5em;
+
+    > .heading {
+      margin: 0;
+
+      > .anchor::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    > .time {
+      color: #666;
+      font-size: 0.875em;
+    }
+  }
+
+  > .paragraph {
+    margin: 0;
+
+    > .anchor {
+      display: inline;
+
+      > .emoji {
+        display: none;
+      }
+
+      &:after {
+        content: '...';
+      }
+    }
+  }
+}
+
+.mainTitle {
+  font-family: 'Bangers', cursive;
+  font-size: 4em;
+  color: orange;
+  @include textShadow(black, -2, 10);
+  text-align: center;
+  max-width: 20ch;
+  margin: 2rem auto;
+}
+
+.indexPage {
+  display: grid;
+  position: relative;
+  margin: 0.25em 0;
+
+  > .header > .paragraph,
+  > .picture > .image,
+  > .paragraph {
+    @include vignette;
+    padding: 0.25em;
+  }
+
+  > .header {
+    white-space: nowrap;
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    padding-top: (1400 / 1080) * 100%;
+
+    > .heading,
+    > .paragraph {
+      position: absolute;
+      z-index: 1;
+    }
+
+    > .heading {
+      margin: 0;
+      bottom: 2em;
+      left: 0.5em;
+      transform: rotateZ(-10deg);
+      text-align: left;
+      font-size: 15vw;
+      color: #eee;
+
+      &:before {
+        content: 'the Amazing';
+        display: block;
+        font-size: 2rem;
+        @include textShadow(black, -2, 2);
+      }
+    }
+
+    > .paragraph {
+      bottom: 2em;
+      right: 2em;
+      width: auto;
+      margin: 0;
+      padding: 0.25em 0.5em;
+    }
+  }
+
+  > .picture {
+    position: absolute;
+    overflow: hidden;
+
+    > .image {
+      width: 100%;
+      height: auto;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform-origin: 50% 50%;
+      transform: rotateZ(-10deg) scale(2);
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 50%,
+        rgba(50, 50, 50, 0.5) 55%,
+        rgba(50, 50, 50, 0.1) 100%
+      );
+    }
+  }
+
+  > .paragraph {
+    margin: 0.25em 0;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 0.25em;
+    grid-row-gap: 0.25em;
+
+    > .header,
+    > .picture {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    > .header > .heading {
+      font-size: 15vw;
+    }
+
+    > .paragraph {
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+
+    > .header,
+    > .picture {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 5;
+    }
+
+    > .header > .heading {
+      font-size: 7vw;
+    }
+
+    > .paragraph {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    > .header,
+    > .picture {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    > .header > .heading {
+      font-size: 4.5rem;
+    }
+
+    > .paragraph {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.teseraTagPage {
+  > .heading {
+    color: white;
+
+    > .anchor {
+      text-decoration: none;
+    }
+
+    > .tagListItem {
+      color: orange;
+    }
+  }
+}
+
+.teseraEntryPage {
+  width: 100%;
+  margin: 0.25em auto;
+
+  > .header {
+    @include vignette;
+
+    padding: 1em;
+    margin-bottom: 0.25em;
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+
+    > .heading {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    > .time {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      color: #666;
+    }
+
+    > .paragraph {
+      grid-row-start: 3;
+      grid-row-end: 4;
+      margin: 0;
+      font-style: italic;
+    }
+
+    > .tagList {
+      grid-row-start: 4;
+      grid-row-end: 5;
+    }
+
+    > .section {
+      grid-row-start: 2;
+      grid-row-end: 5;
+      font-size: 0.875em;
+      transform: translateY(1.5rem) rotateZ(5deg);
+      position: relative;
+
+      &:after {
+        content: '📎';
+        position: absolute;
+        top: -2rem;
+        left: 0;
+        font-size: 3rem;
+        z-index: -1;
+      }
+
+      &:before {
+        content: 'TL;DR';
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: #666;
+        position: absolute;
+        top: -1.2rem;
+        left: 4rem;
+      }
+
+      > .paragraph {
+        @include vignette;
+        padding: 0.25rem;
+        margin: 0;
+      }
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: 1fr 350px 350px 1fr;
+
+      > .heading {
+        grid-column-start: 1;
+        grid-column-end: 5;
+      }
+
+      > .time,
+      > .paragraph,
+      > .tagList {
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+
+      > .section {
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+    }
+  }
+
+  > .entryContent {
+    @include vignette;
+    padding: 2em 1em;
+
+    > .rawDOM {
+      @include content;
+      max-width: 60ch;
+      margin: 0 auto;
+
+      code,
+      pre > code {
+        font-family: 'Inconsolata', monospace;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.linksPage {
+  max-width: 60ch;
+  margin: 0 auto 2em auto;
+
+  > .section {
+    display: flex;
+    flex-direction: column;
+
+    > .article {
+      @include vignette;
+      padding: 0.5em 1em;
+      margin-bottom: 0.25em;
+      position: relative;
+
+      > .heading {
+        margin: 0;
+
+        > .anchor::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      > .paragraph {
+        margin: 0.25em 0 0 0;
+      }
+    }
+  }
+}

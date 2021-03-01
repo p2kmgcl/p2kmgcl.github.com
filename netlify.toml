@@ -1,0 +1,4 @@
+[build]
+  base = "."
+  publish = "build/app/"
+  command = "yarn run build"
