@@ -7,11 +7,19 @@ import {
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
 import { Heading } from '../components/HTMLElements';
-import { useEffect } from 'react';
 import { useKonami } from '../utils/useKonami';
+import pkg from '../package.json';
+import { FC } from 'react';
 
-const AppContent = ({ Component, pageProps }) => {
+interface AppProps {
+  Component: FC;
+  pageProps: Record<string, any>;
+}
+
+const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
   const theme = useTheme();
+  const tagList: string[] = pageProps.tagList || [];
+
   useKonami(useChangeTheme());
 
   return (
@@ -21,6 +29,22 @@ const AppContent = ({ Component, pageProps }) => {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {[
+          { tag: 'all', title: 'Tesera' },
+          ...tagList.map((tag) => ({
+            tag: tag.toLowerCase().split(' ').join('-'),
+            title: `Tesera#${tag}`,
+          })),
+        ].map(({ tag, title }) => (
+          <link
+            key={tag}
+            rel="alternate"
+            type="application/rss+xml"
+            title={title}
+            href={`/feed-${tag}.xml`}
+          />
+        ))}
 
         {[32, 192, 512].map((size) => (
           <link
@@ -53,26 +77,26 @@ const AppContent = ({ Component, pageProps }) => {
       <footer className={theme.footer}>
         <Heading>Pablo Molina</Heading>
 
-        <Anchor href="mailto:contact@pablomolina.me">
-          <Emoji>📮</Emoji>contact@pablomolina.me
+        <Anchor href={`mailto:${pkg.author.email}`}>
+          <Emoji>📮</Emoji>${pkg.author.email}
         </Anchor>
 
         <nav className={theme.footerNavigation}>
           <Anchor
             href="https://github.com/p2kmgcl"
-            title="Pablo Molina's Github profile"
+            title={`${pkg.author.name}'s Github profile`}
           >
             <Emoji>🐱</Emoji>Github
           </Anchor>
           <Anchor
             href="https://mobile.twitter.com/p2kmgcl"
-            title="Pablo Molina's Twitter profile"
+            title={`${pkg.author.name}'s Twitter profile`}
           >
             <Emoji>🐦</Emoji>Twitter
           </Anchor>
           <Anchor
             href="https://www.linkedin.com/in/p2kmgcl/"
-            title="Pablo Molina's LinkedIn profile"
+            title={`${pkg.author.name}'s LinkedIn profile`}
           >
             <Emoji>👔</Emoji>LinkedIn
           </Anchor>
@@ -82,7 +106,7 @@ const AppContent = ({ Component, pageProps }) => {
   );
 };
 
-export default function App(props) {
+export default function App(props: AppProps) {
   return (
     <ThemeContextProvider>
       <AppContent {...props} />

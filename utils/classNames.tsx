@@ -1,10 +1,10 @@
 export const classNames = (
   ...classes: Array<undefined | string | string[] | Record<string, any>>
-) =>
+): string =>
   classes
     .map((className) => {
       if (!className) {
-        return null;
+        return undefined;
       }
 
       if (typeof className === 'string') {
@@ -17,7 +17,7 @@ export const classNames = (
 
       return classNames(
         ...Object.entries(classNames).map(([key, value]) =>
-          value ? key : null,
+          value ? key : undefined,
         ),
       );
     })

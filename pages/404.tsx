@@ -1,7 +1,7 @@
 import { useTheme } from '../styles/ThemeContext';
 import Meta from '../components/Meta';
 import { Anchor } from '../components/Anchor';
-import { Article, Heading, Paragraph } from '../components/HTMLElements';
+import { Article, Paragraph } from '../components/HTMLElements';
 import { MainTitle } from '../components/MainTitle';
 
 export default function NotFound() {

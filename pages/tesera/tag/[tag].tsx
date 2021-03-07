@@ -6,7 +6,7 @@ import { getTagList } from '../../../utils/getTagList';
 import { TagListItem } from '../../../components/TagListItem';
 import { EntryList } from '../../../components/EntryList';
 import { Anchor } from '../../../components/Anchor';
-import { Heading, Section } from '../../../components/HTMLElements';
+import { Section } from '../../../components/HTMLElements';
 import { MainTitle } from '../../../components/MainTitle';
 
 type Params = {

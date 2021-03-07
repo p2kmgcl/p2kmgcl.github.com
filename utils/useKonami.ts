@@ -16,7 +16,7 @@ const KONAMI_CODE = [
 export const useKonami = (callback: () => void) => {
   useEffect(() => {
     let code = '';
-    let clearCodeTimeoutId = null;
+    let clearCodeTimeoutId: NodeJS.Timeout;
 
     const clearCode = () => {
       code = '';

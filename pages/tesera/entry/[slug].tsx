@@ -8,7 +8,6 @@ import Meta from '../../../components/Meta';
 import {
   Article,
   Header,
-  Heading,
   Paragraph,
   Section,
 } from '../../../components/HTMLElements';

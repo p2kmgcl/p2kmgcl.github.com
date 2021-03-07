@@ -28,7 +28,7 @@ export default function Tesera({ tagList, entryList }: Props) {
   );
 }
 
-export async function getStaticProps({ params }): Promise<{ props: Props }> {
+export async function getStaticProps(): Promise<{ props: Props }> {
   return {
     props: {
       entryList: getEntryList(),

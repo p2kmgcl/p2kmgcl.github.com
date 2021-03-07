@@ -1,9 +1,15 @@
 {
-  "name": "p2kmgcl.github.com",
+  "name": "pablomolina.me",
+  "description": "",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "contact@pablomolina.me",
+    "name": "Pablo Molina"
+  },
   "scripts": {
-    "build": "rimraf .next build/app && next build && next export -o build/app",
+    "build": "rimraf .next build/app && next build && next export -o build/app && yarn build:rss",
+    "build:rss": "NODE_ENV=production ts-node --project tsconfig.node.json generate-rss.ts",
     "start": "next dev"
   },
   "dependencies": {
@@ -28,6 +34,7 @@
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "sass": "^1.32.8",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.5"
   }
 }

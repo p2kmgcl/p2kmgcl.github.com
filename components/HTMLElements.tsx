@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { classNames } from '../utils/classNames';
 import { useTheme } from '../styles/ThemeContext';
 

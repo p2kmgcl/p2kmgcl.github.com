@@ -9,6 +9,7 @@ import {
   Strong,
 } from '../components/HTMLElements';
 import { MainTitle } from '../components/MainTitle';
+import { getTagList } from '../utils/getTagList';
 
 function flatMap<T, Q>(array: T[], fn: (element: T) => Q[]): Q[] {
   return array.map(fn).reduce((a, b) => a.concat(b), []);
@@ -87,4 +88,14 @@ export default function Home() {
       </Paragraph>
     </Article>
   );
+}
+
+export async function getStaticProps(): Promise<{
+  props: { tagList: string[] };
+}> {
+  return {
+    props: {
+      tagList: getTagList(),
+    },
+  };
 }

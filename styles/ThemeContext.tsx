@@ -33,6 +33,10 @@ export const ThemeContextProvider: FC = ({ children }) => {
   });
 
   useEffect(() => {
+    if (!context.theme) {
+      return;
+    }
+
     document.documentElement.className = context.theme.html || '';
     document.body.className = context.theme.body || '';
 
@@ -65,7 +69,9 @@ export function useChangeTheme() {
   const setContext = useContext(SetThemeContext);
 
   return useCallback(async () => {
-    const themeList = Object.entries(THEMES);
+    const themeList = Object.entries(THEMES) as Array<
+      [string, () => Promise<{ default: Theme }>]
+    >;
 
     const currentThemeIndex = themeList.findIndex(
       ([key]) => key === context.themeName,
