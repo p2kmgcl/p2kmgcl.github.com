@@ -119,10 +119,14 @@
 .entryList {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  grid-template-columns: repeat(auto-fit, 1fr);
   grid-column-gap: 0.25em;
   grid-row-gap: 0.25em;
   margin: 0.25em 0 2em 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  }
 }
 
 .entryListItem {
@@ -171,12 +175,18 @@
 
 .mainTitle {
   font-family: 'Bangers', cursive;
-  font-size: 4em;
+  font-size: 2.5em;
   color: orange;
-  @include textShadow(black, -2, 10);
+  @include textShadow(black, -2, 5);
   text-align: center;
   max-width: 20ch;
   margin: 2rem auto;
+  word-break: break-word;
+
+  @media (min-width: 900px) {
+    font-size: 4em;
+    @include textShadow(black, -2, 10);
+  }
 }
 
 .indexPage {
@@ -330,10 +340,12 @@
 
 .teseraTagPage {
   > .heading {
-    color: white;
-
     > .anchor {
       text-decoration: none;
+    }
+
+    > .anchor:first-child {
+      display: none;
     }
 
     > .tagListItem {
