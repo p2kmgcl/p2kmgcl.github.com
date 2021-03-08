@@ -191,8 +191,23 @@
 
 .indexPage {
   display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto auto;
   position: relative;
   margin: 0.25em 0;
+
+  > .header,
+  > .picture {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  > .paragraph {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 
   > .header > .paragraph,
   > .picture > .image,
@@ -203,9 +218,9 @@
 
   > .header {
     white-space: nowrap;
-    height: 0;
     position: relative;
     overflow: hidden;
+    height: 0;
     padding-top: (1400 / 1080) * 100%;
 
     > .heading,
@@ -241,10 +256,15 @@
   }
 
   > .picture {
-    position: absolute;
+    position: relative;
     overflow: hidden;
+    height: 0;
+    padding-top: (1400 / 1080) * 100%;
 
     > .image {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: auto;
     }
@@ -292,6 +312,9 @@
 
     > .paragraph {
       margin: 0;
+
+      grid-column-start: initial;
+      grid-column-end: initial;
     }
   }
 
