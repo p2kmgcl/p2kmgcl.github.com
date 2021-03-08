@@ -40,6 +40,7 @@ export const ThemeContextProvider: FC = ({ children }) => {
     document.documentElement.className = context.theme.html || '';
     document.body.className = context.theme.body || '';
 
+    // https://github.com/vercel/next.js/issues/4834#issuecomment-430610292
     const wrapper = document.getElementById('__next');
 
     if (wrapper) {
