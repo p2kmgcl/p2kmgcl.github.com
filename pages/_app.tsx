@@ -78,7 +78,8 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
         <Heading>Pablo Molina</Heading>
 
         <Anchor href={`mailto:${pkg.author.email}`}>
-          <Emoji>📮</Emoji>${pkg.author.email}
+          <Emoji>📮</Emoji>
+          {pkg.author.email}
         </Anchor>
 
         <nav className={theme.footerNavigation}>
