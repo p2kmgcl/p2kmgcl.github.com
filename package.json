@@ -8,7 +8,8 @@
     "name": "Pablo Molina"
   },
   "scripts": {
-    "build": "rimraf .next build/app && next build && next export -o build/app && yarn build:rss",
+    "build": "rimraf .next build/app && next build && next export -o build/app && yarn build:rss && yarn build:404",
+    "build:404": "mv build/app/404/index.html build/app/404.html && rm -r build/app/404",
     "build:rss": "NODE_ENV=production ts-node --project tsconfig.node.json generate-rss.ts",
     "dev": "netlify dev",
     "dev:next": "next dev",
