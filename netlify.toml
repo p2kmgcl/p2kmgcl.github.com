@@ -2,3 +2,8 @@
   base = "."
   publish = "build/app/"
   command = "yarn run build"
+
+[dev]
+  framework = "#custom"
+  command = "yarn run dev:next"
+  targetPort = 3000
