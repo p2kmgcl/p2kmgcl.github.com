@@ -1,3 +1,3 @@
 # Pablo Molina's website
 
-Static good old plain HTML, CSS and JS.
+Build with [Next](https://nextjs.org/)
