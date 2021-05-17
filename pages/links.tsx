@@ -39,6 +39,13 @@ export default function Links() {
         <MainTitle>Aside projects</MainTitle>
 
         <Link
+          emoji="📺"
+          title="Twitch channel"
+          href="https://twitch.tv/p2kmgcl"
+          description="Videos about software development, mostly about FrontEnd, but also learning new programming languages and other interesting topics."
+        />
+
+        <Link
           emoji="🎩"
           title="Seniore"
           href="https://www.npmjs.com/package/seniore"
