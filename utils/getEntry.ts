@@ -1,6 +1,5 @@
 import fs from 'fs';
 import grayMatter from 'gray-matter';
-import sanitize from 'sanitize-html';
 import marked from 'marked';
 import { Entry } from '../types/Entry';
 
@@ -38,8 +37,9 @@ export const getEntry = (slug: string) => {
     });
 
   return {
-    ...{ ...data, date: new Date(data.date).getTime() },
-    content: sanitize(marked(content, { gfm: true })),
+    ...data,
     slug,
+    content: marked(content, { gfm: true }),
+    date: new Date(data.date).getTime(),
   };
 };
