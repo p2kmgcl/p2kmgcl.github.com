@@ -101,6 +101,18 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
           >
             <Emoji>👔</Emoji>LinkedIn
           </Anchor>
+          <Anchor
+            href="https://twitch.tv/p2kmgcl"
+            title={`${pkg.author.name}'s Twitch channel`}
+          >
+            <Emoji>📺</Emoji>Twitch
+          </Anchor>
+          <Anchor
+            href="https://www.youtube.com/p2kmgcl"
+            title={`${pkg.author.name}'s YouTube channel`}
+          >
+            <Emoji>📹</Emoji>YouTube
+          </Anchor>
         </nav>
       </footer>
     </>
