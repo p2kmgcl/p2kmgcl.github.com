@@ -14,6 +14,7 @@ import {
 import { RawDOM } from '../../../components/RawDOM';
 import { MainTitle } from '../../../components/MainTitle';
 import { classNames } from '../../../utils/classNames';
+import { useEffect, useRef } from 'react';
 
 type Params = {
   params: {
@@ -26,7 +27,23 @@ type Props = {
 };
 
 export default function TeseraEntry({ entry }: Props) {
+  const contentRef = useRef<HTMLElement|null>(null);
   const theme = useTheme();
+
+  useEffect(() => {
+    if (process.browser && contentRef.current) {
+      if (!window.Prism) {
+        window.Prism = { manual: true }
+      }
+
+      const wrapper = contentRef.current
+
+      import('prismjs').then(PrismModule => {
+        PrismModule.default.highlightAllUnder(wrapper)
+      })
+
+    }
+  }, [])
 
   return (
     <Article className={theme.teseraEntryPage}>
@@ -43,7 +60,7 @@ export default function TeseraEntry({ entry }: Props) {
         </Section>
       </Header>
 
-      <div className={classNames(theme.entryContent)}>
+      <div className={classNames(theme.entryContent)} ref={contentRef}>
         <RawDOM html={entry.content} elementProps={{ lang: entry.language }} />
       </div>
     </Article>
