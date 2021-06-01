@@ -1,4 +1,3 @@
-@import '../content';
 @import '~@fontsource/bangers';
 @import '~@fontsource/inconsolata';
 @import '~@fontsource/comic-neue';
@@ -161,6 +160,7 @@
 
     > .anchor {
       display: inline;
+      text-decoration: none;
 
       > .emoji {
         display: none;
@@ -477,15 +477,19 @@
     padding: 2em 1em;
 
     > .rawDOM {
-      @include content;
+      :global {
+        @import 'prismjs/themes/prism';
+        @import '../content.scss';
+      }
+
+      pre[class],
+      code[class],
+      code[class] > span[class] {
+        font-family: 'Inconsolata';
+      }
+
       max-width: 60ch;
       margin: 0 auto;
-
-      code,
-      pre > code {
-        font-family: 'Inconsolata', monospace;
-        font-size: 16px;
-      }
     }
   }
 }

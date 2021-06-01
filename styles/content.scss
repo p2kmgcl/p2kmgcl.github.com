@@ -1,62 +1,62 @@
-@mixin content {
-  blockquote {
-    border-left: solid 0.5ch rgba(155, 155, 155, 0.5);
-    padding-left: calc(1rem + 0.5ch);
-    margin-left: 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
+blockquote {
+  border-left: solid 0.5ch rgba(155, 155, 155, 0.5);
+  padding-left: calc(1rem + 0.5ch);
+  margin-left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  pre {
-    width: 100%;
-    box-sizing: border-box;
-    overflow-x: auto;
-    border-top: solid rgba(155, 155, 155, 0.5) 1px;
-    border-bottom: solid rgba(155, 155, 155, 0.5) 1px;
-    padding: 1em 1ch;
-    background: rgba(155, 155, 155, 0.1);
+pre {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  border-top: solid rgba(155, 155, 155, 0.5) 1px;
+  border-bottom: solid rgba(155, 155, 155, 0.5) 1px;
+  padding: 1em 1ch;
+  background: rgba(155, 155, 155, 0.1);
+}
 
-    code {
-      font-family: monospace;
-      font-weight: 400;
-      font-size: 1rem;
-    }
-  }
+pre[class],
+code[class],
+code[class] > span[class] {
+  font-family: monospace;
+  font-size: inherit;
+  font-weight: 400;
+}
 
-  img {
-    max-width: 100%;
-    margin: 0 auto;
-  }
+img {
+  max-width: 100%;
+  margin: 0 auto;
+}
 
-  strong {
-    font-weight: 900;
-  }
+strong {
+  font-weight: 900;
+}
 
-  p {
-    text-align: justify;
-  }
+p {
+  text-align: justify;
+}
 
-  ul {
-    padding-left: 2ch;
-  }
+ul {
+  padding-left: 2ch;
+}
 
-  table {
-    overflow: hidden;
-    margin: 0 auto;
-  }
+table {
+  overflow: hidden;
+  margin: 0 auto;
+}
 
-  hr {
-    border: solid thin rgba(0, 0, 0, 0.1);
-  }
+hr {
+  border: solid thin rgba(0, 0, 0, 0.1);
+}
 
-  th,
-  td {
-    padding: 0.5em 1rem;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  }
+th,
+td {
+  padding: 0.5em 1rem;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
 
-  thead tr,
-  tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
+thead tr,
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
 }
