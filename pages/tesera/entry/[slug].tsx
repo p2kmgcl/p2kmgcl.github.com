@@ -27,23 +27,23 @@ type Props = {
 };
 
 export default function TeseraEntry({ entry }: Props) {
-  const contentRef = useRef<HTMLElement|null>(null);
+  const contentRef = useRef<HTMLElement | null>(null);
   const theme = useTheme();
 
   useEffect(() => {
     if (process.browser && contentRef.current) {
       if (!window.Prism) {
-        window.Prism = { manual: true }
+        // @ts-ignore
+        window.Prism = { manual: true };
       }
 
-      const wrapper = contentRef.current
+      const wrapper = contentRef.current;
 
-      import('prismjs').then(PrismModule => {
-        PrismModule.default.highlightAllUnder(wrapper)
-      })
-
+      import('prismjs').then((PrismModule) => {
+        PrismModule.default.highlightAllUnder(wrapper);
+      });
     }
-  }, [])
+  }, []);
 
   return (
     <Article className={theme.teseraEntryPage}>
