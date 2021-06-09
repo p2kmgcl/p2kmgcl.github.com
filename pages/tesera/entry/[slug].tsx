@@ -27,7 +27,7 @@ type Props = {
 };
 
 export default function TeseraEntry({ entry }: Props) {
-  const contentRef = useRef<HTMLElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const theme = useTheme();
 
   useEffect(() => {
