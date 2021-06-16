@@ -21,7 +21,7 @@ export default class CustomDocument extends Document {
     return (
       <Html className={classNames(DEFAULT_THEME.html)} lang="en">
         <Head />
-        <body className={classNames(DEFAULT_THEME.body)}>
+        <body className={classNames(DEFAULT_THEME.body)} style={{ opacity: 0 }}>
           <Main />
           <NextScript />
         </body>

@@ -9,7 +9,7 @@ import { Anchor } from '../components/Anchor';
 import { Heading } from '../components/HTMLElements';
 import { useKonami } from '../utils/useKonami';
 import pkg from '../package.json';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 interface AppProps {
   Component: FC;
@@ -21,6 +21,14 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
   const tagList: string[] = pageProps.tagList || [];
 
   useKonami(useChangeTheme());
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.requestAnimationFrame(() => {
+        document.body.style.opacity = '';
+      });
+    }
+  }, []);
 
   return (
     <>
