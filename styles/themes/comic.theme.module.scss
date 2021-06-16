@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '~@fontsource/bangers';
 @import '~@fontsource/inconsolata';
 @import '~@fontsource/comic-neue';
@@ -221,7 +223,7 @@
     position: relative;
     overflow: hidden;
     height: 0;
-    padding-top: (1400 / 1080) * 100%;
+    padding-top: math.div(1400, 1080) * 100%;
 
     > .heading,
     > .paragraph {
@@ -259,7 +261,7 @@
     position: relative;
     overflow: hidden;
     height: 0;
-    padding-top: (1400 / 1080) * 100%;
+    padding-top: math.div(1400, 1080) * 100%;
 
     > .image {
       position: absolute;
