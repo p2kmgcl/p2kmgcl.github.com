@@ -1,8 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["esnext"],
+    "target": "ES2015",
+    "lib": [
+      "ES2015",
+      "DOM"
+    ],
     "allowJs": true,
     "module": "CommonJS"
   }
