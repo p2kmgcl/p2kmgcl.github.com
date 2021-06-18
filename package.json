@@ -1,11 +1,26 @@
 {
   "name": "pablomolina.me",
-  "description": "",
+  "description": "Pablo Molina's website with links to his social network profiles, contact information and projects",
   "version": "0.1.0",
   "private": true,
   "author": {
+    "description": "Engineer. Human. Chachi.",
+    "url": "https://pablomolina.me",
     "email": "contact@pablomolina.me",
     "name": "Pablo Molina"
+  },
+  "config": {
+    "blogName": "Tesera",
+    "blogSlug": "tesera",
+    "blogEntrySlug": "entry",
+    "blogTagSeparator": "#",
+    "blogTagSlug": "tag",
+    "feedPrefix": "feed-",
+    "titleSeparator": " | "
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=7.0.0"
   },
   "scripts": {
     "build": "rimraf .next build/app && next build && next export -o build/app && yarn build:rss && yarn build:404",

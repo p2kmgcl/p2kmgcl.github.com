@@ -6,10 +6,11 @@ import { Time } from './Time';
 import { useTheme } from '../styles/ThemeContext';
 import { Article, Header, Heading, Paragraph } from './HTMLElements';
 import { classNames } from '../utils/classNames';
+import pkg from '../package.json';
 
 const EntryListItem: FC<{ entry: Entry }> = ({ entry }) => {
   const theme = useTheme();
-  const url = `/tesera/entry/${entry.slug}`;
+  const url = `/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${entry.slug}`;
 
   return (
     <Article className={classNames(theme.entryListItem)}>

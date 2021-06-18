@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Anchor } from './Anchor';
 import { useTheme } from '../styles/ThemeContext';
 import { classNames } from '../utils/classNames';
+import pkg from '../package.json';
 
 export const TagListItem: FC<{ tag: string }> = ({ tag }) => {
   const theme = useTheme();
@@ -9,9 +10,10 @@ export const TagListItem: FC<{ tag: string }> = ({ tag }) => {
   return (
     <Anchor
       className={classNames(theme.tagListItem)}
-      href={`/tesera/tag/${tag}`}
+      href={`/${pkg.config.blogSlug}/${pkg.config.blogTagSlug}/${tag}`}
     >
-      #{tag}
+      {pkg.config.blogTagSeparator}
+      {tag}
     </Anchor>
   );
 };

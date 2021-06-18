@@ -33,16 +33,16 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>Pablo Molina</title>
+        <title>{pkg.author.name}</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {[
-          { tag: 'all', title: 'Tesera' },
+          { tag: 'all', title: pkg.config.blogName },
           ...tagList.map((tag) => ({
             tag: tag.toLowerCase().split(' ').join('-'),
-            title: `Tesera#${tag}`,
+            title: `${pkg.config.blogName}${pkg.config.blogTagSeparator}${tag}`,
           })),
         ].map(({ tag, title }) => (
           <link
@@ -50,7 +50,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
             rel="alternate"
             type="application/rss+xml"
             title={title}
-            href={`/feed-${tag}.xml`}
+            href={`/${pkg.config.feedPrefix}${tag}.xml`}
           />
         ))}
 
@@ -66,11 +66,12 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       <nav className={theme.mainMenu}>
-        <Anchor href="/">pablomolina.me</Anchor>
+        <Anchor href="/">{pkg.name}</Anchor>
 
         <span className={theme.mainMenuNavigation}>
-          <Anchor href="/tesera">
-            <Emoji>📓</Emoji>Tesera
+          <Anchor href={`/${pkg.config.blogSlug}`}>
+            <Emoji>📓</Emoji>
+            {pkg.config.blogName}
           </Anchor>
           <Anchor href="/links">
             <Emoji>⚓</Emoji>Links
@@ -83,7 +84,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
       </div>
 
       <footer className={theme.footer}>
-        <Heading>Pablo Molina</Heading>
+        <Heading>{pkg.author.name}</Heading>
 
         <Anchor href={`mailto:${pkg.author.email}`}>
           <Emoji>📮</Emoji>

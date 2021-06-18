@@ -7,6 +7,7 @@ import { TagList } from '../../components/TagList';
 import { EntryList } from '../../components/EntryList';
 import { Header, Section } from '../../components/HTMLElements';
 import { MainTitle } from '../../components/MainTitle';
+import pkg from '../../package.json';
 
 type Props = {
   tagList: string[];
@@ -18,9 +19,9 @@ export default function Tesera({ tagList, entryList }: Props) {
 
   return (
     <Section className={theme.teseraIndexPage}>
-      <Meta title="Tesera" />
+      <Meta title={pkg.config.blogName} />
       <Header>
-        <MainTitle>Tesera</MainTitle>
+        <MainTitle>{pkg.config.blogName}</MainTitle>
         <TagList tags={tagList} />
       </Header>
       <EntryList entryList={entryList} />

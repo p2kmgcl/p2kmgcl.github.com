@@ -8,6 +8,7 @@ import { EntryList } from '../../../components/EntryList';
 import { Anchor } from '../../../components/Anchor';
 import { Section } from '../../../components/HTMLElements';
 import { MainTitle } from '../../../components/MainTitle';
+import pkg from '../../../package.json';
 
 type Params = {
   params: {
@@ -25,10 +26,12 @@ export default function Index(props: Props) {
 
   return (
     <Section className={theme.teseraTagPage}>
-      <Meta title={`Tesera#${props.tag}`} />
+      <Meta
+        title={`${pkg.config.blogName}${pkg.config.blogTagSeparator}${props.tag}`}
+      />
 
       <MainTitle>
-        <Anchor href="/tesera">Tesera</Anchor>
+        <Anchor href={`/${pkg.config.blogSlug}`}>{pkg.config.blogName}</Anchor>
         <TagListItem tag={props.tag} />
       </MainTitle>
 

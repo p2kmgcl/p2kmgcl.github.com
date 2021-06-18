@@ -2,6 +2,7 @@ import fs from 'fs';
 import grayMatter from 'gray-matter';
 import marked from 'marked';
 import { Entry } from '../types/Entry';
+import pkg from '../package.json';
 
 type EntryData = Omit<Entry, 'content' | 'slug'>;
 
@@ -17,8 +18,11 @@ const dataChecks: Record<keyof EntryData, (v: any) => boolean> = {
 };
 
 export const getEntry = (slug: string) => {
-  const rawContent = fs.readFileSync(`./tesera/${slug}.md`, 'utf-8');
-  const { data, content } = (grayMatter(rawContent) as unknown) as {
+  const rawContent = fs.readFileSync(
+    `./${pkg.config.blogSlug}/${slug}.md`,
+    'utf-8',
+  );
+  const { data, content } = grayMatter(rawContent) as unknown as {
     data: EntryData;
     content: string;
   };

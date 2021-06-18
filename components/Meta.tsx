@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { FC } from 'react';
+import pkg from '../package.json';
 
 const Meta: FC<{ title?: string; description?: string }> = ({
   title,
@@ -7,14 +8,12 @@ const Meta: FC<{ title?: string; description?: string }> = ({
 }) => {
   return (
     <Head>
-      <title key="title">Pablo Molina{title ? ` | ${title}` : ''}</title>
-      <meta
-        name="description"
-        content={
-          description ||
-          "Pablo Molina's website with links to his social network profiles, contact information and projects"
-        }
-      />
+      <title key="title">
+        {title
+          ? `${title}${pkg.config.titleSeparator}${pkg.author.name}`
+          : pkg.author.name}
+      </title>
+      <meta name="description" content={description || pkg.description} />
     </Head>
   );
 };

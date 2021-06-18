@@ -10,19 +10,19 @@ const BUILD_DATE = new Date().toISOString();
   {
     id: 'all',
     location: '/',
-    title: 'Tesera',
+    title: pkg.config.blogName,
     entryList: getEntryList().slice(0, 10),
   },
   ...getTagList().map((tag) => ({
-    location: `/tag/${tag}/`,
+    location: `/${pkg.config.blogTagSlug}/${tag}/`,
     id: tag.toLowerCase().split(' ').join('-'),
-    title: `Tesera#${tag}`,
+    title: `${pkg.config.blogName}${pkg.config.blogTagSeparator}${tag}`,
     entryList: getEntryList(tag).slice(0, 10),
   })),
 ].forEach(({ id, location, title, entryList }) => {
-  const fileName = `feed-${id}.xml`;
-  const href = `https://${pkg.name}/tesera${location}`;
-  const source = `https://${pkg.name}/feed-${id}.xml`;
+  const fileName = `${pkg.config.feedPrefix}${id}.xml`;
+  const href = `https://${pkg.name}/${pkg.config.blogSlug}${location}`;
+  const source = `https://${pkg.name}/${pkg.config.feedPrefix}${id}.xml`;
 
   fs.writeFileSync(
     path.join(__dirname, 'build', 'app', fileName),
@@ -44,7 +44,7 @@ const BUILD_DATE = new Date().toISOString();
         ${entryList
           .map((entry) => {
             const date = new Date(entry.date).toISOString();
-            const href = `https://${pkg.name}/tesera/entry/${entry.slug}/`;
+            const href = `https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${entry.slug}/`;
 
             return `
               <item>

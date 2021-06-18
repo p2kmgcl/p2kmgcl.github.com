@@ -10,6 +10,7 @@ import {
 } from '../components/HTMLElements';
 import { MainTitle } from '../components/MainTitle';
 import { getTagList } from '../utils/getTagList';
+import pkg from '../package.json';
 
 function flatMap<T, Q>(array: T[], fn: (element: T) => Q[]): Q[] {
   return array.map(fn).reduce((a, b) => a.concat(b), []);
@@ -29,8 +30,8 @@ export default function Home() {
       <Meta />
 
       <Header>
-        <MainTitle>Pablo Molina</MainTitle>
-        <Paragraph>Engineer. Human. Chachi.</Paragraph>
+        <MainTitle>{pkg.author.name}</MainTitle>
+        <Paragraph>{pkg.author.description}</Paragraph>
       </Header>
 
       <Picture
