@@ -5,5 +5,5 @@
 
 [dev]
   framework = "#custom"
-  command = "yarn run dev:next"
+  command = "yarn run start:next"
   targetPort = 3000

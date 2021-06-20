@@ -27,9 +27,9 @@
     "build:404": "mv build/app/404/index.html build/app/404.html && rm -r build/app/404",
     "build:rss": "NODE_ENV=production ts-node --project tsconfig.node.json generate-rss.ts",
     "build:sitemap": "NODE_ENV=production ts-node --project tsconfig.node.json generate-sitemap.ts",
-    "dev": "netlify dev",
-    "dev:next": "next dev",
-    "start": "yarn run build && http-server --port 3000 build/app"
+    "start": "netlify dev",
+    "start:next": "next dev",
+    "start:production": "yarn run build && http-server --port 3000 build/app"
   },
   "dependencies": {
     "@fontsource/bangers": "^4.2.2",
