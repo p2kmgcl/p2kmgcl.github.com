@@ -5,11 +5,10 @@ draft: true
 date: 1991-01-01
 mood: Testing a theme, or something else that should appear as a mood
 tags: [ipsum]
-summary: "
+summary: >
   This is how things should work, or at least how we think they should.
   That's the programmer paradox: do not expect thing to behave as you
   prefer, because they won't, unless you don't want to.
-"
 ---
 
 Integer sed dignissim magna. Nunc sagittis massa eu ligula pharetra imperdiet.
