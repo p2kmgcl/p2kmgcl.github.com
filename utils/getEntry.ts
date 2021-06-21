@@ -1,8 +1,8 @@
 import fs from 'fs';
 import grayMatter from 'gray-matter';
-import marked from 'marked';
 import { Entry } from '../types/Entry';
 import pkg from '../package.json';
+import { parseMarkdown } from './parseMarkdown';
 
 type EntryData = Omit<Entry, 'content' | 'slug'>;
 
@@ -43,7 +43,7 @@ export const getEntry = (slug: string) => {
   return {
     ...data,
     slug,
-    content: marked(content, { gfm: true }),
+    content: parseMarkdown(content),
     date: new Date(data.date).getTime(),
   };
 };
