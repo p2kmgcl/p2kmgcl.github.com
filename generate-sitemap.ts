@@ -20,7 +20,7 @@ const pageList = glob
   .sync(`${BASE_PATH}/**/*.html`)
   .filter(
     (filePath) =>
-      !filePath.endsWith('/404.html') &&
+      !filePath.endsWith('/404/index.html') &&
       !BLOG_ENTRY_REGEXP.test(filePath) &&
       !BLOG_TAG_REGEXP.test(filePath),
   )
