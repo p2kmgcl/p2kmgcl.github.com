@@ -21,6 +21,8 @@ const pageList = glob
   .filter(
     (filePath) =>
       !filePath.endsWith('/404/index.html') &&
+      !filePath.endsWith('/admin/index.html') &&
+      !filePath.endsWith('/admin/preview/index.html') &&
       !BLOG_ENTRY_REGEXP.test(filePath) &&
       !BLOG_TAG_REGEXP.test(filePath),
   )

@@ -1,0 +1,48 @@
+backend:
+  name: 'git-gateway'
+  branch: 'main'
+media_folder: 'public/uploads'
+public_folder: '/uploads'
+site_url: 'https://pablomolina.me'
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '-'
+collections:
+  - name: 'tesera'
+    identifier_field: 'title'
+    label: 'Tesera'
+    label_singular: 'Entry'
+    create: true
+    extension: 'md'
+    format: 'yaml-frontmatter'
+    slug: '{{slug}}'
+    folder: 'tesera'
+    summary: '{{title}}'
+    view_groups:
+      - label: 'Year'
+        field: 'date'
+        pattern: \d{4}
+      - label: 'Drafs'
+        field: 'draft'
+    fields:
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Language',
+          name: 'language',
+          widget: 'select',
+          options: ['es', 'en'],
+        }
+      - { label: 'Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - { label: 'Mood', name: 'mood', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, min: 1 }
+      - { label: 'Summary', name: 'summary', widget: 'text' }
+      - {
+          label: 'Body',
+          name: 'body',
+          widget: 'markdown',
+          modes: ['raw'],
+          buttons: [],
+          sanitize_preview: false,
+        }

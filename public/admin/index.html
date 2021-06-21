@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      * {
+        font-family: Noto Sans Mono, JetBrains Mono, Inconsolata, consolas,
+          monospace !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script>
+      const TeseraPreview = createClass({
+        componentDidMount() {
+          this._iframeResizeIntervalId = setInterval(() => {
+            if (this._iframe) {
+              this._iframe.style.height =
+                this._iframe.contentWindow.document.documentElement
+                  .scrollHeight + 'px';
+            }
+          }, 1000);
+        },
+
+        componentWillUnmount() {
+          clearInterval(this._iframeResizeIntervalId);
+        },
+
+        _setIframe(nextIframe) {
+          this._iframe = nextIframe;
+          this._syncProps();
+        },
+
+        _syncProps() {
+          if (!this._iframe) return;
+
+          this._iframe.contentWindow.postMessage(
+            JSON.stringify(this.props.entry.toJSON().data),
+          );
+        },
+
+        render: function () {
+          this._syncProps();
+
+          return h(
+            'iframe',
+            {
+              ref: (iframe) => this._setIframe(iframe),
+              src: '/admin/preview',
+            },
+            null,
+          );
+        },
+      });
+
+      CMS.registerPreviewStyle('/admin/preview.css');
+      CMS.registerPreviewTemplate('tesera', TeseraPreview);
+    </script>
+  </body>
+</html>
