@@ -4,16 +4,9 @@
 
 .body {
   font-family: 'Inconsolata', monospace;
-  font-size: 16px;
-  margin: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-  }
-
-  @media (min-width: 1280px) {
-    line-height: 1.25;
-  }
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 2rem;
 
   @media (min-width: 1921px) {
     font-size: 24px;
@@ -52,6 +45,11 @@
 
 .anchor:hover {
   color: #b10dc9;
+}
+
+.paragraph {
+  hyphens: auto;
+  text-align: justify;
 }
 
 .entryListItem {
@@ -154,8 +152,17 @@
   }
 }
 
-.footerNavigation > .anchor + .anchor {
-  margin-left: 1ch;
+.footerNavigation {
+  > .anchor {
+    margin: 1ch 1ch 0 0;
+  }
+
+  @media (min-width: 1280px) {
+    > .anchor + .anchor {
+      margin-left: 2ch;
+      margin-right: 0;
+    }
+  }
 }
 
 /* Pages */
@@ -203,10 +210,9 @@
   }
 
   @media (min-width: 1921px) {
-    font-size: 24px;
-    transform: translateX(-16ch);
+    transform: translateX(-6ch);
     margin: 10ch auto;
-    width: 120ch;
+    width: 88ch;
   }
 }
 
@@ -266,7 +272,7 @@
         content: attr(aria-label);
         color: #666;
         font-weight: 900;
-        padding: 0 1ch 0.25ch 1ch;
+        padding: 0 1ch 0.75ch 1ch;
         display: block;
       }
 
