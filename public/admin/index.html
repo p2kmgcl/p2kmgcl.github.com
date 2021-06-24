@@ -39,7 +39,10 @@
           if (!this._iframe) return;
 
           this._iframe.contentWindow.postMessage(
-            JSON.stringify(this.props.entry.toJSON().data),
+            JSON.stringify({
+              ...this.props.entry.toJSON().data,
+              type: 'entry',
+            }),
           );
         },
 

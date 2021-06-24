@@ -8,16 +8,25 @@ export default function AdminPreview() {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      const data = JSON.parse(event.data) as Omit<Entry, 'content' | 'tags'> & {
-        body?: string;
-        tags?: string[];
-      };
+      let parsedData:
+        | null
+        | (Omit<Entry, 'content' | 'tags'> & {
+            type: 'entry';
+            body?: string;
+            tags?: string[];
+          }) = null;
 
-      setEntry({
-        ...data,
-        tags: data.tags || [],
-        content: parseMarkdown(data.body || ''),
-      });
+      try {
+        parsedData = JSON.parse(event.data);
+      } catch (_) {}
+
+      if (parsedData && parsedData.type === 'entry') {
+        setEntry({
+          ...parsedData,
+          tags: parsedData.tags || [],
+          content: parseMarkdown(parsedData.body || ''),
+        });
+      }
     };
 
     window.addEventListener('message', handleMessage);
