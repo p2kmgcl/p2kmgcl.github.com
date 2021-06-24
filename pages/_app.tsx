@@ -87,10 +87,21 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
       <footer className={theme.footer}>
         <Heading>{pkg.author.name}</Heading>
 
-        <Anchor href={`mailto:${pkg.author.email}`}>
-          <Emoji>📮</Emoji>
-          {pkg.author.email}
-        </Anchor>
+        <nav className={theme.footerNavigation}>
+          <Anchor href={`mailto:${pkg.author.email}`}>
+            <Emoji>📮</Emoji>
+            {pkg.author.email}
+          </Anchor>
+        </nav>
+
+        <nav className={theme.footerNavigation}>
+          <Anchor
+            href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
+          >
+            <Emoji>🤖</Emoji>
+            This is all yours, just remember my name
+          </Anchor>
+        </nav>
 
         <nav className={theme.footerNavigation}>
           <Anchor

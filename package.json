@@ -3,13 +3,20 @@
   "description": "Pablo Molina's website with links to his social network profiles, contact information and projects",
   "version": "0.1.0",
   "private": true,
+  "license": "SEE LICENSE IN LICENSE.md",
   "author": {
     "description": "Engineer. Human. Chachi.",
     "url": "https://pablomolina.me",
     "email": "contact@pablomolina.me",
     "name": "Pablo Molina"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p2kmgcl/p2kmgcl.github.com"
+  },
   "config": {
+    "mainBranch": "main",
+    "licensePath": "LICENSE.md",
     "blogName": "Tesera",
     "blogSlug": "tesera",
     "blogEntrySlug": "entry",
@@ -35,6 +42,7 @@
     "@fontsource/bangers": "^4.2.2",
     "@fontsource/comic-neue": "^4.2.2",
     "@fontsource/inconsolata": "^4.2.1",
+    "@fontsource/jetbrains-mono": "^4.4.5",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
     "jsdom": "^16.6.0",

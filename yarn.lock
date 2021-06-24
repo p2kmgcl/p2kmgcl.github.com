@@ -963,6 +963,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/inconsolata/-/inconsolata-4.4.5.tgz#a5e9ffb4830b942474fd11b7134bc8bb811a2a3b"
   integrity sha512-vBGiG6+RZmL1Xn7SWZT26bqibJjq4Nrkz4bNoD5g9dh+xKv3FOU3PJhLa2N3pf6912UZ6FhdTElryoafKqARUA==
 
+"@fontsource/jetbrains-mono@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/jetbrains-mono/-/jetbrains-mono-4.4.5.tgz#1448c1611ebfdf360847e40328f643ab642247ab"
+  integrity sha512-/xBExp46j7LF0v3mVSy46gEL4NICOyTW8zLKEJegMd5pRBprTwcPY1xpDnAbsljiq9gMSvUyoV4aJ+D61wjjCw==
+
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.2.tgz#ab7043b037e68b722f93f376afb05e85c0699523"

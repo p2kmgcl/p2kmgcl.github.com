@@ -1,14 +1,15 @@
-@import '~@fontsource/inconsolata';
+@import '~@fontsource/jetbrains-mono';
 
 /* Main structure */
 
 .body {
-  font-family: 'Inconsolata', monospace;
-  font-size: 21px;
+  font-family: 'JetBrains Mono', JetBrains Mono, monospace;
+  font-size: 19px;
   line-height: 1.5;
   margin: 1rem;
 
   @media (min-width: 768px) {
+    font-size: 21px;
     margin: 2rem;
   }
 
@@ -31,7 +32,7 @@
 
 .emoji {
   display: inline-block;
-  margin-right: 0.75ch;
+  padding-right: 0.2ch;
 }
 
 .heading {
@@ -42,8 +43,8 @@
 
 .anchor {
   display: inline-flex;
-  min-height: 2rem;
-  align-items: center;
+  min-height: 1rem;
+  align-items: flex-start;
   color: #0074d9;
 }
 
@@ -135,11 +136,21 @@
 /* Footer */
 
 .footer {
+  font-size: 14px;
   margin-top: 5rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 3ch;
+    border-top: solid thin;
+    opacity: 0.4;
+  }
 
   > .heading {
     font-size: 1em;
     font-weight: 400;
+    margin-bottom: 0;
   }
 
   @media (min-width: 768px) {
@@ -229,8 +240,8 @@
     > .tagList {
       margin-bottom: 1.5em;
 
-      > .tagListItem + .tagListItem {
-        margin-left: 1ch;
+      > .tagListItem {
+        margin: 1ch 1ch 0 0;
       }
     }
   }
@@ -254,8 +265,11 @@
 
     > .paragraph {
       margin: 0.5rem 0;
-      max-width: 80%;
       font-style: italic;
+
+      @media (min-width: 768px) {
+        max-width: 80%;
+      }
     }
 
     > .tagList > .tagListItem {
@@ -292,10 +306,15 @@
       @import '../content.scss';
     }
 
+    code,
     pre[class],
     code[class],
     code[class] > span[class] {
       font-family: inherit;
+    }
+
+    p {
+      line-height: 2;
     }
   }
 }
