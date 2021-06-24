@@ -35,3 +35,5 @@ export default function AdminPreview() {
 
   return entry ? <TeseraEntry entry={entry} /> : null;
 }
+
+AdminPreview.rawContent = true;

@@ -12,13 +12,14 @@ import pkg from '../package.json';
 import { FC, useEffect } from 'react';
 
 interface AppProps {
-  Component: FC;
+  Component: FC & { rawContent?: boolean };
   pageProps: Record<string, any>;
 }
 
 const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
   const theme = useTheme();
   const tagList: string[] = pageProps.tagList || [];
+  const rawContent = Boolean(Component.rawContent);
 
   useKonami(useChangeTheme());
 
@@ -66,76 +67,80 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
         ))}
       </Head>
 
-      <nav className={theme.mainMenu}>
-        <Anchor href="/">{pkg.name}</Anchor>
+      {!rawContent ? (
+        <nav className={theme.mainMenu}>
+          <Anchor href="/">{pkg.name}</Anchor>
 
-        <span className={theme.mainMenuNavigation}>
-          <Anchor href={`/${pkg.config.blogSlug}`}>
-            <Emoji>📓</Emoji>
-            {pkg.config.blogName}
-          </Anchor>
-          <Anchor href="/links">
-            <Emoji>⚓</Emoji>Links
-          </Anchor>
-        </span>
-      </nav>
+          <span className={theme.mainMenuNavigation}>
+            <Anchor href={`/${pkg.config.blogSlug}`}>
+              <Emoji>📓</Emoji>
+              {pkg.config.blogName}
+            </Anchor>
+            <Anchor href="/links">
+              <Emoji>⚓</Emoji>Links
+            </Anchor>
+          </span>
+        </nav>
+      ) : null}
 
       <div className={theme.content}>
         <Component {...pageProps} />
       </div>
 
-      <footer className={theme.footer}>
-        <Heading>{pkg.author.name}</Heading>
+      {!rawContent ? (
+        <footer className={theme.footer}>
+          <Heading>{pkg.author.name}</Heading>
 
-        <nav className={theme.footerNavigation}>
-          <Anchor href={`mailto:${pkg.author.email}`}>
-            <Emoji>📮</Emoji>
-            {pkg.author.email}
-          </Anchor>
-        </nav>
+          <nav className={theme.footerNavigation}>
+            <Anchor href={`mailto:${pkg.author.email}`}>
+              <Emoji>📮</Emoji>
+              {pkg.author.email}
+            </Anchor>
+          </nav>
 
-        <nav className={theme.footerNavigation}>
-          <Anchor
-            href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
-          >
-            <Emoji>🤖</Emoji>
-            This is all yours, just remember my name
-          </Anchor>
-        </nav>
+          <nav className={theme.footerNavigation}>
+            <Anchor
+              href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
+            >
+              <Emoji>🤖</Emoji>
+              This is all yours, just remember my name
+            </Anchor>
+          </nav>
 
-        <nav className={theme.footerNavigation}>
-          <Anchor
-            href="https://github.com/p2kmgcl"
-            title={`${pkg.author.name}'s Github profile`}
-          >
-            <Emoji>🐱</Emoji>Github
-          </Anchor>
-          <Anchor
-            href="https://mobile.twitter.com/p2kmgcl"
-            title={`${pkg.author.name}'s Twitter profile`}
-          >
-            <Emoji>🐦</Emoji>Twitter
-          </Anchor>
-          <Anchor
-            href="https://www.linkedin.com/in/p2kmgcl/"
-            title={`${pkg.author.name}'s LinkedIn profile`}
-          >
-            <Emoji>👔</Emoji>LinkedIn
-          </Anchor>
-          <Anchor
-            href="https://twitch.tv/p2kmgcl"
-            title={`${pkg.author.name}'s Twitch channel`}
-          >
-            <Emoji>📺</Emoji>Twitch
-          </Anchor>
-          <Anchor
-            href="https://www.youtube.com/p2kmgcl"
-            title={`${pkg.author.name}'s YouTube channel`}
-          >
-            <Emoji>📹</Emoji>YouTube
-          </Anchor>
-        </nav>
-      </footer>
+          <nav className={theme.footerNavigation}>
+            <Anchor
+              href="https://github.com/p2kmgcl"
+              title={`${pkg.author.name}'s Github profile`}
+            >
+              <Emoji>🐱</Emoji>Github
+            </Anchor>
+            <Anchor
+              href="https://mobile.twitter.com/p2kmgcl"
+              title={`${pkg.author.name}'s Twitter profile`}
+            >
+              <Emoji>🐦</Emoji>Twitter
+            </Anchor>
+            <Anchor
+              href="https://www.linkedin.com/in/p2kmgcl/"
+              title={`${pkg.author.name}'s LinkedIn profile`}
+            >
+              <Emoji>👔</Emoji>LinkedIn
+            </Anchor>
+            <Anchor
+              href="https://twitch.tv/p2kmgcl"
+              title={`${pkg.author.name}'s Twitch channel`}
+            >
+              <Emoji>📺</Emoji>Twitch
+            </Anchor>
+            <Anchor
+              href="https://www.youtube.com/p2kmgcl"
+              title={`${pkg.author.name}'s YouTube channel`}
+            >
+              <Emoji>📹</Emoji>YouTube
+            </Anchor>
+          </nav>
+        </footer>
+      ) : null}
     </>
   );
 };
