@@ -46,7 +46,56 @@ export default function TeseraEntry({ entry }: Props) {
 
   useEffect(() => {
     if (process.browser && contentRef.current && prismModule) {
-      prismModule.default.highlightAllUnder(contentRef.current);
+      const resizeIntervalIds: NodeJS.Timeout[] = [];
+
+      const codeElementList = Array.from(
+        document.querySelectorAll('pre > code[class^=language-]'),
+      ) as HTMLElement[];
+
+      for (const codeElement of codeElementList) {
+        const code = codeElement.innerText;
+        const preElement = codeElement.parentElement as HTMLElement;
+        const wrapperElement = preElement.parentElement;
+
+        if (wrapperElement && codeElement.classList.contains('language-html')) {
+          const iframe = document.createElement('iframe');
+          iframe.src = '/admin/sample/';
+
+          iframe.addEventListener('load', () => {
+            iframe.contentWindow?.postMessage(
+              JSON.stringify({
+                type: 'sampleContent',
+                content: code,
+              }),
+              '*',
+            );
+          });
+
+          resizeIntervalIds.push(
+            setInterval(() => {
+              if (iframe.contentWindow) {
+                iframe.style.height =
+                  iframe.contentWindow.document.documentElement.scrollHeight +
+                  'px';
+              }
+            }, 1000),
+          );
+
+          if (preElement.nextElementSibling) {
+            wrapperElement.insertBefore(iframe, preElement.nextElementSibling);
+          } else {
+            wrapperElement.appendChild(iframe);
+          }
+        }
+
+        prismModule.default.highlightElement(codeElement);
+      }
+
+      return () => {
+        resizeIntervalIds.forEach((intervalId) => {
+          clearInterval(intervalId);
+        });
+      };
     }
   }, [entry.content, prismModule]);
 
