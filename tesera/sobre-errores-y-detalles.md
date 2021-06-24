@@ -37,5 +37,6 @@ de migrar mi Web a NextJS, he sacado 98 en Google Page Speed en versión móvil.
 La verdad es que estoy bastante orgulloso, sobretodo porque he ido aprendiendo
 alguna cosa interesante por el camino.
 
-Espero que este nuevo comienzo dure bastante.<br />
+Espero que este nuevo comienzo dure bastante.
+
 Hola a todos :3
