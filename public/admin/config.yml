@@ -34,7 +34,12 @@ collections:
           widget: 'select',
           options: ['es', 'en'],
         }
-      - { label: 'Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD',
+        }
       - { label: 'Mood', name: 'mood', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, min: 1 }
       - { label: 'Summary', name: 'summary', widget: 'text' }
