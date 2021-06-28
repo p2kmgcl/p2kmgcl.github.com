@@ -36,6 +36,8 @@ Finalmente alcancé la _gloria_: en bachillerato descubrí que hay una cosa que 
 
 Como parte de este aprendizaje encontré una web llamada [miarroba](https://hosting.miarroba.com/), la cual te permitía guardar una página web de hasta _5 megabytes_ con el contenido que te diera la gana; os podréis imaginar la fantasía que era para mi algo como eso. He encontrado incluso [algún comentario de mi persona](https://soporte.miarroba.com/3/6838762-preview-de-mi-web/#78110088) preguntando que cómo se podía colocar una miniatura de la web en la configuración 😅. Para guardar dentro de la página necesitaba una cosa que se llamaba _FileZilla_, y tenía que escribir algunas cosas como _PHP_, que vete tú a saber lo que era eso... pero eso no me detuvo, poco a poco fui elaborando mi siguiente página (por supuesto otro altar a mi ego adolescente): el rincón del poeta.
 
-# Ahora
+Aquí intenté hacer algo de magia, descubrí que con _PHP_ se podían crear algunas reglas especiales, como para que sólo algunas personas pudieran ver ciertas partes de una web con una contraseña, una locura.
+
+Además empecé a intentar hacer cosas extremadamente curiosas con HTML, como lograr poner sombras a algunos elementos
 
 # Después
