@@ -24,9 +24,9 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
   useKonami(useChangeTheme());
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.requestAnimationFrame(() => {
-        document.body.style.opacity = '';
+    if (process.browser) {
+      requestAnimationFrame(() => {
+        document.body.style.animationDelay = '0s';
       });
     }
   }, []);
@@ -65,6 +65,20 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
             href={`/favicon/favicon-${size}.png`}
           />
         ))}
+
+        <style>{`
+          @keyframes bodyFadeIn {
+            to {
+              opacity: 1;
+            }
+          }
+
+          body {
+            animation: bodyFadeIn ease 1ms;
+            animation-delay: 0.7s;
+            animation-fill-mode: forwards;
+          }
+        `}</style>
       </Head>
 
       {!rawContent ? (
