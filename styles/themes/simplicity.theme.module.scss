@@ -319,29 +319,40 @@
   }
 }
 
-.linksPage > .section > .article {
-  position: relative;
-
-  &:hover {
-    background: rgba(150, 150, 150, 0.1);
-  }
-
+.linksPage {
   > .heading {
-    font-size: 1.25em;
-    font-weight: 400;
-    margin: 0;
-
-    > .anchor:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    user-select: none;
   }
 
-  > .paragraph {
-    margin-top: 0.25em;
+  > .section > .article {
+    position: relative;
+
+    &:hover {
+      background: rgba(150, 150, 150, 0.1);
+    }
+
+    > .heading {
+      font-size: 1.25em;
+      font-weight: 400;
+      margin: 0;
+
+      > .anchor:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    > .paragraph {
+      margin-top: 0.25em;
+    }
   }
 }

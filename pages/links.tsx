@@ -34,6 +34,7 @@ export default function Links() {
   return (
     <Section className={theme.linksPage}>
       <Meta title="Links" />
+      <MainTitle>Links</MainTitle>
 
       <Section>
         <MainTitle>Aside projects</MainTitle>

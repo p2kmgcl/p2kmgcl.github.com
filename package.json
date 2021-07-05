@@ -1,5 +1,5 @@
 {
-  "name": "pablomolina.me",
+  "name": "pablomoliname",
   "description": "Pablo Molina's website with links to his social network profiles, contact information and projects",
   "version": "0.1.0",
   "private": true,
@@ -67,5 +67,6 @@
     "sass": "^1.32.8",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5"
-  }
+  },
+  "keywords": []
 }
