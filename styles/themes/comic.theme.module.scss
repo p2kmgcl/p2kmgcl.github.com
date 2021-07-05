@@ -500,6 +500,15 @@
   max-width: 60ch;
   margin: 0 auto 2em auto;
 
+  > .heading {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    user-select: none;
+  }
+
   > .section {
     display: flex;
     flex-direction: column;
