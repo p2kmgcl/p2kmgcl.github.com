@@ -34,7 +34,8 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>{pkg.author.name}</title>
+        {rawContent ? null : <title>{pkg.author.name}</title>}
+
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
