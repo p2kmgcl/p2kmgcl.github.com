@@ -68,8 +68,8 @@ export default function Home() {
 
       <Paragraph>
         I am a proficient <Strong>Linux user</Strong>, not only due to the
-        comfort it gives to developers but also it's open and free nature. I
-        like to support <Strong>Open Source</Strong> software: I consider it a
+        comfort it gives to developers but also it&apos;s open and free nature.
+        I like to support <Strong>Open Source</Strong> software: I consider it a
         great path for improvement, and a fantastic way to let others grow too.
       </Paragraph>
 
