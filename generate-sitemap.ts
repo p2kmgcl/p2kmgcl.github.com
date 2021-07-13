@@ -35,7 +35,7 @@ const pageList = glob
     ).find((meta) => meta.name === 'description')?.content;
 
     if (!title) {
-      console.warn(`Page title not found for "${filePath}", file ignored`);
+      console.warn(`warn  - ${filePath} has no title, ignored`);
       return null;
     } else {
       const cleanTitle = title.endsWith(TITLE_SUFFIX)
@@ -81,6 +81,8 @@ fs.writeFileSync(
             const title = page.title;
             const href = `https://${pkg.name}${page.url}`;
             const description = page.description;
+
+            console.log(`page  - ${title} - ${href}`);
 
             return `
               <item>

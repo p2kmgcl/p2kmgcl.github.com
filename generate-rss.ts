@@ -24,6 +24,8 @@ const BUILD_DATE = new Date().toISOString();
   const href = `https://${pkg.name}/${pkg.config.blogSlug}${location}`;
   const source = `https://${pkg.name}/${pkg.config.feedPrefix}${id}.xml`;
 
+  console.log(`file  - ${fileName}`);
+
   fs.writeFileSync(
     path.join(__dirname, 'build', 'app', fileName),
     `<?xml version="1.0" encoding="UTF-8"?>
@@ -45,6 +47,8 @@ const BUILD_DATE = new Date().toISOString();
           .map((entry) => {
             const date = new Date(entry.date).toISOString();
             const href = `https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${entry.slug}/`;
+
+            console.log(`post  - ${href}`);
 
             return `
               <item>
