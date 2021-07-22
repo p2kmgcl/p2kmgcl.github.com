@@ -230,7 +230,6 @@ export default function AdminLayer() {
           position: 'relative',
           width: windowSize.width,
           height: windowSize.height,
-          perspective: '1920px',
         }}
       >
         <h1
@@ -243,7 +242,6 @@ export default function AdminLayer() {
             left: '10vw',
             lineHeight: 1.1,
             color: '#111',
-            transform: 'rotateY(20deg)',
             maxWidth: '75vw',
           }}
         >
@@ -259,7 +257,6 @@ export default function AdminLayer() {
             fontSize: '1.7vw',
             color: '#666',
             fontWeight: 'bold',
-            transform: 'rotateY(-20deg)',
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
