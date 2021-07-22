@@ -7,6 +7,13 @@
   font-size: 16px;
   line-height: 1.5;
   margin: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 5%);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: hsl(0, 0%, 10%);
+    color: hsl(0, 0%, 95%);
+  }
 
   @media (min-width: 768px) {
     font-size: 18px;
@@ -41,15 +48,24 @@
 
 /* Custom elements */
 
-.anchor {
+.anchor,
+.anchor:visited {
   display: inline-flex;
   min-height: 1rem;
   align-items: flex-start;
-  color: #0074d9;
+  color: hsl(208, 90%, 43%);
+
+  @media (prefers-color-scheme: dark) {
+    color: hsl(208, 60%, 65%);
+  }
 }
 
 .anchor:hover {
-  color: #b10dc9;
+  color: hsl(208, 90%, 25%);
+
+  @media (prefers-color-scheme: dark) {
+    color: hsl(208, 60%, 90%);
+  }
 }
 
 .paragraph {
@@ -61,7 +77,11 @@
   position: relative;
 
   &:hover {
-    background: rgba(150, 150, 150, 0.1);
+    background: hsl(0, 0%, 95%);
+
+    @media (prefers-color-scheme: dark) {
+      background: hsl(0, 0%, 15%);
+    }
   }
 
   > .header {
@@ -198,7 +218,11 @@
     height: 350px;
     width: 100%;
     overflow: hidden;
-    box-shadow: 0.5em 0.5em 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0.5em 0.5em 0 hsl(0, 0%, 90%);
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0.5em 0.5em 0 hsl(0, 0%, 25%);
+    }
 
     > .image {
       max-width: 100%;
@@ -259,8 +283,12 @@
 
     > .time,
     > .paragraph {
-      color: #666;
+      color: hsl(0, 0%, 35%);
       margin: 0.25em 0;
+
+      @media (prefers-color-scheme: dark) {
+        color: hsl(0, 0%, 60%);
+      }
     }
 
     > .paragraph {
@@ -283,15 +311,23 @@
     > .section {
       margin: 1em 0;
       padding: 1em;
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: hsl(0, 0%, 95%);
       text-align: justify;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: hsl(0, 0%, 15%);
+      }
 
       &::before {
         content: attr(aria-label);
-        color: #666;
+        color: hsl(0, 0%, 40%);
         font-weight: 900;
         padding: 0 1ch 0.75ch 1ch;
         display: block;
+
+        @media (prefers-color-scheme: dark) {
+          color: hsl(0, 0%, 50%);
+        }
       }
 
       > .paragraph {
@@ -333,7 +369,11 @@
     position: relative;
 
     &:hover {
-      background: rgba(150, 150, 150, 0.1);
+      background: hsl(0, 0%, 95%);
+
+      @media (prefers-color-scheme: dark) {
+        background: hsl(0, 0%, 15%);
+      }
     }
 
     > .heading {
