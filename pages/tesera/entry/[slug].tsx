@@ -15,6 +15,7 @@ import { RawDOM } from '../../../components/RawDOM';
 import { MainTitle } from '../../../components/MainTitle';
 import { classNames } from '../../../utils/classNames';
 import { useEffect, useRef, useState } from 'react';
+import { loadPrism } from '../../../utils/loadPrism';
 
 type Params = {
   params: {
@@ -33,14 +34,7 @@ export default function TeseraEntry({ entry }: Props) {
 
   useEffect(() => {
     if (process.browser && contentRef.current) {
-      if (!window.Prism) {
-        // @ts-ignore
-        window.Prism = { manual: true };
-      }
-
-      import('prismjs').then((PrismModule) => {
-        setPrismModule(PrismModule);
-      });
+      loadPrism().then(setPrismModule);
     }
   }, []);
 
