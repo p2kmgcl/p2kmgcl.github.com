@@ -1,16 +1,4 @@
----
-title: useWhatChanged.js
-language: en
-draft: false
-date: 2021-04-27
-mood: Listening to lofi music while wondering how to improve the Page Editor
-tags: [snippet, react]
-summary: 'Logs to the browser console a list of changed values used in a
-  useEffect-like hook.'
----
-
-```js
-const useWhatChanged = (name, deps) => {
+export const useWhatChanged = (name, deps) => {
   const depsRef = useRef({ ...deps });
 
   useEffect(() => {
@@ -36,4 +24,3 @@ const useWhatChanged = (name, deps) => {
     }
   }, Object.values(deps));
 };
-```
