@@ -1,7 +1,7 @@
 export class Vector {
-  public readonly components: ReadonlyArray<number>;
-
-  constructor(...components: number[]) {
+  /** @param {number[]} components */
+  constructor(...components) {
+    /** @type {ReadonlyArray<number>} */
     this.components = [...components];
   }
 
@@ -44,7 +44,7 @@ export class Vector {
    * @throws {RangeError} If vector does not have exactly 2 components.
    */
   get angle() {
-    Vector._assertFixedComponentCount(this, 2);
+    assertFixedComponentCount(this, 2);
 
     let deltaRotation = 0;
 
@@ -67,28 +67,40 @@ export class Vector {
 
   /**
    * Returns a new Vector by adding all components.
-   * @throws {RangeError} If given vector doesn't have same number of components.
+   * @param {Vector} v
+   * @throws {RangeError} If given vector doesn't have same number of
+   *  components.
    */
-  add(v: Vector) {
-    Vector._assertSameComponentCount(this, v);
+  add(v) {
+    assertSameComponentCount(this, v);
+
     return new Vector(
       ...this.components.map((x, index) => x + v.components[index]),
     );
   }
+}
 
-  private static _assertFixedComponentCount(v: Vector, componentCount: number) {
-    if (v.dimensions !== componentCount) {
-      throw new RangeError(
-        `Expected ${componentCount} components, but found ${v.dimensions}`,
-      );
-    }
+/**
+ * @param {Vector} v
+ * @param {number} componentCount
+ */
+function assertFixedComponentCount(v, componentCount) {
+  if (v.dimensions !== componentCount) {
+    throw new RangeError(
+      `Expected ${componentCount} components, but found ${v.dimensions}`,
+    );
   }
+}
 
-  private static _assertSameComponentCount(v1: Vector, v2: Vector) {
-    if (v1.dimensions !== v2.dimensions) {
-      throw new RangeError(
-        `Different number of components: ${v1.dimensions} vs. ${v2.dimensions}`,
-      );
-    }
+/**
+ * @private
+ * @param {Vector} v1
+ * @param {Vector} v2
+ */
+function assertSameComponentCount(v1, v2) {
+  if (v1.dimensions !== v2.dimensions) {
+    throw new RangeError(
+      `Different number of components: ${v1.dimensions} vs. ${v2.dimensions}`,
+    );
   }
 }
