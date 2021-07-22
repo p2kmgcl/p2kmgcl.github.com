@@ -54,14 +54,14 @@
             'iframe',
             {
               ref: (iframe) => this._setIframe(iframe),
-              src: '/admin/preview',
+              src: '/admin/preview-tesera',
             },
             null,
           );
         },
       });
 
-      CMS.registerPreviewStyle('/admin/preview.css');
+      CMS.registerPreviewStyle('/admin/preview-tesera.css');
       CMS.registerPreviewTemplate('tesera', TeseraPreview);
     </script>
   </body>

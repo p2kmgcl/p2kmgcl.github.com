@@ -3,7 +3,7 @@ import { Entry } from '../../types/Entry';
 import { parseMarkdown } from '../../utils/parseMarkdown';
 import TeseraEntry from '../tesera/entry/[slug]';
 
-export default function AdminPreview() {
+export default function AdminPreviewTesera() {
   const [entry, setEntry] = useState<Entry | null>(null);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ export default function AdminPreview() {
   return entry ? <TeseraEntry entry={entry} /> : null;
 }
 
-AdminPreview.rawContent = true;
+AdminPreviewTesera.rawContent = true;
