@@ -363,6 +363,37 @@
   }
 }
 
+.snippetIndexPage {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2em;
+
+  .anchor {
+    display: block;
+    line-height: 2;
+  }
+}
+
+.snippetEntryPage {
+  width: 100%;
+
+  :global {
+    @import 'prismjs/themes/prism';
+    @import '../code.scss';
+  }
+
+  pre {
+    @include vignette;
+    padding: 1em;
+  }
+
+  pre[class],
+  code[class],
+  code[class] > span[class] {
+    font-family: 'Inconsolata';
+  }
+}
+
 .teseraTagPage {
   > .heading {
     > .anchor {
@@ -482,6 +513,7 @@
       :global {
         @import 'prismjs/themes/prism';
         @import '../content.scss';
+        @import '../code.scss';
       }
 
       pre[class],

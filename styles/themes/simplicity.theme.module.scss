@@ -73,6 +73,11 @@
   text-align: justify;
 }
 
+.snippetList .anchor {
+  display: block;
+  line-height: 2;
+}
+
 .entryListItem {
   position: relative;
 
@@ -255,6 +260,21 @@
   }
 }
 
+.snippetEntryPage {
+  .snippetContent {
+    :global {
+      @import 'prismjs/themes/prism';
+      @import '../code.scss';
+    }
+
+    pre[class],
+    code[class],
+    code[class] > span[class] {
+      font-family: inherit;
+    }
+  }
+}
+
 .teseraIndexPage {
   > .header {
     > .mainTitle {
@@ -340,6 +360,7 @@
     :global {
       @import 'prismjs/themes/prism';
       @import '../content.scss';
+      @import '../code.scss';
     }
 
     code,

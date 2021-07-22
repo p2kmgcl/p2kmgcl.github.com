@@ -1,0 +1,18 @@
+pre {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  border-top: solid rgba(155, 155, 155, 0.5) 1px;
+  border-bottom: solid rgba(155, 155, 155, 0.5) 1px;
+  padding: 1em 1ch;
+  background: rgba(155, 155, 155, 0.1);
+}
+
+code,
+pre[class],
+code[class],
+code[class] > span[class] {
+  font-family: monospace;
+  font-size: inherit;
+  font-weight: 400;
+}
