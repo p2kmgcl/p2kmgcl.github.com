@@ -99,6 +99,14 @@ export default function TeseraEntry({ entry }: Props) {
     }
   }, [entry.content, prismModule]);
 
+  useEffect(() => {
+    if (process.browser && contentRef.current) {
+      contentRef.current.querySelectorAll('a').forEach((anchor) => {
+        anchor.classList.add(theme.anchor);
+      });
+    }
+  }, [theme, entry.content]);
+
   return (
     <Article className={theme.teseraEntryPage}>
       <Meta title={entry.title} description={entry.summary} />
