@@ -23,6 +23,9 @@
     "blogTagSeparator": "#",
     "blogTagSlug": "tag",
     "feedPrefix": "feed-",
+    "snippetListName": "Gists",
+    "snippetListSlug": "gists",
+    "snippetEntrySlug": "gist",
     "titleSeparator": " | "
   },
   "engines": {

@@ -86,6 +86,10 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
           <Anchor href="/">{pkg.name}</Anchor>
 
           <span className={theme.mainMenuNavigation}>
+            <Anchor href={`/${pkg.config.snippetListSlug}`}>
+              <Emoji>🧑‍💻</Emoji>
+              {pkg.config.snippetListName}
+            </Anchor>
             <Anchor href={`/${pkg.config.blogSlug}`}>
               <Emoji>📓</Emoji>
               {pkg.config.blogName}
