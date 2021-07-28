@@ -1,7 +1,7 @@
 ---
 date: 2021-03-04
 title: Sobre errores, refactorización y falta de ideas
-tags: [blog, random]
+tags: [blog]
 draft: false
 language: es
 mood: >

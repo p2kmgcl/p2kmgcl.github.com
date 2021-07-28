@@ -76,12 +76,6 @@
   text-align: justify;
 }
 
-.snippetList .anchor {
-  display: block;
-  line-height: 2;
-  font-size: 1.25em;
-}
-
 .entryListItem {
   position: relative;
 
@@ -265,7 +259,6 @@
   }
 }
 
-.snippetContent,
 .entryContent {
   :global {
     @import 'prism-themes/themes/prism-vsc-dark-plus';

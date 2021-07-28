@@ -23,7 +23,6 @@ export type Theme = {
   anchor: string;
   entryList: string;
   entryListItem: string;
-  snippetList: string;
   rawDOM: string;
   tagList: string;
   tagListItem: string;
@@ -43,13 +42,10 @@ export type Theme = {
   teseraIndexPage: string;
   teseraTagPage: string;
   teseraEntryPage: string;
-  snippetIndexPage: string;
-  snippetEntryPage: string;
   linksPage: string;
 
   /* Special thing */
   entryContent: string;
-  snippetContent: string;
 };
 
 declare module '*.theme.module.scss' {

@@ -365,40 +365,6 @@
   }
 }
 
-.snippetIndexPage {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 2em;
-  max-width: 60ch;
-  margin: 0 auto;
-
-  .anchor {
-    @include vignette;
-    display: block;
-    line-height: 2;
-  }
-}
-
-.snippetEntryPage {
-  width: 100%;
-
-  :global {
-    @import 'prismjs/themes/prism';
-    @import '../code.scss';
-  }
-
-  pre {
-    @include vignette;
-    padding: 1em;
-  }
-
-  pre[class],
-  code[class],
-  code[class] > span[class] {
-    font-family: 'Inconsolata';
-  }
-}
-
 .teseraTagPage {
   > .h1 {
     > .anchor {
