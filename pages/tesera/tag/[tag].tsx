@@ -6,8 +6,7 @@ import { getTagList } from '../../../utils/getTagList';
 import { TagListItem } from '../../../components/TagListItem';
 import { EntryList } from '../../../components/EntryList';
 import { Anchor } from '../../../components/Anchor';
-import { Section } from '../../../components/HTMLElements';
-import { MainTitle } from '../../../components/MainTitle';
+import { H2, Section } from '../../../components/HTMLElements';
 import pkg from '../../../package.json';
 
 type Params = {
@@ -30,10 +29,10 @@ export default function Index(props: Props) {
         title={`${pkg.config.blogName}${pkg.config.blogTagSeparator}${props.tag}`}
       />
 
-      <MainTitle>
+      <H2>
         <Anchor href={`/${pkg.config.blogSlug}`}>{pkg.config.blogName}</Anchor>
         <TagListItem tag={props.tag} />
-      </MainTitle>
+      </H2>
 
       <EntryList entryList={props.entryList} />
     </Section>

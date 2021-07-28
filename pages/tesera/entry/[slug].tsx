@@ -7,12 +7,12 @@ import { TagList } from '../../../components/TagList';
 import Meta from '../../../components/Meta';
 import {
   Article,
+  H2,
   Header,
   Paragraph,
   Section,
 } from '../../../components/HTMLElements';
 import { RawDOM } from '../../../components/RawDOM';
-import { MainTitle } from '../../../components/MainTitle';
 import { classNames } from '../../../utils/classNames';
 import { useEffect, useRef, useState } from 'react';
 import { loadPrism } from '../../../utils/loadPrism';
@@ -106,7 +106,7 @@ export default function TeseraEntry({ entry }: Props) {
       <Meta title={entry.title} description={entry.summary} />
 
       <Header>
-        <MainTitle lang={entry.language}>{entry.title}</MainTitle>
+        <H2 lang={entry.language}>{entry.title}</H2>
         <Time dateTime={entry.date} />
         <Paragraph lang={entry.language}>{entry.mood}</Paragraph>
         <TagList tags={entry.tags} />

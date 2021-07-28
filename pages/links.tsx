@@ -2,9 +2,15 @@ import { useTheme } from '../styles/ThemeContext';
 import { Anchor } from '../components/Anchor';
 import { Emoji } from '../components/Emoji';
 import Meta from '../components/Meta';
-import { Article, H1, Paragraph, Section } from '../components/HTMLElements';
+import {
+  Article,
+  H2,
+  H3,
+  H4,
+  Paragraph,
+  Section,
+} from '../components/HTMLElements';
 import { FC } from 'react';
-import { MainTitle } from '../components/MainTitle';
 
 const Link: FC<{
   emoji: string;
@@ -13,12 +19,12 @@ const Link: FC<{
   description: string;
 }> = ({ emoji, title, href, description }) => (
   <Article>
-    <H1>
+    <H4>
       <Anchor href={href}>
         <Emoji>{emoji}</Emoji>
         {title}
       </Anchor>
-    </H1>
+    </H4>
     <Paragraph>{description}</Paragraph>
   </Article>
 );
@@ -29,10 +35,10 @@ export default function Links() {
   return (
     <Section className={theme.linksPage}>
       <Meta title="Links" />
-      <MainTitle>Links</MainTitle>
+      <H2>Links</H2>
 
       <Section>
-        <MainTitle>Aside projects</MainTitle>
+        <H3>Aside projects</H3>
 
         <Link
           emoji="📺"
@@ -57,7 +63,7 @@ export default function Links() {
       </Section>
 
       <Section>
-        <MainTitle>Talks</MainTitle>
+        <H3>Talks</H3>
 
         <Link
           emoji="🎭"

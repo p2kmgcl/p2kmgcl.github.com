@@ -4,7 +4,7 @@ import { Anchor } from './Anchor';
 import { Emoji } from './Emoji';
 import { Time } from './Time';
 import { useTheme } from '../styles/ThemeContext';
-import { Article, Header, H1, Paragraph } from './HTMLElements';
+import { Article, Header, Paragraph, H3 } from './HTMLElements';
 import { classNames } from '../utils/classNames';
 import pkg from '../package.json';
 
@@ -15,17 +15,18 @@ const EntryListItem: FC<{ entry: Entry }> = ({ entry }) => {
   return (
     <Article className={classNames(theme.entryListItem)}>
       <Header>
-        <H1>
+        <H3>
           <Anchor href={url} lang={entry.language}>
             {entry.title}
           </Anchor>
-        </H1>
+        </H3>
         <Time dateTime={entry.date} />
       </Header>
       <Paragraph lang={entry.language}>
         {entry.summary}{' '}
         <Anchor href={url} lang="en">
-          <Emoji>➡️</Emoji>Continue reading
+          <Emoji>➡️</Emoji>Continue reading{' '}
+          <span className="sr-only">&quot;{entry.title}&quot;</span>
         </Anchor>
       </Paragraph>
     </Article>

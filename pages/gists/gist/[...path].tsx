@@ -3,8 +3,7 @@ import { Snippet } from '../../../types/Snippet';
 import { readFileSync } from 'fs';
 import pkg from '../../../package.json';
 import Meta from '../../../components/Meta';
-import { Article, Header } from '../../../components/HTMLElements';
-import { MainTitle } from '../../../components/MainTitle';
+import { Article, H2, Header } from '../../../components/HTMLElements';
 import { useEffect, useMemo, useRef } from 'react';
 import { useTheme } from '../../../styles/ThemeContext';
 import { classNames } from '../../../utils/classNames';
@@ -39,7 +38,7 @@ export default function SnippetEntry({ snippet, extension }: Props) {
     <Article className={classNames(theme.snippetEntryPage)}>
       <Header>
         <Meta title={path} />
-        <MainTitle>{path}</MainTitle>
+        <H2>{path}</H2>
       </Header>
 
       <div className={classNames(theme.snippetContent)}>

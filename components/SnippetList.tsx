@@ -11,7 +11,10 @@ export const SnippetList: FC<{ snippetList: Snippet[] }> = ({
   const theme = useTheme();
 
   return (
-    <nav className={classNames(theme.snippetList)}>
+    <nav
+      aria-label={pkg.config.snippetListName}
+      className={classNames(theme.snippetList)}
+    >
       {snippetList.map((snippet) => {
         const path = snippet.path.join('/');
 

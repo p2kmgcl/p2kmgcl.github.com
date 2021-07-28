@@ -2,13 +2,13 @@ import Meta from '../components/Meta';
 import { useTheme } from '../styles/ThemeContext';
 import {
   Article,
+  H2,
   Header,
   Image,
   Paragraph,
   Picture,
   Strong,
 } from '../components/HTMLElements';
-import { MainTitle } from '../components/MainTitle';
 import { getTagList } from '../utils/getTagList';
 import pkg from '../package.json';
 
@@ -30,7 +30,7 @@ export default function Home() {
       <Meta />
 
       <Header>
-        <MainTitle>{pkg.author.name}</MainTitle>
+        <H2>{pkg.author.name}</H2>
         <Paragraph>{pkg.author.description}</Paragraph>
       </Header>
 

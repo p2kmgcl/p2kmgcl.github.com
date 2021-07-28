@@ -9,6 +9,9 @@ export type Theme = {
   article: string;
   header: string;
   h1: string;
+  h2: string;
+  h3: string;
+  h4: string;
   image: string;
   paragraph: string;
   picture: string;
@@ -21,7 +24,6 @@ export type Theme = {
   entryList: string;
   entryListItem: string;
   snippetList: string;
-  mainTitle: string;
   rawDOM: string;
   tagList: string;
   tagListItem: string;

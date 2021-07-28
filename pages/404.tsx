@@ -1,8 +1,7 @@
 import { useTheme } from '../styles/ThemeContext';
 import Meta from '../components/Meta';
 import { Anchor } from '../components/Anchor';
-import { Article, Paragraph } from '../components/HTMLElements';
-import { MainTitle } from '../components/MainTitle';
+import { Article, H2, Paragraph } from '../components/HTMLElements';
 
 export default function NotFound() {
   const theme = useTheme();
@@ -14,7 +13,7 @@ export default function NotFound() {
         description="The requested page was not found"
       />
 
-      <MainTitle>Page not found</MainTitle>
+      <H2>Page not found</H2>
       <Paragraph>The requested page was not found.</Paragraph>
 
       <Paragraph>

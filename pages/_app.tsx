@@ -1,3 +1,4 @@
+import '../styles/common.scss';
 import Head from 'next/head';
 import {
   ThemeContextProvider,
@@ -6,7 +7,7 @@ import {
 } from '../styles/ThemeContext';
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
-import { H1 } from '../components/HTMLElements';
+import { H1, H2 } from '../components/HTMLElements';
 import { useKonami } from '../utils/useKonami';
 import pkg from '../package.json';
 import { FC, useEffect } from 'react';
@@ -82,7 +83,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       {!rawContent ? (
-        <nav className={theme.mainMenu}>
+        <nav aria-label="Main menu" className={theme.mainMenu}>
           <Anchor href="/">{pkg.name}</Anchor>
 
           <span className={theme.mainMenuNavigation}>
@@ -101,22 +102,23 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
         </nav>
       ) : null}
 
-      <div className={theme.content}>
+      <main className={theme.content}>
+        <H1 className="sr-only">{pkg.author.name}</H1>
         <Component {...pageProps} />
-      </div>
+      </main>
 
       {!rawContent ? (
         <footer className={theme.footer}>
-          <H1>{pkg.author.name}</H1>
+          <H2>{pkg.author.name}</H2>
 
-          <nav className={theme.footerNavigation}>
+          <nav aria-label="Email" className={theme.footerNavigation}>
             <Anchor href={`mailto:${pkg.author.email}`}>
               <Emoji>📮</Emoji>
               {pkg.author.email}
             </Anchor>
           </nav>
 
-          <nav className={theme.footerNavigation}>
+          <nav aria-label="License" className={theme.footerNavigation}>
             <Anchor
               href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
             >
@@ -125,7 +127,10 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
             </Anchor>
           </nav>
 
-          <nav className={theme.footerNavigation}>
+          <nav
+            aria-label="External profiles"
+            className={theme.footerNavigation}
+          >
             <Anchor
               href="https://github.com/p2kmgcl"
               title={`${pkg.author.name}'s Github profile`}

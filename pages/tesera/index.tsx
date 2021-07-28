@@ -5,8 +5,7 @@ import { Entry } from '../../types/Entry';
 import { getTagList } from '../../utils/getTagList';
 import { TagList } from '../../components/TagList';
 import { EntryList } from '../../components/EntryList';
-import { Header, Section } from '../../components/HTMLElements';
-import { MainTitle } from '../../components/MainTitle';
+import { H2, Header, Section } from '../../components/HTMLElements';
 import pkg from '../../package.json';
 
 type Props = {
@@ -21,7 +20,7 @@ export default function Tesera({ tagList, entryList }: Props) {
     <Section className={theme.teseraIndexPage}>
       <Meta title={pkg.config.blogName} />
       <Header>
-        <MainTitle>{pkg.config.blogName}</MainTitle>
+        <H2>{pkg.config.blogName}</H2>
         <TagList tags={tagList} />
       </Header>
       <EntryList entryList={entryList} />

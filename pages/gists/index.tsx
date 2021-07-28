@@ -2,8 +2,7 @@ import { getSnippetList } from '../../utils/getSnippetList';
 import { Snippet } from '../../types/Snippet';
 import pkg from '../../package.json';
 import Meta from '../../components/Meta';
-import { Header, Section } from '../../components/HTMLElements';
-import { MainTitle } from '../../components/MainTitle';
+import { H2, Header, Section } from '../../components/HTMLElements';
 import { useTheme } from '../../styles/ThemeContext';
 import { SnippetList } from '../../components/SnippetList';
 
@@ -18,7 +17,7 @@ export default function TeseraEntry({ snippetList }: Props) {
     <Section className={theme.snippetIndexPage}>
       <Meta title={pkg.config.snippetListName} />
       <Header>
-        <MainTitle>{pkg.config.snippetListName}</MainTitle>
+        <H2>{pkg.config.snippetListName}</H2>
       </Header>
       <SnippetList snippetList={snippetList} />
     </Section>
