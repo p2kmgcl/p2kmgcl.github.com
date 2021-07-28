@@ -390,6 +390,10 @@
       font-weight: 400;
       margin: 0;
 
+      > .anchor {
+        display: inline;
+      }
+
       > .anchor:after {
         content: '';
         position: absolute;
