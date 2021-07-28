@@ -6,7 +6,7 @@ import {
 } from '../styles/ThemeContext';
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
-import { Heading } from '../components/HTMLElements';
+import { H1 } from '../components/HTMLElements';
 import { useKonami } from '../utils/useKonami';
 import pkg from '../package.json';
 import { FC, useEffect } from 'react';
@@ -107,7 +107,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
 
       {!rawContent ? (
         <footer className={theme.footer}>
-          <Heading>{pkg.author.name}</Heading>
+          <H1>{pkg.author.name}</H1>
 
           <nav className={theme.footerNavigation}>
             <Anchor href={`mailto:${pkg.author.email}`}>

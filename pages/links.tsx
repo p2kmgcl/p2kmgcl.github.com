@@ -2,12 +2,7 @@ import { useTheme } from '../styles/ThemeContext';
 import { Anchor } from '../components/Anchor';
 import { Emoji } from '../components/Emoji';
 import Meta from '../components/Meta';
-import {
-  Article,
-  Heading,
-  Paragraph,
-  Section,
-} from '../components/HTMLElements';
+import { Article, H1, Paragraph, Section } from '../components/HTMLElements';
 import { FC } from 'react';
 import { MainTitle } from '../components/MainTitle';
 
@@ -18,12 +13,12 @@ const Link: FC<{
   description: string;
 }> = ({ emoji, title, href, description }) => (
   <Article>
-    <Heading>
+    <H1>
       <Anchor href={href}>
         <Emoji>{emoji}</Emoji>
         {title}
       </Anchor>
-    </Heading>
+    </H1>
     <Paragraph>{description}</Paragraph>
   </Article>
 );

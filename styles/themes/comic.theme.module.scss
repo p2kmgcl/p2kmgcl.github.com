@@ -106,7 +106,7 @@
   white-space: nowrap;
   justify-content: space-between;
 
-  > .heading {
+  > .h1 {
     position: absolute;
     margin: 0;
     width: 0;
@@ -138,7 +138,7 @@
   > .header {
     margin-bottom: 0.5em;
 
-    > .heading {
+    > .h1 {
       margin: 0;
 
       > .anchor::after {
@@ -225,13 +225,13 @@
     height: 0;
     padding-top: math.div(1400, 1080) * 100%;
 
-    > .heading,
+    > .h1,
     > .paragraph {
       position: absolute;
       z-index: 1;
     }
 
-    > .heading {
+    > .h1 {
       margin: 0;
       bottom: 2em;
       left: 0.5em;
@@ -308,7 +308,7 @@
       grid-row-end: 2;
     }
 
-    > .header > .heading {
+    > .header > .h1 {
       font-size: 15vw;
     }
 
@@ -332,7 +332,7 @@
       grid-row-end: 5;
     }
 
-    > .header > .heading {
+    > .header > .h1 {
       font-size: 7vw;
     }
 
@@ -353,7 +353,7 @@
       grid-row-end: 3;
     }
 
-    > .header > .heading {
+    > .header > .h1 {
       font-size: 4.5rem;
     }
 
@@ -395,7 +395,7 @@
 }
 
 .teseraTagPage {
-  > .heading {
+  > .h1 {
     > .anchor {
       text-decoration: none;
     }
@@ -427,7 +427,7 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1em;
 
-    > .heading {
+    > .h1 {
       grid-column-start: 1;
       grid-column-end: 3;
     }
@@ -486,7 +486,7 @@
     @media (min-width: 900px) {
       grid-template-columns: 1fr 350px 350px 1fr;
 
-      > .heading {
+      > .h1 {
         grid-column-start: 1;
         grid-column-end: 5;
       }
@@ -532,7 +532,7 @@
   max-width: 60ch;
   margin: 0 auto 2em auto;
 
-  > .heading {
+  > .h1 {
     position: absolute;
     width: 0;
     height: 0;
@@ -551,7 +551,7 @@
       margin-bottom: 0.25em;
       position: relative;
 
-      > .heading {
+      > .h1 {
         margin: 0;
 
         > .anchor::after {
