@@ -6,21 +6,21 @@ date: 1991-01-01
 mood: Testing a theme, or something else that should appear as a mood
 tags: [sample]
 summary: >
-  This is how things should work, or at least how we think they should.
-  That's the programmer paradox: do not expect thing to behave as you
-  prefer, because they won't, unless you don't want to.
+  This is how things should work, or at least how we think they should. That's
+  the programmer paradox: do not expect thing to behave as you prefer, because
+  they won't, unless you don't want to.
 ---
 
 Integer sed dignissim magna. Nunc sagittis massa eu ligula pharetra imperdiet.
-Sed metus nisi, pretium et aliquam non, vehicula nec velit. Fusce non
-libero scelerisque, consequat ligula sit amet, varius quam. Donec elementum
-et ante eget faucibus. Sed _convallis ex ut_ diam porttitor convallis.
-Praesent quis massa et orci semper varius quis nec velit. Nam turpis nulla,
-tristique a elementum at, efficitur vel magna. Ut porttitor quis lorem eget
-commodo. Curabitur lobortis aliquet tortor **eget tempus**. Vestibulum venenatis
+Sed metus nisi, pretium et aliquam non, vehicula nec velit. Fusce non libero
+scelerisque, consequat ligula sit amet, varius quam. Donec elementum et ante
+eget faucibus. Sed _convallis ex ut_ diam porttitor convallis. Praesent quis
+massa et orci semper varius quis nec velit. Nam turpis nulla, tristique a
+elementum at, efficitur vel magna. Ut porttitor quis lorem eget commodo.
+Curabitur lobortis aliquet tortor **eget tempus**. Vestibulum venenatis
 vestibulum urna, sit amet iaculis felis convallis id. Morbi elementum
-ullamcorper sapien, nec egestas nunc ullamcorper ut. In nulla sem, dictum
-vel dictum non, luctus a lectus.
+ullamcorper sapien, nec egestas nunc ullamcorper ut. In nulla sem, dictum vel
+dictum non, luctus a lectus.
 
 > Sed malesuada odio eros. Vivamus tristique tristique leo, vel finibus magna
 > posuere eget. Nunc vitae auctor erat. Nullam suscipit sapien in velit
