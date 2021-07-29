@@ -16,6 +16,8 @@ import { RawDOM } from '../../../components/RawDOM';
 import { classNames } from '../../../utils/classNames';
 import { useEffect, useRef, useState } from 'react';
 import { loadPrism } from '../../../utils/loadPrism';
+import Head from 'next/head';
+import pkg from '../../../package.json';
 
 type Params = {
   params: {
@@ -104,6 +106,20 @@ export default function TeseraEntry({ entry }: Props) {
   return (
     <Article className={theme.teseraEntryPage}>
       <Meta title={entry.title} description={entry.summary} />
+
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content={pkg.author.twitter} />
+        <meta name="twitter:creator" content={pkg.author.twitter} />
+        <meta name="og:locale" content={entry.language} />
+        <meta name="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${entry.slug}/`}
+        />
+        <meta property="og:title" content={entry.title} />
+        <meta property="og:description" content={entry.summary} />
+      </Head>
 
       <Header>
         <H2 lang={entry.language}>{entry.title}</H2>
