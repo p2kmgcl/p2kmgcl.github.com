@@ -7,6 +7,7 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
   children,
   title,
   lang,
+  target,
   className: classNameProp,
   ...props
 }) => {
@@ -18,6 +19,7 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
         title={title}
         className={classNames(theme.anchor, classNameProp)}
         lang={lang}
+        target={target}
       >
         {children}
       </a>
