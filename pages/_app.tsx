@@ -7,7 +7,7 @@ import {
 } from '../styles/ThemeContext';
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
-import { H1, H2 } from '../components/HTMLElements';
+import { Footer, H1, H2 } from '../components/HTMLElements';
 import { useKonami } from '../utils/useKonami';
 import pkg from '../package.json';
 import { FC, useEffect } from 'react';
@@ -105,7 +105,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
       </main>
 
       {!rawContent ? (
-        <footer className={theme.footer}>
+        <Footer>
           <H2>{pkg.author.name}</H2>
 
           <nav aria-label="Email" className={theme.footerNavigation}>
@@ -159,7 +159,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
               <Emoji>📹</Emoji>YouTube
             </Anchor>
           </nav>
-        </footer>
+        </Footer>
       ) : null}
     </>
   );

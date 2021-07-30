@@ -8,6 +8,7 @@ export type Theme = {
   /* DOM Elements */
   article: string;
   figure: string;
+  footer: string;
   header: string;
   h1: string;
   h2: string;
@@ -34,7 +35,6 @@ export type Theme = {
   mainMenuNavigation: string;
 
   /* Footer */
-  footer: string;
   footerNavigation: string;
 
   /* Pages */

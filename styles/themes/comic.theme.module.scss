@@ -96,7 +96,7 @@
   }
 }
 
-.footer {
+.wrapper > .footer {
   @include vignette;
 
   font-size: 1rem;

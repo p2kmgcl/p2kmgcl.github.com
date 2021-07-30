@@ -23,6 +23,7 @@ function wrap<Props extends AllProps[keyof AllProps]>(
 
 export const Article = wrap<AllProps['article']>('article', 'article');
 export const Figure = wrap<AllProps['figure']>('figure', 'figure');
+export const Footer = wrap<AllProps['footer']>('footer', 'footer');
 export const Header = wrap<AllProps['header']>('header', 'header');
 export const H1 = wrap<AllProps['h1']>('h1', 'h1');
 export const H2 = wrap<AllProps['h2']>('h2', 'h2');
