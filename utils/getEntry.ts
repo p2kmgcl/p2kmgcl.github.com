@@ -18,7 +18,12 @@ const dataChecks: Record<keyof EntryData, (v: any) => boolean> = {
     Array.isArray(v) && v.every((p) => p && typeof p === 'string'),
 };
 
+const cachedEntries = new Map<string, Entry>();
+
 export const getEntry = (slug: string) => {
+  let cachedEntry = cachedEntries.get(slug);
+  if (cachedEntry) return cachedEntry;
+
   const rawContent = fs.readFileSync(
     `./${pkg.config.blogSlug}/${slug}.md`,
     'utf-8',
@@ -43,10 +48,13 @@ export const getEntry = (slug: string) => {
       throw new Error(`Unknown property "${key}" in ${slug}`);
     });
 
-  return {
+  cachedEntry = {
     ...data,
     slug,
     content: parseMarkdown(content),
     date: new Date(data.date).getTime(),
   };
+
+  cachedEntries.set(slug, cachedEntry);
+  return cachedEntry;
 };
