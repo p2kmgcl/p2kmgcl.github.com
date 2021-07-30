@@ -178,7 +178,11 @@ export default function TeseraEntry({ entry }: Props) {
           />
         ))}
 
-        <script type="application/ld+json">{metaScript}</script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: metaScript }}
+        />
+
         <link rel="canonical" href={entry.url} />
       </Head>
 
