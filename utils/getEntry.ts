@@ -31,7 +31,9 @@ export const getEntry = (slug: string) => {
   Object.entries(dataChecks).forEach(([key, check]) => {
     // @ts-ignore
     if (!check(data[key])) {
-      throw new Error(`Invalid or missing property "${key}" in ${slug}`);
+      console.warn(
+        `warn  - Invalid or missing property ${key} in entry ${slug}`,
+      );
     }
   });
 
