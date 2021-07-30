@@ -41,7 +41,14 @@ collections:
           format: 'YYYY-MM-DD',
         }
       - { label: 'Mood', name: 'mood', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, min: 1 }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'select',
+          options: ['sample', 'blog', 'snippet'],
+          default: [],
+          multiple: true,
+        }
       - { label: 'Summary', name: 'summary', widget: 'text' }
       - {
           label: 'Body',
