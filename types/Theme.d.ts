@@ -7,6 +7,7 @@ export type Theme = {
 
   /* DOM Elements */
   article: string;
+  figure: string;
   header: string;
   h1: string;
   h2: string;
