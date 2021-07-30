@@ -4,7 +4,10 @@ language: en
 draft: true
 date: 1991-01-01
 emoji: 🧪
-mood: Testing a theme, or something else that should appear as a mood
+cover:
+  url: /uploads/man-wearing-black-and-white-stripe-shirt-looking-at-white-printer-papers-on-the-wall.jpg
+  alt: Sample image
+mood: Testing a theme, or something else
 tags: [sample]
 summary: >
   This is how things should work, or at least how we think they should. That's
