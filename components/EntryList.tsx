@@ -17,7 +17,8 @@ const EntryListItem: FC<{ entry: Entry }> = ({ entry }) => {
       <Header>
         <H3>
           <Anchor href={url} lang={entry.language}>
-            {entry.title}
+            <Emoji>{entry.emoji}</Emoji>
+            <span>{entry.title}</span>
           </Anchor>
         </H3>
         <Time dateTime={entry.date} />

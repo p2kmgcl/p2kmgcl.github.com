@@ -8,6 +8,7 @@ type EntryData = Omit<Entry, 'content' | 'slug'>;
 
 const dataChecks: Record<keyof EntryData, (v: any) => boolean> = {
   draft: (v: any) => typeof v === 'boolean',
+  emoji: (v: any) => v && typeof v === 'string',
   language: (v: any) => v && typeof v === 'string',
   date: (v: any) => v && v instanceof Date,
   title: (v: any) => v && typeof v === 'string',

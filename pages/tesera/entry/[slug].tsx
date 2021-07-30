@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from 'react';
 import { loadPrism } from '../../../utils/loadPrism';
 import Head from 'next/head';
 import pkg from '../../../package.json';
+import { Emoji } from '../../../components/Emoji';
 
 type Params = {
   params: {
@@ -124,7 +125,10 @@ export default function TeseraEntry({ entry }: Props) {
       <Header>
         <H2 lang={entry.language}>{entry.title}</H2>
         <Time dateTime={entry.date} />
-        <Paragraph lang={entry.language}>{entry.mood}</Paragraph>
+        <Paragraph lang={entry.language}>
+          <Emoji>{entry.emoji}</Emoji>
+          <span>{entry.mood}</span>
+        </Paragraph>
         <TagList tags={entry.tags} />
 
         <Section aria-label="TL;DR">
