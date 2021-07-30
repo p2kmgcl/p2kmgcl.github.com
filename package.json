@@ -23,6 +23,7 @@
     "blogName": "Tesera",
     "blogSlug": "tesera",
     "blogEntrySlug": "entry",
+    "blogEntriesSlug": "entries",
     "blogTagSeparator": "#",
     "blogTagSlug": "tag",
     "feedPrefix": "feed-",
