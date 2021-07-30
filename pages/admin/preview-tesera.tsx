@@ -21,6 +21,15 @@ export default function AdminPreviewTesera() {
       } catch (_) {}
 
       if (parsedData && parsedData.type === 'entry') {
+        console.clear();
+
+        console.table({
+          ...parsedData,
+          tags: parsedData.tags || [],
+          body: `${(parsedData.body || '').substr(0, 40)}...`,
+          summary: `${(parsedData.summary || '').substr(0, 40)}...`,
+        });
+
         setEntry({
           ...parsedData,
           tags: parsedData.tags || [],
@@ -32,7 +41,6 @@ export default function AdminPreviewTesera() {
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
   }, []);
-
   return entry ? <TeseraEntry entry={entry} /> : null;
 }
 
