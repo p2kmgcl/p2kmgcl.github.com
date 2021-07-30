@@ -4,7 +4,7 @@ import { Entry } from '../types/Entry';
 import pkg from '../package.json';
 import { parseMarkdown } from './parseMarkdown';
 
-type EntryData = Omit<Entry, 'content' | 'slug'>;
+type EntryData = Omit<Entry, 'content' | 'slug' | 'url'>;
 
 const dataChecks: Record<keyof EntryData, (v: any) => boolean> = {
   draft: (v: any) => typeof v === 'boolean',
@@ -53,6 +53,7 @@ export const getEntry = (slug: string) => {
     slug,
     content: parseMarkdown(content),
     date: new Date(data.date).getTime(),
+    url: `https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${slug}/`,
   };
 
   cachedEntries.set(slug, cachedEntry);

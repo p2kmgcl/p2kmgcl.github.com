@@ -9,4 +9,5 @@ export interface Entry {
   tags: string[];
   summary: string;
   slug: string;
+  url: string;
 }

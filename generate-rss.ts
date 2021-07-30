@@ -46,9 +46,8 @@ const BUILD_DATE = new Date().toISOString();
         ${entryList
           .map((entry) => {
             const date = new Date(entry.date).toISOString();
-            const href = `https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${entry.slug}/`;
 
-            console.log(`post  - ${href}`);
+            console.log(`post  - ${entry.url}`);
 
             return `
               <item>
@@ -58,8 +57,8 @@ const BUILD_DATE = new Date().toISOString();
                 ${entry.tags
                   .map((tag) => `<category>${tag}</category>`)
                   .join('')}
-                <link>${href}</link>
-                <guid isPermaLink="true">${href}</guid>
+                <link>${entry.url}</link>
+                <guid isPermaLink="true">${entry.url}</guid>
                 <source url="${source}">${title}</source>
                 <author>${pkg.author.email} (${pkg.author.name})</author>
               </item>`;
