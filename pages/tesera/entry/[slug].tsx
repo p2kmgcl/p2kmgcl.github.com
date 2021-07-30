@@ -110,10 +110,12 @@ export default function TeseraEntry({ entry }: Props) {
     const date = new Date(entry.date).toISOString();
     const ogTags = entry.tags.map((tag): [string, string] => ['og:tag', tag]);
 
-    const ogCover = [
-      ['og:image', entry.cover?.url],
-      ['og:image:alt', entry.cover?.alt],
-    ].filter(([, content]) => content);
+    const ogCover = entry.cover
+      ? [
+          ['og:image', `https://${pkg.name}${entry.cover.url}`],
+          ['og:image:alt', entry.cover.alt],
+        ]
+      : [];
 
     const metaTags = [
       ['twitter:card', 'summary'],
