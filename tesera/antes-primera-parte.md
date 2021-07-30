@@ -37,7 +37,7 @@ tercero de la E.S.O., hace ya unos... ¿quince años? más o menos. Descubrí al
 tipo de servicio _chungo_ para crear tu propia página web, y si no me equivoco
 creé algo así como _superpablo.es.tl_, poniendo reproductores de _Windows Media
 Player_ y cosas por el estilo dignas del _Messenger_ que se usaba por aquel
-entonces. Evidentemente no tenía de programar, y por supuesto que no sabía ni
+entonces. Evidentemente no tenía idea de programar, y por supuesto que no sabía ni
 siquiera lo que programar significaba exactamente. Sin embargo, lo que sí que me
 ocurrió desde el primer día (y es una sensación que sigo conservando) es que era
 capaz de invertir una cantidad vergonzosa de horas en que todo se viera
@@ -70,7 +70,7 @@ generales.
 
 > Yo soy porque nosotros somos.
 
-Finalmente alcancé la _gloria_: en bachillerato descubrí que hay una cosa que se
+Finalmente alcancé la _gloria_: en bachillerato descubrí que había una cosa que se
 llamaba _programar_, y que permitía copiar unas cosas llamadas _JavaScript_
 dentro de una página para hacer que ocurrieran _otras cosas_: nieve cayendo, una
 fecha dando vueltas alrededor del cursor, un montón de colores y formas en el
