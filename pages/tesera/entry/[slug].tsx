@@ -7,8 +7,10 @@ import { TagList } from '../../../components/TagList';
 import Meta from '../../../components/Meta';
 import {
   Article,
+  Figure,
   H2,
   Header,
+  Image,
   Paragraph,
   Section,
 } from '../../../components/HTMLElements';
@@ -124,16 +126,25 @@ export default function TeseraEntry({ entry }: Props) {
 
       <Header>
         <H2 lang={entry.language}>{entry.title}</H2>
+
         <Time dateTime={entry.date} />
+
         <Paragraph lang={entry.language}>
           <Emoji>{entry.emoji}</Emoji>
           <span>{entry.mood}</span>
         </Paragraph>
+
         <TagList tags={entry.tags} />
 
         <Section aria-label="TL;DR">
           <Paragraph lang={entry.language}>{entry.summary}</Paragraph>
         </Section>
+
+        {entry.cover ? (
+          <Figure>
+            <Image src={entry.cover.url} alt={entry.cover.alt} />
+          </Figure>
+        ) : null}
       </Header>
 
       <div className={classNames(theme.entryContent)} ref={contentRef}>

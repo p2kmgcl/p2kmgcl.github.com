@@ -93,6 +93,10 @@
       font-weight: 400;
       margin: 0;
 
+      > .anchor {
+        display: inline-block;
+      }
+
       > .anchor:after {
         content: '';
         position: absolute;
@@ -294,6 +298,9 @@
 
 .teseraEntryPage {
   > .header {
+    display: flex;
+    flex-direction: column;
+
     > .h2 {
       margin-bottom: 0.5em;
     }
@@ -309,23 +316,37 @@
     }
 
     > .paragraph {
-      margin: 0.5rem 0;
+      margin: 0;
       font-style: italic;
+
+      > .emoji {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
 
       @media (min-width: 768px) {
         max-width: 80%;
       }
     }
 
-    > .tagList > .tagListItem {
-      min-height: 0;
+    > .tagList {
+      order: 1;
 
-      + .tagListItem {
-        margin-left: 1ch;
+      > .tagListItem {
+        min-height: 0;
+
+        + .tagListItem {
+          margin-left: 1ch;
+        }
       }
     }
 
     > .section {
+      order: 1;
       margin: 1em 0;
       padding: 1em;
       background-color: hsl(0, 0%, 95%);
@@ -349,6 +370,25 @@
 
       > .paragraph {
         margin: 0;
+      }
+    }
+
+    > .figure {
+      width: 100%;
+      height: 40vw;
+      max-height: 28em;
+      padding: 0;
+      margin: 1em 0;
+      overflow: hidden;
+      position: relative;
+      order: 0;
+
+      > .image {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
       }
     }
   }
