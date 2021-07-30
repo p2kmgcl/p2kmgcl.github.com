@@ -9,7 +9,9 @@
     "url": "https://pablomolina.me",
     "email": "contact@pablomolina.me",
     "name": "Pablo Molina",
-    "twitter": "@p2kmgcl"
+    "firstName": "Pablo",
+    "familyName": "Molina",
+    "username": "p2kmgcl"
   },
   "repository": {
     "type": "git",
