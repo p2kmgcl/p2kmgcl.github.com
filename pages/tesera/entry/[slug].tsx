@@ -8,6 +8,7 @@ import Meta from '../../../components/Meta';
 import {
   Article,
   Figure,
+  Footer,
   H2,
   Header,
   Image,
@@ -21,6 +22,7 @@ import { loadPrism } from '../../../utils/loadPrism';
 import Head from 'next/head';
 import pkg from '../../../package.json';
 import { Emoji } from '../../../components/Emoji';
+import { Anchor } from '../../../components/Anchor';
 
 type Params = {
   params: {
@@ -167,6 +169,27 @@ export default function TeseraEntry({ entry }: Props) {
     return [metaTags, JSON.stringify(metaScript)];
   }, [entry]);
 
+  const twitterLink =
+    'https://twitter.com/intent/tweet?' +
+    `text=${encodeURIComponent(entry.title)}` +
+    `&url=${encodeURIComponent(entry.url)}` +
+    `&hashtags=${entry.tags.join(',')}` +
+    `&via=${pkg.author.username}`;
+
+  const linkedInLink =
+    'https://www.linkedin.com/sharing/share-offsite/?' +
+    `url=${encodeURIComponent(entry.url)}`;
+
+  const githubLink =
+    `${pkg.repository.url}/blob/main/` +
+    pkg.config.blogSlug +
+    `/${entry.slug}.md`;
+
+  const editLink =
+    `https://${pkg.name}/admin/#/collections/${pkg.config.blogSlug}/` +
+    pkg.config.blogEntriesSlug +
+    `/${entry.slug}`;
+
   return (
     <Article className={theme.teseraEntryPage}>
       <Meta title={entry.title} description={entry.summary} />
@@ -214,6 +237,31 @@ export default function TeseraEntry({ entry }: Props) {
       <div className={classNames(theme.entryContent)} ref={contentRef}>
         <RawDOM html={entry.content} elementProps={{ lang: entry.language }} />
       </div>
+
+      <Footer>
+        <nav
+          className={theme.entryFooterNavigation}
+          data-entry-title={entry.title}
+          data-entry-emoji={entry.emoji}
+        >
+          <Anchor href={twitterLink} target="_blank">
+            <Emoji>🕊️</Emoji>
+            Share on Twitter
+          </Anchor>
+          <Anchor href={linkedInLink} target="_blank">
+            <Emoji>🎩</Emoji>
+            <span>Share on LinkedIn</span>
+          </Anchor>
+          <Anchor href={githubLink} target="_blank">
+            <Emoji>👾</Emoji>
+            <span>View on GitHub</span>
+          </Anchor>
+          <Anchor href={editLink} target="_blank">
+            <Emoji>📝</Emoji>
+            <span>Edit</span>
+          </Anchor>
+        </nav>
+      </Footer>
     </Article>
   );
 }

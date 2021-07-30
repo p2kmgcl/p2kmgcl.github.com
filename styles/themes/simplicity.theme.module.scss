@@ -297,6 +297,8 @@
 }
 
 .teseraEntryPage {
+  margin-bottom: 20em;
+
   > .header {
     display: flex;
     flex-direction: column;
@@ -400,6 +402,64 @@
 
     p {
       line-height: 2;
+    }
+  }
+
+  > .footer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin: 4em 0 0 0;
+    border: solid thin hsl(208, 0%, 89%);
+    border-left: none;
+    border-right: none;
+    background: linear-gradient(
+      220deg,
+      hsl(0, 0%, 100%) 0%,
+      hsl(0, 0%, 93%) 70%,
+      hsl(0, 0%, 100%) 100%
+    );
+
+    @media (prefers-color-scheme: dark) {
+      border-color: hsl(0, 0%, 15%);
+      background: linear-gradient(
+        220deg,
+        hsl(0, 0%, 9%) 0%,
+        hsl(0, 0%, 15%) 70%,
+        hsl(0, 0%, 9%) 100%
+      );
+    }
+
+    > .entryFooterNavigation {
+      padding: 1em 2em;
+      display: grid;
+      margin: 0 auto;
+      grid: repeat(4, 1.75em) / 1fr 1fr;
+      overflow: hidden;
+      max-width: 60ch;
+
+      @media (min-width: 900px) {
+        max-width: 75ch;
+      }
+
+      .anchor {
+        grid-column: 2 / 3;
+        justify-content: flex-end;
+      }
+
+      &::after {
+        display: block;
+        grid-column: 1 / 2;
+        grid-row: 1 / 5;
+      }
+
+      &::after {
+        content: attr(data-entry-emoji);
+        font-size: 8em;
+        filter: saturate(40%) opacity(0.5);
+        transform: translateY(-1rem) rotateZ(-10deg);
+        text-align: center;
+      }
     }
   }
 }

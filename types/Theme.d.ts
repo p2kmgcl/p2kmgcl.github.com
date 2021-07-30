@@ -47,6 +47,7 @@ export type Theme = {
 
   /* Special thing */
   entryContent: string;
+  entryFooterNavigation: string;
 };
 
 declare module '*.theme.module.scss' {
