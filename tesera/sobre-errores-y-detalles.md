@@ -4,6 +4,7 @@ title: Sobre errores, refactorización y falta de ideas
 tags: [blog]
 draft: false
 language: es
+emoji: 🐞
 mood: >
   Con "Capitán América: Civil War" de fondo, aunque he tenido que pararlo para
   concentrarme.

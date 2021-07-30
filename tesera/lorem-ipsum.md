@@ -3,6 +3,7 @@ title: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 language: en
 draft: true
 date: 1991-01-01
+emoji: 🧪
 mood: Testing a theme, or something else that should appear as a mood
 tags: [sample]
 summary: >

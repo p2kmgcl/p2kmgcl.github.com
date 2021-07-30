@@ -1,6 +1,7 @@
 ---
 draft: false
 title: Antes (primera parte)
+emoji: 👶
 language: es
 date: 2021-06-27
 mood:
