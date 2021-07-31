@@ -432,33 +432,35 @@
 
     > .entryFooterNavigation {
       padding: 1em 2em;
-      display: grid;
       margin: 0 auto;
-      grid: repeat(4, 1.75em) / 1fr 1fr;
       overflow: hidden;
       max-width: 60ch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
 
       @media (min-width: 900px) {
         max-width: 75ch;
       }
 
       .anchor {
-        grid-column: 2 / 3;
-        justify-content: flex-end;
-      }
-
-      &::after {
-        display: block;
-        grid-column: 1 / 2;
-        grid-row: 1 / 5;
+        display: inline-block;
       }
 
       &::after {
         content: attr(data-entry-emoji);
+        display: block;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60%;
+        pointer-events: none;
+        text-align: center;
         font-size: 8em;
         filter: saturate(40%) opacity(0.5);
         transform: translateY(-1rem) rotateZ(-10deg);
-        text-align: center;
       }
     }
   }
