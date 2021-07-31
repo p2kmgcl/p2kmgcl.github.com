@@ -267,12 +267,12 @@
   :global {
     @import 'prism-themes/themes/prism-vsc-dark-plus';
     @import '../code.scss';
-  }
 
-  pre[class],
-  code[class],
-  code[class] > span[class] {
-    font-family: inherit;
+    pre[class],
+    code[class],
+    code[class] > span[class] {
+      font-family: 'JetBrains Mono';
+    }
   }
 }
 
