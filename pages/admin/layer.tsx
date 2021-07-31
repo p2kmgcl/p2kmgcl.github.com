@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type { RoughCanvas } from 'roughjs/bin/canvas';
 import { Drawable } from 'roughjs/bin/core';
 import type { Point } from 'roughjs/bin/geometry';
@@ -156,23 +156,6 @@ export default function AdminLayer() {
         : '',
     [],
   );
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerWidth * 0.5625,
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (!canvasRef.current) {
@@ -228,8 +211,8 @@ export default function AdminLayer() {
       <div
         style={{
           position: 'relative',
-          width: windowSize.width,
-          height: windowSize.height,
+          width: '100vw',
+          height: '100vh',
         }}
       >
         <h1
@@ -272,7 +255,7 @@ export default function AdminLayer() {
           top: 0,
           left: 0,
           width: '100vw',
-          height: '56.25vw',
+          height: '100vh',
           zIndex: -1,
           opacity: 1,
         }}
@@ -284,7 +267,7 @@ export default function AdminLayer() {
             top: 0,
             left: 0,
             width: '100vw',
-            height: '56.25vw',
+            height: '100vh',
             zIndex: -2,
             backgroundImage: `url(${bg})`,
             backgroundSize: 'cover',
