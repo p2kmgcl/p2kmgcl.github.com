@@ -45,7 +45,9 @@ export default function Home() {
             key={`${type}-${size}`}
             media={mediaQuery}
             type={`image/${type}`}
-            srcSet={`/pablo-molina/pablo-molina-${size}.${type}`}
+            srcSet={`/pablo-molina/pablo-molina-${size}.${
+              type === 'jpg' ? type : `jpg.${type}`
+            }`}
           />
         ))}
 
