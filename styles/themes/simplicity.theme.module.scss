@@ -1,5 +1,7 @@
 @import '~@fontsource/jetbrains-mono';
 
+$roundness: 4px;
+
 /* Main structure */
 
 .body {
@@ -222,6 +224,7 @@
   }
 
   > .picture {
+    border-radius: $roundness;
     display: block;
     height: 350px;
     width: 100%;
@@ -272,6 +275,7 @@
     code[class],
     code[class] > span[class] {
       font-family: 'JetBrains Mono';
+      border-radius: $roundness;
     }
   }
 }
@@ -336,7 +340,7 @@
     }
 
     > .tagList {
-      order: 1;
+      order: 0;
 
       > .tagListItem {
         min-height: 0;
@@ -352,6 +356,7 @@
       margin: 1em 0;
       padding: 1em;
       background-color: hsl(0, 0%, 95%);
+      border-radius: $roundness;
       text-align: justify;
 
       @media (prefers-color-scheme: dark) {
@@ -376,14 +381,20 @@
     }
 
     > .figure {
+      background-color: hsl(0, 0%, 95%);
       width: 100%;
-      height: 40vw;
+      height: 30vw;
+      border-radius: $roundness;
       max-height: 28em;
       padding: 0;
-      margin: 1em 0;
+      margin: 1em 0 0;
       overflow: hidden;
       position: relative;
       order: 0;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: hsl(0, 0%, 15%);
+      }
 
       > .image {
         width: 100%;
@@ -391,6 +402,19 @@
         top: 50%;
         left: 0;
         transform: translateY(-50%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: $roundness;
+        box-shadow: inset 0 0 1px hsla(0, 0%, 95%, 50%);
+        border: solid thin hsla(0, 0%, 55%, 50%);
       }
     }
   }
