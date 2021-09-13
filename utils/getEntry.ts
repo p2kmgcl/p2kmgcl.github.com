@@ -17,6 +17,17 @@ const isShape = (checkers: Record<string, Checker>) => (v: any) =>
 const isArrayOf = (check: Checker) => (v: any) =>
   Array.isArray(v) && v.every(check);
 
+const REQUIRED_PROPERTIES: Array<keyof EntryData> = [
+  'draft',
+  'emoji',
+  'language',
+  'date',
+  'title',
+  'mood',
+  'summary',
+  'tags',
+];
+
 const dataChecks: Record<keyof EntryData, Checker> = {
   draft: isBoolean,
   cover: isShape({ url: isString, alt: isString }),
@@ -29,12 +40,7 @@ const dataChecks: Record<keyof EntryData, Checker> = {
   tags: isArrayOf(isString),
 };
 
-const cachedEntries = new Map<string, Entry>();
-
 export const getEntry = (slug: string) => {
-  let cachedEntry = cachedEntries.get(slug);
-  if (cachedEntry) return cachedEntry;
-
   const rawContent = fs.readFileSync(
     `./${pkg.config.blogSlug}/${slug}.md`,
     'utf-8',
@@ -51,9 +57,15 @@ export const getEntry = (slug: string) => {
   Object.entries(dataChecks).forEach(([key, check]) => {
     // @ts-ignore
     if (!check(data[key])) {
-      console.warn(
-        `warn  - Invalid or missing property ${key} in entry ${slug}`,
-      );
+      if (REQUIRED_PROPERTIES.includes(key as keyof EntryData)) {
+        throw new Error(
+          `error  - Invalid or missing required property ${key} in entry ${slug}`,
+        );
+      } else {
+        console.warn(
+          `warn  - Invalid or missing optional property ${key} in entry ${slug}`,
+        );
+      }
     }
   });
 
@@ -63,14 +75,11 @@ export const getEntry = (slug: string) => {
       throw new Error(`Unknown property "${key}" in ${slug}`);
     });
 
-  cachedEntry = {
+  return {
     ...data,
     slug,
     content: parseMarkdown(content),
     date: new Date(data.date).getTime(),
     url: `https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${slug}/`,
   };
-
-  cachedEntries.set(slug, cachedEntry);
-  return cachedEntry;
 };
