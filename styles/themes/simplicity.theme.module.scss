@@ -384,12 +384,12 @@ $roundness: 4px;
     > .figure {
       background-color: hsl(0, 0%, 95%);
       width: 100%;
-      height: 30vw;
+      aspect-ratio: 16 / 9;
       border-radius: $roundness;
-      max-height: 28em;
       padding: 0;
       margin: 1em 0 0;
       overflow: hidden;
+      display: flex;
       position: relative;
       order: 0;
 
@@ -399,10 +399,7 @@ $roundness: 4px;
 
       > .image {
         width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
+        aspect-ratio: 16 / 9;
       }
 
       &::after {
