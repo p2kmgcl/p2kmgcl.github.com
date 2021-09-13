@@ -24,7 +24,7 @@ const EntryListItem: FC<{ entry: Entry }> = ({ entry }) => {
         <Time dateTime={entry.date} />
       </Header>
       <Paragraph lang={entry.language}>
-        {entry.summary}{' '}
+        {entry.summary || ''}{' '}
         <Anchor href={url} lang="en">
           <Emoji>➡️</Emoji>Continue reading{' '}
           <span className="sr-only">&quot;{entry.title}&quot;</span>

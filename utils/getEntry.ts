@@ -24,7 +24,6 @@ const REQUIRED_PROPERTIES: Array<keyof EntryData> = [
   'date',
   'title',
   'mood',
-  'summary',
   'tags',
 ];
 

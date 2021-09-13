@@ -34,6 +34,8 @@ type Props = {
   entry: Entry;
 };
 
+let nextIframeId = 0;
+
 export default function TeseraEntry({ entry }: Props) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const theme = useTheme();
@@ -46,58 +48,91 @@ export default function TeseraEntry({ entry }: Props) {
   }, []);
 
   useEffect(() => {
-    if (process.browser && contentRef.current && prismModule) {
-      const resizeIntervalIds: NodeJS.Timeout[] = [];
+    if (!process.browser || !contentRef.current || !prismModule) {
+      return;
+    }
+    const codeElementList = Array.from(
+      document.querySelectorAll('pre > code[class^=language-]'),
+    ) as HTMLElement[];
 
-      const codeElementList = Array.from(
-        document.querySelectorAll('pre > code[class^=language-]'),
-      ) as HTMLElement[];
+    const iframeMap: Map<string, HTMLIFrameElement> = new Map();
 
-      for (const codeElement of codeElementList) {
-        const code = codeElement.innerText;
-        const preElement = codeElement.parentElement as HTMLElement;
-        const wrapperElement = preElement.parentElement;
+    const resizeIframe = (iframe: HTMLIFrameElement) => {
+      if (iframe.contentWindow) {
+        const { borderBottomWidth, borderTopWidth } =
+          window.getComputedStyle(iframe);
 
-        if (wrapperElement && codeElement.classList.contains('language-html')) {
-          const iframe = document.createElement('iframe');
-          iframe.src = '/admin/sample/';
+        const { height } =
+          iframe.contentWindow.document.documentElement.getBoundingClientRect();
 
-          iframe.addEventListener('load', () => {
-            iframe.contentWindow?.postMessage(
-              JSON.stringify({
-                type: 'sampleContent',
-                content: code,
-              }),
-              '*',
-            );
-          });
+        iframe.style.height =
+          height +
+          parseInt(borderBottomWidth || '0', 10) +
+          parseInt(borderTopWidth || '0', 10) +
+          'px';
 
-          resizeIntervalIds.push(
-            setInterval(() => {
-              if (iframe.contentWindow) {
-                iframe.style.height =
-                  iframe.contentWindow.document.documentElement.scrollHeight +
-                  'px';
-              }
-            }, 1000),
-          );
+        iframe.style.opacity = '1';
+      }
+    };
 
-          if (preElement.nextElementSibling) {
-            wrapperElement.insertBefore(iframe, preElement.nextElementSibling);
-          } else {
-            wrapperElement.appendChild(iframe);
-          }
-        }
+    const handleMessage = (event: MessageEvent) => {
+      let parsedData: null | {
+        type: 'sampleContentRendered';
+        id: string;
+        content: string;
+      } = null;
 
-        prismModule.default.highlightElement(codeElement);
+      try {
+        parsedData = JSON.parse(event.data);
+      } catch (_) {}
+
+      if (parsedData?.type !== 'sampleContentRendered') {
+        return;
       }
 
-      return () => {
-        resizeIntervalIds.forEach((intervalId) => {
-          clearInterval(intervalId);
+      console.log(parsedData);
+      const iframe = iframeMap.get(parsedData.id);
+      if (iframe) resizeIframe(iframe);
+    };
+
+    for (const codeElement of codeElementList) {
+      const code = codeElement.innerText;
+      const preElement = codeElement.parentElement as HTMLElement;
+      const wrapperElement = preElement.parentElement;
+
+      if (wrapperElement && codeElement.classList.contains('language-html')) {
+        const iframeId = (nextIframeId++).toString();
+        const iframe = document.createElement('iframe');
+        iframe.style.transition = 'height ease 0.3s, opacity ease 0.3s 0.3s';
+        iframe.style.height = '0px';
+        iframe.style.opacity = '0';
+        iframe.src = '/admin/sample/';
+
+        iframe.addEventListener('load', () => {
+          iframe.contentWindow?.postMessage(
+            JSON.stringify({
+              type: 'sampleContent',
+              content: code,
+              id: iframeId,
+            }),
+            '*',
+          );
         });
-      };
+
+        if (preElement.nextElementSibling) {
+          wrapperElement.insertBefore(iframe, preElement.nextElementSibling);
+        } else {
+          wrapperElement.appendChild(iframe);
+        }
+
+        iframeMap.set(iframeId, iframe);
+      }
+
+      prismModule.default.highlightElement(codeElement);
     }
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, [entry.content, prismModule]);
 
   useEffect(() => {
@@ -122,7 +157,7 @@ export default function TeseraEntry({ entry }: Props) {
     const metaTags = [
       ['twitter:card', 'summary'],
       ['twitter:title', entry.title],
-      ['twitter:description', entry.summary],
+      ['twitter:description', entry.summary || ''],
       ['twitter:site', `@${pkg.author.username}`],
       ['twitter:creator', `@${pkg.author.username}`],
 
@@ -130,7 +165,7 @@ export default function TeseraEntry({ entry }: Props) {
       ['og:locale', entry.language],
       ['og:url', entry.url],
       ['og:title', entry.title],
-      ['og:description', entry.summary],
+      ['og:description', entry.summary || ''],
       ['og:created_time', date],
       ['og:published_time', date],
       ['og:modified_time', date],
@@ -142,7 +177,7 @@ export default function TeseraEntry({ entry }: Props) {
       ...ogCover,
 
       ['title', entry.title],
-      ['description', entry.summary],
+      ['description', entry.summary || ''],
       ['author', pkg.author.name],
     ] as const;
 
@@ -156,7 +191,7 @@ export default function TeseraEntry({ entry }: Props) {
       dateModified: date,
       headline: entry.title,
       name: entry.title,
-      description: entry.summary,
+      description: entry.summary || '',
       identifier: entry.slug,
       author: {
         '@type': 'Person',
@@ -210,7 +245,7 @@ export default function TeseraEntry({ entry }: Props) {
 
   return (
     <Article className={theme.teseraEntryPage}>
-      <Meta title={entry.title} description={entry.summary} />
+      <Meta title={entry.title} description={entry.summary || ''} />
 
       <Head>
         {metaTags.map(([property, content]) => (
@@ -241,9 +276,11 @@ export default function TeseraEntry({ entry }: Props) {
 
         <TagList tags={entry.tags} />
 
-        <Section aria-label="TL;DR">
-          <Paragraph lang={entry.language}>{entry.summary}</Paragraph>
-        </Section>
+        {entry.summary ? (
+          <Section aria-label="TL;DR">
+            <Paragraph lang={entry.language}>{entry.summary}</Paragraph>
+          </Section>
+        ) : null}
 
         {cover}
       </Header>

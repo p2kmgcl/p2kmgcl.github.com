@@ -1,14 +1,55 @@
 import { useEffect, useRef } from 'react';
-import { useTheme } from '../../styles/ThemeContext';
-import { classNames } from '../../utils/classNames';
 
 export default function AdminSample() {
-  const theme = useTheme();
   const entryContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const runScripts = () => {
+      if (!entryContentRef.current) {
+        return;
+      }
+
+      const scriptElements = Array.from(
+        entryContentRef.current.querySelectorAll('script'),
+      ).filter((script) => !script.type || script.type === 'text/javascript');
+
+      const runNextScript = () => {
+        if (!scriptElements.length) {
+          return;
+        }
+
+        const nextScriptElement = document.createElement('script');
+        const prevScriptElement = scriptElements.shift();
+
+        if (
+          !prevScriptElement ||
+          !prevScriptElement.parentNode ||
+          !document.body.contains(prevScriptElement)
+        ) {
+          return;
+        }
+
+        nextScriptElement.appendChild(
+          document.createTextNode(prevScriptElement.innerHTML),
+        );
+
+        prevScriptElement.parentNode.replaceChild(
+          nextScriptElement,
+          prevScriptElement,
+        );
+
+        requestAnimationFrame(runNextScript);
+      };
+
+      runNextScript();
+    };
+
     const handleMessage = (event: MessageEvent) => {
-      let parsedData: null | { type: 'sampleContent'; content: string } = null;
+      let parsedData: null | {
+        type: 'sampleContent';
+        id: string;
+        content: string;
+      } = null;
 
       try {
         parsedData = JSON.parse(event.data);
@@ -20,6 +61,19 @@ export default function AdminSample() {
         entryContentRef.current
       ) {
         entryContentRef.current.innerHTML = parsedData.content;
+        requestAnimationFrame(runScripts);
+
+        setTimeout(
+          () =>
+            window.parent?.postMessage(
+              JSON.stringify({
+                id: parsedData?.id,
+                type: 'sampleContentRendered',
+              }),
+              '*',
+            ),
+          100,
+        );
       }
     };
 
@@ -27,11 +81,7 @@ export default function AdminSample() {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  return (
-    <div className={classNames(theme.teseraEntryPage)}>
-      <div className={classNames(theme.entryContent)} ref={entryContentRef} />
-    </div>
-  );
+  return <div ref={entryContentRef} />;
 }
 
 AdminSample.rawContent = true;

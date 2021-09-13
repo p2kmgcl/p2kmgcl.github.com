@@ -30,8 +30,8 @@ img {
 iframe {
   width: 100%;
   border: none;
-  border-top: solid rgba(155, 155, 155, 0.5) 1px;
-  border-bottom: solid rgba(155, 155, 155, 0.5) 1px;
+  border: solid rgba(155, 155, 155, 0.5) 1px;
+  box-sizing: border-box;
 }
 
 pre + iframe {

@@ -52,7 +52,7 @@ const BUILD_DATE = new Date().toISOString();
             return `
               <item>
                 <title>${entry.title}</title>
-                <description>${entry.summary}</description>
+                <description>${entry.summary || ''}</description>
                 <pubDate>${date}</pubDate>
                 ${entry.tags
                   .map((tag) => `<category>${tag}</category>`)
