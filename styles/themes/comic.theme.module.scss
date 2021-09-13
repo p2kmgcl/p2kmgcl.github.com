@@ -454,8 +454,11 @@
       }
     }
 
+    > .anchor,
     > .figure {
       @include vignette;
+      position: relative;
+      display: block;
       grid-row-start: 5;
       grid-row-end: 6;
       grid-column-start: 1;
@@ -466,13 +469,17 @@
       overflow: hidden;
       z-index: -1;
 
-      > .image {
-        transform: translateY(-50%) rotateZ(-5deg);
+      .image {
+        transform: translateY(-30%) rotateZ(-5deg) scale(1.2);
         position: absolute;
         top: 50%;
         left: 0;
         width: 100%;
       }
+    }
+
+    > .anchor > .figure {
+      margin: 0;
     }
 
     @media (min-width: 900px) {
@@ -495,6 +502,7 @@
         grid-column-end: 4;
       }
 
+      > .anchor,
       > .figure {
         grid-row-start: 5;
         grid-row-end: 6;

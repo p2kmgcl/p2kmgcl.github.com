@@ -30,7 +30,7 @@ const REQUIRED_PROPERTIES: Array<keyof EntryData> = [
 
 const dataChecks: Record<keyof EntryData, Checker> = {
   draft: isBoolean,
-  cover: isShape({ url: isString, alt: isString }),
+  cover: isShape({ url: isString, alt: isString, origin: isString }),
   emoji: isString,
   language: isString,
   date: isDate,

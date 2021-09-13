@@ -4,6 +4,7 @@ export interface Entry {
   cover: {
     url: string;
     alt: string;
+    origin?: string;
   };
   language: string;
   date: number;

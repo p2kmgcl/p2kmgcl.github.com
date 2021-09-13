@@ -190,6 +190,24 @@ export default function TeseraEntry({ entry }: Props) {
     pkg.config.blogEntriesSlug +
     `/${entry.slug}`;
 
+  let cover = null;
+
+  if (entry.cover) {
+    cover = (
+      <Figure>
+        <Image src={entry.cover.url} alt={entry.cover.alt} />
+      </Figure>
+    );
+
+    if (entry.cover.origin) {
+      cover = (
+        <Anchor href={entry.cover.origin} target="_blank">
+          {cover}
+        </Anchor>
+      );
+    }
+  }
+
   return (
     <Article className={theme.teseraEntryPage}>
       <Meta title={entry.title} description={entry.summary} />
@@ -227,11 +245,7 @@ export default function TeseraEntry({ entry }: Props) {
           <Paragraph lang={entry.language}>{entry.summary}</Paragraph>
         </Section>
 
-        {entry.cover ? (
-          <Figure>
-            <Image src={entry.cover.url} alt={entry.cover.alt} />
-          </Figure>
-        ) : null}
+        {cover}
       </Header>
 
       <div className={classNames(theme.entryContent)} ref={contentRef}>
