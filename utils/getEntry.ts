@@ -44,6 +44,10 @@ export const getEntry = (slug: string) => {
     content: string;
   };
 
+  if (!content) {
+    throw new Error(`Invalid entry "${slug}"`);
+  }
+
   Object.entries(dataChecks).forEach(([key, check]) => {
     // @ts-ignore
     if (!check(data[key])) {
