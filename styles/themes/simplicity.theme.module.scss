@@ -121,18 +121,12 @@ $roundness: 4px;
     margin-bottom: 1.5rem;
 
     > .anchor {
-      color: inherit;
-      display: inline;
-      min-height: 0;
-      text-decoration: none;
-
-      > .emoji {
-        display: none;
-      }
-
-      &::after {
-        content: '...';
-      }
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
     }
   }
 }
