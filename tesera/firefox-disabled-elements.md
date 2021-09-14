@@ -1,16 +1,15 @@
 ---
-draft: true
+draft: false
 title: Disabled input's click event is not fired in Firefox
 language: en
-date: 2021-09-13
+date: 2021-09-14
 emoji: 🖱️
 mood: Tired but excited, as usual.
 tags:
   - til
 ---
 
-Unlike other browsers (like chrome), Firefox does trigger `click` event or
-bubble it to parent elements, if a HTML tag is disabled.
+Unlike other browsers (like chrome), Firefox doesn't trigger `click` event or bubble it to parent elements, if a HTML tag is disabled.
 
 This behavior is intended, and documented in bugzilla:
 
@@ -27,3 +26,36 @@ So this code won't do anything in Firefox, but it will in Chrome:
   });
 </script>
 ```
+
+### Workarounds
+
+1. Consider using `readonly` instead of `disabled` to some input elements, which may make sense depending on the use case.
+2. With some extra HTML and CSS, surround the input with a `div` and the `::after` pseudoelement so it propagates clicks to parent nodes.
+
+```html
+<div class="input-wrapper input-wrapper--disabled">
+  <input disabled placeholder="Click here" type="text" />
+<div>
+
+<style>
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper--disabled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+</style>
+
+<script>
+  document.body.addEventListener('click', () => {
+    alert('Body clicked!');
+  });
+</script>
+``` 
+
+### Extra links
+
+- [Inset CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/inset), which is a logical property, and shorthand for top/right/bottom/left.
