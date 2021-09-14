@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Entry } from '../../types/Entry';
 import { parseMarkdown } from '../../utils/parseMarkdown';
 import TeseraEntry from '../tesera/entry/[slug]';
+import pkg from '../../package.json';
 
 export default function AdminPreviewTesera() {
   const [entry, setEntry] = useState<Entry | null>(null);
@@ -21,6 +22,8 @@ export default function AdminPreviewTesera() {
       } catch (_) {}
 
       if (parsedData && parsedData.type === 'entry') {
+        const url = `https://${pkg.name}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/${parsedData.slug}/`;
+
         console.clear();
 
         console.table({
@@ -28,12 +31,14 @@ export default function AdminPreviewTesera() {
           tags: parsedData.tags || [],
           body: `${(parsedData.body || '').substr(0, 40)}...`,
           summary: `${(parsedData.summary || '').substr(0, 40)}...`,
+          url,
         });
 
         setEntry({
           ...parsedData,
           tags: parsedData.tags || [],
           content: parseMarkdown(parsedData.body || ''),
+          url,
         });
       }
     };

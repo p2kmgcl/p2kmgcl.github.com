@@ -38,9 +38,12 @@
         _syncProps() {
           if (!this._iframe) return;
 
+          const entryJSON = this.props.entry.toJSON();
+
           this._iframe.contentWindow.postMessage(
             JSON.stringify({
-              ...this.props.entry.toJSON().data,
+              ...entryJSON.data,
+              slug: entryJSON.slug,
               type: 'entry',
             }),
             '*',
