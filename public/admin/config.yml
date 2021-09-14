@@ -58,18 +58,29 @@ collections:
           summary: '{{fields.alt}} ({{fields.url}})',
           fields:
             [
-              { label: 'Origin', name: 'origin', widget: 'string' },
+              {
+                label: 'Origin',
+                name: 'origin',
+                widget: 'string',
+                required: false,
+              },
               {
                 label: 'URL',
                 name: 'url',
                 widget: 'image',
                 allow_multiple: false,
                 choose_url: false,
+                required: false,
               },
-              { label: 'Alternative text', name: 'alt', widget: 'string' },
+              {
+                label: 'Alternative text',
+                name: 'alt',
+                widget: 'string',
+                required: false,
+              },
             ],
         }
-      - { label: 'Summary', name: 'summary', widget: 'text' }
+      - { label: 'Summary', name: 'summary', widget: 'text', required: false }
       - {
           label: 'Body',
           name: 'body',
