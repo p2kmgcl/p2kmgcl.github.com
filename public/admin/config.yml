@@ -47,7 +47,7 @@ collections:
           label: 'Tags',
           name: 'tags',
           widget: 'select',
-          options: ['sample', 'blog', 'til', 'snippet'],
+          options: ['sample', 'blog', 'link'],
           default: [],
           multiple: true,
         }

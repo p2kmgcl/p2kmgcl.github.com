@@ -1,8 +1,8 @@
 ---
-draft: true
+draft: false
 title: Finding overflow
 language: en
-date: 2021-09-13
+date: 2021-10-06
 emoji: 📏
 mood: Tired but excited, as usual.
 cover:
@@ -75,3 +75,6 @@ Array.from(document.querySelectorAll('*'))
   )
   .then(console.log);
 ```
+
+It is not a final solution, but might do the trick or at least highlight some areas
+if you have a huge DOM tree to explore.

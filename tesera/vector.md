@@ -4,7 +4,7 @@ language: en
 draft: false
 date: 2021-07-22
 mood: Inspired
-tags: [snippet]
+tags: [blog]
 emoji: 🏹
 summary: >
   Simple but useful n-dimensional Vector class for animations and games.

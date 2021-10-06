@@ -5,8 +5,11 @@ language: en
 date: 2021-09-14
 emoji: 🖱️
 mood: Tired but excited, as usual.
+summary: >
+  Firefox does not have the same behavior than other browsers when we speak about
+  disabled elements. Here is how this can be result can be equalized.
 tags:
-  - til
+  - blog
 ---
 
 Unlike other browsers (like chrome), Firefox doesn't trigger `click` event or bubble it to parent elements, if a HTML tag is disabled.
@@ -54,7 +57,7 @@ So this code won't do anything in Firefox, but it will in Chrome:
     alert('Body clicked!');
   });
 </script>
-``` 
+```
 
 ### Extra links
 
