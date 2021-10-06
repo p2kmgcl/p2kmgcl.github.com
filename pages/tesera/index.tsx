@@ -4,16 +4,18 @@ import { getEntryList } from '../../utils/getEntryList';
 import { Entry } from '../../types/Entry';
 import { getTagList } from '../../utils/getTagList';
 import { TagList } from '../../components/TagList';
-import { EntryList } from '../../components/EntryList';
+import { EntryOrLinkList } from '../../components/EntryOrLinkList';
 import { H2, Header, Section } from '../../components/HTMLElements';
 import pkg from '../../package.json';
+import { getLinkList } from '../../utils/getLinkList';
+import { Link } from '../../types/Link';
 
 type Props = {
   tagList: string[];
-  entryList: Entry[];
+  entryOrLinkList: (Entry | Link)[];
 };
 
-export default function Tesera({ tagList, entryList }: Props) {
+export default function Tesera({ tagList, entryOrLinkList }: Props) {
   const theme = useTheme();
 
   return (
@@ -23,7 +25,7 @@ export default function Tesera({ tagList, entryList }: Props) {
         <H2>{pkg.config.blogName}</H2>
         <TagList tags={tagList} />
       </Header>
-      <EntryList entryList={entryList} />
+      <EntryOrLinkList entryOrLinkList={entryOrLinkList} />
     </Section>
   );
 }
@@ -31,7 +33,9 @@ export default function Tesera({ tagList, entryList }: Props) {
 export async function getStaticProps(): Promise<{ props: Props }> {
   return {
     props: {
-      entryList: getEntryList(),
+      entryOrLinkList: [...getEntryList(), ...getLinkList()].sort(
+        (a, b) => b.date - a.date,
+      ),
       tagList: getTagList(),
     },
   };

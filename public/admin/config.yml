@@ -9,6 +9,42 @@ slug:
   clean_accents: true
   sanitize_replacement: '-'
 collections:
+  - name: 'links'
+    identifier_field: 'title'
+    label: 'Links'
+    label_singular: 'Link'
+    create: true
+    extension: 'json'
+    format: 'json'
+    slug: '{{slug}}'
+    preview_path: 'tesera/link/{{slug}}/'
+    folder: 'tesera'
+    summary: '{{title}}'
+    editor:
+      preview: false
+    view_groups:
+      - label: 'Year'
+        field: 'date'
+        pattern: \d{4}
+      - label: 'Drafs'
+        field: 'draft'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'URL', name: 'url', widget: 'string' }
+      - {
+          label: 'Language',
+          name: 'language',
+          widget: 'select',
+          options: ['es', 'en'],
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD',
+        }
+      - { label: 'Emoji', name: 'emoji', widget: 'emoji' }
+      - { label: 'Summary', name: 'summary', widget: 'text', required: false }
   - name: 'tesera'
     identifier_field: 'title'
     label: 'Tesera'

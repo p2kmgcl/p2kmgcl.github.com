@@ -24,6 +24,8 @@
     "blogSlug": "tesera",
     "blogEntrySlug": "entry",
     "blogEntriesSlug": "entries",
+    "blogLinkSlug": "link",
+    "blogLinksSlug": "links",
     "blogTagSeparator": "#",
     "blogTagSlug": "tag",
     "feedPrefix": "feed-",

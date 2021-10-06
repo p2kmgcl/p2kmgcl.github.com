@@ -4,7 +4,7 @@ import { getEntryList } from '../../../utils/getEntryList';
 import { Entry } from '../../../types/Entry';
 import { getTagList } from '../../../utils/getTagList';
 import { TagListItem } from '../../../components/TagListItem';
-import { EntryList } from '../../../components/EntryList';
+import { EntryOrLinkList } from '../../../components/EntryOrLinkList';
 import { Anchor } from '../../../components/Anchor';
 import { H2, Section } from '../../../components/HTMLElements';
 import pkg from '../../../package.json';
@@ -34,7 +34,7 @@ export default function Index(props: Props) {
         <TagListItem tag={props.tag} />
       </H2>
 
-      <EntryList entryList={props.entryList} />
+      <EntryOrLinkList entryOrLinkList={props.entryList} />
     </Section>
   );
 }

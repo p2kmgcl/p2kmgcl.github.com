@@ -54,8 +54,7 @@ export const getEntry = (slug: string) => {
   }
 
   Object.entries(dataChecks).forEach(([key, check]) => {
-    // @ts-ignore
-    if (!check(data[key])) {
+    if (!check((data as Record<string, any>)[key])) {
       if (REQUIRED_PROPERTIES.includes(key as keyof EntryData)) {
         throw new Error(
           `error  - Invalid or missing required property ${key} in entry ${slug}`,

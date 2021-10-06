@@ -12,6 +12,10 @@ const BLOG_ENTRY_REGEXP = new RegExp(
   `^${BASE_PATH}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/[^/]+/index.html$`,
 );
 
+const BLOG_LINK_REGEXP = new RegExp(
+  `^${BASE_PATH}/${pkg.config.blogSlug}/${pkg.config.blogLinkSlug}/[^/]+/index.html$`,
+);
+
 const BLOG_TAG_REGEXP = new RegExp(
   `^${BASE_PATH}/${pkg.config.blogSlug}/${pkg.config.blogTagSlug}/[^/]+/index.html$`,
 );
@@ -24,6 +28,7 @@ const pageList = glob
       !filePath.endsWith('/admin/index.html') &&
       !filePath.endsWith('/admin/preview/index.html') &&
       !BLOG_ENTRY_REGEXP.test(filePath) &&
+      !BLOG_LINK_REGEXP.test(filePath) &&
       !BLOG_TAG_REGEXP.test(filePath),
   )
   .map((filePath) => {
