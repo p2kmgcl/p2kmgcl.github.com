@@ -14,7 +14,74 @@
   </head>
   <body>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script
+      src="https://unpkg.com/emoji-picker-element@^1.0.0/index.js"
+      type="module"
+    ></script>
+
     <script>
+      const EmojiWidget = createClass({
+        getInitialState() {
+          this._picker = null;
+          return { focused: false };
+        },
+
+        render: function () {
+          return h(
+            'div',
+            {
+              style: {
+                position: 'relative',
+              },
+            },
+            [
+              h('input', {
+                className: this.props.classNameWrapper,
+                id: this.props.forID,
+                type: 'text',
+                readOnly: true,
+                value: this.props.value || '',
+                onFocus: () => {
+                  this.setState({ focused: true });
+                  this.props.setActiveStyle();
+                },
+              }),
+              this.state.focused
+                ? h(
+                    'div',
+                    {
+                      style: {
+                        position: 'absolute',
+                        top: '100%',
+                        left: 0,
+                        zIndex: 9999,
+                      },
+                    },
+                    h('emoji-picker', {
+                      ref: (picker) => {
+                        if (this._picker !== picker && picker) {
+                          this._picker = picker;
+
+                          picker.addEventListener('blur', () => {
+                            this.props.setInactiveStyle();
+                            this.setState({ focused: false });
+                          });
+
+                          picker.addEventListener('emoji-click', (event) => {
+                            this.props.onChange(event.detail.unicode);
+                            this.props.setInactiveStyle();
+                            this.setState({ focused: false });
+                          });
+                        }
+                      },
+                    }),
+                  )
+                : null,
+            ],
+          );
+        },
+      });
+
       const TeseraPreview = createClass({
         componentDidMount() {
           this._iframeResizeIntervalId = setInterval(() => {
@@ -66,6 +133,7 @@
 
       CMS.registerPreviewStyle('/admin/preview-tesera.css');
       CMS.registerPreviewTemplate('tesera', TeseraPreview);
+      CMS.registerWidget('emoji', EmojiWidget);
     </script>
   </body>
 </html>

@@ -41,7 +41,7 @@ collections:
           widget: 'datetime',
           format: 'YYYY-MM-DD',
         }
-      - { label: 'Emoji', name: 'emoji', widget: 'string' }
+      - { label: 'Emoji', name: 'emoji', widget: 'emoji' }
       - { label: 'Mood', name: 'mood', widget: 'string' }
       - {
           label: 'Tags',
