@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function AdminSample() {
+export default function AdminEntryHTMLRender() {
   const entryContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -84,4 +84,4 @@ export default function AdminSample() {
   return <div ref={entryContentRef} />;
 }
 
-AdminSample.rawContent = true;
+AdminEntryHTMLRender.rawContent = true;

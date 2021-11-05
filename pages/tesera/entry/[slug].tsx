@@ -106,7 +106,7 @@ export default function TeseraEntry({ entry }: Props) {
         iframe.style.transition = 'height ease 0.3s, opacity ease 0.3s 0.3s';
         iframe.style.height = '0px';
         iframe.style.opacity = '0';
-        iframe.src = '/admin/sample/';
+        iframe.src = '/admin/entry-html-render/';
 
         iframe.addEventListener('load', () => {
           iframe.contentWindow?.postMessage(
