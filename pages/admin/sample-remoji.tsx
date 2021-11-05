@@ -152,3 +152,5 @@ export default function SampleRemoji() {
     </Article>
   );
 }
+
+SampleRemoji.rawContent = true;
