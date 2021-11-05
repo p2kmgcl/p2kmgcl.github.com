@@ -39,10 +39,7 @@ const pageList = glob
       content.window.document.querySelectorAll('meta'),
     ).find((meta) => meta.name === 'description')?.content;
 
-    if (!title) {
-      console.warn(`warn  - ${filePath} has no title, ignored`);
-      return null;
-    } else {
+    if (title) {
       const cleanTitle = title.endsWith(TITLE_SUFFIX)
         ? title.substr(0, title.length - TITLE_SUFFIX.length)
         : title;
@@ -59,6 +56,8 @@ const pageList = glob
         description,
       };
     }
+
+    return null;
   })
   .filter(<T>(page: T | null): page is T => page !== null);
 

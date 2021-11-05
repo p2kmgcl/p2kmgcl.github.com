@@ -59,10 +59,6 @@ export const getEntry = (slug: string) => {
         throw new Error(
           `error  - Invalid or missing required property ${key} in entry ${slug}`,
         );
-      } else {
-        console.warn(
-          `warn  - Invalid or missing optional property ${key} in entry ${slug}`,
-        );
       }
     }
   });
