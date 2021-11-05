@@ -140,7 +140,7 @@ const draw = (
   loop();
 };
 
-export default function AdminLayer() {
+export default function AdminVideoCover() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const title = useMemo(
     () =>
@@ -279,4 +279,4 @@ export default function AdminLayer() {
   );
 }
 
-AdminLayer.rawContent = true;
+AdminVideoCover.rawContent = true;
