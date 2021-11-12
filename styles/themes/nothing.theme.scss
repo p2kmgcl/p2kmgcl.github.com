@@ -41,8 +41,8 @@ body {
 
 .index-page {
   .image {
-    max-height: 16rem;
-    width: auto;
+    height: 16rem;
+    width: 12.34em;
   }
 
   @media (min-width: 32rem) {
