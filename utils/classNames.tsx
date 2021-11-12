@@ -16,10 +16,10 @@ export const classNames = (
       }
 
       return classNames(
-        ...Object.entries(classNames).map(([key, value]) =>
+        ...Object.entries(className).map(([key, value]) =>
           value ? key : undefined,
         ),
       );
     })
-    .filter((className) => !!className)
+    .filter(Boolean)
     .join(' ');

@@ -3,16 +3,17 @@ import { Anchor } from '../components/Anchor';
 import { Article, H2, Paragraph } from '../components/HTMLElements';
 export { getStaticProps } from '../utils/getStaticProps';
 
-export default function NotFound() {
+export default function ServerError() {
   return (
-    <Article className="not-found-page">
-      <Meta
-        title="Page Not Found"
-        description="The requested page was not found"
-      />
+    <Article className="server-error-ocurred">
+      <Meta title="Server Error" description="Some unknown error ocurred" />
 
-      <H2>Page not found</H2>
-      <Paragraph>The requested page was not found.</Paragraph>
+      <H2>Server Error</H2>
+
+      <Paragraph>
+        Some unknown error ocurred. Please try again later or get back to the
+        home page.
+      </Paragraph>
 
       <Paragraph>
         <Anchor href="/">Go to main site</Anchor>.

@@ -1,4 +1,5 @@
 ---
+type: post
 draft: false
 title: Antes (primera parte)
 language: es
@@ -6,8 +7,7 @@ date: 2021-06-27
 emoji: 👶
 mood: Nervioso, pero emocionado al mismo tiempo, como la chica de los gatos de
   YoutTube.
-tags:
-  - blog
+tags: []
 cover:
   url: /uploads/green-5-petaled-flower-on-brown-soil.jpg
   alt: Un montón de tierra con un brote de una planta de 6 hojas empezando a crecer

@@ -1,19 +1,15 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { classNames } from '../utils/classNames';
-import { useTheme } from '../styles/ThemeContext';
 
 type AllProps = JSX.IntrinsicElements;
 
 function wrap<Props extends AllProps[keyof AllProps]>(
   TagName: keyof AllProps,
-  className: keyof ReturnType<typeof useTheme>,
+  className: string,
 ) {
   const Component: FC<Props> = ({ className: classNameProp, ...props }) => (
     // @ts-ignore
-    <TagName
-      className={classNames(useTheme()[className], classNameProp)}
-      {...props}
-    />
+    <TagName className={classNames(className, classNameProp)} {...props} />
   );
 
   Component.displayName = `HTMLElement(${TagName})`;
@@ -30,6 +26,7 @@ export const H2 = wrap<AllProps['h2']>('h2', 'h2');
 export const H3 = wrap<AllProps['h3']>('h3', 'h3');
 export const H4 = wrap<AllProps['h4']>('h4', 'h4');
 export const Image = wrap<AllProps['img']>('img', 'image');
+export const Nav = wrap<AllProps['nav']>('nav', 'nav');
 export const Paragraph = wrap<AllProps['p']>('p', 'paragraph');
 export const Picture = wrap<AllProps['picture']>('picture', 'picture');
 export const Section = wrap<AllProps['section']>('section', 'section');

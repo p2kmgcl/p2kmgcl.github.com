@@ -4,7 +4,7 @@ $roundness: 4px;
 
 /* Main structure */
 
-.body {
+body {
   font-family: 'JetBrains Mono', JetBrains Mono, monospace;
   font-size: 16px;
   line-height: 1.5;
@@ -28,9 +28,10 @@ $roundness: 4px;
   }
 }
 
-.wrapper {
+#__next {
   margin: 0 auto;
   max-width: 60ch;
+  padding: 1rem;
 
   @media (min-width: 900px) {
     max-width: 75ch;
@@ -44,7 +45,14 @@ $roundness: 4px;
   padding-right: 0.2ch;
 }
 
-.h1,
+.h1 {
+  position: absolute;
+  inset-inline-start: -9999px;
+  inset-block-start: -9999px;
+  height: 1px;
+  width: 1px;
+}
+
 .h2,
 .h3,
 .h4 {
@@ -78,7 +86,7 @@ $roundness: 4px;
   text-align: justify;
 }
 
-.entryListItem {
+.entry-list-item {
   position: relative;
 
   &:hover {
@@ -99,13 +107,21 @@ $roundness: 4px;
         display: inline-block;
       }
 
-      > .anchor:after {
+      > .anchor::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+      }
+
+      > .anchor--external::after {
+        content: '↗️';
+        font-size: 0.75em;
+        margin-left: 0.25em;
+        vertical-align: super;
+        opacity: 0.5;
       }
     }
 
@@ -132,7 +148,7 @@ $roundness: 4px;
 }
 
 .h2,
-.linksPage .h3 {
+.links-page .h3 {
   font-weight: 900;
   font-size: 2em;
 
@@ -143,23 +159,22 @@ $roundness: 4px;
 
 /* Header */
 
-.mainMenu {
+.main-menu {
   display: flex;
-}
+  margin: 0 auto;
 
-.mainMenuNavigation {
-  flex-grow: 1;
-  text-align: right;
-  padding-left: 1ch;
-
-  > .anchor + .anchor {
+  .anchor:not(:first-child) {
     margin-left: 1ch;
+  }
+
+  .anchor:first-child {
+    flex-grow: 1;
   }
 }
 
 /* Footer */
 
-.wrapper > .footer {
+#__next > .footer {
   font-size: 14px;
   margin-top: 5rem;
 
@@ -191,7 +206,7 @@ $roundness: 4px;
   }
 }
 
-.footerNavigation {
+.footer-navigation {
   > .anchor {
     margin: 1ch 1ch 0 0;
   }
@@ -206,7 +221,7 @@ $roundness: 4px;
 
 /* Pages */
 
-.indexPage {
+.index-page {
   > .header {
     > .h2 {
       margin-bottom: 0;
@@ -260,41 +275,39 @@ $roundness: 4px;
   }
 }
 
-.entryContent {
-  :global {
-    @import 'prism-themes/themes/prism-vsc-dark-plus';
-    @import '../code.scss';
+.entry-content {
+  --code-font-family: 'JetBrains Mono';
 
-    pre[class],
-    code[class],
-    code[class] > span[class] {
-      font-family: 'JetBrains Mono';
-      border-radius: $roundness;
-    }
+  pre {
+    border-radius: $roundness;
+  }
+
+  p {
+    line-height: 2;
   }
 }
 
-.teseraIndexPage {
+.tesera-index-page {
   > .header {
     > .h2 {
       margin-bottom: 0;
     }
 
-    > .tagList {
+    > .tag-list {
       margin-bottom: 1.5em;
 
-      > .tagListItem {
+      > .tag-list-item {
         margin: 1ch 1ch 0 0;
       }
     }
   }
 }
 
-.teseraTagPage > .h2 > .tagListItem {
+.tesera-tag-page > .h2 > .tag-list-item {
   color: currentColor;
 }
 
-.teseraEntryPage {
+.tesera-entry-page {
   margin-bottom: 20em;
 
   > .header {
@@ -306,7 +319,7 @@ $roundness: 4px;
     }
 
     > .time,
-    > .paragraph {
+    > .entry-mood {
       color: hsl(0, 0%, 35%);
       margin: 0.25em 0;
 
@@ -315,7 +328,7 @@ $roundness: 4px;
       }
     }
 
-    > .paragraph {
+    > .entry-mood {
       margin: 0;
       font-style: italic;
 
@@ -333,19 +346,19 @@ $roundness: 4px;
       }
     }
 
-    > .tagList {
+    > .tag-list {
       order: 0;
 
-      > .tagListItem {
+      > .tag-list-item {
         min-height: 0;
 
-        + .tagListItem {
+        + .tag-list-item {
           margin-left: 1ch;
         }
       }
     }
 
-    > .section {
+    > .entry-summary {
       order: 1;
       margin: 1em 0;
       padding: 1em;
@@ -411,16 +424,6 @@ $roundness: 4px;
     }
   }
 
-  > .entryContent {
-    :global {
-      @import '../content.scss';
-    }
-
-    p {
-      line-height: 2;
-    }
-  }
-
   > .footer {
     position: absolute;
     left: 0;
@@ -446,7 +449,7 @@ $roundness: 4px;
       );
     }
 
-    > .entryFooterNavigation {
+    > .entry-footer-navigation {
       padding: 1em 2em;
       margin: 0 auto;
       overflow: hidden;
@@ -482,7 +485,7 @@ $roundness: 4px;
   }
 }
 
-.linksPage {
+.links-page {
   > .h2 {
     position: absolute;
     width: 0;

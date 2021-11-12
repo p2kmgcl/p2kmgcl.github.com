@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { FC } from 'react';
+import type { FC } from 'react';
 import pkg from '../package.json';
 
 const Meta: FC<{ title?: string; description?: string }> = ({

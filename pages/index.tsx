@@ -1,5 +1,4 @@
 import Meta from '../components/Meta';
-import { useTheme } from '../styles/ThemeContext';
 import {
   Article,
   H2,
@@ -9,8 +8,8 @@ import {
   Picture,
   Strong,
 } from '../components/HTMLElements';
-import { getTagList } from '../utils/getTagList';
 import pkg from '../package.json';
+export { getStaticProps } from '../utils/getStaticProps';
 
 function flatMap<T, Q>(array: T[], fn: (element: T) => Q[]): Q[] {
   return array.map(fn).reduce((a, b) => a.concat(b), []);
@@ -23,14 +22,12 @@ const IMAGE_SOURCES = flatMap(['avif', 'webp', 'jpg'], (type) => [
 ]);
 
 export default function Home() {
-  const theme = useTheme();
-
   return (
-    <Article className={theme.indexPage}>
+    <Article className="index-page">
       <Meta />
 
       <Header>
-        <H2>{pkg.author.name}</H2>
+        <H2 aria-label="Home">{pkg.author.name}</H2>
         <Paragraph>{pkg.author.description}</Paragraph>
       </Header>
 
@@ -91,14 +88,4 @@ export default function Home() {
       </Paragraph>
     </Article>
   );
-}
-
-export async function getStaticProps(): Promise<{
-  props: { tagList: string[] };
-}> {
-  return {
-    props: {
-      tagList: getTagList(),
-    },
-  };
 }

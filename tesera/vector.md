@@ -1,10 +1,11 @@
 ---
+type: post
 title: Vector.js
 language: en
 draft: false
 date: 2021-07-22
 mood: Inspired
-tags: [blog]
+tags: [snippet]
 emoji: 🏹
 summary: >
   Simple but useful n-dimensional Vector class for animations and games.

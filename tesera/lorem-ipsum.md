@@ -1,4 +1,5 @@
 ---
+type: post
 title: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 language: en
 draft: true
@@ -8,7 +9,7 @@ cover:
   url: /uploads/man-wearing-black-and-white-stripe-shirt-looking-at-white-printer-papers-on-the-wall.jpg
   alt: Sample image
 mood: Testing a theme, or something else
-tags: [sample]
+tags: []
 summary: >
   This is how things should work, or at least how we think they should. That's
   the programmer paradox: do not expect thing to behave as you prefer, because

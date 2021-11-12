@@ -13,7 +13,7 @@ const BUILD_DATE = new Date().toISOString();
     title: pkg.config.blogName,
     entryList: getEntryList().slice(0, 10),
   },
-  ...getTagList().map((tag) => ({
+  ...getTagList(getEntryList()).map((tag) => ({
     location: `/${pkg.config.blogTagSlug}/${tag}/`,
     id: tag.toLowerCase().split(' ').join('-'),
     title: `${pkg.config.blogName}${pkg.config.blogTagSeparator}${tag}`,

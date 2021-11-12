@@ -4,6 +4,9 @@ export default function AdminEntryHTMLRender() {
   const entryContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const iframeId = new URL(window.location.href).searchParams.get('iframeId');
+    if (!iframeId) return;
+
     const runScripts = () => {
       if (!entryContentRef.current) {
         return;
@@ -47,7 +50,6 @@ export default function AdminEntryHTMLRender() {
     const handleMessage = (event: MessageEvent) => {
       let parsedData: null | {
         type: 'sampleContent';
-        id: string;
         content: string;
       } = null;
 
@@ -66,10 +68,7 @@ export default function AdminEntryHTMLRender() {
         setTimeout(
           () =>
             window.parent?.postMessage(
-              JSON.stringify({
-                id: parsedData?.id,
-                type: 'sampleContentRendered',
-              }),
+              JSON.stringify({ iframeId, type: 'sampleContentRendered' }),
               '*',
             ),
           100,
@@ -78,7 +77,15 @@ export default function AdminEntryHTMLRender() {
     };
 
     window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+
+    window.parent?.postMessage(
+      JSON.stringify({ iframeId, type: 'sampleContentWaiting' }),
+      '*',
+    );
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
   }, []);
 
   return <div ref={entryContentRef} />;

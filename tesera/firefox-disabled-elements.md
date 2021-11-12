@@ -1,4 +1,5 @@
 ---
+type: post
 draft: false
 title: Disabled input's click event is not fired in Firefox
 language: en
@@ -8,8 +9,7 @@ mood: Tired but excited, as usual.
 summary: >
   Firefox does not have the same behavior than other browsers when we speak about
   disabled elements. Here is how this can be result can be equalized.
-tags:
-  - blog
+tags: []
 ---
 
 Unlike other browsers (like chrome), Firefox doesn't trigger `click` event or bubble it to parent elements, if a HTML tag is disabled.

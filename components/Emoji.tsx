@@ -1,8 +1,5 @@
-import { FC } from 'react';
-import { useTheme } from '../styles/ThemeContext';
-import { classNames } from '../utils/classNames';
+import type { FC } from 'react';
 
-export const Emoji: FC = ({ children }) => {
-  const theme = useTheme();
-  return <span className={classNames(theme.emoji)}>{children}</span>;
-};
+export const Emoji: FC = ({ children }) => (
+  <span className="emoji">{children}</span>
+);

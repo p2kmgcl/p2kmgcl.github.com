@@ -1,19 +1,14 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Anchor } from './Anchor';
-import { useTheme } from '../styles/ThemeContext';
-import { classNames } from '../utils/classNames';
 import pkg from '../package.json';
 
-export const TagListItem: FC<{ tag: string }> = ({ tag }) => {
-  const theme = useTheme();
-
-  return (
-    <Anchor
-      className={classNames(theme.tagListItem)}
-      href={`/${pkg.config.blogSlug}/${pkg.config.blogTagSlug}/${tag}`}
-    >
-      {pkg.config.blogTagSeparator}
-      {tag}
-    </Anchor>
-  );
-};
+export const TagListItem: FC<{ tag: string }> = ({ tag }) => (
+  <Anchor
+    aria-label={`Entries with ${pkg.config.blogTagSeparator}${tag} tag`}
+    className="tag-list-item"
+    href={`/${pkg.config.blogSlug}/${pkg.config.blogTagSlug}/${tag}`}
+  >
+    {pkg.config.blogTagSeparator}
+    {tag}
+  </Anchor>
+);

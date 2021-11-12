@@ -1,4 +1,5 @@
 ---
+type: post
 draft: false
 title: Finding overflow
 language: en
@@ -9,8 +10,7 @@ cover:
   alt: Aerial view of water overflowing into a dock
   origin: https://unsplash.com/photos/Q-lzt8Uz4Eo
   url: /uploads/water-overflowing-into-a-dock.jpg
-tags:
-  - blog
+tags: []
 summary: >
   Discovering which element or elements are causing overflow is not an easy
   task. This is my odyssey looking for a 1-pixel-width element and fixing the

@@ -1,27 +1,11 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document';
-import { DEFAULT_THEME } from '../styles/DEFAULT_THEME';
-import { classNames } from '../utils/classNames';
-import { getTagList } from '../utils/getTagList';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class CustomDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    const tagList = await getTagList();
-
-    return { ...initialProps, tagList };
-  }
-
   render() {
     return (
-      <Html className={classNames(DEFAULT_THEME.html)} lang="en">
+      <Html lang="en">
         <Head />
-        <body className={classNames(DEFAULT_THEME.body)} style={{ opacity: 0 }}>
+        <body>
           <Main />
           <NextScript />
         </body>

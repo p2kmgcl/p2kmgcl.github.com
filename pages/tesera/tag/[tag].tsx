@@ -1,61 +1,52 @@
-import { useTheme } from '../../../styles/ThemeContext';
 import Meta from '../../../components/Meta';
 import { getEntryList } from '../../../utils/getEntryList';
-import { Entry } from '../../../types/Entry';
 import { getTagList } from '../../../utils/getTagList';
 import { TagListItem } from '../../../components/TagListItem';
-import { EntryOrLinkList } from '../../../components/EntryOrLinkList';
+import { EntryList } from '../../../components/EntryList';
 import { Anchor } from '../../../components/Anchor';
 import { H2, Section } from '../../../components/HTMLElements';
 import pkg from '../../../package.json';
+import type { StaticProps } from '../../../utils/getStaticProps';
+import { useMemo } from 'react';
+export { getStaticProps } from '../../../utils/getStaticProps';
 
-type Params = {
+type Paths = {
   params: {
     tag: string;
   };
 };
 
-type Props = {
-  tag: string;
-  entryList: Entry[];
-};
-
-export default function Index(props: Props) {
-  const theme = useTheme();
+export default function Index(props: Paths & StaticProps) {
+  const filteredEntryList = useMemo(
+    () =>
+      props.entryList.filter((entry) => entry.tags.includes(props.params.tag)),
+    [props.params.tag, props.entryList],
+  );
 
   return (
-    <Section className={theme.teseraTagPage}>
+    <Section className="tesera-tag-page">
       <Meta
-        title={`${pkg.config.blogName}${pkg.config.blogTagSeparator}${props.tag}`}
+        title={`${pkg.config.blogName}${pkg.config.blogTagSeparator}${props.params.tag}`}
       />
 
       <H2>
         <Anchor href={`/${pkg.config.blogSlug}`}>{pkg.config.blogName}</Anchor>
-        <TagListItem tag={props.tag} />
+        <TagListItem tag={props.params.tag} />
       </H2>
 
-      <EntryOrLinkList entryOrLinkList={props.entryList} />
+      <EntryList entryList={filteredEntryList} />
     </Section>
   );
 }
 
-export async function getStaticPaths(): Promise<{
-  paths: Params[];
+export function getStaticPaths(): {
+  paths: Paths[];
   fallback: false;
-}> {
+} {
   return {
-    paths: getTagList().map((tag) => ({ params: { tag } })),
+    paths: getTagList(getEntryList()).map((tag) => ({
+      params: { tag },
+    })),
     fallback: false,
-  };
-}
-
-export async function getStaticProps({
-  params,
-}: Params): Promise<{ props: Props }> {
-  return {
-    props: {
-      entryList: getEntryList(params.tag),
-      tag: params.tag,
-    },
   };
 }

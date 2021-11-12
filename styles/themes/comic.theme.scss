@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 @import '~@fontsource/bangers';
 @import '~@fontsource/inconsolata';
@@ -35,12 +35,12 @@
   text-shadow: $textShadows;
 }
 
-.html {
+html {
   font-family: 'Comic Neue', sans-serif;
   font-size: 18px;
 }
 
-.body {
+body {
   margin: 0 auto;
   box-sizing: border-box;
   padding: 2em;
@@ -52,7 +52,15 @@
   }
 }
 
-.wrapper {
+.h1 {
+  position: absolute;
+  inset-inline-start: -9999px;
+  inset-block-start: -9999px;
+  height: 1px;
+  width: 1px;
+}
+
+#__next {
   display: flex;
   flex-direction: column;
 }
@@ -80,7 +88,7 @@
   height: auto;
 }
 
-.mainMenu {
+.main-menu {
   @include vignette;
   display: flex;
   justify-content: space-between;
@@ -89,6 +97,10 @@
   padding: 0.25em 0.5em 0 0.5em;
   font-size: 1rem;
 
+  .anchor:first-child {
+    flex-grow: 1;
+  }
+
   .anchor {
     margin-right: 1ch;
     overflow: hidden;
@@ -96,7 +108,7 @@
   }
 }
 
-.wrapper > .footer {
+#__next > .footer {
   @include vignette;
 
   font-size: 1rem;
@@ -117,7 +129,7 @@
   }
 }
 
-.entryList {
+.entry-list {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
@@ -130,7 +142,7 @@
   }
 }
 
-.entryListItem {
+.entry-list-item {
   @include vignette;
   padding: 0.5em;
   position: relative;
@@ -177,7 +189,7 @@
 
 .h1,
 .h2,
-.linksPage .h3 {
+.links-page .h3 {
   font-family: 'Bangers', cursive;
   font-size: 2.5em;
   color: orange;
@@ -193,7 +205,7 @@
   }
 }
 
-.indexPage {
+.index-page {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto auto auto auto;
@@ -365,7 +377,7 @@
   }
 }
 
-.teseraTagPage {
+.tesera-tag-page {
   > .h1 {
     > .anchor {
       text-decoration: none;
@@ -375,13 +387,13 @@
       display: none;
     }
 
-    > .tagListItem {
+    > .tag-list-item {
       color: orange;
     }
   }
 }
 
-.teseraEntryPage {
+.tesera-entry-page {
   width: 100%;
   margin: 0.25em auto;
 
@@ -409,19 +421,19 @@
       color: #666;
     }
 
-    > .paragraph {
+    > .entry-mood {
       grid-row-start: 3;
       grid-row-end: 4;
       margin: 0;
       font-style: italic;
     }
 
-    > .tagList {
+    > .tag-list {
       grid-row-start: 4;
       grid-row-end: 5;
     }
 
-    > .section {
+    > .entry-summary {
       grid-row-start: 2;
       grid-row-end: 5;
       font-size: 0.875em;
@@ -491,13 +503,13 @@
       }
 
       > .time,
-      > .paragraph,
-      > .tagList {
+      > .entry-mood,
+      > .tag-list {
         grid-column-start: 2;
         grid-column-end: 3;
       }
 
-      > .section {
+      > .entry-summary {
         grid-column-start: 3;
         grid-column-end: 4;
       }
@@ -512,25 +524,17 @@
     }
   }
 
-  > .entryContent {
+  > .entry-content {
     @include vignette;
+    --code-font-family: 'Inconsolata';
     padding: 2em 1em;
+    margin: 0 auto;
 
-    > .rawDOM {
-      :global {
-        @import 'prism-themes/themes/prism-vsc-dark-plus';
-        @import '../content.scss';
-        @import '../code.scss';
-
-        pre[class],
-        code[class],
-        code[class] > span[class] {
-          font-family: 'Inconsolata';
-        }
-      }
-
-      max-width: 60ch;
-      margin: 0 auto;
+    > * {
+      max-width: 40rem;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -539,7 +543,7 @@
     padding: 0.5em 1em;
     margin: 0.5em auto;
 
-    > .entryFooterNavigation {
+    > .entry-footer-navigation {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -552,7 +556,7 @@
   }
 }
 
-.linksPage {
+.links-page {
   max-width: 60ch;
   margin: 0 auto 2em auto;
 

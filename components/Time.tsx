@@ -1,13 +1,10 @@
-import { FC } from 'react';
-import { useTheme } from '../styles/ThemeContext';
-import { classNames } from '../utils/classNames';
+import { FC, useMemo } from 'react';
 
 export const Time: FC<{ dateTime: number }> = ({ dateTime }) => {
-  const date = new Date(dateTime);
-  const theme = useTheme();
+  const date = useMemo(() => new Date(dateTime), [dateTime]);
 
   return (
-    <time className={classNames(theme.time)} dateTime={date.toISOString()}>
+    <time className="time" dateTime={date.toISOString()}>
       {date.toLocaleDateString('en', {
         weekday: 'long',
         year: 'numeric',

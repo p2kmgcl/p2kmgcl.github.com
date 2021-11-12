@@ -12,26 +12,26 @@ const BLOG_ENTRY_REGEXP = new RegExp(
   `^${BASE_PATH}/${pkg.config.blogSlug}/${pkg.config.blogEntrySlug}/[^/]+/index.html$`,
 );
 
-const BLOG_LINK_REGEXP = new RegExp(
-  `^${BASE_PATH}/${pkg.config.blogSlug}/${pkg.config.blogLinkSlug}/[^/]+/index.html$`,
-);
-
 const BLOG_TAG_REGEXP = new RegExp(
   `^${BASE_PATH}/${pkg.config.blogSlug}/${pkg.config.blogTagSlug}/[^/]+/index.html$`,
 );
+
+interface Page {
+  title: string;
+  url: string;
+  description: string | undefined;
+}
 
 const pageList = glob
   .sync(`${BASE_PATH}/**/*.html`)
   .filter(
     (filePath) =>
       !filePath.endsWith('/404/index.html') &&
-      !filePath.endsWith('/admin/index.html') &&
-      !filePath.endsWith('/admin/preview/index.html') &&
+      !filePath.endsWith('/500/index.html') &&
       !BLOG_ENTRY_REGEXP.test(filePath) &&
-      !BLOG_LINK_REGEXP.test(filePath) &&
       !BLOG_TAG_REGEXP.test(filePath),
   )
-  .map((filePath) => {
+  .map((filePath): Page | null => {
     const content = new jsdom.JSDOM(fs.readFileSync(filePath, 'utf-8'));
     const title = content.window.document.title;
 
@@ -59,7 +59,7 @@ const pageList = glob
 
     return null;
   })
-  .filter(<T>(page: T | null): page is T => page !== null);
+  .filter(Boolean) as Page[];
 
 fs.writeFileSync(
   path.join(__dirname, 'build', 'app', 'sitemap.xml'),

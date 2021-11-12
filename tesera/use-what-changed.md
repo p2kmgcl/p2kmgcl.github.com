@@ -1,11 +1,12 @@
 ---
+type: post
 title: useWhatChanged.js
 language: en
 draft: false
 date: 2021-04-27
 emoji: 🔁
 mood: Listening to lofi music while wondering how to improve the Page Editor
-tags: [blog]
+tags: [snippet]
 summary: >
   Logs to the browser console a list of changed values used in a useEffect-like
   hook.

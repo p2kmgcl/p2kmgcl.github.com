@@ -1,36 +1,31 @@
 import '../styles/common.scss';
+import '../styles/default-theme.scss';
 import Head from 'next/head';
-import {
-  ThemeContextProvider,
-  useChangeTheme,
-  useTheme,
-} from '../styles/ThemeContext';
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
-import { Footer, H1, H2 } from '../components/HTMLElements';
-import { useKonami } from '../utils/useKonami';
+import { Footer, H1, H2, Nav } from '../components/HTMLElements';
 import pkg from '../package.json';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { Entry } from '../types/Entry';
+import { Router } from 'next/router';
 
 interface AppProps {
-  Component: FC & { rawContent?: boolean };
-  pageProps: Record<string, any>;
+  Component: FC<{
+    entryList: Entry[];
+    tagList: string[];
+    params: Record<string, string>;
+  }> & {
+    rawContent?: boolean;
+  };
+  pageProps: {
+    entryList: Entry[];
+    tagList: string[];
+  };
+  router: Router;
 }
 
-const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
-  const theme = useTheme();
-  const tagList: string[] = pageProps.tagList || [];
+const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   const rawContent = Boolean(Component.rawContent);
-
-  useKonami(useChangeTheme());
-
-  useEffect(() => {
-    if (process.browser) {
-      requestAnimationFrame(() => {
-        document.body.style.animationDelay = '0s';
-      });
-    }
-  }, []);
 
   return (
     <>
@@ -42,21 +37,23 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site_name" content={pkg.author.name} />
 
-        {[
-          { tag: 'all', title: pkg.config.blogName },
-          ...tagList.map((tag) => ({
-            tag: tag.toLowerCase().split(' ').join('-'),
-            title: `${pkg.config.blogName}${pkg.config.blogTagSeparator}${tag}`,
-          })),
-        ].map(({ tag, title }) => (
-          <link
-            key={tag}
-            rel="alternate"
-            type="application/rss+xml"
-            title={title}
-            href={`/${pkg.config.feedPrefix}${tag}.xml`}
-          />
-        ))}
+        {!rawContent
+          ? [
+              { tag: 'all', title: pkg.config.blogName },
+              ...pageProps.tagList.map((tag) => ({
+                tag: tag.toLowerCase().split(' ').join('-'),
+                title: `${pkg.config.blogName}${pkg.config.blogTagSeparator}${tag}`,
+              })),
+            ].map(({ tag, title }) => (
+              <link
+                key={tag}
+                rel="alternate"
+                type="application/rss+xml"
+                title={title}
+                href={`/${pkg.config.feedPrefix}${tag}.xml`}
+              />
+            ))
+          : null}
 
         {[32, 192, 512].map((size) => (
           <link
@@ -67,98 +64,76 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
             href={`/favicon/favicon-${size}.png`}
           />
         ))}
-
-        <style>{`
-          @keyframes bodyFadeIn {
-            to {
-              opacity: 1;
-            }
-          }
-
-          body {
-            animation: bodyFadeIn ease 1ms;
-            animation-delay: 0.7s;
-            animation-fill-mode: forwards;
-          }
-        `}</style>
       </Head>
 
       {!rawContent ? (
-        <nav aria-label="Main menu" className={theme.mainMenu}>
-          <Anchor href="/">{pkg.name}</Anchor>
-
-          <span className={theme.mainMenuNavigation}>
-            <Anchor href={`/${pkg.config.blogSlug}`}>
-              <Emoji>📓</Emoji>
-              {pkg.config.blogName}
-            </Anchor>
-            <Anchor href="/links">
-              <Emoji>⚓</Emoji>Links
-            </Anchor>
-          </span>
-        </nav>
+        <Nav aria-label="Main menu" className="main-menu">
+          <Anchor aria-label="Home" href="/">
+            <Emoji>🏠</Emoji> {pkg.name}
+          </Anchor>
+          <Anchor href={`/${pkg.config.blogSlug}`}>
+            <Emoji>📓</Emoji> {pkg.config.blogName}
+          </Anchor>
+        </Nav>
       ) : null}
 
-      <main className={theme.content}>
-        <H1 className="sr-only">{pkg.author.name}</H1>
-        <Component {...pageProps} />
+      <main className="content">
+        {!rawContent ? <H1>{pkg.author.name}</H1> : null}
+        <Component params={router.query as any} {...pageProps} />
       </main>
 
       {!rawContent ? (
         <Footer>
-          <H2>{pkg.author.name}</H2>
+          <H2 aria-label="Related links and social profiles">
+            {pkg.author.name}
+          </H2>
 
-          <nav aria-label="Email" className={theme.footerNavigation}>
+          <Nav aria-label="Email" className="footer-navigation">
             <Anchor href={`mailto:${pkg.author.email}`}>
-              <Emoji>📮</Emoji>
-              {pkg.author.email}
+              <Emoji>📮</Emoji> {pkg.author.email}
             </Anchor>
-          </nav>
+          </Nav>
 
-          <nav aria-label="License" className={theme.footerNavigation}>
+          <Nav aria-label="License" className="footer-navigation">
             <Anchor
               href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
             >
-              <Emoji>🤖</Emoji>
-              This is all yours, just remember my name
+              <Emoji>🤖</Emoji> This is all yours, just remember my name
             </Anchor>
-          </nav>
+          </Nav>
 
-          <nav
-            aria-label="External profiles"
-            className={theme.footerNavigation}
-          >
+          <Nav aria-label="External profiles" className="footer-navigation">
             <Anchor
               href="https://github.com/p2kmgcl"
               title={`${pkg.author.name}'s Github profile`}
             >
-              <Emoji>🐱</Emoji>Github
+              <Emoji>🐱</Emoji> Github
             </Anchor>
             <Anchor
               href="https://mobile.twitter.com/p2kmgcl"
               title={`${pkg.author.name}'s Twitter profile`}
             >
-              <Emoji>🐦</Emoji>Twitter
+              <Emoji>🐦</Emoji> Twitter
             </Anchor>
             <Anchor
               href="https://www.linkedin.com/in/p2kmgcl/"
               title={`${pkg.author.name}'s LinkedIn profile`}
             >
-              <Emoji>👔</Emoji>LinkedIn
+              <Emoji>👔</Emoji> LinkedIn
             </Anchor>
             <Anchor
               href="https://twitch.tv/p2kmgcl"
               title={`${pkg.author.name}'s Twitch channel`}
             >
-              <Emoji>📺</Emoji>Twitch
+              <Emoji>📺</Emoji> Twitch
             </Anchor>
             <Anchor
               href="https://www.youtube.com/p2kmgcl"
               title={`${pkg.author.name}'s YouTube channel`}
             >
-              <Emoji>📹</Emoji>YouTube
+              <Emoji>📹</Emoji> YouTube
             </Anchor>
-          </nav>
+          </Nav>
         </Footer>
       ) : null}
     </>
@@ -166,9 +141,5 @@ const AppContent: FC<AppProps> = ({ Component, pageProps }) => {
 };
 
 export default function App(props: AppProps) {
-  return (
-    <ThemeContextProvider>
-      <AppContent {...props} />
-    </ThemeContextProvider>
-  );
+  return <AppContent {...props} />;
 }
