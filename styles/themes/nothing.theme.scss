@@ -40,7 +40,9 @@ body {
 }
 
 .index-page {
+  .picture,
   .image {
+    display: block;
     height: 16rem;
     width: 12.34em;
   }
