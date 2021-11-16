@@ -3,6 +3,10 @@ import type { RoughCanvas } from 'roughjs/bin/canvas';
 import { Drawable } from 'roughjs/bin/core';
 import type { Point } from 'roughjs/bin/geometry';
 
+const points: Map<string, ReturnType<typeof getBrownianPoint>> = new Map();
+const polygons: Map<string, Drawable> = new Map();
+let accDelta = 0;
+
 const getRelativeValue = (canvas: HTMLCanvasElement, x: number, y: number) =>
   [canvas.width * (x / 100), canvas.height * (y / 100)] as Point;
 
@@ -49,19 +53,9 @@ const getBrownianPoint = (
   };
 };
 
-const points: Map<string, ReturnType<typeof getBrownianPoint>> = new Map();
-const polygons: Map<string, Drawable> = new Map();
-let accDelta = 0;
-
-const drawFrame = (
-  canvas: HTMLCanvasElement,
-  context: CanvasRenderingContext2D,
-  rg: RoughCanvas,
-  delta: number,
-) => {
-  accDelta += delta;
-
-  const _ = (x: number, y: number, maxRadius: number = 4) => {
+const getPoint =
+  (canvas: HTMLCanvasElement) =>
+  (x: number, y: number, maxRadius: number = 4) => {
     const key = `${x}-${y}-${maxRadius}`;
     let point = points.get(key);
 
@@ -73,7 +67,8 @@ const drawFrame = (
     return point.get(canvas);
   };
 
-  const __ = (key: string, getPolygon: () => Drawable) => {
+const drawPolygon =
+  (rg: RoughCanvas) => (key: string, getPolygon: () => Drawable) => {
     const polygon = polygons.get(key);
 
     if (polygon) {
@@ -82,6 +77,15 @@ const drawFrame = (
       polygons.set(key, getPolygon());
     }
   };
+
+const drawMainFrame = (
+  canvas: HTMLCanvasElement,
+  rg: RoughCanvas,
+  delta: number,
+) => {
+  accDelta += delta;
+  const _ = getPoint(canvas);
+  const __ = drawPolygon(rg);
 
   rg.polygon([_(0, 0, 0), _(0, 40, 0), _(60, 100, 20), _(100, 0, 0)], {
     fill: '#ffeb3b',
@@ -118,11 +122,73 @@ const drawFrame = (
   }
 };
 
+const drawSecondaryFrame = (
+  canvas: HTMLCanvasElement,
+  rg: RoughCanvas,
+  delta: number,
+) => {
+  accDelta += delta;
+  const _ = getPoint(canvas);
+  const __ = drawPolygon(rg);
+
+  [0, 1, 2, 3, 4].forEach((id, index, array) => {
+    const size = 100 / array.length;
+    const delta = size * index;
+
+    __(`l-${id}`, () =>
+      rg.polygon([
+        _(0, delta, 1),
+        _(10, size / 2 + delta, 1),
+        _(0, size + delta, 1),
+      ]),
+    );
+
+    __(`r-${id}`, () =>
+      rg.polygon([
+        _(100, delta, 1),
+        _(90, size / 2 + delta, 1),
+        _(100, size + delta, 1),
+      ]),
+    );
+  });
+
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((id, index, array) => {
+    const size = 100 / array.length;
+    const delta = size * index;
+
+    __(`t-${id}`, () =>
+      rg.polygon([
+        _(delta, 0, 1),
+        _(size / 2 + delta, 10, 1),
+        _(size + delta, 0, 1),
+      ]),
+    );
+
+    __(`b-${id}`, () =>
+      rg.polygon([
+        _(delta, 100, 1),
+        _(size / 2 + delta, 90, 1),
+        _(size + delta, 100, 1),
+      ]),
+    );
+  });
+
+  points.forEach((point) => {
+    point.update(delta);
+  });
+
+  if (accDelta > 1) {
+    accDelta = 0;
+    polygons.clear();
+  }
+};
+
 const draw = (
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D,
   rg: RoughCanvas,
   signal: AbortSignal,
+  fn: (canvas: HTMLCanvasElement, rg: RoughCanvas, delta: number) => void,
 ) => {
   let before = Date.now();
 
@@ -131,7 +197,7 @@ const draw = (
       const now = Date.now();
       const delta = (now - before) / 1000;
       context.clearRect(0, 0, canvas.width, canvas.height);
-      drawFrame(canvas, context, rg, delta);
+      fn(canvas, rg, delta);
       before = now;
       requestAnimationFrame(loop);
     }
@@ -142,18 +208,29 @@ const draw = (
 
 export default function AdminVideoCover() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const title = useMemo(
-    () =>
-      process.browser
-        ? new URL(window.location.href).searchParams.get('title') || 'Sample'
-        : 'Sample',
-    [],
-  );
+
+  const [title, titleFontSize] = useMemo(() => {
+    const title = process.browser
+      ? new URL(window.location.href).searchParams.get('title') || 'Sample'
+      : 'Sample';
+
+    return [title, Math.max(4.5, Math.min(8.5, 360 / title.length))];
+  }, []);
+
   const bg = useMemo(
     () =>
       process.browser
         ? new URL(window.location.href).searchParams.get('bg')
         : '',
+    [],
+  );
+
+  const frame = useMemo(
+    () =>
+      process.browser &&
+      new URL(window.location.href).searchParams.has('secondary')
+        ? drawSecondaryFrame
+        : drawMainFrame,
     [],
   );
 
@@ -169,14 +246,14 @@ export default function AdminVideoCover() {
       if (!abortController.signal.aborted) {
         const rg = roughModule.default.canvas(canvas, {
           options: {
-            fill: 'rgba(0, 0, 0, 0.05)',
+            fill: `rgba(0, 0, 0, ${frame === drawMainFrame ? 0.05 : 0.25})`,
             fillStyle: 'hatch',
             hachureGap: 12,
             hachureAngle: 137,
             fillWeight: 4,
             roughness: 10,
             maxRandomnessOffset: 0.5,
-            stroke: 'rgba(0, 0, 0, 0.05)',
+            stroke: `rgba(0, 0, 0, ${frame === drawMainFrame ? 0.05 : 0.25})`,
             strokeWidth: 6,
           },
         });
@@ -184,14 +261,14 @@ export default function AdminVideoCover() {
         canvas.width = 1920;
         canvas.height = 1080;
         const context = canvas.getContext('2d') as CanvasRenderingContext2D;
-        draw(canvas, context, rg, abortController.signal);
+        draw(canvas, context, rg, abortController.signal, frame);
       }
     });
 
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [frame]);
 
   return (
     <>
@@ -204,77 +281,83 @@ export default function AdminVideoCover() {
       />
 
       <style>{`
-        body {margin: 0 !important;}
-        #__next {max-width: initial !important; width: 100vw !important;}
+        body {
+          margin: 0 !important;
+          padding: 0 !important;
+          font-family: 'JetBrains Mono', monospace !important;
+        }
+
+        #__next {
+          height: 100vh !important;
+          width: 100vw !important;
+        }
+
+        .coverWrapper {
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+        }
+
+        .coverTitle {
+          font-weight: bolder;
+          position: absolute;
+          top: 4vw;
+          left: 10vw;
+          line-height: 1.1;
+          color: #111;
+          max-width: '75vw';
+        }
+
+        .coverAvatar {
+          position: absolute;
+          right: 4vw;
+          bottom: 4vw;
+          z-index: 0;
+          text-align: right;
+          font-size: 1.7vw;
+          color: #666;
+          font-weight: bold;
+        }
+
+        .coverCanvas {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: -1;
+          opacity: 1;
+        }
+
+        .coverBackground {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: -2;
+          background-size: cover;
+          opacity: 0.3;
+        }
       `}</style>
 
-      <div
-        style={{
-          position: 'relative',
-          width: '100vw',
-          height: '100vh',
-        }}
-      >
-        <h1
-          style={{
-            fontFamily: 'JetBrains Mono',
-            fontSize: `${Math.max(4.5, Math.min(8.5, 360 / title.length))}vw`,
-            fontWeight: 'bolder',
-            position: 'absolute',
-            top: '4vw',
-            left: '10vw',
-            lineHeight: 1.1,
-            color: '#111',
-            maxWidth: '75vw',
-          }}
-        >
-          {title}
-        </h1>
-        <div
-          style={{
-            position: 'absolute',
-            right: '4vw',
-            bottom: '4vw',
-            zIndex: 0,
-            textAlign: 'right',
-            fontSize: '1.7vw',
-            color: '#666',
-            fontWeight: 'bold',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/avatar.png" style={{ width: '8vw' }} alt="" />
-          <div>@p2kmgcl</div>
-          <div>pablomolina.me</div>
-        </div>
+      <div className="coverWrapper">
+        {frame === drawMainFrame ? (
+          <h1 className="coverTitle" style={{ fontSize: `${titleFontSize}vw` }}>
+            {title}
+          </h1>
+        ) : null}
+        {frame === drawMainFrame ? (
+          <div className="coverAvatar">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/avatar.png" style={{ width: '8vw' }} alt="" />
+            <div>@p2kmgcl</div>
+            <div>pablomolina.me</div>
+          </div>
+        ) : null}
       </div>
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: -1,
-          opacity: 1,
-        }}
-      />
-      {bg ? (
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            zIndex: -2,
-            backgroundImage: `url(${bg})`,
-            backgroundSize: 'cover',
-            opacity: 0.3,
-          }}
-        />
-      ) : null}
+      <canvas className="coverCanvas" ref={canvasRef} />
+      {bg ? <div style={{ backgroundImage: `url(${bg})` }} /> : null}
     </>
   );
 }
