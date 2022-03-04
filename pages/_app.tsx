@@ -30,7 +30,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
     <>
       <Head>
-        {rawContent ? null : <title>{pkg.author.name}</title>}
+        {rawContent ? null : <title>Test - {pkg.author.name}</title>}
 
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
