@@ -9,7 +9,7 @@
 
   @each $selector in $selectors {
     &:nth-child(#{$selector}n + #{$selector}) {
-      transform: rotateZ(#{random() * - 0.5}deg) skewX(#{random() * 2 - 1}deg);
+      transform: rotateZ(#{random() * 2 - 1}deg) skewX(#{random() * 2 - 1}deg);
 
       border-left: solid #222 #{random() * 0.1 + 0.1}em;
       border-right: solid #222 #{random() * 0.1 + 0.1}em;
@@ -225,7 +225,7 @@ body::after {
   &:focus-within,
   &:hover {
     transition: transform ease 0.3s, z-index linear 0.1s 0s;
-    transform: scale(1.05) rotateZ(-2deg);
+    transform: rotateZ(0deg) scale(1.05);
     z-index: 1;
 
     .anchor {
@@ -233,7 +233,7 @@ body::after {
     }
 
     &:nth-child(2n) {
-      transform: scale(1.05) rotateZ(2deg);
+      transform: rotateZ(0deg) scale(1.05);
     }
   }
 }
