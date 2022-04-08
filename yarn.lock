@@ -996,11 +996,6 @@
   resolved "https://registry.yarnpkg.com/@fontsource/bangers/-/bangers-4.5.6.tgz#56943f628630dfaceee9107b13be1f33509e88a1"
   integrity sha512-vjD2t+j8SqzoUkP7uMrfOZDB0pdcbczY9AVVsJhsHInoDinwmhM0lhuuE7HO8OFIyAlJaSdwNfdDH2m6ZNXsjQ==
 
-"@fontsource/comic-neue@^4.2.2":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/comic-neue/-/comic-neue-4.5.7.tgz#8d96bacf58a06e7a7a4a167512a917984903a951"
-  integrity sha512-OJR5OlM4Hkvzlt4TKon3ewYb+n6a9FYdqnohTcHV9UDUMpMPMEuNmkAIzd/XhJHiHZUGM+BHqmVpw9QVJNIjeA==
-
 "@fontsource/inconsolata@^4.2.1":
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/@fontsource/inconsolata/-/inconsolata-4.5.4.tgz#b57b10c29166f39db9229ad61e55736031f58fef"
@@ -1010,6 +1005,11 @@
   version "4.5.5"
   resolved "https://registry.yarnpkg.com/@fontsource/jetbrains-mono/-/jetbrains-mono-4.5.5.tgz#ebf7a66bab9d2eab000848081d4a62903f42ca32"
   integrity sha512-i17hJLwH3EaTVxujrZ/Dm4EHugCweHgu9mgyQlnyRpJXQdrK+oQVJqq8xMwQiw5Gck7+0SyuMWIqRiPPP7Vw6w==
+
+"@fontsource/mali@^4.5.5":
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/mali/-/mali-4.5.5.tgz#57bc4a4bae9df55516695235953792bb1a6a3894"
+  integrity sha512-bTJkRRHzfQtycBzRRWsr3Q7yMHwoD+itD/Rp8qsJ1RT6qtLbrRYmLw/bYYwPlcrZFBVVr2mr6yPgt400Fye2gA==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"

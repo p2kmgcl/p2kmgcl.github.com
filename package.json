@@ -45,9 +45,9 @@
   },
   "dependencies": {
     "@fontsource/bangers": "^4.2.2",
-    "@fontsource/comic-neue": "^4.2.2",
     "@fontsource/inconsolata": "^4.2.1",
     "@fontsource/jetbrains-mono": "^4.4.5",
+    "@fontsource/mali": "^4.5.5",
     "emojilib": "^3.0.4",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
