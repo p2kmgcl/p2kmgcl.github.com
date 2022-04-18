@@ -1,18 +1,4 @@
-html {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-body {
-  margin: 0;
-}
-
-.image {
-  height: auto;
-  max-width: 100%;
-}
-
-.entry-content {
+.tesera-entry-content {
   @import 'prism-themes/themes/prism-vsc-dark-plus';
 
   h3 {
@@ -52,7 +38,7 @@ body {
   }
 
   pre,
-  > pre[class] {
+  >pre[class] {
     width: 100%;
     box-sizing: border-box;
     overflow-x: auto;
@@ -61,7 +47,7 @@ body {
     color: #d4d4d4;
     background: #1e1e1e;
 
-    & + iframe {
+    &+iframe {
       border-top: none;
       border-width: 0.5em;
       border-color: #1e1e1e;
@@ -78,9 +64,9 @@ body {
 
   code,
   pre,
-  > pre[class],
+  >pre[class],
   code[class],
-  code[class] > span[class] {
+  code[class]>span[class] {
     font-family: var(--code-font-family, monospace);
     font-size: 1em;
     font-weight: 400;

@@ -1,0 +1,15 @@
+.teseraTagPage {
+  > .h1 {
+    > .anchor {
+      text-decoration: none;
+    }
+
+    > .anchor:first-child {
+      display: none;
+    }
+
+    > .tag-list-item {
+      color: orange;
+    }
+  }
+}

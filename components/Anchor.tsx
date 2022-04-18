@@ -2,6 +2,7 @@ import { FC, useMemo } from 'react';
 import NextLink, { LinkProps } from 'next/link';
 import { classNames } from '../utils/classNames';
 import pkg from '../package.json';
+import { useTheme } from './ThemeContext';
 
 export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
   children,
@@ -11,6 +12,8 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
   className,
   ...props
 }) => {
+  const theme = useTheme();
+
   const isExternal = useMemo(() => {
     if (!props.href) return false;
 
@@ -27,8 +30,8 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
       <a
         aria-label={props['aria-label']}
         title={title}
-        className={classNames('anchor', className, {
-          'anchor--external': isExternal,
+        className={classNames(theme.anchor, className, {
+          [theme.anchorExternal]: isExternal,
         })}
         lang={lang}
         target={target}

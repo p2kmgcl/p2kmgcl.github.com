@@ -1,0 +1,130 @@
+.indexPage {
+  display: grid;
+  position: relative;
+  margin: 1em 0;
+  gap: 0.5em;
+
+  > .header > .paragraph,
+  > .paragraph {
+    @include vignette.rotated();
+  }
+
+  > .header {
+    border: solid black 2px;
+  }
+
+  > .header,
+  > .header > .picture,
+  > .header > .picture > .image {
+    aspect-ratio: 1080 / 1300;
+  }
+
+  > .header {
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+
+    > .h2,
+    > .paragraph {
+      position: absolute;
+      z-index: 1;
+    }
+
+    > .h2 {
+      margin: 0;
+      bottom: 2.5em;
+      left: 0.5em;
+      transform: rotateZ(-10deg);
+      text-align: left;
+      font-size: clamp(3em, 5em, 5vw);
+      color: #eee;
+
+      &:before {
+        content: 'the Amazing';
+        display: block;
+        font-size: 0.75em;
+        line-height: 0.5;
+        @include text.shadow(black, -2, 2);
+      }
+    }
+
+    > .paragraph {
+      bottom: 2em;
+      right: 2em;
+      width: auto;
+      margin: 0;
+      padding: 0.25em 0.5em;
+    }
+
+    > .picture,
+    > .picture > .image {
+      position: absolute;
+      inset: 0 0;
+      height: 100%;
+      width: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: 50% 10%;
+    }
+  }
+
+  > .paragraph {
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    > .header,
+    > .header > .picture,
+    > .header > .picture > .image {
+      aspect-ratio: 1080 / 900;
+    }
+
+    > .header > .h2 {
+      bottom: 2em;
+      font-size: clamp(4em, 6em, 5vw);
+    }
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+
+    > .header,
+    > .header > .picture,
+    > .header > .picture > .image {
+      aspect-ratio: 1080 / 1400;
+    }
+
+    > .header > .h2 {
+      font-size: 2.75em;
+      bottom: 2.75em;
+    }
+
+    > .header {
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+      transform: rotateZ(-2deg) scale(1.1) translateY(2%) translateX(5%);
+    }
+
+    > .paragraph:nth-child(3) {
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    grid-template-columns: 1.25fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: auto;
+
+    > .header {
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+    }
+
+    > .paragraph {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  }
+}

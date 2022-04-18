@@ -2,7 +2,7 @@
 type: post
 title: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 language: en
-draft: true
+draft: false
 date: 1991-01-01
 emoji: 🧪
 cover:
@@ -16,16 +16,32 @@ summary: >
   they won't, unless you don't want to.
 ---
 
+<p style="background:white;color:rebeccapurple">
+  <span lang="es">
+    Por favor, no pulses el botón, no es realmente un botón, es
+    extremadamente peligroso. Recuerda que los programadores no son de fiar.
+  </span>
+  <span lang="en">
+    Please do not press the button, it is not a real button, it is
+    extremely dangerous. Remember that you should not trust programmers.
+  </span>
+</p>
+
 Integer sed dignissim magna. Nunc sagittis massa eu ligula pharetra imperdiet.
 Sed metus nisi, pretium et aliquam non, vehicula nec velit. Fusce non libero
 scelerisque, consequat ligula sit amet, varius quam. Donec elementum et ante
 eget faucibus. Sed _convallis ex ut_ diam porttitor convallis. Praesent quis
-massa et orci semper varius quis nec velit. Nam turpis nulla, tristique a
-elementum at, efficitur vel magna. Ut porttitor quis lorem eget commodo.
-Curabitur lobortis aliquet tortor **eget tempus**. Vestibulum venenatis
-vestibulum urna, sit amet iaculis felis convallis id. Morbi elementum
-ullamcorper sapien, nec egestas nunc ullamcorper ut. In nulla sem, dictum vel
-dictum non, luctus a lectus.
+massa et orci semper varius quis nec velit.
+
+<button type="button" style="display:block;margin:2rem auto;transform:skew(-50deg);font-size:4em;cursor:pointer;" onclick="!async function(n){function e(n){return new Promise(e=>setTimeout(e,n))}function a(n){document.body.innerHTML=`<p role='alert'>${n}</p>`}if(!(n instanceof Event))throw new Error('You didn\'t press the button! You will pay for this!');document.body.innerHTML='',document.body.style.display='grid',document.body.style.placeItems='center',document.body.style.fontSize='30px',a('<span lang=\'en\'>Navigation activated</span><br /><span  style=\'opacity:0.5;\' lang=\'es\'>Navegación activada</span>'),await e(2e3),a('<span lang=\'en\'>Returning to <i>Jaén</i> mothership in...</span><br /><span style=\'opacity:0.5;\' lang=\'es\'>Volviendo la madre nodriza <i>Jaén</i> en...</span>'),await e(2e3),a('<span style=\'font-size:3em\'>3</span>'),await e(1e3),a('<span style=\'font-size:4em\'>2</span>'),await e(1e3),a('<span style=\'font-size:7em\'>1</span>'),await e(1e3),window.location.href='/admin/easter-egg'}(event);">
+  the BUTTON
+</button>
+
+Nam turpis nulla, tristique a elementum at, efficitur vel magna. Ut porttitor
+quis lorem eget commodo. Curabitur lobortis aliquet tortor **eget tempus**.
+Vestibulum venenatis vestibulum urna, sit amet iaculis felis convallis id. Morbi
+elementum ullamcorper sapien, nec egestas nunc ullamcorper ut. In nulla sem,
+dictum vel dictum non, luctus a lectus.
 
 > Sed malesuada odio eros. Vivamus tristique tristique leo, vel finibus magna
 > posuere eget. Nunc vitae auctor erat. Nullam suscipit sapien in velit
@@ -96,5 +112,7 @@ et.
 | engine | engine to be used for processing templates. Handlebars is the default.    |
 | ext    | extension to be used for dest files.                                      |
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+<div style="display:flex;margin:4em auto">
+  <img style="width:50%" alt="Minion" src="https://octodex.github.com/images/minion.png" />
+  <img style="width:50%" alt="Stormtroopocat" src="https://octodex.github.com/images/stormtroopocat.jpg" />
+</div>

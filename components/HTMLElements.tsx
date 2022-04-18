@@ -1,15 +1,20 @@
 import type { FC } from 'react';
+import { Theme } from '../types/Theme';
 import { classNames } from '../utils/classNames';
+import { useTheme } from './ThemeContext';
 
 type AllProps = JSX.IntrinsicElements;
 
 function wrap<Props extends AllProps[keyof AllProps]>(
   TagName: keyof AllProps,
-  className: string,
+  className: keyof Theme,
 ) {
   const Component: FC<Props> = ({ className: classNameProp, ...props }) => (
     // @ts-ignore
-    <TagName className={classNames(className, classNameProp)} {...props} />
+    <TagName
+      className={classNames(useTheme()[className], classNameProp)}
+      {...props}
+    />
   );
 
   Component.displayName = `HTMLElement(${TagName})`;

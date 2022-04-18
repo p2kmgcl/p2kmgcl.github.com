@@ -1,0 +1,34 @@
+@use 'sass:math';
+
+@mixin regular() {
+  $color: hsl(math.round(random() * 360deg) 100% 95%);
+  background-image: radial-gradient(
+    circle at #{random() * 100%} #{random() * 50%},
+    white 50%,
+    #fff8ea 100%
+  );
+
+  padding: 1em;
+  box-shadow: 0.2em 0.2em 0 rgba(0, 0, 0, 0.1),
+    -0.2em -0.2em 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-sizing: border-box;
+}
+
+@mixin rotated() {
+  $selectors: 1, 2, 3, 5, 7, 11;
+
+  @each $selector in $selectors {
+    &:nth-child(#{$selector}n + #{$selector}) {
+      @include regular();
+      transform: rotateZ(#{random() * 2 - 1}deg) skewX(#{random() * 2 - 1}deg);
+
+      border-left: solid #222 #{random() * 0.1 + 0.1}em;
+      border-right: solid #222 #{random() * 0.1 + 0.1}em;
+      border-top: solid #222 #{random() * 0.1 + 0.1}em;
+      border-bottom: solid #222 #{random() * 0.1 + 0.1}em;
+    }
+  }
+
+  @include regular();
+}

@@ -8,6 +8,7 @@ import { H2, Section } from '../../../components/HTMLElements';
 import pkg from '../../../package.json';
 import type { StaticProps } from '../../../utils/getStaticProps';
 import { useMemo } from 'react';
+import { useTheme } from '../../../components/ThemeContext';
 export { getStaticProps } from '../../../utils/getStaticProps';
 
 type Paths = {
@@ -24,7 +25,7 @@ export default function Index(props: Paths & StaticProps) {
   );
 
   return (
-    <Section className="tesera-tag-page">
+    <Section className={useTheme().teseraTagPage}>
       <Meta
         title={`${pkg.config.blogName}${pkg.config.blogTagSeparator}${props.params.tag}`}
       />

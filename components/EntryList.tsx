@@ -1,9 +1,10 @@
 import type { FC } from 'react';
 import type { Entry, EntryDefinition } from '../types/Entry';
 import { getEntryDefinition } from '../utils/getEntryDefinition';
+import { useTheme } from './ThemeContext';
 
 export const EntryList: FC<{ entryList: Entry[] }> = ({ entryList }) => (
-  <div className="entry-list">
+  <div className={useTheme().entryList}>
     {entryList.map((entry) => {
       try {
         const definition = getEntryDefinition(

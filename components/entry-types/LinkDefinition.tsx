@@ -3,6 +3,7 @@ import { getProperty, getString, getValue } from '../../utils/get';
 import { Anchor } from '../Anchor';
 import { Emoji } from '../Emoji';
 import { Article, H3, Header, Paragraph } from '../HTMLElements';
+import { useTheme } from '../ThemeContext';
 import { Time } from '../Time';
 import { BaseEntryDefinition } from './BaseEntryDefinition';
 
@@ -17,7 +18,7 @@ export const LinkDefinition: EntryDefinition<Link> = {
   },
 
   EntryListItem: ({ entry }) => (
-    <Article className="entry-list-item">
+    <Article className={useTheme().entryListItem}>
       <Header>
         <H3>
           <Anchor

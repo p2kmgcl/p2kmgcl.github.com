@@ -1,11 +1,12 @@
 import Meta from '../components/Meta';
 import { Anchor } from '../components/Anchor';
 import { Article, H2, Paragraph } from '../components/HTMLElements';
+import { useTheme } from '../components/ThemeContext';
 export { getStaticProps } from '../utils/getStaticProps';
 
 export default function NotFound() {
   return (
-    <Article className="not-found-page">
+    <Article className={useTheme().notFoundPage}>
       <Meta
         title="Page Not Found"
         description="The requested page was not found"

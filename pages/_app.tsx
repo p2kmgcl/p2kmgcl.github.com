@@ -1,5 +1,5 @@
-import '../styles/common.scss';
-import '../styles/default-theme.scss';
+import '../styles/reset.scss';
+import '../styles/entry-content.scss';
 import Head from 'next/head';
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
@@ -8,6 +8,7 @@ import pkg from '../package.json';
 import { FC } from 'react';
 import { Entry } from '../types/Entry';
 import { Router } from 'next/router';
+import { ThemeContextProvider, useTheme } from '../components/ThemeContext';
 
 interface AppProps {
   Component: FC<{
@@ -26,9 +27,10 @@ interface AppProps {
 
 const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   const rawContent = Boolean(Component.rawContent);
+  const theme = useTheme();
 
   return (
-    <>
+    <div className={theme.mainWrapper}>
       <Head>
         {rawContent ? null : <title>Test - {pkg.author.name}</title>}
 
@@ -40,7 +42,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
         {!rawContent
           ? [
               { tag: 'all', title: pkg.config.blogName },
-              ...pageProps.tagList.map((tag) => ({
+              ...(pageProps.tagList || []).map((tag) => ({
                 tag: tag.toLowerCase().split(' ').join('-'),
                 title: `${pkg.config.blogName}${pkg.config.blogTagSeparator}${tag}`,
               })),
@@ -67,7 +69,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
       </Head>
 
       {!rawContent ? (
-        <Nav aria-label="Main menu" className="main-menu">
+        <Nav aria-label="Main menu" className={theme.mainMenu}>
           <Anchor aria-label="Home" href="/">
             <Emoji>🏠</Emoji> {pkg.name}
           </Anchor>
@@ -77,24 +79,24 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
         </Nav>
       ) : null}
 
-      <main className="content">
+      <main className={theme.mainContent}>
         {!rawContent ? <H1>{pkg.author.name}</H1> : null}
         <Component params={router.query as any} {...pageProps} />
       </main>
 
       {!rawContent ? (
-        <Footer>
+        <Footer className={theme.mainFooter}>
           <H2 aria-label="Related links and social profiles">
             {pkg.author.name}
           </H2>
 
-          <Nav aria-label="Email" className="footer-navigation">
+          <Nav aria-label="Email">
             <Anchor href={`mailto:${pkg.author.email}`}>
               <Emoji>📮</Emoji> {pkg.author.email}
             </Anchor>
           </Nav>
 
-          <Nav aria-label="License" className="footer-navigation">
+          <Nav aria-label="License">
             <Anchor
               href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
             >
@@ -102,7 +104,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
             </Anchor>
           </Nav>
 
-          <Nav aria-label="External profiles" className="footer-navigation">
+          <Nav aria-label="External profiles">
             <Anchor
               href="https://github.com/p2kmgcl"
               title={`${pkg.author.name}'s Github profile`}
@@ -136,10 +138,14 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
           </Nav>
         </Footer>
       ) : null}
-    </>
+    </div>
   );
 };
 
 export default function App(props: AppProps) {
-  return <AppContent {...props} />;
+  return (
+    <ThemeContextProvider>
+      <AppContent {...props} />
+    </ThemeContextProvider>
+  );
 }

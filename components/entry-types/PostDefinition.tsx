@@ -23,6 +23,8 @@ import Meta from '../Meta';
 import Head from 'next/head';
 import { TagList } from '../TagList';
 import marked from 'marked';
+import { useTheme } from '../ThemeContext';
+import { classNames } from '../../utils/classNames';
 
 let nextIframeId = 0;
 
@@ -37,7 +39,7 @@ export const PostDefinition: EntryDefinition<Post> = {
   },
 
   EntryListItem: ({ entry }) => (
-    <Article className="entry-list-item">
+    <Article className={useTheme().entryListItem}>
       <Header>
         <H3>
           <Anchor href={entry.url} lang={entry.language}>
@@ -53,6 +55,7 @@ export const PostDefinition: EntryDefinition<Post> = {
   Entry: ({ entry }) => {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const [prismModule, setPrismModule] = useState<any>(null);
+    const theme = useTheme();
 
     useEffect(() => {
       if (globalThis.location && contentRef.current) {
@@ -276,7 +279,7 @@ export const PostDefinition: EntryDefinition<Post> = {
     }
 
     return (
-      <Article className="tesera-entry-page">
+      <Article className={theme.teseraEntryPage}>
         <Meta title={entry.title} description={entry.summary || ''} />
 
         <Head>
@@ -301,7 +304,7 @@ export const PostDefinition: EntryDefinition<Post> = {
 
           <Time dateTime={entry.date} />
 
-          <Section aria-label="Mood" className="entry-mood">
+          <Section aria-label="Mood" className={theme.entryMood}>
             <Paragraph lang={entry.language}>
               <Emoji>{entry.emoji}</Emoji> <span>{entry.mood}</span>
             </Paragraph>
@@ -310,7 +313,7 @@ export const PostDefinition: EntryDefinition<Post> = {
           <TagList tags={entry.tags} />
 
           {entry.summary ? (
-            <Section aria-label="Summary" className="entry-summary">
+            <Section aria-label="Summary" className={theme.entrySummary}>
               <Paragraph lang={entry.language}>{entry.summary}</Paragraph>
             </Section>
           ) : null}
@@ -321,16 +324,12 @@ export const PostDefinition: EntryDefinition<Post> = {
         <div
           ref={contentRef}
           lang={entry.language}
-          className="entry-content"
+          className={classNames('tesera-entry-content', theme.entryContent)}
           dangerouslySetInnerHTML={{ __html: entry.content }}
         />
 
         <Footer>
-          <Nav
-            className="entry-footer-navigation"
-            data-entry-title={entry.title}
-            data-entry-emoji={entry.emoji}
-          >
+          <Nav data-entry-title={entry.title} data-entry-emoji={entry.emoji}>
             <Anchor href={twitterLink} target="_blank">
               <Emoji>🕊️</Emoji> <span>Share on Twitter</span>
             </Anchor>
