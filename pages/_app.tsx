@@ -31,12 +31,17 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   const rawContent = Boolean(Component.rawContent);
   const theme = useTheme();
 
-  let mainWrapperProps = Object.fromEntries(
-    Object.entries(router.query).map(([key, value]) => [
-      `data-query-${key}`,
-      value,
-    ]),
-  );
+  let mainWrapperProps: Record<string, any> = {
+    className: theme.mainWrapper,
+    'data-component': Component.displayName,
+
+    ...Object.fromEntries(
+      Object.entries(router.query).map(([key, value]) => [
+        `data-query-${key}`,
+        value,
+      ]),
+    ),
+  };
 
   const entry =
     Component === TeseraEntry
@@ -56,11 +61,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   }
 
   return (
-    <div
-      {...mainWrapperProps}
-      data-component={Component.displayName}
-      className={theme.mainWrapper}
-    >
+    <div {...(rawContent ? {} : mainWrapperProps)}>
       <Head>
         {rawContent ? null : (
           <title>
@@ -118,7 +119,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
         </Nav>
       ) : null}
 
-      <main className={theme.mainContent}>
+      <main className={rawContent ? '' : theme.mainContent}>
         {!rawContent ? <H1>{pkg.author.name}</H1> : null}
         <Component params={router.query as any} {...pageProps} />
       </main>

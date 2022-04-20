@@ -350,7 +350,11 @@ export default function VideoCover() {
         {frame === drawMainFrame ? (
           <div className="coverAvatar">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/avatar.png" style={{ width: '8vw' }} alt="" />
+            <img
+              src="/avatar.png"
+              style={{ width: '8vw', marginRight: 0, marginLeft: 'auto' }}
+              alt=""
+            />
             <div>@p2kmgcl</div>
             <div>pablomolina.me</div>
           </div>
