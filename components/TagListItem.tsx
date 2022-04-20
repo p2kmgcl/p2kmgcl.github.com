@@ -9,9 +9,9 @@ const tags: Record<string, { emoji: string; label: string }> = {
     emoji: '📘',
     label: 'Posts',
   },
-  snippet: {
+  experiment: {
     emoji: '🧑‍💻',
-    label: 'Snippets',
+    label: 'Experiments',
   },
   project: {
     emoji: '🧑‍🎓',

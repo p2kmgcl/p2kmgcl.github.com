@@ -5,7 +5,7 @@ title: Freemarker with alternative syntax
 language: en
 date: 2022-04-20
 emoji: 👽
-tags: []
+tags: [experiment]
 ---
 
 > Useful links

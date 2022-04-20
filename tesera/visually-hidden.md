@@ -5,7 +5,7 @@ language: en
 draft: false
 date: 2022-04-13
 mood: Stressed
-tags: [snippet]
+tags: [experiment]
 emoji: 🫣
 summary: >
   Snippet to visually hide elements without losing accessibility.

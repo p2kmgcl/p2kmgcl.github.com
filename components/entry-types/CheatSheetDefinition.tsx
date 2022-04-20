@@ -7,6 +7,7 @@ import { BaseEntryDefinition } from './BaseEntryDefinition';
 import marked from 'marked';
 import { useTheme } from '../ThemeContext';
 import { classNames } from '../../utils/classNames';
+import { Time } from '../Time';
 
 export const CheatSheetDefinition: EntryDefinition<CheatSheet> = {
   parse(slug, data, content) {
@@ -25,6 +26,7 @@ export const CheatSheetDefinition: EntryDefinition<CheatSheet> = {
             <Emoji>{entry.emoji}</Emoji> <span>{entry.title}</span>
           </Anchor>
         </H3>
+        <Time dateTime={entry.date} />
       </Header>
     </Article>
   ),
