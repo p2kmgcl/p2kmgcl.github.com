@@ -1,3 +1,7 @@
-.teseraTagPage > .h2 > .tagListItem {
+.mainWrapper[data-component='TeseraTag'] .h2 > .tagListItem {
   color: currentColor;
+
+  .emoji {
+    display: none;
+  }
 }

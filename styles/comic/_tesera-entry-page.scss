@@ -1,4 +1,4 @@
-.teseraEntryPage {
+.mainWrapper[data-component='TeseraEntry'] > .mainContent > .article {
   width: 100%;
   margin: 0.25em auto;
 
@@ -27,18 +27,28 @@
     }
 
     > .entryMood {
+      grid-column-start: 2;
       grid-row-start: 3;
       grid-row-end: 4;
-      margin: 0;
       font-style: italic;
+
+      > .paragraph {
+        margin: 0.5em 0 0 0;
+      }
     }
 
     > .tagList {
+      grid-column-start: 2;
       grid-row-start: 4;
       grid-row-end: 5;
+
+      > .anchor {
+        padding: 0;
+      }
     }
 
     > .entrySummary {
+      grid-column-start: 3;
       grid-row-start: 2;
       grid-row-end: 5;
       font-size: 0.875em;

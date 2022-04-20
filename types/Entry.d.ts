@@ -1,11 +1,16 @@
 import type { FC } from 'react';
 
-export interface EntryDefinition<T extends Entry> {
+export interface EntryDefinition<
+  T extends Entry,
+  R extends Record<string, any> = {},
+> {
   parse: (
     slug: string,
     data: Record<string, unknown>,
     content: string | undefined,
+    options: R = {},
   ) => T;
+
   EntryListItem?: FC<{ entry: T }>;
   Entry?: FC<{ entry: T }>;
 }
@@ -18,15 +23,20 @@ export interface Entry {
   title: string;
   emoji: string;
   tags: string[];
-  summary: string;
   slug: string;
   url: string;
+}
+
+export interface CheatSheet extends Entry {
+  type: 'cheat-sheet';
+  content: string;
 }
 
 export interface Post extends Entry {
   type: 'post';
   mood: string;
   content: string;
+  summary: string;
   cover?: {
     url: string;
     alt: string;
@@ -37,4 +47,5 @@ export interface Post extends Entry {
 export interface Link extends Entry {
   type: 'link';
   origin: string;
+  summary: string;
 }

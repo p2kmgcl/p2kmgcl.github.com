@@ -1,5 +1,5 @@
-.indexPage {
-  > .header {
+.mainWrapper[data-component='Home'] {
+  .header {
     > .h2 {
       margin-bottom: 0;
     }

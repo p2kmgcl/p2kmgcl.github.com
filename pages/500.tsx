@@ -1,12 +1,11 @@
 import Meta from '../components/Meta';
 import { Anchor } from '../components/Anchor';
 import { Article, H2, Paragraph } from '../components/HTMLElements';
-import { useTheme } from '../components/ThemeContext';
 export { getStaticProps } from '../utils/getStaticProps';
 
 export default function ServerError() {
   return (
-    <Article className={useTheme().serverErrorOcurredPage}>
+    <Article>
       <Meta title="Server Error" description="Some unknown error ocurred" />
 
       <H2>Server Error</H2>
@@ -22,3 +21,5 @@ export default function ServerError() {
     </Article>
   );
 }
+
+ServerError.displayName = 'ServerError';

@@ -31,7 +31,11 @@ let nextIframeId = 0;
 export const PostDefinition: EntryDefinition<Post> = {
   parse(slug, data, content) {
     return {
-      ...BaseEntryDefinition.parse(slug, data, content),
+      ...BaseEntryDefinition.parse(slug, data, content, {
+        showTypeAsTag: true,
+      }),
+
+      summary: getProperty(data, 'summary', getString),
       content: marked(getString(content), { gfm: true }),
       type: getProperty(data, 'type', getValue, 'post' as const),
       mood: getProperty(data, 'mood', getString),
@@ -279,7 +283,7 @@ export const PostDefinition: EntryDefinition<Post> = {
     }
 
     return (
-      <Article className={theme.teseraEntryPage}>
+      <Article>
         <Meta title={entry.title} description={entry.summary || ''} />
 
         <Head>

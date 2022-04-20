@@ -27,6 +27,8 @@ export default function TeseraEntry({
   return <EntryComponent entry={entry} />;
 }
 
+TeseraEntry.displayName = 'TeseraEntry';
+
 export function getStaticPaths(): {
   paths: Paths[];
   fallback: false;

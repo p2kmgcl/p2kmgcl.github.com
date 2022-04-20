@@ -18,8 +18,11 @@ export default function EasterEgg() {
       </Head>
       <Article>
         <p>
-          Use the <Anchor href="/#search">search button</Anchor>, use the
-          themes.{' '}
+          Use the{' '}
+          <Anchor href="https://en.wikipedia.org/wiki/Web_development_tools">
+            browser console
+          </Anchor>
+          , use the themes.{' '}
           <Anchor href="https://en.wikipedia.org/wiki/Skin_(computing)">
             Themes
           </Anchor>{' '}
@@ -37,9 +40,14 @@ export default function EasterEgg() {
           and <Anchor href="https://vrivas.es">Víctor Rivas</Anchor> (2010) for
           inspiring this.
         </p>
+
+        <p>
+          Take me <Anchor href="/">home</Anchor>.
+        </p>
       </Article>
     </>
   );
 }
 
+EasterEgg.displayName = 'EasterEgg';
 EasterEgg.rawContent = true;

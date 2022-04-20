@@ -206,7 +206,7 @@ const draw = (
   loop();
 };
 
-export default function AdminVideoCover() {
+export default function VideoCover() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [title, titleFontSize] = useMemo(() => {
@@ -362,4 +362,5 @@ export default function AdminVideoCover() {
   );
 }
 
-AdminVideoCover.rawContent = true;
+VideoCover.displayName = 'VideoCover';
+VideoCover.rawContent = true;

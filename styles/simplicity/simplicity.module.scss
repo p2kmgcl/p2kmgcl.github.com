@@ -43,6 +43,10 @@ $roundness: 4px;
   padding-right: 0.2ch;
 }
 
+.strong {
+  text-decoration: underline;
+}
+
 .h1 {
   position: absolute;
   inset-inline-start: -9999px;
@@ -154,10 +158,16 @@ $roundness: 4px;
 
 .mainMenu {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   margin: 0 auto;
 
+  .emoji {
+    display: none;
+  }
+
   .anchor:not(:first-child) {
-    margin-left: 1ch;
+    margin-left: 1.5ch;
   }
 
   .anchor:first-child {
@@ -210,7 +220,8 @@ $roundness: 4px;
   }
 }
 
-@import 'index-page';
+@import 'home-page';
 @import 'tesera-entry-page';
 @import 'tesera-index-page';
 @import 'tesera-tag-page';
+@import 'cheat-sheet';

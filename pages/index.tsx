@@ -9,7 +9,6 @@ import {
   Strong,
 } from '../components/HTMLElements';
 import pkg from '../package.json';
-import { useTheme } from '../components/ThemeContext';
 export { getStaticProps } from '../utils/getStaticProps';
 
 function flatMap<T, Q>(array: T[], fn: (element: T) => Q[]): Q[] {
@@ -24,7 +23,7 @@ const IMAGE_SOURCES = flatMap(['avif', 'webp', 'jpg'], (type) => [
 
 export default function Home() {
   return (
-    <Article className={useTheme().indexPage}>
+    <Article>
       <Meta />
 
       <Header>
@@ -90,3 +89,5 @@ export default function Home() {
     </Article>
   );
 }
+
+Home.displayName = 'Home';

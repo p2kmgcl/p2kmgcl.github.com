@@ -5,13 +5,6 @@ export interface Theme {
   mainContent: string;
   mainFooter: string;
 
-  indexPage: string;
-  notFoundPage: string;
-  teseraEntryPage: string;
-  teseraIndexPage: string;
-  teseraTagPage: string;
-  serverErrorOcurredPage: string;
-
   article: string;
   figure: string;
   footer: string;

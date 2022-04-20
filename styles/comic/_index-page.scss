@@ -1,4 +1,4 @@
-.indexPage {
+.mainWrapper[data-component='Home'] > .mainContent > .article {
   display: grid;
   position: relative;
   margin: 1em 0;

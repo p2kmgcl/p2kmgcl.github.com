@@ -10,7 +10,7 @@
   }
 }
 
-.teseraEntryPage {
+.mainWrapper[data-component='TeseraEntry'] > .mainContent > .article {
   margin-bottom: 20em;
 
   > .header {

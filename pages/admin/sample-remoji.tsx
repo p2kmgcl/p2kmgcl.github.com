@@ -153,4 +153,5 @@ export default function SampleRemoji() {
   );
 }
 
+SampleRemoji.displayName = 'SampleRemoji';
 SampleRemoji.rawContent = true;

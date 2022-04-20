@@ -3,12 +3,10 @@ import { getEntryList } from '../../../utils/getEntryList';
 import { getTagList } from '../../../utils/getTagList';
 import { TagListItem } from '../../../components/TagListItem';
 import { EntryList } from '../../../components/EntryList';
-import { Anchor } from '../../../components/Anchor';
 import { H2, Section } from '../../../components/HTMLElements';
 import pkg from '../../../package.json';
 import type { StaticProps } from '../../../utils/getStaticProps';
 import { useMemo } from 'react';
-import { useTheme } from '../../../components/ThemeContext';
 export { getStaticProps } from '../../../utils/getStaticProps';
 
 type Paths = {
@@ -17,7 +15,7 @@ type Paths = {
   };
 };
 
-export default function Index(props: Paths & StaticProps) {
+export default function TeseraTag(props: Paths & StaticProps) {
   const filteredEntryList = useMemo(
     () =>
       props.entryList.filter((entry) => entry.tags.includes(props.params.tag)),
@@ -25,20 +23,21 @@ export default function Index(props: Paths & StaticProps) {
   );
 
   return (
-    <Section className={useTheme().teseraTagPage}>
+    <Section>
       <Meta
         title={`${pkg.config.blogName}${pkg.config.blogTagSeparator}${props.params.tag}`}
       />
 
       <H2>
-        <Anchor href={`/${pkg.config.blogSlug}`}>{pkg.config.blogName}</Anchor>
-        <TagListItem tag={props.params.tag} />
+        <TagListItem tag={props.params.tag} renderAsLink={false} />
       </H2>
 
       <EntryList entryList={filteredEntryList} />
     </Section>
   );
 }
+
+TeseraTag.displayName = 'TeseraTag';
 
 export function getStaticPaths(): {
   paths: Paths[];

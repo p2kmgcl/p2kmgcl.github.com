@@ -9,6 +9,8 @@ import { FC } from 'react';
 import { Entry } from '../types/Entry';
 import { Router } from 'next/router';
 import { ThemeContextProvider, useTheme } from '../components/ThemeContext';
+import { TagListItem } from '../components/TagListItem';
+import TeseraEntry from './tesera/entry/[slug]';
 
 interface AppProps {
   Component: FC<{
@@ -29,10 +31,43 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   const rawContent = Boolean(Component.rawContent);
   const theme = useTheme();
 
+  let mainWrapperProps = Object.fromEntries(
+    Object.entries(router.query).map(([key, value]) => [
+      `data-query-${key}`,
+      value,
+    ]),
+  );
+
+  const entry =
+    Component === TeseraEntry
+      ? pageProps.entryList.find((entry) => entry.slug === router.query.slug)
+      : null;
+
+  if (entry) {
+    mainWrapperProps = {
+      ...mainWrapperProps,
+      'data-entry-type': entry.type,
+      ...Object.fromEntries(
+        entry.tags
+          .filter((tag) => tag !== entry.type)
+          .map((tag) => [`data-entry-tag-${tag}`, '']),
+      ),
+    };
+  }
+
   return (
-    <div className={theme.mainWrapper}>
+    <div
+      {...mainWrapperProps}
+      data-component={Component.displayName}
+      className={theme.mainWrapper}
+    >
       <Head>
-        {rawContent ? null : <title>Test - {pkg.author.name}</title>}
+        {rawContent ? null : (
+          <title>
+            {entry ? `${entry.title} - ` : ''}
+            {pkg.author.name}
+          </title>
+        )}
 
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -73,9 +108,13 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
           <Anchor aria-label="Home" href="/">
             <Emoji>🏠</Emoji> {pkg.name}
           </Anchor>
-          <Anchor href={`/${pkg.config.blogSlug}`}>
-            <Emoji>📓</Emoji> {pkg.config.blogName}
-          </Anchor>
+          {pageProps.tagList?.length ? (
+            pageProps.tagList.map((tag) => <TagListItem key={tag} tag={tag} />)
+          ) : (
+            <Anchor href={`/${pkg.config.blogSlug}`}>
+              <Emoji>📓</Emoji> {pkg.config.blogName}
+            </Anchor>
+          )}
         </Nav>
       ) : null}
 
