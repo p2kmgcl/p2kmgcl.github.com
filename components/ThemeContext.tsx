@@ -13,7 +13,7 @@ const DEFAULT_THEME_ID: ThemeId = 'simplicity';
 
 const THEME_MAP = {
   simplicity: () => import('../styles/simplicity/simplicity.module.scss'),
-  comic: () => import('../styles/comic/comic.module.scss'),
+  // comic: () => import('../styles/comic/comic.module.scss'),
   nothing: () => import('../styles/nothing/nothing.module.scss'),
 };
 
