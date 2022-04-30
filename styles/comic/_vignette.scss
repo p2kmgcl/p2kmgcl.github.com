@@ -21,7 +21,9 @@
   @each $selector in $selectors {
     &:nth-child(#{$selector}n + #{$selector}) {
       @include regular();
-      transform: rotateZ(#{random() * 2 - 1}deg) skewX(#{random() * 2 - 1}deg);
+      transform: rotateY(#{random() * 4 - 2}deg)
+        rotateZ(#{random() * 2 - 1}deg)
+        skewX(#{random() * 2 - 1}deg);
 
       border-left: solid #222 #{random() * 0.1 + 0.1}em;
       border-right: solid #222 #{random() * 0.1 + 0.1}em;

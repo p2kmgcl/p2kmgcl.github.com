@@ -54,7 +54,8 @@
   transition: color ease 0.3s, transform ease 0.3s, text-shadow ease 0.3s;
   color: rgb(160, 104, 0);
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     color: black;
     font-weight: bold;
     @include text.shadow(yellow, -5, 5, 'cross');
@@ -185,7 +186,8 @@
   }
 
   &:focus-within,
-  &:hover {
+  &:hover,
+  &:focus-visible {
     transition: outline ease 0.3s, z-index linear 0s;
     outline: solid 0.5em orange;
     z-index: 1;
