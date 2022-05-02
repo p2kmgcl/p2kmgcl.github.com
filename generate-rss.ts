@@ -46,13 +46,14 @@ const BUILD_DATE = new Date().toISOString();
         ${entryList
           .map((entry) => {
             const date = new Date(entry.date).toISOString();
+            const summary = (entry as any).summary || '';
 
             console.log(`post  - ${entry.url}`);
 
             return `
               <item>
                 <title>${entry.title}</title>
-                <description>${entry.summary || ''}</description>
+                ${summary ? `<description>${summary}</description>` : ''}
                 <pubDate>${date}</pubDate>
                 ${entry.tags
                   .map((tag) => `<category>${tag}</category>`)
