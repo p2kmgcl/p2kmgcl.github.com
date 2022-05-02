@@ -160,20 +160,25 @@ $roundness: 4px;
 
 .mainMenu {
   display: flex;
+  gap: 1ch;
   flex-wrap: wrap;
-  justify-content: flex-end;
   margin: 0 auto;
 
   .emoji {
     display: none;
   }
 
-  .anchor:not(:first-child) {
-    margin-left: 1.5ch;
-  }
-
   .anchor:first-child {
     flex-grow: 1;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+
+    .emoji {
+      display: initial;
+      filter: grayscale(1);
+    }
   }
 }
 
