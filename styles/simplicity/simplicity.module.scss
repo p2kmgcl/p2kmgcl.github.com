@@ -9,6 +9,7 @@ $roundness: 4px;
   padding: 1rem;
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 5%);
+  min-height: 100vh;
 
   @media (prefers-color-scheme: dark) {
     background-color: hsl(0, 0%, 10%);
