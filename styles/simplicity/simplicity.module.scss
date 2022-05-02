@@ -6,7 +6,7 @@ $roundness: 4px;
   font-family: 'JetBrains Mono', JetBrains Mono, monospace;
   font-size: 16px;
   line-height: 1.5;
-  margin: 1rem;
+  padding: 1rem;
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 5%);
 
@@ -17,12 +17,12 @@ $roundness: 4px;
 
   @media (min-width: 768px) {
     font-size: 18px;
-    margin: 2rem;
+    padding: 2rem;
   }
 
   @media (min-width: 1921px) {
     font-size: 21px;
-    margin: 4rem;
+    padding: 4rem;
   }
 }
 
