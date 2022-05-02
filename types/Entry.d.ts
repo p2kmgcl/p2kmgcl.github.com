@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, LazyExoticComponent } from 'react';
 
 export interface EntryDefinition<
   T extends Entry,
@@ -11,8 +11,8 @@ export interface EntryDefinition<
     options: R = {},
   ) => T;
 
-  EntryListItem?: FC<{ entry: T }>;
-  Entry?: FC<{ entry: T }>;
+  getEntryListItemComponent?: () => Promise<{ default: FC<{ entry: T }> }>;
+  getEntryComponent?: () => Promise<{ default: FC<{ entry: T }> }>;
 }
 
 export interface Entry {

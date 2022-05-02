@@ -1,6 +1,6 @@
-import { CheatSheetDefinition } from '../components/entry-types/CheatSheetDefinition';
-import { LinkDefinition } from '../components/entry-types/LinkDefinition';
-import { PostDefinition } from '../components/entry-types/PostDefinition';
+import { CheatSheetDefinition } from '../components/entry-types/cheat-sheet/CheatSheetDefinition';
+import { LinkDefinition } from '../components/entry-types/link/LinkDefinition';
+import { PostDefinition } from '../components/entry-types/post/PostDefinition';
 
 export function getEntryDefinition(entryType: unknown) {
   if (entryType === 'post') {

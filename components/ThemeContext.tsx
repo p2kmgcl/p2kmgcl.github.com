@@ -2,6 +2,7 @@ import {
   createContext,
   Dispatch,
   FC,
+  PropsWithChildren,
   useContext,
   useEffect,
   useState,
@@ -31,7 +32,9 @@ const ThemeContext = createContext<{
   setTheme: () => {},
 });
 
-export const ThemeContextProvider: FC = ({ children }) => {
+export const ThemeContextProvider: FC<PropsWithChildren<{}>> = ({
+  children,
+}) => {
   const [themeId, setThemeId] = useState<ThemeId>(DEFAULT_THEME_ID);
   const [theme, setTheme] = useState(DEFAULT_THEME as unknown as Theme);
 

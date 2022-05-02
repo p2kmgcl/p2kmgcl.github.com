@@ -1,24 +1,14 @@
 import type { FC } from 'react';
-import type { Entry, EntryDefinition } from '../types/Entry';
-import { getEntryDefinition } from '../utils/getEntryDefinition';
+import type { Entry } from '../types/Entry';
 import { useTheme } from './ThemeContext';
+import React from 'react';
+import entryToComponent from '../utils/entryToComponent';
 
 export const EntryList: FC<{ entryList: Entry[] }> = ({ entryList }) => (
   <div className={useTheme().entryList}>
     {entryList.map((entry) => {
-      try {
-        const definition = getEntryDefinition(
-          entry.type,
-        ) as EntryDefinition<any>;
-
-        if (!definition.EntryListItem) {
-          return null;
-        }
-
-        return <definition.EntryListItem key={entry.slug} entry={entry} />;
-      } catch (error) {
-        return null;
-      }
+      const Component = entryToComponent(entry, 'getEntryListItemComponent');
+      return <Component key={entry.slug} entry={entry} />;
     })}
   </div>
 );

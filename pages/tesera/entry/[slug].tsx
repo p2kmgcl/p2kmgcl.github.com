@@ -1,8 +1,9 @@
 import { getEntryList } from '../../../utils/getEntryList';
-import { getEntryDefinition } from '../../../utils/getEntryDefinition';
 import { StaticProps } from '../../../utils/getStaticProps';
 import { useMemo } from 'react';
-import { EntryDefinition } from '../../../types/Entry';
+import entryToComponent, {
+  NullComponent,
+} from '../../../utils/entryToComponent';
 export { getStaticProps } from '../../../utils/getStaticProps';
 
 type Paths = {
@@ -17,11 +18,8 @@ export default function TeseraEntry({
 }: Paths & StaticProps) {
   const [entry, EntryComponent] = useMemo(() => {
     const entry = entryList.find((entry) => entry.slug === slug);
-    const entryDefinition = getEntryDefinition(
-      entry?.type,
-    ) as EntryDefinition<any>;
-    if (!entryDefinition.Entry) throw new Error('No entry component found');
-    return [entry, entryDefinition.Entry];
+    if (!entry) throw new Error(`Entry "${slug}" not found`);
+    return [entry, entryToComponent(entry, 'getEntryComponent')];
   }, [entryList, slug]);
 
   return <EntryComponent entry={entry} />;
@@ -36,16 +34,20 @@ export function getStaticPaths(): {
   return {
     paths: getEntryList()
       .map((teseraEntry) => {
-        try {
-          const { Entry: EntryComponent } = getEntryDefinition(
-            teseraEntry.type,
-          );
+        const EntryComponent = entryToComponent(
+          teseraEntry,
+          'getEntryComponent',
+        );
 
-          if (!EntryComponent) return null;
-          return { params: { slug: teseraEntry.slug } };
-        } catch (error) {
+        if (EntryComponent === NullComponent) {
           return null;
         }
+
+        return {
+          params: {
+            slug: teseraEntry.slug,
+          },
+        };
       })
       .filter(Boolean) as Paths[],
     fallback: false,
