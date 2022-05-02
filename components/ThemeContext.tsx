@@ -36,6 +36,13 @@ export const ThemeContextProvider: FC = ({ children }) => {
   const [theme, setTheme] = useState(DEFAULT_THEME as unknown as Theme);
 
   useEffect(() => {
+    // @ts-ignore
+    if (!window.ThemeManager) {
+      console.log(
+        'Hey there!\nMaybe you want to check the ThemeManager\nJust use "window.ThemeManager" methods :3',
+      );
+    }
+
     function getCurrentTheme() {
       return themeId;
     }
@@ -72,10 +79,6 @@ export const ThemeContextProvider: FC = ({ children }) => {
       setRandomTheme,
       getThemeList,
     };
-
-    console.log(
-      'Hey there!\nMaybe you want to check the ThemeManager\nJust use "window.ThemeManager" methods :3',
-    );
   }, [themeId, setThemeId]);
 
   return (
