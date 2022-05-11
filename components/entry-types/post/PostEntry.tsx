@@ -144,10 +144,6 @@ export default function PostEntry({ entry }: { entry: Post }) {
           preElement.title = 'Click to reload preview';
           renderIframe(wrapperElement, preElement, codeElement, iframeId);
         });
-
-        if (process.env.NODE_ENV === 'development') {
-          preElement.click();
-        }
       }
 
       prismModule.default.highlightElement(codeElement);
