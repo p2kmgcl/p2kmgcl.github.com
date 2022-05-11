@@ -13,15 +13,32 @@ summary: >
 tags: []
 ---
 
-### Related links
+Currently, at work, we are implementing some beautiful custom inputs for our
+Page Editor (a WYSIWYG editor that is being used inside Liferay). When I found
+that I needed to create a custom `<select>` element, I though it would be as
+easy as creating a simple dropdown with a bit of JS.
+
+I didn't now how wrong I was until I started investigating about how select
+works and which aria-roles could I use to emulate it's behavior. There is no
+exact `select` role, but I found that using a combination of `haspopup`,
+`listbox` and `option` gives a valid result that can also be made accessible.
+
+![Custom dropdown preview](/uploads/custom-dropdown-preview.png)
+
+This HTML is more or less based on a W3C _collapsible dropdown listbox_ demo
+(linked below) with a custom JavaScript implementation to manage keyboard
+navigation and some click events.
+
+These are some interesting articles and videos I found during my investigation
+(thanks to [Eduardo Allegrini](https://twitter.com/edalgrin) for his help 😄):
 
 - [Accessible Custom Select Dropdowns](https://www.webaxe.org/accessible-custom-select-dropdowns/).
-- [Striking a Balance Between Native and Custom Select Elements](https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/)
-- [The Future of HTML Controls](https://www.crowdcast.io/e/the-future-of-html/1)
-- [ARIA: listbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role)
-- [Collapsible Dropdown Listbox Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html)
+- [Striking a Balance Between Native and Custom Select Elements](https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/).
+- [The Future of HTML Controls](https://www.crowdcast.io/e/the-future-of-html/1).
+- [ARIA: listbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role).
+- [Collapsible Dropdown Listbox Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html).
 
-# Demo
+### Demo
 
 ```html
 <link
@@ -68,6 +85,10 @@ tags: []
     top: 100%;
     left: 0;
     width: 100%;
+  }
+
+  #custom-dropdown .dropdown-item {
+    cursor: pointer;
   }
 </style>
 
@@ -225,6 +246,8 @@ tags: []
   button.addEventListener('keydown', (event) => {
     const currentActiveDescendant = getActiveDesdendant();
 
+    // Move through next/previous item by pressing arrow keys.
+    // Also expand the dropdown automatically if needed.
     if (event.key === 'ArrowDown') {
       showDropdown();
 
@@ -245,16 +268,24 @@ tags: []
       );
 
       event.preventDefault();
+
+      // We can "escape" the dropdown.
     } else if (event.key === 'Escape') {
       hideDropdown();
       button.focus();
       event.preventDefault();
+
+      // Home/End keys should navigate to first/last item.
     } else if (event.key === 'Home') {
       setActiveDescendant(listbox.firstElementChild);
       event.preventDefault();
     } else if (event.key === 'End') {
       setActiveDescendant(listbox.lastElementChild);
       event.preventDefault();
+
+      // We want to support "rapid item navigation", allowing
+      // users to type some letters of the desired item and
+      // focusing it
     } else if (event.key.length === 1) {
       const now = Date.now();
 
@@ -278,10 +309,8 @@ tags: []
     }
   });
 
-  button.addEventListener('blur', () => {
-    hideDropdown();
-  });
-
+  // Allow "clicking" on items without moving focus from
+  // the button element.
   listbox.addEventListener('click', (event) => {
     if (event.target.dataset?.optionValue) {
       setActiveDescendant(event.target);
@@ -290,6 +319,21 @@ tags: []
       event.preventDefault();
     }
   });
+
+  // Simple implementation of "click outside" to remove focus
+  // from the dropdown.
+  const handleDocumentClick = (event) => {
+    if (!document.body.contains(wrapper)) {
+      document.removeEventListener('click', handleDocumentClick);
+      return;
+    }
+
+    if (event.target !== wrapper && !wrapper.contains(event.target)) {
+      hideDropdown();
+    }
+  };
+
+  document.addEventListener('click', handleDocumentClick);
 
   if (!getActiveDesdendant()) {
     setActiveDescendant(listbox.firstElementChild);
