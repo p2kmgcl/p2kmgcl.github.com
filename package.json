@@ -40,7 +40,7 @@
     "build:rss": "NODE_ENV=production ts-node --project tsconfig.node.json generate-rss.ts",
     "build:sitemap": "NODE_ENV=production ts-node --project tsconfig.node.json generate-sitemap.ts",
     "start": "netlify dev",
-    "start:next": "next dev",
+    "start:next": "next-remote-watch ./public ./tesera",
     "start:production": "yarn run build && http-server --port 3000 build/app"
   },
   "dependencies": {
@@ -72,6 +72,7 @@
     "eslint-config-next": "^12.0.0",
     "http-server": "^14.0.0",
     "netlify-cli": "^6.0.0",
+    "next-remote-watch": "^1.0.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "sass": "^1.32.8",

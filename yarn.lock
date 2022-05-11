@@ -2834,7 +2834,7 @@ blueimp-md5@^2.10.0:
   resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.19.0.tgz#b53feea5498dcb53dc6ec4b823adb84b729c4af0"
   integrity sha512-DRQrD6gJyy8FbiE4s+bDoXS9hiW3Vbx5uCdwvcCf3zLHL+Iv7LtGHLpr+GZV8rHG8tK766FGYBwRbu8pELTt+w==
 
-body-parser@1.20.0:
+body-parser@1.20.0, body-parser@^1.19.0:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.20.0.tgz#3de69bd89011c11573d7bfee6a64f11b6bd27cc5"
   integrity sha512-DfJ+q6EPcGKZD1QWUjSpqp+Q7bDQTsQIF4zfUAtZ6qk+H/3/QRhg9CEp39ss+/T2vw0+HaidC0ecJj/DRLIaKg==
@@ -3139,7 +3139,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-"chokidar@>=3.0.0 <4.0.0", chokidar@^3.0.2:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.0.2, chokidar@^3.4.0:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -3430,6 +3430,11 @@ commander@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
   integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
+
+commander@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
 
 commander@^9.0.0:
   version "9.2.0"
@@ -7401,6 +7406,17 @@ netlify@^8.0.4:
     omit.js "^2.0.2"
     p-wait-for "^3.2.0"
     qs "^6.9.6"
+
+next-remote-watch@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/next-remote-watch/-/next-remote-watch-1.0.0.tgz#34c5a015b1bd191f906479c00baabd1a33cf04f5"
+  integrity sha512-kV+pglCwcnKyqJIXPHUUrnZr9d3rCqCIEQWBkFYC02GDXHyKVmcFytoY6q0+wMIQqh/izIAQL1x6OKXZhksjLA==
+  dependencies:
+    body-parser "^1.19.0"
+    chalk "^4.0.0"
+    chokidar "^3.4.0"
+    commander "^5.0.0"
+    express "^4.17.1"
 
 next@^12.0.0:
   version "12.1.5"
