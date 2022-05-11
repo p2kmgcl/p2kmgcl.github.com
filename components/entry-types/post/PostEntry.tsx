@@ -227,11 +227,6 @@ export default function PostEntry({ entry }: { entry: Post }) {
     pkg.config.blogSlug +
     `/${entry.slug}.md`;
 
-  const editLink =
-    `https://${pkg.name}/admin/#/collections/${pkg.config.blogSlug}/` +
-    pkg.config.blogEntriesSlug +
-    `/${entry.slug}`;
-
   let cover = null;
 
   if (entry.cover) {
@@ -310,9 +305,6 @@ export default function PostEntry({ entry }: { entry: Post }) {
           </Anchor>
           <Anchor href={githubLink} target="_blank">
             <Emoji>👾</Emoji> <span>View on GitHub</span>
-          </Anchor>
-          <Anchor href={editLink} target="_blank">
-            <Emoji>📝</Emoji> <span>Edit</span>
           </Anchor>
         </Nav>
       </Footer>
