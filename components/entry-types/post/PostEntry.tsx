@@ -100,6 +100,7 @@ export default function PostEntry({ entry }: { entry: Post }) {
 
       if (existingIframe) {
         existingIframe.contentWindow?.location.reload();
+        existingIframe.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
         return;
       }
 
@@ -116,6 +117,14 @@ export default function PostEntry({ entry }: { entry: Post }) {
       } else {
         wrapperElement.appendChild(iframe);
       }
+
+      iframe.addEventListener(
+        'animationend',
+        () => {
+          iframe.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        },
+        { once: true },
+      );
     };
 
     for (const codeElement of codeElementList) {
