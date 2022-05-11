@@ -47,6 +47,8 @@ export default function EntryHTMLRender() {
       runNextScript();
     };
 
+    let prevContent = '';
+
     const handleMessage = (event: MessageEvent) => {
       let parsedData: null | {
         type: 'sampleContent';
@@ -60,8 +62,10 @@ export default function EntryHTMLRender() {
       if (
         parsedData &&
         parsedData.type === 'sampleContent' &&
-        entryContentRef.current
+        entryContentRef.current &&
+        prevContent !== parsedData.content
       ) {
+        prevContent = parsedData.content;
         entryContentRef.current.innerHTML = parsedData.content;
         requestAnimationFrame(runScripts);
 
