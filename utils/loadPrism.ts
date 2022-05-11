@@ -1,6 +1,6 @@
 export const loadPrism = () =>
   new Promise<{ default: any }>((resolve) => {
-    if (!window.Prism) {
+    if (!window.Prism?.highlightElement) {
       // @ts-ignore
       window.Prism = { manual: true };
 
