@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { LoadingMask } from '../components/LoadingMask';
 import { Entry, EntryDefinition } from '../types/Entry';
 import { getEntryDefinition } from './getEntryDefinition';
 
@@ -21,7 +22,9 @@ export default function entryToComponent<T extends Entry>(
 
   return function ComponentWrapper({ entry }) {
     return (
-      <React.Suspense fallback={''}>
+      <React.Suspense
+        fallback={<LoadingMask language={entry.language} label={entry.title} />}
+      >
         <Component entry={entry} />
       </React.Suspense>
     );
