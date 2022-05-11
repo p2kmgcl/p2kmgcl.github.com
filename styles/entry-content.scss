@@ -38,7 +38,7 @@
   }
 
   pre,
-  >pre[class] {
+  > pre[class] {
     width: 100%;
     box-sizing: border-box;
     overflow-x: auto;
@@ -47,7 +47,30 @@
     color: #d4d4d4;
     background: #1e1e1e;
 
-    &+iframe {
+    &.language-html[data-preview-ready] {
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: 'Show preview';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.5em 1em;
+        border: solid #444 2px;
+        border-top: none;
+        border-right: none;
+        border-bottom-left-radius: 8px;
+        font-size: 0.75em;
+        opacity: 0.5;
+      }
+
+      &[data-preview-loaded]::after {
+        content: 'Reload preview';
+      }
+    }
+
+    & + iframe {
       border-top: none;
       border-width: 0.5em;
       border-color: #1e1e1e;
@@ -55,18 +78,36 @@
       top: -1ch;
 
       &.sample-content-hidden {
-        opacity: 0;
-        position: absolute;
+        @keyframes sampleContentHiddenAppear {
+          from {
+            transform: scaleY(0);
+          }
+          to {
+            transform: scaleY(1);
+          }
+        }
+        @keyframes sampleContentHiddenPulse {
+          from {
+            opacity: 0.2;
+          }
+          to {
+            opacity: 0.8;
+          }
+        }
+
         pointer-events: none;
+        transform-origin: 0 0;
+        animation: sampleContentHiddenAppear ease 1s forwards,
+          sampleContentHiddenPulse ease 0.6s alternate infinite;
       }
     }
   }
 
   code,
   pre,
-  >pre[class],
+  > pre[class],
   code[class],
-  code[class]>span[class] {
+  code[class] > span[class] {
     font-family: var(--code-font-family, monospace);
     font-size: 1em;
     font-weight: 400;

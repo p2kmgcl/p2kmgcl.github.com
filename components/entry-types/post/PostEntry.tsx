@@ -96,6 +96,13 @@ export default function PostEntry({ entry }: { entry: Post }) {
       codeElement: HTMLElement,
       iframeId: string,
     ) => {
+      const existingIframe = iframeMap.get(iframeId);
+
+      if (existingIframe) {
+        existingIframe.contentWindow?.location.reload();
+        return;
+      }
+
       const iframe = document.createElement('iframe');
 
       iframe.classList.add('sample-content-hidden');
@@ -120,19 +127,18 @@ export default function PostEntry({ entry }: { entry: Post }) {
         codeElement.classList.contains('language-html') &&
         !preElement.dataset.previewReady
       ) {
+        const iframeId = (nextIframeId++).toString();
         preElement.dataset.previewReady = 'true';
 
-        preElement.addEventListener(
-          'click',
-          () =>
-            renderIframe(
-              wrapperElement,
-              preElement,
-              codeElement,
-              (nextIframeId++).toString(),
-            ),
-          { once: true },
-        );
+        preElement.addEventListener('click', () => {
+          preElement.dataset.previewLoaded = 'true';
+          preElement.title = 'Click to reload preview';
+          renderIframe(wrapperElement, preElement, codeElement, iframeId);
+        });
+
+        if (process.env.NODE_ENV === 'development') {
+          preElement.click();
+        }
       }
 
       prismModule.default.highlightElement(codeElement);

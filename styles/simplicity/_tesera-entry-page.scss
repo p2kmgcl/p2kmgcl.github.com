@@ -3,6 +3,11 @@
 
   pre {
     border-radius: $roundness;
+
+    &[data-preview-ready] + iframe {
+      border-bottom-left-radius: $roundness;
+      border-bottom-right-radius: $roundness;
+    }
   }
 
   p {
