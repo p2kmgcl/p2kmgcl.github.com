@@ -49,24 +49,25 @@
 
     &.language-html[data-preview-ready] {
       position: relative;
-      cursor: pointer;
 
-      &::after {
-        content: 'Show preview';
+      .data-preview-button {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 0.5em;
+        right: 0.5em;
         padding: 0.5em 1em;
+        color: white;
+        background: #1e1e1e;
         border: solid #444 2px;
-        border-top: none;
-        border-right: none;
-        border-bottom-left-radius: 8px;
+        border-radius: 8px;
         font-size: 0.75em;
         opacity: 0.5;
-      }
+        cursor: pointer;
 
-      &[data-preview-loaded]::after {
-        content: 'Reload preview';
+        &:hover,
+        &:active {
+          background: #333;
+          opacity: 1;
+        }
       }
     }
 

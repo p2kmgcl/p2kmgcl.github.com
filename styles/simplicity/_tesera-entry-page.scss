@@ -3,10 +3,16 @@
 
   pre {
     border-radius: $roundness;
+    box-shadow: 50vw 0 0 #1e1e1e, -50vw 0 0 #1e1e1e;
+
+    &[class] {
+      padding: 1em 0;
+    }
 
     &[data-preview-ready] + iframe {
-      border-bottom-left-radius: $roundness;
-      border-bottom-right-radius: $roundness;
+      border-radius: $roundness;
+      border: solid #1e1e1e 0.5em;
+      margin-top: 2em;
     }
   }
 

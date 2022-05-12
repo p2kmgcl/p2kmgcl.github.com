@@ -136,12 +136,18 @@ export default function PostEntry({ entry }: { entry: Post }) {
         codeElement.classList.contains('language-html') &&
         !preElement.dataset.previewReady
       ) {
+        const button = document.createElement('button');
         const iframeId = (nextIframeId++).toString();
         preElement.dataset.previewReady = 'true';
 
-        preElement.addEventListener('click', () => {
+        preElement.appendChild(button);
+        button.classList.add('data-preview-button');
+        button.type = 'button';
+        button.textContent = 'Show preview';
+
+        button.addEventListener('click', () => {
           preElement.dataset.previewLoaded = 'true';
-          preElement.title = 'Click to reload preview';
+          button.textContent = 'Reload preview';
           renderIframe(wrapperElement, preElement, codeElement, iframeId);
         });
       }
