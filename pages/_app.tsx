@@ -15,6 +15,7 @@ import {
   APPLY_DARK_MODE_SCRIPT,
   DarkModeButton,
 } from '../components/DarkModeButton';
+import { ShuffleThemeButton } from '../components/ShuffleThemeButton';
 
 interface AppProps {
   Component: FC<{
@@ -123,6 +124,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
             </Anchor>
           )}
           <DarkModeButton />
+          <ShuffleThemeButton />
         </Nav>
       ) : null}
 

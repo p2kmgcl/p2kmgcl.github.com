@@ -28,7 +28,7 @@ export const APPLY_DARK_MODE_SCRIPT = `
     const queryValue = globalThis.matchMedia?.(DARK_MODE_QUERY).matches || false;
     const isDark = preference === DARK_MODE_STATUS.dark || queryValue;
     document.documentElement.dataset.colorScheme = isDark ? 'dark' : 'light';
-    document.documentElement.style.backgroundColor = isDark ? '#1e1e1e' : '#fafafa';
+    document.documentElement.style.backgroundColor = isDark ? '#1e1e1e' : 'white';
   })();
 `;
 
@@ -60,15 +60,18 @@ export const DarkModeButton: FC<{}> = () => {
 
   useEffect(() => {
     document.documentElement.dataset.colorScheme = isDark ? 'dark' : 'light';
+    document.documentElement.style.backgroundColor = isDark
+      ? '#1e1e1e'
+      : 'white';
   }, [isDark]);
 
   const handleClick = () => {
-    setPreference((prevDarkMode) => {
+    setPreference((prevPreference) => {
       let nextDarkMode = DARK_MODE_STATUS.auto;
 
-      if (prevDarkMode === DARK_MODE_STATUS.auto) {
+      if (prevPreference === DARK_MODE_STATUS.auto) {
         return queryValue ? DARK_MODE_STATUS.light : DARK_MODE_STATUS.dark;
-      } else if (prevDarkMode === DARK_MODE_STATUS.dark) {
+      } else if (prevPreference === DARK_MODE_STATUS.dark) {
         nextDarkMode = DARK_MODE_STATUS.light;
       } else {
         nextDarkMode = DARK_MODE_STATUS.dark;

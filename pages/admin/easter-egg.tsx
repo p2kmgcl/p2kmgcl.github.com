@@ -1,12 +1,14 @@
 import Head from 'next/head';
 import { Anchor } from '../../components/Anchor';
 import { Article } from '../../components/HTMLElements';
+import { THEME_MANAGER_KEY } from '../../components/ThemeContext';
 
 const styles = `
 article {
-  font-size: 32px;
+  font-size: min(32px, 4vw);
   max-width: 42ch;
-  margin: 2em auto;
+  margin: 0 auto;
+  padding: 2em;
 }
 `;
 
@@ -42,7 +44,7 @@ export default function EasterEgg() {
         </p>
 
         <p>
-          Take me <Anchor href="/">home</Anchor>.
+          <Anchor href={`/?${THEME_MANAGER_KEY}`}>Enable theme manager</Anchor>.
         </p>
       </Article>
     </>

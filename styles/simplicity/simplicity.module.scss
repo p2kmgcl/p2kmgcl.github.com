@@ -14,6 +14,7 @@ $roundness: 4px;
   [data-color-scheme='dark'] & {
     background-color: hsl(0, 0%, 10%);
     color: hsl(0, 0%, 95%);
+    color-scheme: dark;
   }
 
   @media (min-width: 768px) {
@@ -193,8 +194,26 @@ $roundness: 4px;
     flex-grow: 1;
   }
 
+  .anchor:last-of-type {
+    margin-right: 1ch;
+  }
+
   @media (max-width: 600px) {
-    flex-direction: column;
+    .anchor:not(:first-child) {
+      width: 100%;
+    }
+
+    .anchor:first-child {
+      order: 1;
+    }
+
+    .iconButton {
+      order: 2;
+    }
+
+    .anchor {
+      order: 3;
+    }
 
     .emoji {
       display: initial;

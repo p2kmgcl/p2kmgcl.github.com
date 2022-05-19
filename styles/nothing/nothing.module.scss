@@ -2,6 +2,13 @@
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu,
     Cantarell, Helvetica Neue, Arial, sans-serif;
   padding: 1em;
+  color-scheme: light;
+
+  [data-color-scheme='dark'] & {
+    color: #f1f1f1;
+    background: #1e1e1e;
+    color-scheme: dark;
+  }
 }
 
 .nav {
@@ -9,7 +16,8 @@
   flex-direction: column;
   align-items: flex-start;
 
-  .anchor {
+  .anchor,
+  .iconButton {
     margin-bottom: 0.25em;
   }
 }

@@ -3,6 +3,7 @@ import {
   Dispatch,
   FC,
   PropsWithChildren,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -25,20 +26,29 @@ const ThemeContext = createContext<{
   setThemeId: Dispatch<ThemeId>;
   theme: Theme;
   setTheme: Dispatch<Theme>;
+  reloadThemeManager: () => void;
 }>({
   themeId: DEFAULT_THEME_ID,
   setThemeId: () => {},
   theme: DEFAULT_THEME as unknown as Theme,
   setTheme: () => {},
+  reloadThemeManager: () => {},
 });
+
+export const THEME_MANAGER_KEY = 'theme-manager';
 
 export const ThemeContextProvider: FC<PropsWithChildren<{}>> = ({
   children,
 }) => {
   const [themeId, setThemeId] = useState<ThemeId>(DEFAULT_THEME_ID);
   const [theme, setTheme] = useState(DEFAULT_THEME as unknown as Theme);
+  const [reloadFlag, setReloadFlag] = useState(false);
 
   useEffect(() => {
+    if (!localStorage.getItem(THEME_MANAGER_KEY)) {
+      return;
+    }
+
     // @ts-ignore
     if (!window.ThemeManager) {
       console.log(
@@ -82,10 +92,16 @@ export const ThemeContextProvider: FC<PropsWithChildren<{}>> = ({
       setRandomTheme,
       getThemeList,
     };
-  }, [themeId, setThemeId]);
+  }, [themeId, setThemeId, reloadFlag]);
+
+  const reloadThemeManager = useCallback(() => {
+    setReloadFlag((prevFlag) => !prevFlag);
+  }, [setReloadFlag]);
 
   return (
-    <ThemeContext.Provider value={{ themeId, setThemeId, theme, setTheme }}>
+    <ThemeContext.Provider
+      value={{ themeId, setThemeId, theme, setTheme, reloadThemeManager }}
+    >
       {children}
     </ThemeContext.Provider>
   );
@@ -93,4 +109,8 @@ export const ThemeContextProvider: FC<PropsWithChildren<{}>> = ({
 
 export function useTheme() {
   return useContext(ThemeContext).theme;
+}
+
+export function useReloadThemeManager() {
+  return useContext(ThemeContext).reloadThemeManager;
 }
