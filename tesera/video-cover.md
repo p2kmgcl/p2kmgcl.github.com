@@ -7,5 +7,5 @@ origin: /admin/video-cover
 language: en
 emoji: 📹
 summary: Auto generated overlay for Twitch streams.
-tags: [experiment]
+tags: [post]
 ---

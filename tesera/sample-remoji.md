@@ -8,5 +8,5 @@ language: en
 emoji: 😵‍💫
 summary:
   Test to check how to create a page with flying emojis that follow the cursor.
-tags: [experiment]
+tags: [post]
 ---

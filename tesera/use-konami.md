@@ -6,7 +6,7 @@ draft: false
 date: 2021-07-28
 mood: En silencio
 emoji: 🎮
-tags: [experiment]
+tags: [post]
 summary: >
   Executes given callback when Konami Code has been typed by users before a
   given timeout has expired.
