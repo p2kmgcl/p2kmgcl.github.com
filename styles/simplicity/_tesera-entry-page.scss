@@ -3,7 +3,13 @@
 
   pre {
     border-radius: $roundness;
-    box-shadow: 50vw 0 0 #1e1e1e, -50vw 0 0 #1e1e1e;
+
+    $shadows: ();
+    @for $i from 1 through 10 {
+      $shadows: append($shadows, #{$i * 40}ch 0 0 #1e1e1e, comma);
+      $shadows: append($shadows, -#{$i * 40}ch 0 0 #1e1e1e, comma);
+    }
+    box-shadow: $shadows;
 
     &[class] {
       padding: 1em 0;
