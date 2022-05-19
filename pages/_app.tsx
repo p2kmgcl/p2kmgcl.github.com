@@ -11,6 +11,10 @@ import { Router } from 'next/router';
 import { ThemeContextProvider, useTheme } from '../components/ThemeContext';
 import { TagListItem } from '../components/TagListItem';
 import TeseraEntry from './tesera/entry/[slug]';
+import {
+  APPLY_DARK_MODE_SCRIPT,
+  DarkModeButton,
+} from '../components/DarkModeButton';
 
 interface AppProps {
   Component: FC<{
@@ -102,6 +106,8 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
             href={`/favicon/favicon-${size}.png`}
           />
         ))}
+
+        <script dangerouslySetInnerHTML={{ __html: APPLY_DARK_MODE_SCRIPT }} />
       </Head>
 
       {!rawContent ? (
@@ -116,6 +122,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
               <Emoji>📓</Emoji> {pkg.config.blogName}
             </Anchor>
           )}
+          <DarkModeButton />
         </Nav>
       ) : null}
 

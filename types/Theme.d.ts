@@ -23,6 +23,7 @@ export interface Theme {
   anchor: string;
   anchorExternal: string;
   emoji: string;
+  iconButton: string;
   time: string;
 
   entryList: string;

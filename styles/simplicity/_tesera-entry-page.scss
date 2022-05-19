@@ -43,7 +43,7 @@
       color: hsl(0, 0%, 35%);
       margin: 0.25em 0;
 
-      @media (prefers-color-scheme: dark) {
+      [data-color-scheme='dark'] & {
         color: hsl(0, 0%, 60%);
       }
     }
@@ -86,7 +86,7 @@
       border-radius: $roundness;
       text-align: justify;
 
-      @media (prefers-color-scheme: dark) {
+      [data-color-scheme='dark'] & {
         background-color: hsl(0, 0%, 15%);
       }
 
@@ -97,7 +97,7 @@
         padding: 0 1ch 0.75ch 1ch;
         display: block;
 
-        @media (prefers-color-scheme: dark) {
+        [data-color-scheme='dark'] & {
           color: hsl(0, 0%, 50%);
         }
       }
@@ -120,7 +120,7 @@
       position: relative;
       order: 0;
 
-      @media (prefers-color-scheme: dark) {
+      [data-color-scheme='dark'] & {
         background-color: hsl(0, 0%, 15%);
       }
 
@@ -159,7 +159,7 @@
       hsl(0, 0%, 100%) 100%
     );
 
-    @media (prefers-color-scheme: dark) {
+    [data-color-scheme='dark'] & {
       border-color: hsl(0, 0%, 15%);
       background: linear-gradient(
         220deg,

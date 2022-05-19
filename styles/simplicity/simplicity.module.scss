@@ -11,7 +11,7 @@ $roundness: 4px;
   color: hsl(0, 0%, 5%);
   min-height: 100vh;
 
-  @media (prefers-color-scheme: dark) {
+  [data-color-scheme='dark'] & {
     background-color: hsl(0, 0%, 10%);
     color: hsl(0, 0%, 95%);
   }
@@ -69,7 +69,7 @@ $roundness: 4px;
   align-items: flex-start;
   color: hsl(208, 90%, 43%);
 
-  @media (prefers-color-scheme: dark) {
+  [data-color-scheme='dark'] & {
     color: hsl(208, 60%, 65%);
   }
 }
@@ -77,8 +77,29 @@ $roundness: 4px;
 .anchor:hover {
   color: hsl(208, 90%, 25%);
 
-  @media (prefers-color-scheme: dark) {
+  [data-color-scheme='dark'] & {
     color: hsl(208, 60%, 90%);
+  }
+}
+
+.iconButton {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 1.5em;
+  height: 1.5em;
+  color: hsl(208, 90%, 43%);
+  display: grid;
+  place-items: center;
+
+  &:hover {
+    color: hsl(208, 90%, 25%);
+
+    [data-color-scheme='dark'] & {
+      color: hsl(208, 60%, 90%);
+    }
   }
 }
 
@@ -94,7 +115,7 @@ $roundness: 4px;
   &:hover {
     background: hsl(0, 0%, 95%);
 
-    @media (prefers-color-scheme: dark) {
+    [data-color-scheme='dark'] & {
       background: hsl(0, 0%, 15%);
     }
   }
