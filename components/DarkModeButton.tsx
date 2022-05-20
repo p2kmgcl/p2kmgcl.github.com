@@ -28,7 +28,6 @@ export const APPLY_DARK_MODE_SCRIPT = `
     const queryValue = globalThis.matchMedia?.(DARK_MODE_QUERY).matches || false;
     const isDark = preference === DARK_MODE_STATUS.dark || queryValue;
     document.documentElement.dataset.colorScheme = isDark ? 'dark' : 'light';
-    document.documentElement.style.backgroundColor = isDark ? '#1e1e1e' : 'white';
   })();
 `;
 
@@ -60,9 +59,6 @@ export const DarkModeButton: FC<{}> = () => {
 
   useEffect(() => {
     document.documentElement.dataset.colorScheme = isDark ? 'dark' : 'light';
-    document.documentElement.style.backgroundColor = isDark
-      ? '#1e1e1e'
-      : 'white';
   }, [isDark]);
 
   const handleClick = () => {

@@ -108,7 +108,11 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
           />
         ))}
 
-        <script dangerouslySetInnerHTML={{ __html: APPLY_DARK_MODE_SCRIPT }} />
+        {!rawContent ? (
+          <script
+            dangerouslySetInnerHTML={{ __html: APPLY_DARK_MODE_SCRIPT }}
+          />
+        ) : null}
       </Head>
 
       {!rawContent ? (

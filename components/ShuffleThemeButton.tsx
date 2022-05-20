@@ -12,7 +12,6 @@ export const ShuffleThemeButton = () => {
   useEffect(() => {
     if (globalThis.localStorage.getItem(THEME_MANAGER_KEY)) {
       setThemeManagerEnabled(true);
-      return;
     }
 
     const url = new URL(globalThis.location.href);
@@ -23,7 +22,6 @@ export const ShuffleThemeButton = () => {
       url.searchParams.delete(THEME_MANAGER_KEY);
       globalThis.history.replaceState(null, '', url.toString());
       reloadThemeManager();
-      return;
     }
   }, [reloadThemeManager]);
 

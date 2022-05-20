@@ -5,7 +5,7 @@ import { THEME_MANAGER_KEY } from '../../components/ThemeContext';
 
 const styles = `
 article {
-  font-size: min(32px, 4vw);
+  font-size: min(2rem, 4vw);
   max-width: 42ch;
   margin: 0 auto;
   padding: 2em;
