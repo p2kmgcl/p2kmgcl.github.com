@@ -202,20 +202,21 @@ $roundness: 4px;
   }
 
   @media (max-width: 600px) {
-    .anchor:not(:first-child) {
-      width: 100%;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    gap: 0;
 
-    .anchor:first-child {
-      order: 1;
+    .anchor {
+      flex-grow: 0;
+      width: auto;
+      padding: 0.5ch 1ch 0.5ch 0;
     }
 
     .iconButton {
-      order: 2;
-    }
-
-    .anchor {
-      order: 3;
+      position: absolute;
+      right: 0.5em;
+      top: 1em;
     }
 
     .emoji {
