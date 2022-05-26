@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { renderToString } from 'react-dom/server';
 import { loadPrism } from '../../../utils/loadPrism';
 import { Anchor } from '../../Anchor';
 import { Emoji } from '../../Emoji';
@@ -21,6 +22,7 @@ import { TagList } from '../../TagList';
 import { useTheme } from '../../ThemeContext';
 import { classNames } from '../../../utils/classNames';
 import { Post } from '../../../types/Entry';
+import { Eye } from '../../icons/Eye';
 
 let nextIframeId = 0;
 
@@ -118,13 +120,10 @@ export default function PostEntry({ entry }: { entry: Post }) {
         wrapperElement.appendChild(iframe);
       }
 
-      iframe.addEventListener(
-        'animationend',
-        () => {
-          iframe.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        },
-        { once: true },
-      );
+      iframe.scrollIntoView({
+        block: 'center',
+        behavior: 'smooth',
+      });
     };
 
     for (const codeElement of codeElementList) {
@@ -143,11 +142,12 @@ export default function PostEntry({ entry }: { entry: Post }) {
         preElement.appendChild(button);
         button.classList.add('data-preview-button');
         button.type = 'button';
-        button.textContent = 'Show preview';
+        button.setAttribute('aria-label', 'Show preview');
+        button.innerHTML = renderToString(<Eye />);
 
         button.addEventListener('click', () => {
           preElement.dataset.previewLoaded = 'true';
-          button.textContent = 'Reload preview';
+          button.setAttribute('aria-label', 'Reload preview');
           renderIframe(wrapperElement, preElement, codeElement, iframeId);
         });
       }
