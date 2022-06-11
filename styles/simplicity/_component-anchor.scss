@@ -1,0 +1,19 @@
+.anchor,
+.anchor:visited {
+  display: inline-flex;
+  min-height: 1rem;
+  align-items: flex-start;
+  color: hsl(208, 90%, 43%);
+
+  [data-color-scheme='dark'] & {
+    color: hsl(208, 60%, 65%);
+  }
+}
+
+.anchor:hover {
+  color: hsl(208, 90%, 25%);
+
+  [data-color-scheme='dark'] & {
+    color: hsl(208, 60%, 90%);
+  }
+}

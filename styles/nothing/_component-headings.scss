@@ -1,0 +1,17 @@
+.h1 {
+  margin: 1em auto 0.5em 0;
+}
+
+.h2 {
+  font-size: 1.5em;
+  margin: 1em auto 0.5em auto;
+
+  &[aria-label] {
+    font-size: 0;
+
+    &::after {
+      content: attr(aria-label);
+      font-size: 1.5em;
+    }
+  }
+}

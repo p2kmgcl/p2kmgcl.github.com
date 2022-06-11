@@ -1,0 +1,44 @@
+.mainHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .ul,
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 1ch;
+  }
+
+  .ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .anchor,
+  .iconButton {
+    margin-bottom: 0.25em;
+  }
+
+  .iconButton {
+    display: inline-flex;
+    gap: 1ch;
+  }
+
+  .iconButton::after {
+    content: attr(aria-label);
+  }
+}
+
+.mainWrapper {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu,
+    Cantarell, Helvetica Neue, Arial, sans-serif;
+  padding: 1em;
+  color-scheme: light;
+
+  [data-color-scheme='dark'] & {
+    color: #f1f1f1;
+    background: #1e1e1e;
+    color-scheme: dark;
+  }
+}
