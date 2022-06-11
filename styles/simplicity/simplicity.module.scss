@@ -28,7 +28,7 @@ $roundness: 4px;
   }
 }
 
-.mainMenu,
+.mainHeader,
 .mainContent,
 .mainFooter {
   margin: 0 auto;
@@ -87,6 +87,7 @@ $roundness: 4px;
 }
 
 .iconButton {
+  display: inline-block;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: none;
@@ -183,40 +184,37 @@ $roundness: 4px;
   }
 }
 
-.mainMenu {
+.mainHeader {
   display: flex;
-  gap: 1ch;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  gap: 2ch;
+
+  .ul,
+  .section {
+    display: flex;
+    gap: 1ch;
+  }
+
+  .nav {
+    flex-grow: 1;
+  }
+
+  .ul {
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+
+    > .li:first-child {
+      flex-grow: 1;
+    }
+  }
 
   .emoji {
     display: none;
   }
 
-  .anchor:first-child {
-    flex-grow: 1;
-  }
-
-  .anchor:last-of-type {
-    margin-right: 1ch;
-  }
-
   @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    gap: 0;
-
-    .anchor {
-      flex-grow: 0;
-      width: auto;
-      padding: 0.5ch 1ch 0.5ch 0;
-    }
-
-    .iconButton {
-      position: absolute;
-      right: 0.5em;
-      top: 1em;
+    .ul {
+      flex-direction: column;
     }
 
     .emoji {

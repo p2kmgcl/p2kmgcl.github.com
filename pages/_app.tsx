@@ -3,7 +3,16 @@ import '../styles/entry-content.scss';
 import Head from 'next/head';
 import { Emoji } from '../components/Emoji';
 import { Anchor } from '../components/Anchor';
-import { Footer, H1, H2, Nav } from '../components/HTMLElements';
+import {
+  Footer,
+  H1,
+  H2,
+  Header,
+  Nav,
+  Section,
+  Ul,
+  Li,
+} from '../components/HTMLElements';
 import pkg from '../package.json';
 import { FC } from 'react';
 import { Entry } from '../types/Entry';
@@ -116,26 +125,42 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
       </Head>
 
       {!rawContent ? (
-        <Nav aria-label="Main menu" className={theme.mainMenu}>
-          <Anchor aria-label="Home" href="/">
-            <Emoji>🏠</Emoji> {pkg.name}
-          </Anchor>
-          {pageProps.tagList?.length ? (
-            pageProps.tagList.map((tag) => <TagListItem key={tag} tag={tag} />)
-          ) : (
-            <Anchor href={`/${pkg.config.blogSlug}`}>
-              <Emoji>📓</Emoji> {pkg.config.blogName}
-            </Anchor>
-          )}
-          <DarkModeButton />
-          <ShuffleThemeButton />
-        </Nav>
+        <Header className={theme.mainHeader}>
+          <H1>{pkg.author.name}</H1>
+
+          <Nav aria-label="Main menu">
+            <Ul>
+              <Li aria-label="Home">
+                <Anchor href="/">
+                  <Emoji>🏠</Emoji> {pkg.name}
+                </Anchor>
+              </Li>
+              {pageProps.tagList?.length ? (
+                pageProps.tagList.map((tag) => (
+                  <Li key={tag}>
+                    <TagListItem tag={tag} />
+                  </Li>
+                ))
+              ) : (
+                <Li>
+                  <Anchor href={`/${pkg.config.blogSlug}`}>
+                    <Emoji>📓</Emoji> {pkg.config.blogName}
+                  </Anchor>
+                </Li>
+              )}
+            </Ul>
+          </Nav>
+
+          <Section aria-label="Settings menu" role="group">
+            <DarkModeButton />
+            <ShuffleThemeButton />
+          </Section>
+        </Header>
       ) : null}
 
-      <main className={rawContent ? '' : theme.mainContent}>
-        {!rawContent ? <H1>{pkg.author.name}</H1> : null}
+      <div className={rawContent ? '' : theme.mainContent}>
         <Component params={router.query as any} {...pageProps} />
-      </main>
+      </div>
 
       {!rawContent ? (
         <Footer className={theme.mainFooter}>

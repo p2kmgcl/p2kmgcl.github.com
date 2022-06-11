@@ -11,14 +11,35 @@
   }
 }
 
-.nav {
+.mainHeader {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
+  .ul,
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 1ch;
+  }
+
+  .ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
   .anchor,
   .iconButton {
     margin-bottom: 0.25em;
+  }
+
+  .iconButton {
+    display: inline-flex;
+    gap: 1ch;
+  }
+
+  .iconButton::after {
+    content: attr(aria-label);
   }
 }
 
@@ -28,7 +49,7 @@
 }
 
 .h1 {
-  margin: 1em auto 0.5em auto;
+  margin: 1em auto 0.5em 0;
 }
 
 .h2 {

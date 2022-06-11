@@ -1,7 +1,7 @@
 export interface Theme {
   mainWrapper: string;
 
-  mainMenu: string;
+  mainHeader: string;
   mainContent: string;
   mainFooter: string;
 
@@ -13,6 +13,8 @@ export interface Theme {
   h2: string;
   h3: string;
   h4: string;
+  ul: string;
+  li: string;
   image: string;
   nav: string;
   paragraph: string;

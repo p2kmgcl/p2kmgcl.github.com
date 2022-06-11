@@ -72,7 +72,7 @@
   height: auto;
 }
 
-.mainMenu {
+.mainHeader {
   @include vignette.regular();
   display: flex;
   justify-content: flex-end;
