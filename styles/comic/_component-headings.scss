@@ -1,0 +1,25 @@
+@use 'mixin-text';
+
+.h1 {
+  position: absolute;
+  inset-inline-start: -9999px;
+  inset-block-start: -9999px;
+  height: 1px;
+  width: 1px;
+}
+
+.h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5em;
+  color: orange;
+  @include mixin-text.shadow(black, -2, 5);
+  text-align: center;
+  max-width: 20ch;
+  margin: 1em auto;
+  word-break: break-word;
+
+  @media (min-width: 900px) {
+    font-size: 4em;
+    @include mixin-text.shadow(black, -2, 10);
+  }
+}

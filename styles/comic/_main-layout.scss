@@ -1,0 +1,75 @@
+@use 'mixin-vignette';
+
+.mainWrapper {
+  font-family: 'Mali', sans-serif;
+  font-size: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainWrapper::after {
+  content: '';
+  background-image: radial-gradient(#eee 0%, #eee 40%, white 50%, white 100%);
+  background-size: 8px 8px;
+  position: fixed;
+  top: -50vmax;
+  left: -50vmax;
+  width: 200vmax;
+  height: 200vmax;
+  transform: rotate(13deg);
+  z-index: -1;
+}
+
+.mainContent {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 2em;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.mainHeader {
+  @include mixin-vignette.regular();
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  font-size: 1em;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+
+    .anchor:first-child {
+      margin-right: auto;
+    }
+
+    .anchor:not(:first-child) {
+      margin-left: 1ch;
+    }
+  }
+}
+
+.mainFooter {
+  @include mixin-vignette.regular();
+
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  > .h2 {
+    position: absolute;
+    margin: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

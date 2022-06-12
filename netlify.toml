@@ -7,3 +7,4 @@
   framework = "#custom"
   command = "yarn run start:next"
   targetPort = 3000
+  autoLaunch = false

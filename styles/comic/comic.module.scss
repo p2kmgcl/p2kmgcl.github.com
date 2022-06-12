@@ -1,220 +1,23 @@
-@use 'vignette';
-@use 'text';
-
 @import '~@fontsource/bangers';
 @import '~@fontsource/inconsolata';
 @import '~@fontsource/mali';
 
-.mainWrapper {
-  font-family: 'Mali', sans-serif;
-  font-size: 1.25rem;
+@import 'component-anchor';
+@import 'component-article';
+@import 'component-emoji';
+@import 'component-entry-list';
+@import 'component-headings';
+@import 'component-icon-button';
+@import 'component-strong';
+@import 'component-tag-list';
 
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+@import 'entry-cheat-sheet';
+@import 'entry-post';
 
-.mainWrapper::after {
-  content: '';
-  background-image: radial-gradient(#eee 0%, #eee 40%, white 50%, white 100%);
-  background-size: 8px 8px;
-  position: fixed;
-  top: -50vmax;
-  left: -50vmax;
-  width: 200vmax;
-  height: 200vmax;
-  transform: rotate(13deg);
-  z-index: -1;
-}
+@import 'main-layout';
 
-.h1 {
-  position: absolute;
-  inset-inline-start: -9999px;
-  inset-block-start: -9999px;
-  height: 1px;
-  width: 1px;
-}
-
-.mainContent {
-  flex-grow: 1;
-  display: flex;
-  align-items: stretch;
-  padding: 2em;
-  margin: 0 auto;
-  max-width: 1300px;
-}
-
-.anchor {
-  text-decoration: none;
-  display: inline-block;
-  padding: 0.5em 0.25em;
-  margin: 0.2em 0.1em;
-  color: inherit;
-  font-weight: 700;
-  transition: color ease 0.3s, transform ease 0.3s, text-shadow ease 0.3s;
-  color: rgb(160, 104, 0);
-
-  &:hover,
-  &:focus-visible {
-    color: black;
-    font-weight: bold;
-    @include text.shadow(yellow, -5, 5, 'cross');
-  }
-}
-
-.strong {
-  font-weight: 900;
-}
-
-.image {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}
-
-.mainHeader {
-  @include vignette.regular();
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  flex-wrap: wrap;
-  font-size: 1em;
-
-  @media (min-width: 480px) {
-    flex-direction: row;
-
-    .anchor:first-child {
-      margin-right: auto;
-    }
-
-    .anchor:not(:first-child) {
-      margin-left: 1ch;
-    }
-  }
-}
-
-.mainFooter {
-  @include vignette.regular();
-
-  font-size: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  > .h2 {
-    position: absolute;
-    margin: 0;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
-.entryList {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-column-gap: 0.5em;
-  grid-row-gap: 0.5em;
-  margin: 0.25em 0 2em 0;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
-  }
-}
-
-.entryListItem {
-  @include vignette.rotated();
-  outline: solid 0 orange;
-  transition: outline ease 0.3s, z-index linear 0s 0.3s;
-  z-index: 0;
-
-  .anchor {
-    text-decoration: none;
-  }
-
-  > .header {
-    margin-bottom: 0.5em;
-
-    > .h3 {
-      margin: 0;
-
-      > .anchor::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      > .anchorExternal::after {
-        content: '↗️';
-        font-size: 0.75em;
-        margin-left: 0.25em;
-        vertical-align: super;
-        opacity: 0.5;
-      }
-    }
-
-    > .time {
-      color: #666;
-      font-size: 0.875em;
-    }
-  }
-
-  > .paragraph {
-    margin: 0;
-
-    > .anchor {
-      display: inline;
-      text-decoration: none;
-
-      > .emoji {
-        display: none;
-      }
-
-      &:after {
-        content: '...';
-      }
-    }
-  }
-
-  &:focus-within,
-  &:hover,
-  &:focus-visible {
-    transition: outline ease 0.3s, z-index linear 0s;
-    outline: solid 0.5em orange;
-    z-index: 1;
-
-    .anchor {
-      text-shadow: none;
-    }
-  }
-}
-
-.h1,
-.h2 {
-  font-family: 'Bangers', cursive;
-  font-size: 2.5em;
-  color: orange;
-  @include text.shadow(black, -2, 5);
-  text-align: center;
-  max-width: 20ch;
-  margin: 1em auto;
-  word-break: break-word;
-
-  @media (min-width: 900px) {
-    font-size: 4em;
-    @include text.shadow(black, -2, 10);
-  }
-}
-
-@import 'index-page';
-@import 'tesera-entry-page';
-@import 'tesera-tag-page';
+@import 'page-home';
+@import 'page-raw-page';
+@import 'page-tesera-entry';
+@import 'page-tesera-index';
+@import 'page-tesera-tag';

@@ -1,0 +1,19 @@
+@use 'mixin-text';
+
+.anchor {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 0.25em;
+  margin: 0.2em 0.1em;
+  color: inherit;
+  font-weight: 700;
+  transition: color ease 0.3s, transform ease 0.3s, text-shadow ease 0.3s;
+  color: rgb(160, 104, 0);
+
+  &:hover,
+  &:focus-visible {
+    color: black;
+    font-weight: bold;
+    @include mixin-text.shadow(yellow, -5, 5, 'cross');
+  }
+}
