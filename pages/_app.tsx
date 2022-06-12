@@ -164,55 +164,65 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
 
       {!rawContent ? (
         <Footer className={theme.mainFooter}>
-          <H2 aria-label="Related links and social profiles">
-            {pkg.author.name}
-          </H2>
+          <H2 aria-label="Related links and social media">{pkg.author.name}</H2>
 
-          <Nav aria-label="Email">
-            <Anchor href={`mailto:${pkg.author.email}`}>
-              <Emoji>📮</Emoji> {pkg.author.email}
-            </Anchor>
-          </Nav>
+          <Nav>
+            <Ul>
+              <Li aria-label="Email">
+                <Anchor href={`mailto:${pkg.author.email}`}>
+                  <Emoji>📮</Emoji> {pkg.author.email}
+                </Anchor>
+              </Li>
 
-          <Nav aria-label="License">
-            <Anchor
-              href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
-            >
-              <Emoji>🤖</Emoji> This is all yours, just remember my name
-            </Anchor>
-          </Nav>
+              <Li aria-label="License">
+                <Anchor
+                  href={`${pkg.repository.url}/blob/${pkg.config.mainBranch}/${pkg.config.licensePath}`}
+                >
+                  <Emoji>🤖</Emoji> This is all yours, just remember my name
+                </Anchor>
+              </Li>
 
-          <Nav aria-label="External profiles">
-            <Anchor
-              href="https://github.com/p2kmgcl"
-              title={`${pkg.author.name}'s Github profile`}
-            >
-              <Emoji>🐱</Emoji> Github
-            </Anchor>
-            <Anchor
-              href="https://mobile.twitter.com/p2kmgcl"
-              title={`${pkg.author.name}'s Twitter profile`}
-            >
-              <Emoji>🐦</Emoji> Twitter
-            </Anchor>
-            <Anchor
-              href="https://www.linkedin.com/in/p2kmgcl/"
-              title={`${pkg.author.name}'s LinkedIn profile`}
-            >
-              <Emoji>👔</Emoji> LinkedIn
-            </Anchor>
-            <Anchor
-              href="https://twitch.tv/p2kmgcl"
-              title={`${pkg.author.name}'s Twitch channel`}
-            >
-              <Emoji>📺</Emoji> Twitch
-            </Anchor>
-            <Anchor
-              href="https://www.youtube.com/p2kmgcl"
-              title={`${pkg.author.name}'s YouTube channel`}
-            >
-              <Emoji>📹</Emoji> YouTube
-            </Anchor>
+              <Li>
+                <Anchor
+                  href="https://github.com/p2kmgcl"
+                  title={`${pkg.author.name}'s Github profile`}
+                >
+                  <Emoji>🐱</Emoji> Github
+                </Anchor>
+              </Li>
+              <Li>
+                <Anchor
+                  href="https://mobile.twitter.com/p2kmgcl"
+                  title={`${pkg.author.name}'s Twitter profile`}
+                >
+                  <Emoji>🐦</Emoji> Twitter
+                </Anchor>
+              </Li>
+              <Li>
+                <Anchor
+                  href="https://www.linkedin.com/in/p2kmgcl/"
+                  title={`${pkg.author.name}'s LinkedIn profile`}
+                >
+                  <Emoji>👔</Emoji> LinkedIn
+                </Anchor>
+              </Li>
+              <Li>
+                <Anchor
+                  href="https://twitch.tv/p2kmgcl"
+                  title={`${pkg.author.name}'s Twitch channel`}
+                >
+                  <Emoji>📺</Emoji> Twitch
+                </Anchor>
+              </Li>
+              <Li>
+                <Anchor
+                  href="https://www.youtube.com/p2kmgcl"
+                  title={`${pkg.author.name}'s YouTube channel`}
+                >
+                  <Emoji>📹</Emoji> YouTube
+                </Anchor>
+              </Li>
+            </Ul>
           </Nav>
         </Footer>
       ) : null}

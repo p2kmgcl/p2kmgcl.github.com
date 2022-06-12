@@ -96,16 +96,13 @@
     margin-bottom: 0;
   }
 
-  > .nav {
-    > .anchor {
-      margin: 1ch 1ch 0 0;
-    }
-
-    @media (min-width: 1280px) {
-      > .anchor + .anchor {
-        margin-left: 2ch;
-        margin-right: 0;
-      }
+  .nav {
+    .ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1ch 2ch;
     }
   }
 
@@ -116,6 +113,14 @@
   @media (min-width: 900px) {
     margin: 5rem auto 0;
     text-align: center;
+
+    .ul {
+      justify-content: center;
+
+      .li[aria-label='License'] {
+        width: 100%;
+      }
+    }
   }
 
   @media (min-width: 1921px) {
