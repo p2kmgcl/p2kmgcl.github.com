@@ -7,6 +7,7 @@ import useQueryState from '../../utils/useQueryState';
 const style = `
   body {
     background: #eee;
+    font-family: system-ui;
   }
 
   .wrapper {
@@ -123,25 +124,30 @@ function Preview({ url, width, height, columnCount }: PreviewProps) {
 }
 
 const SIZES = {
+  tv: {
+    label: '4K TV',
+    width: 3840,
+    height: 2160,
+  },
   desktop: {
-    label: '🖥️',
+    label: 'Desktop',
     width: 1920,
     height: 1080,
   },
   laptop: {
-    label: '💻',
+    label: 'Laptop',
     width: 1280,
     height: 800,
   },
   tablet: {
-    label: '📲',
-    width: 960,
-    height: 720,
+    label: 'iPad Air',
+    width: 820,
+    height: 1180,
   },
   phone: {
-    label: '📱',
-    width: 480,
-    height: 640,
+    label: 'iPhone 13 Pro',
+    width: 390,
+    height: 844,
   },
 } as const;
 
