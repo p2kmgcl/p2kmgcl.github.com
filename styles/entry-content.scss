@@ -1,23 +1,6 @@
 .tesera-entry-content {
   @import 'prism-themes/themes/prism-vsc-dark-plus';
 
-  a,
-  a:visited {
-    color: hsl(208, 90%, 43%);
-
-    [data-color-scheme='dark'] & {
-      color: hsl(208, 60%, 65%);
-    }
-  }
-
-  a:hover {
-    color: hsl(208, 90%, 25%);
-
-    [data-color-scheme='dark'] & {
-      color: hsl(208, 60%, 90%);
-    }
-  }
-
   h3 {
     font-size: 1.75em;
   }
@@ -65,7 +48,7 @@
     color: #d4d4d4;
     background: #1e1e1e;
 
-    &.language-html[data-preview-ready] {
+    &[data-preview-ready] {
       position: relative;
 
       .data-preview-button {

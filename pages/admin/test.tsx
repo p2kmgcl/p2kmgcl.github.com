@@ -228,6 +228,7 @@ export default function Test() {
           '/tesera/tag/talk/',
           '/tesera/entry/lorem-ipsum/',
           '/tesera/entry/use-konami/',
+          '/tesera/entry/creating-a-custom-select-element/',
           '/tesera/entry/freemarker/',
           '/admin/easter-egg/',
         ].map((url) => (
