@@ -1,20 +1,38 @@
 .tesera-entry-content {
   @import 'prism-themes/themes/prism-vsc-dark-plus';
 
+  a,
+  a:visited {
+    color: hsl(208, 90%, 43%);
+
+    [data-color-scheme='dark'] & {
+      color: hsl(208, 60%, 65%);
+    }
+  }
+
+  a:hover {
+    color: hsl(208, 90%, 25%);
+
+    [data-color-scheme='dark'] & {
+      color: hsl(208, 60%, 90%);
+    }
+  }
+
   h3 {
     font-size: 1.75em;
   }
 
   h4 {
-    font-size: 1.5em;
+    font-size: 1.25em;
+    text-decoration: dotted underline;
   }
 
   h5 {
-    font-size: 1.25em;
+    font-size: 1em;
   }
 
   h6 {
-    font-size: 1em;
+    font-size: 0.75em;
   }
 
   blockquote {
