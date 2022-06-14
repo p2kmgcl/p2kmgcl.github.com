@@ -13,13 +13,11 @@ summary: >
   found and explored during 2022.
 ---
 
-> Work in progress until December 31st.
+<div aria-role="alert" style="background-color: #fff3cd; color: black; padding: 1em; border-radius: 4px;">
+  ⚠️ Work in progress until December 31st.
+</div>
 
-### Log
-
-#### June 14th - JS functional programming
-
-#### June 7th - Intro to Kubernetes
+### Intro to Kubernetes (June 7th)
 
 I have been reading [Kubernetes documentation](https://kubernetes.io/docs/home/)
 and followed some basic tutorials to understand what is that about. As I
