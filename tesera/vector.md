@@ -118,4 +118,64 @@ function assertSameComponentCount(v1, v2) {
     );
   }
 }
+
+describe('Vector', () => {
+  describe('components', () => {
+    it('provides all given components', () => {
+      const v = new Vector(1, 2);
+      expect(v.components).to.deep.equal([1, 2]);
+    });
+
+    it('can be expressed as string', () => {
+      const v = new Vector(2, 1);
+      expect(v.toString()).to.equal('[2, 1]');
+    });
+
+    it('has easy access to first four dimensions', () => {
+      const v = new Vector(1, 2, 3, 4);
+      expect(v.components[0]).to.equal(v.x);
+      expect(v.components[1]).to.equal(v.y);
+      expect(v.components[2]).to.equal(v.z);
+      expect(v.components[3]).to.equal(v.t);
+    });
+  });
+
+  describe('#length', () => {
+    it('works for 2D vectors', () => {
+      const v = new Vector(0, 1);
+      expect(v.length).to.equal(1);
+    });
+
+    it('works for any number of dimensions', () => {
+      const v = new Vector(2, 2, 2, 2);
+      expect(v.length).to.equal(4);
+    });
+  });
+
+  describe('#angle', () => {
+    it('gives correct angle', () => {
+      const v = new Vector(1, 1);
+      expect(v.angle).to.equal(Math.PI / 4);
+    });
+
+    it('throws RangeError for wrong dimensions', () => {
+      const v = new Vector(1, 2, 3);
+      expect(() => v.angle).to.throw(RangeError);
+    });
+  });
+
+  describe('#add()', () => {
+    it('returns a new Vector with all added components', () => {
+      const v1 = new Vector(1, 0);
+      const v2 = new Vector(0, 1);
+      expect(v1.add(v2)).to.deep.equal(new Vector(1, 1));
+    });
+
+    it('throws RangeError for different dimensions', () => {
+      const v1 = new Vector(1, 0);
+      const v2 = new Vector(0, 1, 1);
+      expect(() => v1.add(v2)).to.throw(RangeError);
+    });
+  });
+});
 ```

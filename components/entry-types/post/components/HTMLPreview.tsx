@@ -4,6 +4,8 @@ export function HTMLPreview({ code }: { code: string }) {
   const entryContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (entryContentRef.current?.children.length) return;
+
     const runScripts = () => {
       if (!entryContentRef.current) {
         return;

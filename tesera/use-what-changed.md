@@ -13,6 +13,9 @@ summary: >
 ---
 
 ```js
+import * as React from 'https://unpkg.com/react@18/umd/react.production.min.js';
+const { useEffect } = React;
+
 export const useWhatChanged = (name, deps) => {
   const depsRef = useRef({ ...deps });
 

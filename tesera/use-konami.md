@@ -13,7 +13,8 @@ summary: >
 ---
 
 ```js
-import { useEffect } from 'react';
+import * as React from 'https://unpkg.com/react@18/umd/react.production.min.js';
+const { useEffect } = React;
 
 const KONAMI_CODE = [
   'ArrowUp',
@@ -28,16 +29,16 @@ const KONAMI_CODE = [
   'KeyA',
 ].join('');
 
-export const useKonami = (callback: () => void, timeout = 3000) => {
+export const useKonami = (callback, timeout = 3000) => {
   useEffect(() => {
     let code = '';
-    let clearCodeTimeoutId: NodeJS.Timeout;
+    let clearCodeTimeoutId;
 
     const clearCode = () => {
       code = '';
     };
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event) => {
       clearTimeout(clearCodeTimeoutId);
 
       code += event.code;
