@@ -69,6 +69,14 @@
     > .tagList {
       order: 0;
 
+      .ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1ch 2ch;
+        list-style: none;
+        padding-left: 0;
+      }
+
       > .tagListItem {
         min-height: 0;
 

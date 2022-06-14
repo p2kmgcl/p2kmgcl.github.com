@@ -36,12 +36,20 @@ export const TagListItem: FC<{ tag: string; renderAsLink?: boolean }> = ({
       className={theme.tagListItem}
       href={`/${pkg.config.blogSlug}/${pkg.config.blogTagSlug}/${tag}`}
     >
-      {emoji ? <Emoji>{emoji}</Emoji> : null}
+      {emoji ? (
+        <>
+          <Emoji>{emoji}</Emoji>{' '}
+        </>
+      ) : null}
       {label}
     </Anchor>
   ) : (
     <span className={theme.tagListItem}>
-      {emoji ? <Emoji>{emoji}</Emoji> : null}
+      {emoji ? (
+        <>
+          <Emoji>{emoji}</Emoji>{' '}
+        </>
+      ) : null}
       {label}
     </span>
   );
