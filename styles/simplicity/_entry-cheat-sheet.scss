@@ -49,7 +49,7 @@
       border: solid thin #444;
       border-left-width: 4px;
 
-      min-width: 40ch;
+      min-width: min(40ch, 100%);
       width: initial;
       flex-grow: 1;
 
