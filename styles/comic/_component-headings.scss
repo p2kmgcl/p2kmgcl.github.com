@@ -1,5 +1,3 @@
-@use 'mixin-text';
-
 .h1 {
   position: absolute;
   inset-inline-start: -9999px;
@@ -11,15 +9,25 @@
 .h2 {
   font-family: 'Bangers', cursive;
   font-size: 2.5em;
-  color: orange;
-  @include mixin-text.shadow(black, -2, 5);
   text-align: center;
   max-width: 20ch;
-  margin: 1em auto;
+  margin: 0 auto 2rem auto;
   word-break: break-word;
+  transform: translateX(-0.5rem);
+  color: $white;
+  text-shadow: 4px 4px 0 $blue2;
+
+  [data-color-scheme='dark'] & {
+    filter: drop-shadow(0 0 10px black);
+  }
+
+  .emoji {
+    display: none;
+  }
 
   @media (min-width: 900px) {
     font-size: 4em;
-    @include mixin-text.shadow(black, -2, 10);
+    margin: 0 auto 4rem auto;
+    transform: translateX(0);
   }
 }

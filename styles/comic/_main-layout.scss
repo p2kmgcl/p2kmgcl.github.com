@@ -3,15 +3,26 @@
 .mainWrapper {
   font-family: 'Mali', sans-serif;
   font-size: 1.25rem;
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  color-scheme: light;
+
+  [data-color-scheme='dark'] & {
+    color: #f1f1f1;
+    color-scheme: dark;
+  }
 }
 
 .mainWrapper::after {
   content: '';
-  background-image: radial-gradient(#eee 0%, #eee 40%, white 50%, white 100%);
+  background-color: $blue;
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
   background-size: 8px 8px;
   position: fixed;
   top: -50vmax;
@@ -20,56 +31,182 @@
   height: 200vmax;
   transform: rotate(13deg);
   z-index: -1;
+
+  [data-color-scheme='dark'] & {
+    background-color: $blue2;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  }
 }
 
 .mainContent {
   flex-grow: 1;
   display: flex;
   align-items: stretch;
-  padding: 2em;
+  padding: 2rem;
   margin: 0 auto;
-  max-width: 1300px;
+
+  @media (min-width: 900px) {
+    padding-top: 4rem;
+  }
+
+  @media (min-width: 1900px) {
+    padding: 4rem;
+  }
 }
 
 .mainHeader {
-  @include mixin-vignette.regular();
+  background-color: $blue;
+  border-bottom: solid $blue2 8px;
+  color: $white;
   display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  flex-wrap: wrap;
-  font-size: 1em;
+  flex-direction: column-reverse;
+  padding: 2rem 0 1rem 0;
 
-  @media (min-width: 480px) {
-    flex-direction: row;
+  [data-color-scheme='dark'] & {
+    background-color: $blue2;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
 
-    .anchor:first-child {
-      margin-right: auto;
+  .ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1ch 0.5ch;
+    justify-content: center;
+
+    .li:first-child {
+      font-family: 'Bangers', cursive;
+      width: 100%;
+      text-align: center;
+      height: 0;
+
+      .anchor {
+        position: relative;
+        top: -3.5rem;
+        font-size: 2.5rem;
+      }
+
+      .emoji {
+        display: none;
+      }
     }
 
-    .anchor:not(:first-child) {
-      margin-left: 1ch;
+    .anchor {
+      padding: 0 0.25em;
+    }
+  }
+
+  .section {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 1ch;
+    padding: 0.5rem 1rem;
+
+    .iconButton {
+      padding: 0.5rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 1ch;
+    padding: 2rem 1rem 1rem 1rem;
+
+    .nav {
+      flex-grow: 1;
+
+      .ul {
+        align-items: center;
+
+        .li:first-child {
+          width: auto;
+          height: auto;
+          flex-grow: 1;
+          text-align: left;
+
+          .anchor {
+            top: 0;
+          }
+        }
+      }
+    }
+
+    .iconButton {
+      padding: 0.65em 0;
     }
   }
 }
 
 .mainFooter {
-  @include mixin-vignette.regular();
+  color: $white;
+  background-color: $blue;
+  border-top: solid $blue2 8px;
+  padding: 2rem 1rem;
 
-  font-size: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  [data-color-scheme='dark'] & {
+    background-color: $blue2;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
 
-  > .h2 {
+  .h2 {
     position: absolute;
-    margin: 0;
-    width: 0;
-    height: 0;
-    overflow: hidden;
     opacity: 0;
     pointer-events: none;
+    font-size: 1px;
+    margin: 0;
+  }
+
+  .ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1ch 2ch;
+    text-align: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 auto;
+
+    .li[aria-label='Email'],
+    .li[aria-label='License'] {
+      font-size: 0.875em;
+      width: 100%;
+
+      .anchor::after {
+        transform: rotateZ(0) scaleX(0);
+      }
+
+      .anchor:hover::after,
+      .anchor:focus-visible::after {
+        transform: rotateZ(0) scaleX(1);
+      }
+    }
+
+    .li[aria-label='License'] {
+      margin-bottom: 1ch;
+    }
+
+    @media (min-width: 1900px) {
+      justify-content: flex-start;
+      padding: 1rem;
+
+      .li[aria-label='Email'],
+      .li[aria-label='License'] {
+        width: auto;
+      }
+
+      .li[aria-label='License'] {
+        flex-grow: 1;
+        text-align: left;
+      }
+    }
   }
 }

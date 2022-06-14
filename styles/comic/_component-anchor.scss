@@ -1,19 +1,30 @@
-@use 'mixin-text';
-
 .anchor {
   text-decoration: none;
   display: inline-block;
-  padding: 0.5em 0.25em;
-  margin: 0.2em 0.1em;
-  color: inherit;
+  padding: 0;
   font-weight: 700;
-  transition: color ease 0.3s, transform ease 0.3s, text-shadow ease 0.3s;
-  color: rgb(160, 104, 0);
+  color: inherit;
+  position: relative;
 
-  &:hover,
-  &:focus-visible {
-    color: black;
-    font-weight: bold;
-    @include mixin-text.shadow(yellow, -5, 5, 'cross');
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $orange;
+    transform: rotateZ(-3deg) scaleX(0);
+    transform-origin: center left;
+    transition: transform ease 0.1s;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: rotateZ(-3deg) scaleX(1);
   }
 }

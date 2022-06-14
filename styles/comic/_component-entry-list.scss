@@ -2,25 +2,24 @@
 
 .entryList {
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-column-gap: 0.5em;
-  grid-row-gap: 0.5em;
-  margin: 0.25em 0 2em 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  @media (min-width: 1900px) {
+    gap: 2rem;
   }
 }
 
 .entryListItem {
   @include mixin-vignette.rotated();
-  outline: solid 0 orange;
-  transition: outline ease 0.3s, z-index linear 0s 0.3s;
-  z-index: 0;
+  position: relative;
+  background-color: $blue;
 
-  .anchor {
-    text-decoration: none;
+  > .header,
+  > .paragraph {
+    max-width: 32rem;
   }
 
   > .header {
@@ -29,21 +28,48 @@
     > .h3 {
       margin: 0;
 
-      > .anchor::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+      .anchor {
+        position: static;
+
+        &::after {
+          transform: none;
+          position: static;
+          width: auto;
+          height: auto;
+          background: none;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          transition: box-shadow ease 0.1s;
+          box-shadow: inset 0 0 0 0 $orange;
+        }
+
+        &:hover::before,
+        &:focus-visible::before {
+          box-shadow: inset 0 0 0 10px $orange;
+        }
       }
 
-      > .anchorExternal::after {
+      .anchorExternal::after {
         content: '↗️';
         font-size: 0.75em;
-        margin-left: 0.25em;
         vertical-align: super;
+        text-align: right;
+        padding-right: 0.5em;
+        padding-top: 0.25em;
+        margin-left: 0.5ch;
         opacity: 0.5;
+      }
+
+      .anchorExternal:hover::after,
+      .anchorExternal:focus::after {
+        transform: none;
       }
     }
 
@@ -67,18 +93,6 @@
       &:after {
         content: '...';
       }
-    }
-  }
-
-  &:focus-within,
-  &:hover,
-  &:focus-visible {
-    transition: outline ease 0.3s, z-index linear 0s;
-    outline: solid 0.5em orange;
-    z-index: 1;
-
-    .anchor {
-      text-shadow: none;
     }
   }
 }
