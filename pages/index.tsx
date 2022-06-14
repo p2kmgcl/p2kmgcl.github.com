@@ -8,8 +8,10 @@ import {
   Picture,
   Strong,
 } from '../components/HTMLElements';
+import { GlobalPageProps } from '../types/GlobalPageProps';
 import pkg from '../package.json';
-export { getStaticProps } from '../utils/getStaticProps';
+import { getTagList } from '../utils/getTagList';
+import { getEntryList } from '../utils/getEntryList';
 
 function flatMap<T, Q>(array: T[], fn: (element: T) => Q[]): Q[] {
   return array.map(fn).reduce((a, b) => a.concat(b), []);
@@ -52,7 +54,6 @@ export default function Home() {
             src="/pablo-molina/pablo-molina-1080.jpg"
             height="1400"
             width="1080"
-            loading="lazy"
           />
         </Picture>
       </Header>
@@ -91,3 +92,11 @@ export default function Home() {
 }
 
 Home.displayName = 'Home';
+
+export async function getStaticProps(): Promise<{ props: GlobalPageProps }> {
+  return {
+    props: {
+      tagList: getTagList(getEntryList()),
+    },
+  };
+}

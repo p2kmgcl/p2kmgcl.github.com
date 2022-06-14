@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { Anchor } from '../../components/Anchor';
 import { Article, Paragraph } from '../../components/HTMLElements';
-import { StaticProps } from '../../utils/getStaticProps';
-
-export { getStaticProps } from '../../utils/getStaticProps';
+import { GlobalPageProps } from '../../types/GlobalPageProps';
+import { getEntryList } from '../../utils/getEntryList';
+import { getTagList } from '../../utils/getTagList';
 
 const ROUTES = {
   'liferay-fragments':
@@ -18,7 +18,7 @@ type Paths = {
   };
 };
 
-export default function Redirect({ params: { id } }: Paths & StaticProps) {
+export default function Redirect({ params: { id } }: Paths) {
   return (
     <>
       <Head>
@@ -47,3 +47,11 @@ export function getStaticPaths(): {
 
 Redirect.displayName = 'Redirect';
 Redirect.rawContent = true;
+
+export async function getStaticProps(): Promise<{ props: GlobalPageProps }> {
+  return {
+    props: {
+      tagList: getTagList(getEntryList()),
+    },
+  };
+}

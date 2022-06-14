@@ -1,7 +1,9 @@
 import Meta from '../components/Meta';
 import { Anchor } from '../components/Anchor';
 import { Article, H2, Paragraph } from '../components/HTMLElements';
-export { getStaticProps } from '../utils/getStaticProps';
+import { getEntryList } from '../utils/getEntryList';
+import { getTagList } from '../utils/getTagList';
+import { GlobalPageProps } from '../types/GlobalPageProps';
 
 export default function NotFound() {
   return (
@@ -22,3 +24,11 @@ export default function NotFound() {
 }
 
 NotFound.displayName = 'NotFound';
+
+export async function getStaticProps(): Promise<{ props: GlobalPageProps }> {
+  return {
+    props: {
+      tagList: getTagList(getEntryList()),
+    },
+  };
+}

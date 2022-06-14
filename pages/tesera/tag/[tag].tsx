@@ -5,9 +5,12 @@ import { TagListItem } from '../../../components/TagListItem';
 import { EntryList } from '../../../components/EntryList';
 import { H2, Section } from '../../../components/HTMLElements';
 import pkg from '../../../package.json';
-import type { StaticProps } from '../../../utils/getStaticProps';
-import { useMemo } from 'react';
-export { getStaticProps } from '../../../utils/getStaticProps';
+import { Entry } from '../../../types/Entry';
+import { GlobalPageProps } from '../../../types/GlobalPageProps';
+
+type PageProps = {
+  entryList: Entry[];
+};
 
 type Paths = {
   params: {
@@ -15,13 +18,7 @@ type Paths = {
   };
 };
 
-export default function TeseraTag(props: Paths & StaticProps) {
-  const filteredEntryList = useMemo(
-    () =>
-      props.entryList.filter((entry) => entry.tags.includes(props.params.tag)),
-    [props.params.tag, props.entryList],
-  );
-
+export default function TeseraTag(props: Paths & PageProps) {
   return (
     <Section>
       <Meta
@@ -32,12 +29,30 @@ export default function TeseraTag(props: Paths & StaticProps) {
         <TagListItem tag={props.params.tag} renderAsLink={false} />
       </H2>
 
-      <EntryList entryList={filteredEntryList} />
+      <EntryList entryList={props.entryList} />
     </Section>
   );
 }
 
 TeseraTag.displayName = 'TeseraTag';
+
+export async function getStaticProps({
+  params,
+}: {
+  params: Paths['params'];
+}): Promise<{
+  props: GlobalPageProps & PageProps;
+}> {
+  return {
+    props: {
+      entryList: getEntryList(params.tag).map((entry) => ({
+        ...entry,
+        content: '',
+      })),
+      tagList: getTagList(getEntryList()),
+    },
+  };
+}
 
 export function getStaticPaths(): {
   paths: Paths[];

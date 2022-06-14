@@ -15,29 +15,22 @@ import {
 } from '../components/HTMLElements';
 import pkg from '../package.json';
 import { FC } from 'react';
-import { Entry } from '../types/Entry';
 import { Router } from 'next/router';
 import { ThemeContextProvider, useTheme } from '../components/ThemeContext';
 import { TagListItem } from '../components/TagListItem';
-import TeseraEntry from './tesera/entry/[slug]';
 import {
   APPLY_DARK_MODE_SCRIPT,
   DarkModeButton,
 } from '../components/DarkModeButton';
 import { ShuffleThemeButton } from '../components/ShuffleThemeButton';
+import { GlobalPageProps } from '../types/GlobalPageProps';
 
 interface AppProps {
-  Component: FC<{
-    entryList: Entry[];
-    tagList: string[];
-    params: Record<string, string>;
-  }> & {
+  Component: FC<GlobalPageProps & { params: Record<string, string> }> & {
+    displayName?: string;
     rawContent?: boolean;
   };
-  pageProps: {
-    entryList: Entry[];
-    tagList: string[];
-  };
+  pageProps: GlobalPageProps;
   router: Router;
 }
 
@@ -48,6 +41,7 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
   let mainWrapperProps: Record<string, any> = {
     className: theme.mainWrapper,
     'data-component': Component.displayName,
+    ...(pageProps.mainWrapperProps || {}),
 
     ...Object.fromEntries(
       Object.entries(router.query).map(([key, value]) => [
@@ -57,32 +51,10 @@ const AppContent: FC<AppProps> = ({ Component, pageProps, router }) => {
     ),
   };
 
-  const entry =
-    Component === TeseraEntry
-      ? pageProps.entryList.find((entry) => entry.slug === router.query.slug)
-      : null;
-
-  if (entry) {
-    mainWrapperProps = {
-      ...mainWrapperProps,
-      'data-entry-type': entry.type,
-      ...Object.fromEntries(
-        entry.tags
-          .filter((tag) => tag !== entry.type)
-          .map((tag) => [`data-entry-tag-${tag}`, '']),
-      ),
-    };
-  }
-
   return (
     <div {...(rawContent ? {} : mainWrapperProps)}>
       <Head>
-        {rawContent ? null : (
-          <title>
-            {entry ? `${entry.title} - ` : ''}
-            {pkg.author.name}
-          </title>
-        )}
+        {rawContent ? null : <title>{pkg.author.name}</title>}
 
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

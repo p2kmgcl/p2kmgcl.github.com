@@ -1,7 +1,9 @@
 import Meta from '../components/Meta';
 import { Anchor } from '../components/Anchor';
 import { Article, H2, Paragraph } from '../components/HTMLElements';
-export { getStaticProps } from '../utils/getStaticProps';
+import { GlobalPageProps } from '../types/GlobalPageProps';
+import { getEntryList } from '../utils/getEntryList';
+import { getTagList } from '../utils/getTagList';
 
 export default function ServerError() {
   return (
@@ -23,3 +25,11 @@ export default function ServerError() {
 }
 
 ServerError.displayName = 'ServerError';
+
+export async function getStaticProps(): Promise<{ props: GlobalPageProps }> {
+  return {
+    props: {
+      tagList: getTagList(getEntryList()),
+    },
+  };
+}

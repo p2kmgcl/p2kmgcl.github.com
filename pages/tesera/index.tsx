@@ -2,10 +2,16 @@ import Meta from '../../components/Meta';
 import { EntryList } from '../../components/EntryList';
 import { H2, Header, Section } from '../../components/HTMLElements';
 import pkg from '../../package.json';
-import type { StaticProps } from '../../utils/getStaticProps';
-export { getStaticProps } from '../../utils/getStaticProps';
+import { GlobalPageProps } from '../../types/GlobalPageProps';
+import { getTagList } from '../../utils/getTagList';
+import { Entry } from '../../types/Entry';
+import { getEntryList } from '../../utils/getEntryList';
 
-export default function TeseraIndex({ entryList }: StaticProps) {
+interface PageProps {
+  entryList: Entry[];
+}
+
+export default function TeseraIndex({ entryList }: PageProps) {
   return (
     <Section>
       <Meta title={pkg.config.blogName} />
@@ -18,3 +24,14 @@ export default function TeseraIndex({ entryList }: StaticProps) {
 }
 
 TeseraIndex.displayName = 'TeseraIndex';
+
+export async function getStaticProps(): Promise<{
+  props: GlobalPageProps & PageProps;
+}> {
+  return {
+    props: {
+      entryList: getEntryList().map((entry) => ({ ...entry, content: '' })),
+      tagList: getTagList(getEntryList()),
+    },
+  };
+}

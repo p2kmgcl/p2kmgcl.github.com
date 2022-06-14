@@ -41,7 +41,7 @@
     "build:sitemap": "NODE_ENV=production ts-node --project tsconfig.node.json generate-sitemap.ts",
     "start": "netlify dev",
     "start:next": "next-remote-watch ./public ./tesera",
-    "start:production": "yarn run build && http-server --port 3000 build/app"
+    "start:production": "yarn run build && http-server --gzip --brotli --port 3000 build/app"
   },
   "dependencies": {
     "@fontsource/bangers": "^4.2.2",
