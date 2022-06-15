@@ -14,7 +14,7 @@
     width: 100%;
     height: 4px;
     background-color: $orange;
-    transform: rotateZ(-3deg) scaleX(0);
+    transform: rotateZ(-2deg) scaleX(0);
     transform-origin: center left;
     transition: transform ease 0.1s;
   }
@@ -25,6 +25,6 @@
 
   &:hover::after,
   &:focus-visible::after {
-    transform: rotateZ(-3deg) scaleX(1);
+    transform: rotateZ(-2deg) scaleX(1);
   }
 }
