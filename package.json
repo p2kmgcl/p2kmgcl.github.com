@@ -35,7 +35,7 @@
     "yarn": ">=1.22.0"
   },
   "scripts": {
-    "build": "rimraf .next build/app && next build && next export -o build/app && yarn build:rss && yarn build:sitemap && yarn build:404 && yarn build:500",
+    "build": "rimraf .next build/app && next lint && next build && next export -o build/app && yarn build:rss && yarn build:sitemap && yarn build:404 && yarn build:500",
     "build:404": "mv build/app/404/index.html build/app/404.html && rm -r build/app/404",
     "build:500": "mv build/app/500/index.html build/app/500.html && rm -r build/app/500",
     "build:rss": "NODE_ENV=production ts-node --project tsconfig.node.json generate-rss.ts",
@@ -69,7 +69,7 @@
     "@types/prismjs": "^1.16.5",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "eslint": "^7.30.0",
+    "eslint": "^8.0.0",
     "eslint-config-next": "^12.0.0",
     "http-server": "^14.0.0",
     "netlify-cli": "^10.0.0",
