@@ -3,6 +3,11 @@
   publish = "build/app/"
   command = "yarn run build"
 
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_VERSION = "8.8.0"
+  YARN_VERSION = "1.22.18"
+
 [dev]
   framework = "#custom"
   command = "yarn run start:next"
