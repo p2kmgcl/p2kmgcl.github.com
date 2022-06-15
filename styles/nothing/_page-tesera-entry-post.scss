@@ -1,0 +1,15 @@
+.mainWrapper[data-component='TeseraEntry'][data-entry-type='post'] {
+  .entryMood .paragraph {
+    margin-top: 0;
+  }
+
+  .time {
+    font-size: 0.875em;
+    font-style: italic;
+    color: #444;
+
+    [data-color-scheme='dark'] & {
+      color: #888;
+    }
+  }
+}
