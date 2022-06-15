@@ -10,6 +10,7 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
   lang,
   target,
   className,
+  ref,
   ...props
 }) => {
   const theme = useTheme();
@@ -34,6 +35,7 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
           [theme.anchorExternal]: isExternal,
         })}
         lang={lang}
+        ref={ref}
         target={target}
       >
         {children}
