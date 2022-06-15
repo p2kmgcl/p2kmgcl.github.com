@@ -52,7 +52,7 @@
     "emojilib": "^3.0.4",
     "glob": "^8.0.0",
     "gray-matter": "^4.0.2",
-    "jsdom": "^16.0.0",
+    "jsdom": "^19.0.0",
     "marked": "^4.0.0",
     "next": "^12.0.0",
     "prism-themes": "^1.8.0",
