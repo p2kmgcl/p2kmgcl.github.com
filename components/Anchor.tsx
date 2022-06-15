@@ -26,7 +26,7 @@ export const Anchor: FC<LinkProps & JSX.IntrinsicElements['a']> = ({
   }, [props.href]);
 
   return (
-    <NextLink {...props}>
+    <NextLink prefetch={false} {...props}>
       <a
         aria-label={props['aria-label']}
         title={title}
