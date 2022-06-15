@@ -50,7 +50,7 @@
     "@fontsource/jetbrains-mono": "^4.4.5",
     "@fontsource/mali": "^4.5.5",
     "emojilib": "^3.0.4",
-    "glob": "^7.1.6",
+    "glob": "^8.0.0",
     "gray-matter": "^4.0.2",
     "jsdom": "^16.0.0",
     "marked": "^4.0.0",
