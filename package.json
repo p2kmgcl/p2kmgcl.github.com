@@ -72,7 +72,7 @@
     "eslint": "^7.30.0",
     "eslint-config-next": "^12.0.0",
     "http-server": "^14.0.0",
-    "netlify-cli": "^6.0.0",
+    "netlify-cli": "^10.0.0",
     "next-remote-watch": "^1.0.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
