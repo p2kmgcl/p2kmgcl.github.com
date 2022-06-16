@@ -3,7 +3,7 @@ type: post
 draft: false
 title: Finding overflow
 language: en
-date: 2021-10-06
+date: 2022-06-16
 emoji: 📏
 mood: Tired but excited, as usual.
 cover:
@@ -76,5 +76,127 @@ Array.from(document.querySelectorAll('*'))
   .then(console.log);
 ```
 
-It is not a final solution, but might do the trick or at least highlight some areas
-if you have a huge DOM tree to explore.
+It is not a final solution, but might do the trick or at least highlight some
+areas if you have a huge DOM tree to explore.
+
+### Update 2022-06-16
+
+I have updated the script to try multiple solutions for each element, and also
+scoping the search to an specific DOM node:
+
+```js
+(async function (selector) {
+  const parent = document.querySelector(selector);
+  const hasOverflow = () => parent.offsetHeight < parent.scrollHeight;
+  const waitFrame = () => new Promise((r) => requestAnimationFrame(r));
+
+  if (!hasOverflow()) {
+    console.log('there is no overflow');
+    return;
+  }
+
+  const elements = Array.from(parent.querySelectorAll('*'));
+  const fixes = [];
+
+  const testApplyProps = (props, testValue) => (node) => {
+    const prevValues = new Map();
+
+    for (const prop of props) {
+      prevValues.set(prop, node.style[prop]);
+      node.style[prop] = `${testValue} !important`;
+    }
+
+    return () => {
+      for (const prop of props) {
+        node.style[prop] = prevValues.get(prop);
+      }
+    };
+  };
+
+  const tests = [
+    {
+      label: 'Set overflow to hidden',
+      attach: testApplyProps(['overflow', 'overflowX', 'overflowY'], 'hidden'),
+    },
+    {
+      label: 'Set position to static',
+      attach: testApplyProps(['position'], 'static'),
+    },
+    {
+      label: 'Set margin to 0',
+      attach: testApplyProps(
+        ['margin', 'marginTop', 'marginLeft', 'marginRight', 'marginBottom'],
+        '0',
+      ),
+    },
+    {
+      label: 'Set display to none',
+      attach: testApplyProps(['display'], 'none'),
+    },
+    {
+      label: 'Remove classes from element',
+      attach: (node) => {
+        let classes = [];
+
+        if (node.classList) {
+          classes = [...node.classList];
+
+          for (const className of classes) {
+            node.classList.remove(className);
+          }
+        }
+
+        return () => {
+          for (const className of classes) {
+            node.classList.add(className);
+          }
+        };
+      },
+    },
+    {
+      label: 'Remove node from tree',
+      attach: (node) => {
+        const { parentNode, nextSibling } = node;
+        parentNode.removeChild(node);
+
+        return () => {
+          if (nextSibling) {
+            parentNode.insertBefore(node, nextSibling);
+          } else {
+            parentNode.appendChild(node);
+          }
+        };
+      },
+    },
+  ];
+
+  for (const element of elements) {
+    console.clear();
+
+    console.log(
+      `${Math.ceil(
+        ((elements.indexOf(element) + 1) / elements.length) * 100,
+      )}%`,
+    );
+
+    for (const test of tests) {
+      const detach = test.attach(element);
+      await waitFrame();
+
+      if (!hasOverflow()) {
+        fixes.push({
+          testLabel: test.label,
+          element,
+        });
+      }
+
+      detach();
+      await waitFrame();
+    }
+  }
+
+  fixes.forEach((fix) => {
+    console.log(fix.testLabel, fix.element);
+  });
+})('body');
+```
