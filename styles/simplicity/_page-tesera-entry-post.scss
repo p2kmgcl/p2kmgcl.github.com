@@ -5,15 +5,8 @@
     pre {
       border-radius: $roundness;
 
-      $shadows: ();
-      @for $i from 1 through 10 {
-        $shadows: append($shadows, #{$i * 40}ch 0 0 #1e1e1e, comma);
-        $shadows: append($shadows, -#{$i * 40}ch 0 0 #1e1e1e, comma);
-      }
-      box-shadow: $shadows;
-
       &[class] {
-        padding: 1em 0;
+        padding: 1em;
       }
 
       &[data-preview-ready] + iframe {
@@ -211,7 +204,6 @@
           left: 0;
           width: 60%;
           pointer-events: none;
-          text-align: center;
           font-size: 8em;
           filter: saturate(40%) opacity(0.5);
           transform: translateY(-1rem) rotateZ(-10deg);
