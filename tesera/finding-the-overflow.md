@@ -7,7 +7,7 @@ date: 2022-06-16
 emoji: 📏
 mood: Tired but excited, as usual.
 cover:
-  alt: Aerial view of water overflowing into a dock
+  alt: Aerial view of water overflowing into a dock.
   origin: https://unsplash.com/photos/Q-lzt8Uz4Eo
   url: /uploads/water-overflowing-into-a-dock.jpg
 tags: []

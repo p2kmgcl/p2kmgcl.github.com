@@ -5,12 +5,15 @@ title: Antes (primera parte)
 language: es
 date: 2021-06-27
 emoji: 👶
-mood: Nervioso, pero emocionado al mismo tiempo, como la chica de los gatos de
+mood:
+  Nervioso, pero emocionado al mismo tiempo, como la chica de los gatos de
   YoutTube.
 tags: []
 cover:
   url: /uploads/green-5-petaled-flower-on-brown-soil.jpg
-  alt: Un montón de tierra con un brote de una planta de 6 hojas empezando a crecer
+  alt:
+    Un montón de tierra con un brote de una planta de 6 hojas empezando a
+    crecer.
 summary: >
   Mi historia en el mundo de la programación, empezando desde antes de saber
   utilizar un ordenador, utilizado como un momento de reflexión y nostalgia para
@@ -37,10 +40,10 @@ tercero de la E.S.O., hace ya unos... ¿quince años? más o menos. Descubrí al
 tipo de servicio _chungo_ para crear tu propia página web, y si no me equivoco
 creé algo así como _superpablo.es.tl_, poniendo reproductores de _Windows Media
 Player_ y cosas por el estilo dignas del _Messenger_ que se usaba por aquel
-entonces. Evidentemente no tenía idea de programar, y por supuesto que no sabía ni
-siquiera lo que programar significaba exactamente. Sin embargo, lo que sí que me
-ocurrió desde el primer día (y es una sensación que sigo conservando) es que era
-capaz de invertir una cantidad vergonzosa de horas en que todo se viera
+entonces. Evidentemente no tenía idea de programar, y por supuesto que no sabía
+ni siquiera lo que programar significaba exactamente. Sin embargo, lo que sí que
+me ocurrió desde el primer día (y es una sensación que sigo conservando) es que
+era capaz de invertir una cantidad vergonzosa de horas en que todo se viera
 exactamente como yo quería.
 
 En la misma línea, y sólo un poco más adelante, fui creando webs parecidas
@@ -70,8 +73,8 @@ generales.
 
 > Yo soy porque nosotros somos.
 
-Finalmente alcancé la _gloria_: en bachillerato descubrí que había una cosa que se
-llamaba _programar_, y que permitía copiar unas cosas llamadas _JavaScript_
+Finalmente alcancé la _gloria_: en bachillerato descubrí que había una cosa que
+se llamaba _programar_, y que permitía copiar unas cosas llamadas _JavaScript_
 dentro de una página para hacer que ocurrieran _otras cosas_: nieve cayendo, una
 fecha dando vueltas alrededor del cursor, un montón de colores y formas en el
 fondo de la pantalla... definitivamente magia. Además, a veces lograba manipular

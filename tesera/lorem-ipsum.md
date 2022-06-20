@@ -7,7 +7,7 @@ date: 1991-01-01
 emoji: 🧪
 cover:
   url: /uploads/man-wearing-black-and-white-stripe-shirt-looking-at-white-printer-papers-on-the-wall.jpg
-  alt: Sample image
+  alt: Sample image.
 mood: Testing a theme, or something else
 tags: []
 summary: >
