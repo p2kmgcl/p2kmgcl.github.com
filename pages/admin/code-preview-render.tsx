@@ -1,18 +1,25 @@
 import { FC } from 'react';
 import { HTMLPreview } from '../../components/entry-types/post/components/HTMLPreview';
-import { JavaScriptPreview } from '../../components/entry-types/post/components/JavaScriptPreview';
 import { useCodePreviewData } from '../../components/entry-types/post/hooks/useCodePreviewData';
 
-const PREVIEW_COMPONENTS: Record<string, FC<{ code: string }>> = {
+export type RunContext = {
+  code: string;
+  language: string;
+
+  dependencies: Array<{
+    language: string;
+    code: string;
+  }>;
+};
+
+export const PREVIEW_COMPONENTS: Record<string, FC<RunContext>> = {
   html: HTMLPreview,
-  js: JavaScriptPreview,
-  javascript: JavaScriptPreview,
 };
 
 export default function CodePreviewRender() {
-  const { language, code } = useCodePreviewData();
-  const Component = PREVIEW_COMPONENTS[language || ''];
-  return code && Component ? <Component code={code} /> : null;
+  const data = useCodePreviewData();
+  const Component = PREVIEW_COMPONENTS[data?.language || ''];
+  return data && Component ? <Component {...data} /> : null;
 }
 
 CodePreviewRender.displayName = 'CodePreviewRender';

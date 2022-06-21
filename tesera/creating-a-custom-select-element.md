@@ -40,6 +40,190 @@ These are some interesting articles and videos I found during my investigation
 
 ### Demo
 
+```css
+#custom-dropdown {
+  position: relative;
+}
+
+#custom-dropdown .form-control {
+  position: relative;
+}
+
+#custom-dropdown .form-control::after {
+  content: '▼';
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1ch;
+  font-size: 0.875em;
+  color: inherit;
+  opacity: 0.8;
+  background: inherit;
+}
+
+#custom-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+#custom-dropdown .dropdown-item {
+  cursor: pointer;
+}
+```
+
+```js
+const RAPID_TEXT_DELAY = 300;
+
+let rapidTextTime = Date.now();
+let rapidText = '';
+
+const wrapper = document.getElementById('custom-dropdown');
+const input = wrapper.querySelector('input');
+const button = wrapper.querySelector('.form-control');
+const dropdown = wrapper.querySelector('.dropdown-menu');
+const listbox = wrapper.querySelector('.list-unstyled');
+
+function showDropdown() {
+  button.setAttribute('aria-expanded', 'true');
+  dropdown.classList.add('show');
+}
+
+function hideDropdown() {
+  button.removeAttribute('aria-expanded');
+  dropdown.classList.remove('show');
+}
+
+function getActiveDesdendant() {
+  return document.getElementById(listbox.getAttribute('aria-activedescendant'));
+}
+
+function setActiveDescendant(item) {
+  const previousItem = getActiveDesdendant();
+
+  if (previousItem && previousItem !== item) {
+    previousItem.classList.remove('active');
+    previousItem.removeAttribute('aria-selected');
+  }
+
+  button.textContent = item.textContent;
+  listbox.setAttribute('aria-activedescendant', item.id);
+  input.value = item.dataset.optionValue;
+
+  item.classList.add('active');
+  item.setAttribute('aria-selected', 'true');
+
+  item.scrollIntoView({
+    block: 'nearest',
+  });
+}
+
+button.addEventListener('click', () => {
+  if (button.hasAttribute('aria-expanded')) {
+    hideDropdown();
+  } else {
+    showDropdown();
+  }
+});
+
+button.addEventListener('keydown', (event) => {
+  const currentActiveDescendant = getActiveDesdendant();
+
+  // Move through next/previous item by pressing arrow keys.
+  // Also expand the dropdown automatically if needed.
+  if (event.key === 'ArrowDown') {
+    showDropdown();
+
+    setActiveDescendant(
+      currentActiveDescendant.nextElementSibling ||
+        currentActiveDescendant ||
+        listbox.firstElementChild,
+    );
+
+    event.preventDefault();
+  } else if (event.key === 'ArrowUp') {
+    showDropdown();
+
+    setActiveDescendant(
+      currentActiveDescendant.previousElementSibling ||
+        currentActiveDescendant ||
+        listbox.firstElementChild,
+    );
+
+    event.preventDefault();
+
+    // We can "escape" the dropdown.
+  } else if (event.key === 'Escape') {
+    hideDropdown();
+    button.focus();
+    event.preventDefault();
+
+    // Home/End keys should navigate to first/last item.
+  } else if (event.key === 'Home') {
+    setActiveDescendant(listbox.firstElementChild);
+    event.preventDefault();
+  } else if (event.key === 'End') {
+    setActiveDescendant(listbox.lastElementChild);
+    event.preventDefault();
+
+    // We want to support "rapid item navigation", allowing
+    // users to type some letters of the desired item and
+    // focusing it
+  } else if (event.key.length === 1) {
+    const now = Date.now();
+
+    if (now - rapidTextTime > RAPID_TEXT_DELAY) {
+      rapidText = '';
+    }
+
+    rapidText += event.key.toLowerCase();
+    rapidTextTime = now;
+
+    const rapidItem = Array.from(listbox.children).find(
+      (child) =>
+        child.dataset.optionValue &&
+        child.textContent.trim().toLowerCase().startsWith(rapidText),
+    );
+
+    if (rapidItem) {
+      setActiveDescendant(rapidItem);
+      event.preventDefault();
+    }
+  }
+});
+
+// Allow "clicking" on items without moving focus from
+// the button element.
+listbox.addEventListener('click', (event) => {
+  if (event.target.dataset?.optionValue) {
+    setActiveDescendant(event.target);
+    hideDropdown();
+    button.focus();
+    event.preventDefault();
+  }
+});
+
+// Simple implementation of "click outside" to remove focus
+// from the dropdown.
+const handleDocumentClick = (event) => {
+  if (!document.body.contains(wrapper)) {
+    document.removeEventListener('click', handleDocumentClick);
+    return;
+  }
+
+  if (event.target !== wrapper && !wrapper.contains(event.target)) {
+    hideDropdown();
+  }
+};
+
+document.addEventListener('click', handleDocumentClick);
+
+if (!getActiveDesdendant()) {
+  setActiveDescendant(listbox.firstElementChild);
+}
+```
+
 ```html
 <link
   rel="stylesheet"
@@ -58,37 +242,6 @@ These are some interesting articles and videos I found during my investigation
   html {
     padding: 2em;
     min-height: 400px;
-  }
-
-  #custom-dropdown {
-    position: relative;
-  }
-
-  #custom-dropdown .form-control {
-    position: relative;
-  }
-
-  #custom-dropdown .form-control::after {
-    content: '▼';
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 1ch;
-    font-size: 0.875em;
-    color: inherit;
-    opacity: 0.8;
-    background: inherit;
-  }
-
-  #custom-dropdown .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-  }
-
-  #custom-dropdown .dropdown-item {
-    cursor: pointer;
   }
 </style>
 
@@ -186,157 +339,4 @@ These are some interesting articles and videos I found during my investigation
     </ul>
   </div>
 </div>
-
-<script>
-  const RAPID_TEXT_DELAY = 300;
-
-  let rapidTextTime = Date.now();
-  let rapidText = '';
-
-  const wrapper = document.getElementById('custom-dropdown');
-  const input = wrapper.querySelector('input');
-  const button = wrapper.querySelector('.form-control');
-  const dropdown = wrapper.querySelector('.dropdown-menu');
-  const listbox = wrapper.querySelector('.list-unstyled');
-
-  function showDropdown() {
-    button.setAttribute('aria-expanded', 'true');
-    dropdown.classList.add('show');
-  }
-
-  function hideDropdown() {
-    button.removeAttribute('aria-expanded');
-    dropdown.classList.remove('show');
-  }
-
-  function getActiveDesdendant() {
-    return document.getElementById(
-      listbox.getAttribute('aria-activedescendant'),
-    );
-  }
-
-  function setActiveDescendant(item) {
-    const previousItem = getActiveDesdendant();
-
-    if (previousItem && previousItem !== item) {
-      previousItem.classList.remove('active');
-      previousItem.removeAttribute('aria-selected');
-    }
-
-    button.textContent = item.textContent;
-    listbox.setAttribute('aria-activedescendant', item.id);
-    input.value = item.dataset.optionValue;
-
-    item.classList.add('active');
-    item.setAttribute('aria-selected', 'true');
-
-    item.scrollIntoView({
-      block: 'nearest',
-    });
-  }
-
-  button.addEventListener('click', () => {
-    if (button.hasAttribute('aria-expanded')) {
-      hideDropdown();
-    } else {
-      showDropdown();
-    }
-  });
-
-  button.addEventListener('keydown', (event) => {
-    const currentActiveDescendant = getActiveDesdendant();
-
-    // Move through next/previous item by pressing arrow keys.
-    // Also expand the dropdown automatically if needed.
-    if (event.key === 'ArrowDown') {
-      showDropdown();
-
-      setActiveDescendant(
-        currentActiveDescendant.nextElementSibling ||
-          currentActiveDescendant ||
-          listbox.firstElementChild,
-      );
-
-      event.preventDefault();
-    } else if (event.key === 'ArrowUp') {
-      showDropdown();
-
-      setActiveDescendant(
-        currentActiveDescendant.previousElementSibling ||
-          currentActiveDescendant ||
-          listbox.firstElementChild,
-      );
-
-      event.preventDefault();
-
-      // We can "escape" the dropdown.
-    } else if (event.key === 'Escape') {
-      hideDropdown();
-      button.focus();
-      event.preventDefault();
-
-      // Home/End keys should navigate to first/last item.
-    } else if (event.key === 'Home') {
-      setActiveDescendant(listbox.firstElementChild);
-      event.preventDefault();
-    } else if (event.key === 'End') {
-      setActiveDescendant(listbox.lastElementChild);
-      event.preventDefault();
-
-      // We want to support "rapid item navigation", allowing
-      // users to type some letters of the desired item and
-      // focusing it
-    } else if (event.key.length === 1) {
-      const now = Date.now();
-
-      if (now - rapidTextTime > RAPID_TEXT_DELAY) {
-        rapidText = '';
-      }
-
-      rapidText += event.key.toLowerCase();
-      rapidTextTime = now;
-
-      const rapidItem = Array.from(listbox.children).find(
-        (child) =>
-          child.dataset.optionValue &&
-          child.textContent.trim().toLowerCase().startsWith(rapidText),
-      );
-
-      if (rapidItem) {
-        setActiveDescendant(rapidItem);
-        event.preventDefault();
-      }
-    }
-  });
-
-  // Allow "clicking" on items without moving focus from
-  // the button element.
-  listbox.addEventListener('click', (event) => {
-    if (event.target.dataset?.optionValue) {
-      setActiveDescendant(event.target);
-      hideDropdown();
-      button.focus();
-      event.preventDefault();
-    }
-  });
-
-  // Simple implementation of "click outside" to remove focus
-  // from the dropdown.
-  const handleDocumentClick = (event) => {
-    if (!document.body.contains(wrapper)) {
-      document.removeEventListener('click', handleDocumentClick);
-      return;
-    }
-
-    if (event.target !== wrapper && !wrapper.contains(event.target)) {
-      hideDropdown();
-    }
-  };
-
-  document.addEventListener('click', handleDocumentClick);
-
-  if (!getActiveDesdendant()) {
-    setActiveDescendant(listbox.firstElementChild);
-  }
-</script>
 ```

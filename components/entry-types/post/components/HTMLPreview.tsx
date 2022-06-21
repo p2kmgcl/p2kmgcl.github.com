@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
+import { RunContext } from '../../../../pages/admin/code-preview-render';
 
-export function HTMLPreview({ code }: { code: string }) {
+export function HTMLPreview({ code, dependencies }: RunContext) {
   const entryContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -11,46 +12,49 @@ export function HTMLPreview({ code }: { code: string }) {
         return;
       }
 
-      const scriptElements = Array.from(
+      const mainScript = Array.from(
         entryContentRef.current.querySelectorAll('script'),
-      ).filter((script) => !script.type || script.type === 'text/javascript');
+      )
+        .filter(
+          (script) =>
+            script.parentNode &&
+            (!script.type ||
+              script.type === 'module' ||
+              script.type === 'text/javascript'),
+        )
+        .map((script) => {
+          script.parentNode?.removeChild(script);
+          return script.innerHTML;
+        })
+        .join('\n;\n');
 
-      const runNextScript = () => {
-        if (!scriptElements.length) {
-          return;
-        }
-
-        const nextScriptElement = document.createElement('script');
-        const prevScriptElement = scriptElements.shift();
-
-        if (
-          !prevScriptElement ||
-          !prevScriptElement.parentNode ||
-          !document.body.contains(prevScriptElement)
-        ) {
-          return;
-        }
-
-        nextScriptElement.appendChild(
-          document.createTextNode(prevScriptElement.innerHTML),
-        );
-
-        prevScriptElement.parentNode.replaceChild(
-          nextScriptElement,
-          prevScriptElement,
-        );
-
-        requestAnimationFrame(runNextScript);
-      };
-
-      runNextScript();
+      const mainScriptElement = document.createElement('script');
+      mainScriptElement.type = 'module';
+      mainScriptElement.appendChild(document.createTextNode(mainScript));
+      document.body.appendChild(mainScriptElement);
     };
 
     if (code && entryContentRef.current) {
-      entryContentRef.current.innerHTML = code;
+      entryContentRef.current.innerHTML = [
+        ...dependencies
+          .map((dependency) => {
+            switch (dependency.language) {
+              case 'css':
+                return `<style>${dependency.code}</style>`;
+              case 'js':
+              case 'javascript':
+                return `<script>${dependency.code}</script>`;
+              default:
+                return '';
+            }
+          })
+          .filter((dependency) => dependency),
+        code,
+      ].join('\n');
+
       requestAnimationFrame(runScripts);
     }
-  }, [code]);
+  }, [code, dependencies]);
 
   return <div ref={entryContentRef} />;
 }

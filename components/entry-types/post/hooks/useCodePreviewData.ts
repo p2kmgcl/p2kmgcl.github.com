@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
+import { RunContext } from '../../../../pages/admin/code-preview-render';
 
 export function useCodePreviewData() {
-  const [language, setLanguage] = useState<string | null>(null);
-  const [code, setCode] = useState<string | null>(null);
+  const [data, setData] = useState<RunContext | null>(null);
 
   useEffect(() => {
     const iframeId = new URL(window.location.href).searchParams.get('iframeId');
     if (!iframeId) return;
-    setLanguage(new URL(window.location.href).searchParams.get('language'));
 
-    let prevContent = '';
+    let prevContent: RunContext | null = null;
 
     const handleMessage = (event: MessageEvent) => {
       let parsedData: null | {
         type: 'sampleContent';
-        content: string;
+        content: RunContext;
       } = null;
 
       try {
@@ -24,10 +23,10 @@ export function useCodePreviewData() {
       if (
         parsedData &&
         parsedData.type === 'sampleContent' &&
-        prevContent !== parsedData.content
+        prevContent?.code !== parsedData.content.code
       ) {
         prevContent = parsedData.content;
-        setCode(prevContent);
+        setData(parsedData.content);
 
         setTimeout(
           () =>
@@ -52,5 +51,5 @@ export function useCodePreviewData() {
     };
   }, []);
 
-  return { language, code } as const;
+  return data;
 }

@@ -10,9 +10,23 @@
       }
 
       &[data-preview-ready] + iframe {
+        background: white;
         border-radius: $roundness;
-        border: solid #1e1e1e 0.5em;
-        margin-top: 2em;
+        border: solid rgba(150, 150, 150, 0.5) 1px;
+        margin-top: 0.5em;
+      }
+
+      textarea {
+        background: transparent;
+        color: inherit;
+        border: none;
+        width: 100%;
+        resize: none;
+        overflow-y: hidden;
+
+        &:focus-visible {
+          outline: none;
+        }
       }
     }
 

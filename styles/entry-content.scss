@@ -119,7 +119,8 @@
   pre,
   > pre[class],
   code[class],
-  code[class] > span[class] {
+  code[class] > span[class],
+  pre > textarea {
     font-family: var(--code-font-family, monospace);
     font-size: 1em;
     font-weight: 400;

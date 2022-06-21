@@ -1,6 +1,6 @@
 ---
 type: post
-date: 2022-05-26
+date: 2022-06-14
 title: Learning (2022)
 tags: []
 draft: false
@@ -16,6 +16,18 @@ summary: >
 <div aria-role="alert" style="background-color: #fff3cd; color: black; padding: 1em; border-radius: 4px;">
   ⚠️ Work in progress until December 31st.
 </div>
+
+### JavaScript and React Patterns (June 14th)
+
+I am starting reading the [patterns.dev](https://www.patterns.dev/) book to see
+if I can get something from it.
+
+```javascript
+class Counter {}
+
+it('allows only one instance', () =>
+  expect(new Counter()).to.equal(new Counter()));
+```
 
 ### Intro to Kubernetes (June 7th)
 
