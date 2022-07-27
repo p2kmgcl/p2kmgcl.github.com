@@ -8,7 +8,12 @@ export function useCover(entry: Post) {
   if (entry.cover) {
     cover = (
       <Figure>
-        <Image src={entry.cover.url} alt={entry.cover.alt} />
+        <Image
+          alt={entry.cover.alt}
+          src={entry.cover.url}
+          width={1280}
+          height={720}
+        />
       </Figure>
     );
 
