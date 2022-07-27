@@ -15,19 +15,6 @@
         border: solid rgba(150, 150, 150, 0.5) 1px;
         margin-top: 0.5em;
       }
-
-      textarea {
-        background: transparent;
-        color: inherit;
-        border: none;
-        width: 100%;
-        resize: none;
-        overflow-y: hidden;
-
-        &:focus-visible {
-          outline: none;
-        }
-      }
     }
 
     p {
@@ -125,6 +112,7 @@
       > .figure {
         background-color: hsl(0, 0%, 95%);
         width: 100%;
+        height: auto;
         aspect-ratio: 16 / 9;
         border-radius: $roundness;
         padding: 0;
@@ -140,6 +128,7 @@
 
         > .image {
           width: 100%;
+          height: auto;
           aspect-ratio: 16 / 9;
         }
 

@@ -126,6 +126,19 @@
     font-weight: 400;
   }
 
+  pre > textarea {
+    background: transparent;
+    color: inherit;
+    border: none;
+    width: 100%;
+    resize: none;
+    overflow-y: hidden;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
   strong {
     font-weight: 900;
   }
