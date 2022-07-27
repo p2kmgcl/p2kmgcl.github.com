@@ -132,7 +132,8 @@ export function useCodePreview(
 
       if (existingIframe) {
         existingIframe.contentWindow?.location.reload();
-        existingIframe.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        existingIframe.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        existingIframe.focus();
         return;
       }
 
@@ -148,9 +149,9 @@ export function useCodePreview(
         wrapperElement.appendChild(iframe);
       }
 
-      iframe.scrollIntoView({
-        block: 'center',
-        behavior: 'smooth',
+      requestAnimationFrame(() => {
+        iframe.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        iframe.focus();
       });
     };
 
