@@ -1,0 +1,18 @@
+---
+export interface Props {
+  content: {
+    origin: string;
+  };
+}
+
+const {
+  content: { origin },
+} = Astro.props;
+---
+
+<html>
+  <head>
+    <meta http-equiv="refresh" content={`0; ${origin}`} />
+  </head>
+  <body></body>
+</html>

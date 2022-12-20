@@ -1,0 +1,51 @@
+---
+export interface Props {
+  emoji: string;
+  label: string;
+  tag: string;
+}
+
+const emoji = Astro.props.emoji;
+const label = Astro.props.label;
+const tag = Astro.props.tag;
+
+const posts = (await Astro.glob('../pages/tesera/entry/**/*'))
+  .filter((entry) => !tag || entry.frontmatter.tags.includes(tag))
+  .sort((entryA, entryB) => {
+    return (
+      new Date(entryB.frontmatter.pubDate).valueOf() -
+      new Date(entryA.frontmatter.pubDate).valueOf()
+    );
+  });
+---
+
+<main class="entry-list">
+  <h2>
+    <span class="emoji">{emoji}</span>
+    <span>{label}</span>
+  </h2>
+
+  {
+    posts.map((post) => (
+      <article class="entry-list-item">
+        <header>
+          <h3>
+            <a href={post.url} lang={post.frontmatter.language}>
+              <span class="emoji">{post.frontmatter.emoji}</span>
+              <span>{post.frontmatter.title}</span>
+            </a>
+          </h3>
+          <time datetime={post.frontmatter.pubDate}>
+            {new Date(post.frontmatter.pubDate).toLocaleDateString('en', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: '2-digit',
+            })}
+          </time>
+        </header>
+        <p lang={post.frontmatter.language}>{post.frontmatter.summary}</p>
+      </article>
+    ))
+  }
+</main>

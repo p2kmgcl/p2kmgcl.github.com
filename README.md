@@ -2,19 +2,8 @@
 
 # Pablo Molina's website
 
-Built with [NextJS](https://nextjs.org/), hosted in
+Built with [Astro](https://astro.build/), hosted in
 [Netlify](https://www.netlify.com/).
-
-## Avatar generation
-
-The original image is `public/pablo-molina/pablo-molina-\*.jpg`. Currently there
-are three sizes: 480, 768 and 1080. These are also defined in `pages/index.tsx`
-as a `IMAGE_SOURCES` constant.
-
-There is also a minimal version of the avatar using an svg at
-`public/pablo-molina/pablo-molina.svg`, which is actually embeded inside
-`pages/index.tsx`. This version is used as background to show some shape while
-the real image is loading, and also as a fallback in case of error.
 
 ### WebP (needs `libwebp-tools`)
 

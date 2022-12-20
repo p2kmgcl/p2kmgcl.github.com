@@ -1,0 +1,18 @@
+---
+import TeseraEntryList from '../../../components/TeseraEntryList.astro';
+import Base from '../../../layouts/Base.astro';
+
+export const tag = 'post';
+export const emoji = '📘';
+export const label = 'Posts';
+---
+
+<Base
+  title={label}
+  documentAttributes={{
+    'data-page': 'tesera-index',
+    [`data-tesera-tag--${tag}`]: true,
+  }}
+>
+  <TeseraEntryList emoji={emoji} label={label} tag={tag} />
+</Base>

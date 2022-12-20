@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base documentAttributes={{ 'data-page': 'not-found' }}>
+  <h2>Not found</h2>
+  <p>
+    You are trying to access <code>{Astro.url}</code> page, but it is not here. Please
+    contact me if you think this might be an error. Thanks!
+  </p>
+</Base>

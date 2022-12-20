@@ -1,0 +1,28 @@
+---
+import Base from './Base.astro';
+
+export interface Props {
+  content: {
+    title: string;
+    summary: string;
+    tags: string[];
+  };
+}
+
+const {
+  content: { title, summary, tags },
+} = Astro.props;
+---
+
+<Base
+  title={title}
+  description={summary}
+  rawContent={true}
+  documentAttributes={{
+    'data-page': 'tesera-entry',
+    'data-tesera-entry-type': 'raw',
+    ...Object.fromEntries(tags.map((tag) => [`data-tesera-tag--${tag}`, true])),
+  }}
+>
+  <slot />
+</Base>

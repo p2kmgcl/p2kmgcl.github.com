@@ -1,6 +1,5 @@
-/.next
-/build
-/node_modules
-
-# Local Netlify folder
+build/
+node_modules/
+public/generated/
+npm-debug.log*
 .netlify

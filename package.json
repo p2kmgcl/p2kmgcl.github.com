@@ -1,7 +1,7 @@
 {
   "name": "pablomolina.me",
   "description": "Pablo Molina's website with links to his social network profiles, contact information and projects",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "license": "SEE LICENSE IN LICENSE.md",
   "author": {
@@ -31,59 +31,37 @@
   },
   "engines": {
     "node": ">=16.0.0",
-    "npm": ">=8.0.0",
-    "yarn": ">=1.22.0"
+    "npm": ">=8.0.0"
   },
   "scripts": {
-    "build": "run-s build:**",
-    "build:clean": "rimraf .next build/app",
-    "build:lint": "next lint",
-    "build:next": "next build",
-    "build:export": "next export -o build/app",
-    "build:rss": "NODE_ENV=production ts-node --project tsconfig.node.json generate-rss.ts",
-    "build:sitemap": "NODE_ENV=production ts-node --project tsconfig.node.json generate-sitemap.ts",
-    "build:404": "mv build/app/404/index.html build/app/404.html && rm -r build/app/404",
-    "build:500": "mv build/app/500/index.html build/app/500.html && rm -r build/app/500",
-    "start": "netlify dev",
-    "start:next": "next-remote-watch ./public ./tesera",
-    "start:production": "yarn run build && http-server --gzip --brotli --port 3000 build/app"
+    "start": "run-p start:*",
+    "start:netlify": "netlify dev",
+    "start:styles": "postcss styles/*.css --watch --map --base styles --dir public/generated/styles",
+    "build": "run-s build:*",
+    "build:styles": "postcss styles/*.css --no-map --base styles --dir public/generated/styles",
+    "build:astro": "astro build",
+    "preview": "run-s build:* && netlify dev -c 'http-server -p 3000 build/app'"
   },
   "dependencies": {
-    "@fontsource/bangers": "^4.2.2",
-    "@fontsource/inconsolata": "^4.2.1",
-    "@fontsource/jetbrains-mono": "^4.4.5",
-    "@fontsource/mali": "^4.5.5",
-    "emojilib": "^3.0.4",
-    "glob": "^8.0.0",
-    "gray-matter": "^4.0.2",
-    "jsdom": "^19.0.0",
-    "marked": "^4.0.0",
-    "next": "^12.0.0",
-    "prism-themes": "^1.8.0",
-    "prismjs": "^1.23.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "roughjs": "^4.4.1"
+    "@fontsource/bangers": "^4.5.9",
+    "@fontsource/inconsolata": "^4.5.9",
+    "@fontsource/jetbrains-mono": "^4.5.11",
+    "@fontsource/mali": "^4.5.10"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.3",
-    "@types/jsdom": "^16.2.11",
-    "@types/marked": "^4.0.0",
-    "@types/node": "^16.0.0",
-    "@types/prismjs": "^1.16.5",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "^12.0.0",
-    "http-server": "^14.0.0",
-    "netlify-cli": "^10.0.0",
-    "next-remote-watch": "^1.0.0",
+    "@astrojs/mdx": "^0.11.6",
+    "@astrojs/rss": "^1.0.3",
+    "@astrojs/sitemap": "^1.0.0",
+    "astro": "^1.6.10",
+    "cssnano": "^5.1.14",
+    "http-server": "^14.1.1",
+    "netlify-cli": "^12.2.6",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2",
-    "sass": "^1.32.8",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.1.5"
-  },
-  "keywords": []
+    "postcss": "^8.4.19",
+    "postcss-cli": "^10.0.0",
+    "postcss-import": "^15.0.0",
+    "postcss-nested": "^6.0.0",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.8.0"
+  }
 }

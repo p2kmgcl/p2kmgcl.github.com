@@ -1,0 +1,144 @@
+---
+import Base from './Base.astro';
+import pkg from '../../package.json';
+
+export interface Props {
+  content: {
+    emoji: string;
+    title: string;
+    summary: string;
+    tags: string[];
+    language: string;
+    pubDate: Date;
+    mood: string;
+    cover?: {
+      url: string;
+      alt: string;
+      origin?: string;
+    };
+  };
+}
+
+const {
+  content: { emoji, title, summary, tags, language, mood, cover },
+} = Astro.props;
+
+const date = new Date(Astro.props.content.pubDate);
+
+const twitterLink =
+  'https://twitter.com/intent/tweet?' +
+  `text=${encodeURIComponent(title)}` +
+  `&url=${encodeURIComponent(Astro.url.href)}` +
+  `&hashtags=${tags.join(',')}` +
+  `&via=${pkg.author.username}`;
+
+const linkedInLink =
+  'https://www.linkedin.com/sharing/share-offsite/?' +
+  `url=${encodeURIComponent(Astro.url.href)}`;
+
+const githubLink = `${pkg.repository.url}/blob/main${Astro.url.pathname}.md`;
+
+const resolvedTags = (
+  await Astro.glob<{
+    tag: string;
+    emoji: string;
+    label: string;
+    url: string;
+  }>('../pages/tesera/tag/*.astro')
+).filter(({ tag }) => tags.includes(tag));
+---
+
+<Base
+  title={title}
+  description={summary}
+  documentAttributes={{
+    'data-page': 'tesera-entry',
+    'data-tesera-entry-layout': 'post',
+    ...Object.fromEntries(tags.map((tag) => [`data-tesera-tag--${tag}`, true])),
+  }}
+>
+  <header id="entry-header">
+    <h2 lang={language}>{title}</h2>
+    <time datetime={date.toISOString()}>
+      {
+        date.toLocaleDateString('en', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: '2-digit',
+        })
+      }
+    </time>
+
+    <section aria-label="Mood">
+      <p lang={language}>
+        <span class="emoji">{emoji}</span>
+        <span>{mood}</span>
+      </p>
+    </section>
+
+    <nav aria-label="Entry tags">
+      <ul>
+        {
+          resolvedTags.map((tag) => (
+            <li>
+              <a href={tag.url}>
+                {tag.emoji}
+                {tag.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <section aria-label="Summary">
+      <p lang={language}>
+        {summary}
+      </p>
+    </section>
+
+    {
+      cover && (
+        <figure>
+          {cover.origin ? (
+            <a href={cover.origin} target="_blank" rel="noopener">
+              <img alt={cover.alt} src={cover.url} width="1280" height="720" />
+            </a>
+          ) : (
+            <img alt={cover.alt} src={cover.url} width="1280" height="720" />
+          )}
+        </figure>
+      )
+    }
+  </header>
+
+  <div id="entry-content">
+    <slot />
+  </div>
+
+  <footer id="entry-footer">
+    <nav data-entry-emoji={emoji} data-entry-title={title}>
+      <ul>
+        <li>
+          <a href={twitterLink} target="_blank" rel="noopener">
+            <span class="emoji">🕊️</span>
+            <span>Share on Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a href={linkedInLink} target="_blank" rel="noopener">
+            <span class="emoji">🎩</span>
+            <span>Share on LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href={githubLink} target="_blank" rel="noopener">
+            <span class="emoji">👾</span>
+            <span>View on GitHub</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+</Base>

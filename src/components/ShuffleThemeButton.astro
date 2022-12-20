@@ -1,0 +1,57 @@
+---
+const themes = Object.keys(
+  await import.meta.glob('../../styles/theme-*.css', { as: 'url' }),
+).map((theme) => /\.\.\/\.\.\/styles\/theme-([^\.]+)\.css/.exec(theme).at(1));
+---
+
+<button
+  aria-label="Shuffle theme"
+  class="icon-button"
+  id="shuffleThemeButton"
+  type="button"
+  data-theme-list={JSON.stringify(themes)}
+  style="display: none !important"
+>
+  🔀
+</button>
+
+<script>
+  (() => {
+    const button = document.getElementById('shuffleThemeButton');
+
+    if (!button || !localStorage.getItem('theme-manager-enabled')) {
+      return;
+    }
+
+    button.style = '';
+
+    button.addEventListener('click', () => {
+      const themeList = JSON.parse(button.dataset.themeList);
+
+      const nextTheme =
+        themeList[
+          (themeList.findIndex((theme) =>
+            document.cookie.includes(`site_theme_${theme}`),
+          ) +
+            1) %
+            themeList.length
+        ];
+
+      document.cookie.split(';').forEach((cookie) => {
+        if (cookie.trim().startsWith('site_theme_')) {
+          const name = cookie.split('=').at(0).trim();
+
+          document.cookie = `${name}=false;expires=${new Date(
+            Date.now(),
+          ).toGMTString()};samesite=lax;path=/;`;
+        }
+      });
+
+      document.cookie = `site_theme_${nextTheme}=true;expires=${new Date(
+        Date.now() + 9999999999,
+      ).toGMTString()};samesite=lax;path=/;`;
+
+      window.location.reload();
+    });
+  })();
+</script>

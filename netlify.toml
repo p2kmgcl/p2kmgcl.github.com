@@ -1,15 +1,35 @@
 [build]
   base = "."
   publish = "build/app/"
-  command = "yarn run build"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/generated/styles/theme.css"
+  to = "/generated/styles/theme-comic.css"
+  force = true
+  conditions = {Cookie = ["site_theme_comic"]}
+
+[[redirects]]
+  from = "/generated/styles/theme.css"
+  to = "/generated/styles/theme-simplicity.css"
+  force = true
+  conditions = {Cookie = ["site_theme_simplicity"]}
+
+[[redirects]]
+  from = "/generated/styles/theme.css"
+  to = "/generated/styles/theme-simplicity.css"
+  force = true
+
+[[redirects]]
+  from = "/r/liferay-fragments"
+  to = "https://github.com/p2kmgcl/testing-fragments/blob/master/docs/react-fragments-and-widgets-slides.pdf"
 
 [build.environment]
   NODE_VERSION = "16"
   NPM_VERSION = "8.8.0"
-  YARN_VERSION = "1.22.18"
 
 [dev]
   framework = "#custom"
-  command = "yarn run start:next"
+  command = "astro dev"
   targetPort = 3000
   autoLaunch = false
