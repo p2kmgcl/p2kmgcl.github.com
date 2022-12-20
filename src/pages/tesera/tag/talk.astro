@@ -1,17 +1,14 @@
 ---
 import TeseraEntryList from '../../../components/TeseraEntryList.astro';
 import Base from '../../../layouts/Base.astro';
-import pkg from '../../../../package.json';
 
 export const tag = 'talk';
 export const emoji = '🎙️';
 export const label = 'Talks';
-
-const title = `${pkg.config.blogName}${pkg.config.blogTagSeparator}${label}`;
 ---
 
 <Base
-  title={title}
+  title={label}
   documentAttributes={{
     'data-page': 'tesera-index',
     [`data-tesera-tag--${tag}`]: true,
