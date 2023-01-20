@@ -17,6 +17,12 @@
 
 [[redirects]]
   from = "/generated/styles/theme.css"
+  to = "/generated/styles/theme-coolgra.css"
+  force = true
+  conditions = {Cookie = ["site_theme_coolgra"]}
+
+[[redirects]]
+  from = "/generated/styles/theme.css"
   to = "/generated/styles/theme-simplicity.css"
   force = true
 

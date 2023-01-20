@@ -1,0 +1,103 @@
+@import url('@fontsource/abril-fatface/index.css');
+@import url('@fontsource/ibm-plex-mono/index.css');
+@import url('@fontsource/ibm-plex-sans/index.css');
+
+:root {
+  --light-lime: #abd699;
+  --fresh-lemon: #ffe26a;
+  --teal: #75c9b7;
+  --mint: #c7ddcc;
+  --navy: #16123f;
+}
+
+@keyframes MoveBackgroundPosition {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 200% 200%;
+  }
+}
+
+html {
+  background-image: linear-gradient(
+    90deg,
+    var(--light-lime) 0%,
+    var(--mint) 40%,
+    var(--mint) 60%,
+    var(--light-lime) 100%
+  );
+  background-size: 200%;
+  color: var(--navy);
+  font-family: 'IBM Plex Sans', sans-serif;
+  animation: MoveBackgroundPosition linear 10s infinite;
+}
+
+a,
+a:visited {
+  color: inherit;
+}
+
+#main-header h1,
+#main-footer h2,
+#main-wrapper h2 .emoji {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 6rem;
+  text-shadow: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.02);
+  margin: 0;
+}
+
+#main-header {
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(1rem);
+  background: #c7ddcc11;
+  position: fixed;
+  z-index: 1;
+  font-weight: 800;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+#main-header ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  gap: 1rem;
+}
+
+#main-header nav {
+  flex-grow: 1;
+}
+
+#main-header li:first-child {
+  margin-right: auto;
+}
+
+#main-wrapper {
+  padding-top: 8rem;
+}
+
+[data-page='home'] #main-wrapper header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+[data-page='home'] #main-wrapper header p {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+}
+
+[data-page='home'] h2 {
+  font-size: 12rem;
+  line-height: 1;
+}

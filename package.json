@@ -43,7 +43,10 @@
     "preview": "run-s build:* && netlify dev -c 'http-server -p 3000 build/app'"
   },
   "dependencies": {
+    "@fontsource/abril-fatface": "^4.5.9",
     "@fontsource/bangers": "^4.5.9",
+    "@fontsource/ibm-plex-mono": "^4.5.13",
+    "@fontsource/ibm-plex-sans": "^4.5.13",
     "@fontsource/inconsolata": "^4.5.9",
     "@fontsource/jetbrains-mono": "^4.5.11",
     "@fontsource/mali": "^4.5.10"
